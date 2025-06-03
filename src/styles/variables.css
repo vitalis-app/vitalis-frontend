@@ -1,0 +1,80 @@
+:root {
+  --gradiente-inicio: #48deb8;     /* verde-menta suave */
+  --gradiente-fim: #2fb191;        /* tom médio entre verde e teal */
+  --gradiente-inicio-rgb: 72, 222, 184; /* Para uso em rgba() */
+  --gradiente-fim-rgb: 47, 177, 145;    /* Para uso em rgba() */
+
+  --background: #f2fffb;
+  --text-color: #1c7f6e;
+
+  --gray-50: #f4fbf8;
+  --gray-100: #e7f7f0;
+  --gray-200: #d9f2e9; /* Adicionado */
+  --gray-400: #a0b9b0;
+  --gray-500: #7da89c;
+  --gray-600: #5b8f83;
+  --gray-700: #417a6d;
+  --gray-800: #2e5f53;
+  --gray-900: #1a3d35;
+
+  --white: #ffffff;
+
+  --verde-claro: #48deb8;
+  --verde-escuro: #2a9d8f;
+  --ciano-claro: #48deb8; /* Usado no hover do nav-link e btn-login */
+  --verde-claro-2: #e3f7f1;
+  --verde-escuro-2: #1c7f6e;
+  --verde-claro-3: #f2fffb;
+  --verde-escuro-3: #0b3f32; /* Usado como cor de texto em alguns lugares e nav-link */
+
+  /* Sombras para modo claro */
+  --shadow-color-gradient-btn-hover: rgba(42, 157, 143, 0.2);
+  --shadow-color-btn-white-hover: rgba(42, 157, 143, 0.2);
+  --shadow-color-navbar-scrolled: rgba(0, 0, 0, 0.04);
+  --shadow-color-card: rgba(0, 0, 0, 0.05);
+  --shadow-color-card-hover: rgba(0, 0, 0, 0.1);
+  --shadow-color-plan-card-hover: rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+[data-theme='dark'] {
+  --gradiente-inicio: #1b8f78;
+  --gradiente-fim: #44e2c1;
+  --gradiente-inicio-rgb: 27, 143, 120;
+  --gradiente-fim-rgb: 68, 226, 193;
+
+  --background: #0b2e26; /* Um pouco mais suave que o --verde-escuro-3 original para o fundo */
+  --text-color: #e0f5ef; /* Um pouco menos branco que o --f2fffb original para texto principal */
+
+  --gray-50: #1a3d35;
+  --gray-100: #244f43; /* Ajustado para melhor diferenciação */
+  --gray-200: #2e5f53; /* Adicionado e ajustado */
+  --gray-400: #417a6d;
+  --gray-500: #5b8f83;
+  --gray-600: #7da89c;
+  --gray-700: #a0b9b0;
+  --gray-800: #cce8e0; /* Mais claro para contraste */
+  --gray-900: #e7f7f0; /* Mais claro para contraste */
+
+  --white: #ffffff; /* Mantido, mas usar com cautela para não ser muito forte */
+
+  --verde-claro: #6efcd9;
+  --verde-escuro: #155649;
+  --ciano-claro: #6efcd9; /* Usado no hover do nav-link e btn-login */
+  --verde-claro-2: #103e34; /* Fundo de seção "about" */
+  --verde-escuro-2: #0b2f28;
+  --verde-claro-3: #0d1f1b;
+  --verde-escuro-3: #e0f5ef; /* Usado como cor de texto em alguns lugares e nav-link */
+
+  /* Sombras para modo escuro */
+  --shadow-color-gradient-btn-hover: rgba(var(--gradiente-fim-rgb), 0.25);
+  --shadow-color-btn-white-hover: rgba(var(--verde-claro-rgb, 110, 252, 217), 0.2); /* Adicionar --verde-claro-rgb se necessário */
+  --shadow-color-navbar-scrolled: rgba(0, 0, 0, 0.2); /* Sombra mais visível no escuro */
+  --shadow-color-card: rgba(0, 0, 0, 0.15);
+  --shadow-color-card-hover: rgba(0, 0, 0, 0.25);
+  --shadow-color-plan-card-hover: rgba(0, 0, 0, 0.2), 0 2px 4px -1px rgba(0, 0, 0, 0.15);
+}
+
+/* Adicione esta variável se for usar --verde-claro-rgb no box-shadow */
+[data-theme='dark'] {
+  --verde-claro-rgb: 110, 252, 217;
+}

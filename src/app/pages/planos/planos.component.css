@@ -1,0 +1,36 @@
+/* Planos */
+.planos {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  margin-top: 30px;
+}
+
+.plano {
+  flex: 1;
+  min-width: 280px;
+  background-color: #ffffff;
+  border: 2px solid #d4f4ee;
+  border-radius: 12px;
+  padding: 25px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
+}
+
+.plano.destaque {
+  border-color: #168f7d;
+  background-color: #e6f7f3;
+}
+
+.plano h3 {
+  margin-bottom: 15px;
+}
+
+.plano ul li {
+  margin-bottom: 8px;
+}
+
+.plano p {
+  font-weight: bold;
+  margin-top: 15px;
+  color: #168f7d;
+}

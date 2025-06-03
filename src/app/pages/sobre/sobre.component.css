@@ -1,0 +1,49 @@
+#sobre-nos {
+  /* Reutiliza o padding geral de seção do home.component.css */
+  padding-top: 5rem;
+  padding-bottom: 7rem;
+  /* Define a cor de fundo para a seção "Sobre Nós" */
+  background-color: var(--verde-claro-2); /* Usando a variável de cor do seu CSS existente */
+}
+
+#sobre-nos .container {
+  /* Centraliza o conteúdo e limita a largura, como no about-content do home.component.css */
+  max-width: 50rem;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#sobre-nos h2 {
+  /* Estilo para o título principal "Quem somos" */
+  font-size: 2.25rem; /* text-3xl */
+  font-weight: 700; /* font-bold */
+  margin-bottom: 1rem; /* mb-4 */
+  color: var(--verde-escuro); /* Adapte a cor conforme necessário, usando suas variáveis */
+}
+
+#sobre-nos h3 {
+  /* Estilo para o subtítulo "Nossa história" */
+  font-size: 1.75rem; /* text-2xl */
+  font-weight: 600; /* font-semibold */
+  margin-top: 2rem; /* mt-8 */
+  margin-bottom: 1rem; /* mb-4 */
+  color: var(--verde-escuro);
+}
+
+#sobre-nos p {
+  /* Estilo para os parágrafos */
+  font-size: 1.125rem; /* text-lg */
+  color: var(--verde-escuro-3); /* Usando a variável de cor do seu CSS existente */
+  line-height: 1.75; /* leading-relaxed */
+  margin-bottom: 1.5rem; /* Adiciona espaçamento entre parágrafos */
+}
+
+/* Garante que o último parágrafo não tenha margem inferior excessiva */
+#sobre-nos p:last-of-type {
+  margin-bottom: 0;
+}
