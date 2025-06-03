@@ -1,72 +1,74 @@
 .header {
-    background-color: var(--verde-claro-3);
-    position: fixed;
-    width: 100%;
-    top: 0;
-    z-index: 1000;
+  background-color: var(--verde-claro-3);
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 1000;
 }
 
 .navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1rem 1rem; /* Ajuste o padding conforme necessário */
-    width: 100%;
-    margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 1rem; /* Ajuste o padding conforme necessário */
+  width: 100%;
+  margin: 0 auto;
 }
 
 .navbar.scrolled {
-    box-shadow: 0 2px 5px var(--shadow-color-navbar-scrolled);
-    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 2px 5px var(--shadow-color-navbar-scrolled);
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 .logo-container {
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
 }
 
 .logo-img {
-    height: 2rem; /* 32px */
+  height: 2rem; /* 32px */
 }
 
 .nav-links-desktop {
-    display: flex;
-    gap: 1.5rem; /* Espaçamento entre os links */
+  display: flex;
+  gap: 1.5rem; /* Espaçamento entre os links */
 }
 
 .nav-link {
-    color: var(--verde-escuro-3); /* Cor do texto do link */
-    text-decoration: none;
-    font-size: 0.95rem; /* Tamanho da fonte dos links */
-    padding: 0.5rem 0.25rem; /* Adiciona um pouco de padding para melhor área de clique */
-    transition: color 0.3s ease;
-    position: relative;
+  color: var(--verde-escuro-3); /* Cor do texto do link */
+  text-decoration: none;
+  font-size: 0.95rem; /* Tamanho da fonte dos links */
+  padding: 0.5rem 0.25rem; /* Adiciona um pouco de padding para melhor área de clique */
+  transition: color 0.3s ease;
+  position: relative;
 }
 
 .nav-link:hover {
-    color: var(--ciano-claro); /* Cor do link no hover, usando --ciano-claro como nos botões */
+  color: var(
+    --ciano-claro
+  ); /* Cor do link no hover, usando --ciano-claro como nos botões */
 }
 
 .nav-link::after {
-    content: '';
-    position: absolute;
-    width: 0;
-    height: 2px;
-    bottom: 0; /* Ajustado para ficar na base do padding */
-    left: 50%;
-    transform: translateX(-50%);
-    background-color: var(--ciano-claro);
-    transition: width 0.3s ease;
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: 0; /* Ajustado para ficar na base do padding */
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: var(--ciano-claro);
+  transition: width 0.3s ease;
 }
 
 .nav-link:hover::after {
-    width: 100%;
+  width: 100%;
 }
 
 .navbar-actions {
-    display: flex;
-    align-items: center;
-    gap: 0.75rem; /* Espaçamento entre os botões de ação */
+  display: flex;
+  align-items: center;
+  gap: 0.75rem; /* Espaçamento entre os botões de ação */
 }
 
 .btn-theme-toggle {
@@ -83,7 +85,8 @@
   font-size: 1rem; /* Ajuste o tamanho do ícone/emoji se necessário */
   padding: 0;
   margin-left: 0.5rem; /* Pequeno ajuste na margem */
-  transition: background-color 0.2s ease-in-out, border-color 0.2s ease-in-out, transform 0.2s ease;
+  transition: background-color 0.2s ease-in-out, border-color 0.2s ease-in-out,
+    transform 0.2s ease;
 }
 
 .btn-theme-toggle:hover {
@@ -97,53 +100,52 @@
 }
 
 /* Estilo para o ícone dentro do botão, caso você use SVGs no futuro */
-.btn-theme-toggle svg {
+.btn-theme-toggle i {
   width: 1rem; /* 16px */
   height: 1rem; /* 16px */
-  fill: currentColor;
 }
 
-
 .btn-login {
-    font-family: 'Poppins', sans-serif;
-    background-color: var(--ciano-claro);
-    color: var(--verde-escuro-3); /* Texto inicial */
-    padding: 0.6rem 1.3rem; /* Ajuste no padding para melhor proporção */
-    border-radius: 2rem; /* Mantém o arredondamento */
-    border: none;
-    cursor: pointer;
-    font-weight: 500; /* Um pouco menos bold para um look mais clean */
-    font-size: 0.9rem; /* Tamanho da fonte */
-    position: relative;
-    overflow: hidden;
-    z-index: 1;
-    transition: color 0.3s ease-out, transform 0.15s ease-out, box-shadow 0.15s ease-out;
+  font-family: "Poppins", sans-serif;
+  background-color: var(--ciano-claro);
+  color: var(--verde-escuro-3); /* Texto inicial */
+  padding: 0.6rem 1.3rem; /* Ajuste no padding para melhor proporção */
+  border-radius: 2rem; /* Mantém o arredondamento */
+  border: none;
+  cursor: pointer;
+  font-weight: 500; /* Um pouco menos bold para um look mais clean */
+  font-size: 0.9rem; /* Tamanho da fonte */
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  transition: color 0.3s ease-out, transform 0.15s ease-out,
+    box-shadow 0.15s ease-out;
 }
 
 .btn-login::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: var(--verde-escuro-2); /* Cor de fundo da transição */
-    border-radius: inherit;
-    z-index: -1;
-    transform: scaleY(0); /* Começa escondido (escala de 0 para cima) */
-    transform-origin: bottom; /* Animação de baixo para cima */
-    transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94); /* Transição mais suave */
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--verde-escuro); /* Cor de fundo da transição */
+  border-radius: inherit;
+  z-index: -1;
+  transform: scaleY(0); /* Começa escondido (escala de 0 para cima) */
+  transform-origin: bottom; /* Animação de baixo para cima */
+  transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94); /* Transição mais suave */
 }
 
 .btn-login:hover {
-    color: var(--verde-claro-3); /* Texto no hover */
+  color: var(--verde-claro-3); /* Texto no hover */
 }
 
 .btn-login:hover::before {
-    transform: scaleY(1); /* Expande para preencher */
+  transform: scaleY(1); /* Expande para preencher */
 }
 
 .btn-login:active {
-    transform: translateY(1px) scale(0.98); /* Efeito de clique mais sutil */
-    box-shadow: none; /* Remove sombra no active para um look mais flat */
+  transform: translateY(1px) scale(0.98); /* Efeito de clique mais sutil */
+  box-shadow: none; /* Remove sombra no active para um look mais flat */
 }

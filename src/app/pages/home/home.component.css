@@ -122,7 +122,7 @@ section {
 }
 
 .vital-text {
-  color: var(--verde-escuro-2);
+  color: var(--verde-escuro-3);
 }
 
 .home-description {
@@ -191,9 +191,8 @@ section {
   justify-content: center;
 }
 
-.about-card-icon {
-  width: 2.25rem; /* w-8 */
-  height: 2.25rem; /* h-8 */
+.about-card-icon-container i {
+  font-size:  2.25rem; /* w-8 */
   color: var(--verde-escuro);
 }
 

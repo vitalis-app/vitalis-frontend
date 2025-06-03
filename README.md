@@ -1,27 +1,137 @@
-# Vitalis
+# 🌱 Vitalis — Plataforma de Bem-Estar e Saúde Mental
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.2.16.
+Vitalis é uma plataforma digital desenvolvida com Angular, focada em promover o cuidado emocional por meio de recursos simbólicos, leves e acessíveis. Com funcionalidades como planta emocional, psicoeducação, agendamento de consultas e desafios de autocuidado, ela busca transformar o bem-estar mental em um hábito cotidiano.
 
-## Development server
+---
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+## 🚀 Tecnologias utilizadas
+- Angular CLI v16.2.16
+- HTML5 / CSS3 puro
+- Estrutura modular com componentes reutilizáveis
 
-## Code scaffolding
+---
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## 📂 Funcionalidades principais
+- **Estação Vital**: Registro de humor com crescimento simbólico de uma planta emocional
+- **Aprender+**: Biblioteca de conteúdo com vídeos, lives e eventos sobre autocuidado
+- **PsicoApoio**: Agendamento de consultas com psicólogos parceiros
+- **Cartas da Vitalis**: Mensagens semanais para acolhimento emocional
+- **Diário Vital**: Escrita terapêutica guiada
+- **Conquistas emocionais**: Gamificação simbólica com medalhas e selos de progresso
 
-## Build
+---
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+## 📦 Instalação e uso
 
-## Running unit tests
+### 🔧 Desenvolvimento local
+```bash
+npm install
+ng serve
+```
+Acesse em [http://localhost:4200/](http://localhost:4200/)
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+### ⚙️ Gerar novo componente
+```bash
+ng generate component nome-do-componente
+```
 
-## Running end-to-end tests
+### 🛠️ Build
+```bash
+ng build
+```
+Os artefatos serão salvos na pasta `/dist`.
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+### 🧪 Testes unitários
+```bash
+ng test
+```
 
-## Further help
+### 🧪 Testes end-to-end (E2E)
+```bash
+ng e2e
+```
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+---
+
+## 💡 Observações
+- Este projeto faz parte de um Trabalho de Conclusão de Curso (TCC)
+- Ainda está em desenvolvimento e tem foco cenográfico para apresentação de funcionalidades
+
+---
+
+## 📚 Mais ajuda
+Para mais informações, consulte a documentação oficial do [Angular CLI](https://angular.io/cli)
+
+---
+
+> Feito com ❤️ pela equipe Vitalis
+
+---
+
+# 🌱 Vitalis — Well-being and Mental Health Platform (ENGLISH VERSION)
+
+Vitalis is a digital platform built with Angular that promotes emotional care through symbolic, lightweight and accessible features. With tools such as an emotional plant, psychoeducation, session booking and self-care challenges, it turns emotional well-being into a daily habit.
+
+---
+
+## 🚀 Technologies Used
+- Angular CLI v16.2.16
+- HTML5 / Pure CSS3
+- Modular structure with reusable components
+
+---
+
+## 📂 Core Features
+- **Estação Vital (Vital Station)**: Mood tracking with symbolic growth of a plant
+- **Aprender+ (Learn+)**: Content library with videos, lives and events on self-care
+- **PsicoApoio**: Schedule sessions with partner psychologists easily
+- **Cartas da Vitalis (Vitalis Letters)**: Weekly messages to comfort and support users
+- **Diário Vital (Vital Journal)**: Guided therapeutic journaling space
+- **Conquistas emocionais (Emotional Achievements)**: Symbolic gamification with badges
+
+---
+
+## 📦 Installation & Usage
+
+### 🔧 Local Development
+```bash
+npm install
+ng serve
+```
+Navigate to [http://localhost:4200/](http://localhost:4200/)
+
+### ⚙️ Generate new component
+```bash
+ng generate component component-name
+```
+
+### 🛠️ Build
+```bash
+ng build
+```
+Build artifacts will be stored in the `/dist` directory.
+
+### 🧪 Unit tests
+```bash
+ng test
+```
+
+### 🧪 End-to-end (E2E) tests
+```bash
+ng e2e
+```
+
+---
+
+## 💡 Notes
+- This project was developed as part of a final graduation project (TCC)
+- It is still under development and focuses on a visual prototype of the experience
+
+---
+
+## 📚 Further help
+Check out the official [Angular CLI documentation](https://angular.io/cli) for more information.
+
+---
+
+> Made with ❤️ by the Vitalis team
