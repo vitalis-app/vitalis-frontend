@@ -1,10 +1,12 @@
+@import 'remixicon/fonts/remixicon.css';
+
 /* Base styles */
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
   scrollbar-width: thin;
-  scrollbar-color: var(--verde-claro) #f0fdf9;
+  scrollbar-color: var(--verde-claro) var(--background);
 }
 
 html {

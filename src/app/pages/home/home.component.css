@@ -142,7 +142,7 @@ section {
 
 /* About Section */
 .about-section {
-  background-color: var(--verde-claro-2);
+  background-color: var(--gray-100);
 }
 
 .about-content {
@@ -192,12 +192,12 @@ section {
 }
 
 .about-card-icon-container i {
-  font-size:  2.5rem; /* w-8 */
+  font-size: 2.5rem; /* w-8 */
   color: var(--verde-escuro);
 }
 
 .about-card-icon {
-  width:  3rem; /* w-8 */
+  width: 3rem; /* w-8 */
   fill: var(--verde-escuro);
 }
 
@@ -307,17 +307,16 @@ section {
   margin-left: auto;
   margin-right: auto;
   margin-bottom: 1rem; /* mb-4 */
-  background-color: rgba(72, 222, 184, 0.2); /* bg-[#48deb8] bg-opacity-20 */
+  background-color: var(--gray-300);
   border-radius: 9999px; /* rounded-full */
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-.unique-icon {
-  width: 2.5rem; /* w-10 */
-  height: 2.5rem; /* h-10 */
-  color: var(--verde-escuro);
+.unique-icon-container i{
+  font-size: 2.5rem;
+  color: var(--verde-escuro-2);
 }
 
 .unique-title {
@@ -332,7 +331,7 @@ section {
 
 /* Plans Section */
 .plans-section {
-  background-color: var(--white);
+  background-color: var(--gray-100);
 }
 
 .plans-grid {
@@ -343,10 +342,10 @@ section {
 }
 
 .plan-card {
-  background-color: var(--white);
+  background-color: var(--gray-50);
   border-radius: 0.75rem; /* rounded-xl */
   box-shadow: 0 1px 2px 0 var(--shadow-color-card); /* shadow-sm */
-  border: 1px solid var(--gray-100);
+  border: 1px solid var(--gray-200);
   padding: 2rem; /* p-8 */
   width: 100%;
   transition: all 0.2s ease;
@@ -435,93 +434,9 @@ section {
   margin-right: 0.5rem; /* mr-2 */
 }
 
-/* Companies Section */
-.companies-section {
-  background-color: var(--gray-50);
-}
-
-.companies-content-grid {
-  display: flex;
-  grid-template-columns: 1fr;
-  gap: 3rem; /* gap-12 */
-  align-items: center;
-}
-
-.feature-list-item {
-  display: flex;
-  align-items: flex-start;
-  margin-bottom: 1rem; /* mb-4 */
-}
-
-.feature-list-icon-container {
-  background-color: rgba(72, 222, 184, 0.2); /* bg-[#48deb8] bg-opacity-20 */
-  padding: 0.5rem; /* p-2 */
-  border-radius: 9999px; /* rounded-full */
-  margin-right: 1rem; /* mr-4 */
-}
-
-.feature-list-icon {
-  width: 1.5rem; /* w-6 */
-  height: 1.5rem; /* h-6 */
-  color: var(--verde-escuro);
-}
-
-.feature-list-title {
-  font-size: 1.25rem; /* text-xl */
-  font-weight: 600; /* font-semibold */
-  margin-bottom: 0.5rem; /* mb-2 */
-}
-
-.feature-list-description {
-  color: var(--text-color);
-}
-
-.companies-benefits-card {
-  background-color: var(--white);
-  padding: 2rem; /* p-8 */
-  border-radius: 0.75rem; /* rounded-xl */
-  box-shadow: 0 1px 2px 0 var(--shadow-color-card); /* shadow-sm */
-}
-
-.benefits-card-title {
-  font-size: 1.5rem; /* text-2xl */
-  font-weight: 700; /* font-bold */
-  margin-bottom: 1.5rem; /* mb-6 */
-}
-
-.benefits-list {
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem; /* space-y-6 */
-}
-
-.benefit-item {
-  display: flex;
-  align-items: center;
-}
-
-.benefit-percentage-container {
-  width: 4rem; /* w-16 */
-  text-align: center;
-}
-
-.benefit-percentage {
-  font-size: 1.875rem; /* text-3xl */
-  font-weight: 700; /* font-bold */
-  color: var(--verde-claro);
-}
-
-.benefit-description-container {
-  margin-left: 1rem; /* ml-4 */
-}
-
-.benefit-description {
-  color: var(--gray-700);
-}
-
 /* Specialists Section */
 .specialists-section {
-  background-color: var(--white);
+  background-color: var(--gray-50);
 }
 
 .specialists-grid {
@@ -531,7 +446,7 @@ section {
 }
 
 .specialist-card {
-  background-color: var(--gray-50);
+  background-color: var(--gray-100);
   padding: 2rem; /* p-8 */
   border-radius: 0.75rem; /* rounded-xl */
   text-align: center;

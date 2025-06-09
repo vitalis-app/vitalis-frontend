@@ -1,4 +1,5 @@
 :root {
+  /* Gradientes */
   --gradiente-inicio: #48deb8;
   --gradiente-fim: #2fb191;
   --gradiente-inicio-rgb: 72, 222, 184;
@@ -10,6 +11,7 @@
   --gray-50: #e5fcf2;
   --gray-100: #d0f6e6;
   --gray-200: #b5eed9;
+  --gray-300: rgba(118, 188, 163, 0.2);
   --gray-400: #76bca3;
   --gray-500: #69ac99;
   --gray-600: #519081;
@@ -47,6 +49,7 @@
   --gray-50: #1a3d35;
   --gray-100: #235045;
   --gray-200: #2e5f53;
+  --gray-300: rgb(65, 122, 109, 0.2);
   --gray-400: #417a6d;
   --gray-500: #5b8f83;
   --gray-600: #7da89c;
