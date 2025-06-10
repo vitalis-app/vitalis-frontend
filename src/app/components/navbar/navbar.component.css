@@ -27,6 +27,12 @@
 
 .logo-img {
   height: 2rem; /* 32px */
+  transition: all 0.3s;
+}
+
+.logo-img:hover{
+  transform: scale(1.05);
+  cursor: pointer;
 }
 
 .nav-links-desktop {
