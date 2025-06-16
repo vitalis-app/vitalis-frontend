@@ -9,12 +9,12 @@ import { isPlatformBrowser } from '@angular/common';
 export class NavbarComponent implements OnInit {
   isScrolled = false;
   public currentTheme: 'light' | 'dark';
+  public logoSrc: string = '';
 
   constructor(
     private renderer: Renderer2,
     @Inject(PLATFORM_ID) private platformId: Object
   ) {
-    // Define um tema padrão inicial para evitar problemas no SSR ou antes do ngOnInit
     this.currentTheme = 'light';
   }
 
@@ -22,9 +22,7 @@ export class NavbarComponent implements OnInit {
     if (isPlatformBrowser(this.platformId)) {
       this.initializeTheme();
 
-      // Ouve mudanças na preferência de tema do SO
       window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', e => {
-        // Atualiza o tema apenas se o usuário não tiver definido uma preferência manualmente via toggle
         const storedTheme = localStorage.getItem('theme');
         if (!storedTheme) {
           const newColorScheme = e.matches ? 'dark' : 'light';
@@ -36,15 +34,16 @@ export class NavbarComponent implements OnInit {
 
   private initializeTheme(): void {
     const savedTheme = localStorage.getItem('theme') as 'light' | 'dark' | null;
-    const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
 
     if (savedTheme) {
       this.currentTheme = savedTheme;
     } else if (prefersDark) {
       this.currentTheme = 'dark';
     } else {
-      this.currentTheme = 'light'; // Padrão para light se nenhuma preferência/armazenamento
+      this.currentTheme = 'light';
     }
+
     this.applyTheme(this.currentTheme);
   }
 
@@ -54,6 +53,7 @@ export class NavbarComponent implements OnInit {
       localStorage.setItem('theme', theme);
     }
     this.currentTheme = theme;
+    this.updateLogo();
   }
 
   setTheme(theme: 'light' | 'dark'): void {
@@ -67,14 +67,12 @@ export class NavbarComponent implements OnInit {
     }
   }
 
-  // Getter opcional para atualizar o texto/ícone do botão com base no tema atual
-  get themeButtonIcon(): string {
-    if (this.currentTheme === 'dark') {
-      return '☀️'; // Ícone para mudar para o tema claro
-    } else {
-      return '🌓'; // Ícone para mudar para o tema escuro
-    }
+  private updateLogo(): void {
+    this.logoSrc = this.currentTheme === 'dark'
+      ? 'assets/imgs/vitalis-branca.png'
+      : 'assets/imgs/vitalis.png';
   }
+
 
   @HostListener('window:scroll', [])
   onWindowScroll() {
@@ -84,3 +82,4 @@ export class NavbarComponent implements OnInit {
     }
   }
 }
+
