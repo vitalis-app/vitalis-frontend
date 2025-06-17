@@ -10,11 +10,11 @@ import { HomeAppComponent } from './web-app/pages/home-app/home-app.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
-  { path: 'planos', component: PlanosComponent },
-  { path: 'para-especialistas', component: EspecialistasComponent },
-  { path: 'funcionalidades', component: FuncionalidadesComponent },
-  { path: 'sobre', component: SobreComponent },
-  { path: 'login', component: HomeAppComponent },
+  { path: 'web/planos', component: PlanosComponent },
+  { path: 'web/para-especialistas', component: EspecialistasComponent },
+  { path: 'web/funcionalidades', component: FuncionalidadesComponent },
+  { path: 'web/sobre', component: SobreComponent },
+  { path: 'app.mentalvitalis.com', component: HomeAppComponent },
   { path: '**', redirectTo: '' },
 ];
 

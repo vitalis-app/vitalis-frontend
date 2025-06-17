@@ -22,13 +22,14 @@
   --red: #ce1111;
   --white: #ffffff;
   --dark: #0b3f32;
+  --light: #f8fffd;
 
   --verde-claro: #48deb8;
   --verde-escuro: #2a9d8f;
   --ciano-claro: #11ce9f;
-  --verde-claro-2: #e3f7f1;
+  --verde-claro-2: #e8fff8;
   --verde-escuro-2: #1c7f6e;
-  --verde-claro-3: #f2fffb;
+  --verde-claro-3: #feffff;
   --verde-escuro-3: #0b3f32;
 
   --shadow-color-gradient-btn-hover: rgba(42, 157, 143, 0.2);
