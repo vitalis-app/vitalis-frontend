@@ -6,7 +6,7 @@
   margin: 0;
   padding: 0;
   scrollbar-width: thin;
-  scrollbar-color: var(--verde-claro) var(--background);
+  scrollbar-color: var(--gray-600) var(--background);
 }
 
 html {
@@ -27,18 +27,11 @@ body {
 }
 
 ::-webkit-scrollbar-track {
-  background: var(--verde-claro); /* tom claro suave */
+  background: var(--verde-escuro); /* tom claro suave */
   border-radius: 10px;
 }
 
-::-webkit-scrollbar-thumb {
-  background: linear-gradient(
-    to bottom,
-    #48deb8,
-    #2aa68d
-  ); /* verde suave com leve gradiente */
-  border-radius: 10px;
-}
+
 
 ::-webkit-scrollbar-thumb:hover {
   background: var(--verde-escuro); /* cor mais forte no hover */
