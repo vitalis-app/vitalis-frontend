@@ -1,5 +1,10 @@
+<!-- ======================================================= -->
+<!-- HTML para o componente de planos (planos.component.html) -->
+<!-- Estrutura atualizada com Remix Icons e Tabela Comparativa. -->
+<!-- ======================================================= -->
 <app-navbar></app-navbar>
 
+<!-- Seção Principal dos Cards de Planos -->
 <section id="planos" class="planos-section">
   <h2>Planos e Preços</h2>
   <p class="text-lg text-gray-300 mt-2">
@@ -46,7 +51,7 @@
     <!-- Plano Destaque -->
     <div class="plano destaque">
       <div class="selo-destaque">Mais Popular</div>
-      <h3><span aria-hidden="true"><i class="ri-vip-diamond-fill"> ­­</i> </span>Vital+</h3>
+      <h3><span aria-hidden="true"><i class="ri-vip-diamond-fill"></i> </span>Vital+</h3>
       <ul>
         <li>
           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5"
@@ -99,10 +104,74 @@
 
     <!-- Plano Compartilhado (Em Breve) -->
     <div class="plano em-breve">
-      <h3><span aria-hidden="true"><i class="ri-heart-fill"> </i> </span> Planos Compartilhados</h3>
+      <h3><span aria-hidden="true"><i class="ri-group-fill"></i> </span> Planos Compartilhados</h3>
       <p>
         Em breve: Casal e Família, com perfis independentes e desconto coletivo.
       </p>
+    </div>
+  </div>
+
+  <!-- NOVA SEÇÃO: Tabela Comparativa -->
+  <div class="comparativo-section">
+    <h2>Compare os Planos</h2><br>
+    <div class="comparativo-container">
+
+      <!-- Cabeçalho da Tabela -->
+      <div class="comparativo-header">
+        <h4>Funcionalidades</h4>
+        <h4>Gratuito</h4>
+        <h4 class="col-destaque">Vital+</h4>
+        <h4>Compartilhado</h4>
+      </div>
+
+      <!-- Linha da Feature -->
+      <div class="comparativo-row">
+        <div class="feature-name">Estação Vital <span>Cultive sua planta emocional</span></div>
+        <div class="feature-value">Básica</div>
+        <div class="feature-value col-destaque">Completa</div>
+        <div class="feature-value">Completa</div>
+      </div>
+
+      <!-- Linha da Feature -->
+      <div class="comparativo-row">
+        <div class="feature-name">Diário Vital <span>Seu diário de emoções</span></div>
+        <div class="feature-value icon-x"><i class="ri-close-line"></i></div>
+        <div class="feature-value icon-check col-destaque"><i class="ri-check-line"></i></div>
+        <div class="feature-value icon-check"><i class="ri-check-line"></i></div>
+      </div>
+
+      <!-- Linha da Feature -->
+      <div class="comparativo-row">
+        <div class="feature-name">Aprender+ <span>Conteúdos sobre saúde mental</span></div>
+        <div class="feature-value">Acesso Limitado</div>
+        <div class="feature-value col-destaque">Acesso Total</div>
+        <div class="feature-value">Acesso Total</div>
+      </div>
+
+      <!-- Linha da Feature -->
+      <div class="comparativo-row">
+        <div class="feature-name">Cartas da Vitalis e Estatísticas<span>Receba insights sobre você</span></div>
+        <div class="feature-value icon-x"><i class="ri-close-line"></i></div>
+        <div class="feature-value icon-check col-destaque"><i class="ri-check-line"></i></div>
+        <div class="feature-value icon-check"><i class="ri-check-line"></i></div>
+      </div>
+
+      <!-- Linha da Feature -->
+      <div class="comparativo-row">
+        <div class="feature-name">Descontos em Consultas<span>Com psicólogos parceiros</span></div>
+        <div class="feature-value icon-x"><i class="ri-close-line"></i></div>
+        <div class="feature-value icon-check col-destaque"><i class="ri-check-line"></i></div>
+        <div class="feature-value icon-check"><i class="ri-check-line"></i></div>
+      </div>
+
+      <!-- Linha da Feature -->
+      <div class="comparativo-row">
+        <div class="feature-name">Perfis Independentes<span>Para Casal ou Família</span></div>
+        <div class="feature-value icon-x"><i class="ri-close-line"></i></div>
+        <div class="feature-value icon-x col-destaque"><i class="ri-close-line"></i></div>
+        <div class="feature-value icon-check"><i class="ri-check-line"></i></div>
+      </div>
+
     </div>
   </div>
 </section>
