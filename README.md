@@ -134,4 +134,4 @@ Check out the official [Angular CLI documentation](https://angular.io/cli) for m
 
 ---
 
-> Made with ❤️ by the Vitalis team
+> Made with ❤️❤️ by the Vitalis team
