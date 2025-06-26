@@ -6,7 +6,6 @@
 
 .planos-section {
   background-color: #0a2e27;
-  /* Verde super escuro do fundo do site */
   color: #ffffff;
   padding: 80px 20px;
   text-align: center;
@@ -17,7 +16,6 @@
   font-weight: 700;
 }
 
-/* --- Estilos dos Cards (Planos) --- */
 .planos-container {
   display: flex;
   justify-content: center;
@@ -29,7 +27,6 @@
 
 .plano {
   background-color: #164b40;
-  /* Verde principal dos cards */
   border-radius: 24px;
   padding: 30px;
   flex: 1;
@@ -50,7 +47,6 @@
 
 .plano.destaque {
   border: 2px solid #6ee7b7;
-  /* Borda ciano/menta contornando todo o card */
 }
 
 .selo-destaque {
@@ -141,14 +137,9 @@
   opacity: 0.8;
 }
 
-/* ============================================= */
-/* NOVA SEÇÃO: Tabela Comparativa de Planos      */
-/* ============================================= */
-
 .comparativo-section {
   padding: 60px 20px;
   background-color: #08241F;
-  /* Tom de verde ligeiramente diferente para contraste */
   border-radius: 24px;
   margin-top: 80px;
 }
@@ -162,7 +153,6 @@
 .comparativo-row {
   display: grid;
   grid-template-columns: 2fr 1fr 1fr 1fr;
-  /* Coluna da feature + 3 colunas dos planos */
   gap: 20px;
   align-items: center;
   text-align: center;
@@ -184,7 +174,6 @@
 .comparativo-row {
   padding: 20px 0;
   border-bottom: 1px solid #164b40;
-  /* Linhas separadoras */
 }
 
 .comparativo-row:last-child {
@@ -213,18 +202,14 @@
   font-size: 24px;
 }
 
-/* Ícones de check e x */
 .icon-check {
   color: #6ee7b7;
-  /* Cor de destaque */
 }
 
 .icon-x {
   color: #556c67;
-  /* Cor mais escura/apagada */
 }
 
-/* Destaque para a coluna do Vital+ */
 .col-destaque {
   color: #6ee7b7;
 }
