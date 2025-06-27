@@ -29,6 +29,11 @@
 }
 
 [data-theme='dark'] {
+    /*Sombras */
+  --shadow-color-card-hover: rgba(0, 0, 0, 0.1);
+  --shadow-color-btn-white-hover: rgba(42, 157, 143, 0.2);
+  --shadow-color-card: rgba(0, 0, 0, 0.05);
+
   --gradiente-inicio: var(--verde-20);
   --gradiente-fim: var(--verde-10);
 
@@ -38,9 +43,4 @@
 
 
   --red: #ce1111;
-
-  /*Sombras */
-  --shadow-color-card-hover: rgba(0, 0, 0, 0.1);
-  --shadow-color-btn-white-hover: rgba(42, 157, 143, 0.2);
-  --shadow-color-card: rgba(0, 0, 0, 0.05);
 }
