@@ -1,34 +1,163 @@
 <app-navbar></app-navbar>
 
-<section id="planos" class="container">
-  <h2>Planos</h2>
-  <div class="planos">
+<section id="planos" class="planos-section">
+  <h2>Planos e Preços</h2>
+  <p class="text-lg text-gray-300 mt-2">
+    Escolha o plano Vitalis perfeito para você.
+  </p>
+
+  <div class="planos-container">
     <div class="plano">
-      <h3>💚 Vitalis Gratuito</h3>
+      <h3><span aria-hidden="true"><i class="ri-heart-fill"></i></span> Vitalis Gratuito</h3>
       <ul>
-        <li>Estção Vital básica</li>
-        <li>Conteúdos abertos do Aprender+</li>
-        <li>1 planta emocional por mês</li>
-        <li>Registro de humor diário</li>
+        <li>
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5"
+            stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" />
+          </svg>
+          Estação Vital básica
+        </li>
+        <li>
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5"
+            stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" />
+          </svg>
+          Conteúdos abertos do Aprender+
+        </li>
+        <li>
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5"
+            stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" />
+          </svg>
+          1 planta emocional por mês
+        </li>
+        <li>
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5"
+            stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" />
+          </svg>
+          Registro de humor diário
+        </li>
       </ul>
+      <a href="#" class="btn btn-principal">Começar Agora</a>
     </div>
+
     <div class="plano destaque">
-      <h3>💎 Vital+</h3>
+      <div class="selo-destaque">Mais Popular</div>
+      <h3><span aria-hidden="true"><i class="ri-vip-diamond-fill"></i> </span>Vital+</h3>
       <ul>
-        <li>Estção Vital completa + plantas colecionáveis</li>
-        <li>Diário Vital desbloqueado</li>
-        <li>Acesso total ao Aprender+</li>
-        <li>Cartas da Vitalis</li>
-        <li>Estatísticas emocionais</li>
-        <li>Desconto em consultas</li>
-        <li>Desafios e conquistas</li>
+        <li>
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5"
+            stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" />
+          </svg>
+          Estação Vital completa
+        </li>
+        <li>
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5"
+            stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" />
+          </svg>
+          Diário Vital desbloqueado
+        </li>
+        <li>
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5"
+            stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" />
+          </svg>
+          Acesso total ao Aprender+
+        </li>
+        <li>
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5"
+            stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" />
+          </svg>
+          Cartas da Vitalis e Estatísticas
+        </li>
+        <li>
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5"
+            stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" />
+          </svg>
+          Desconto em consultas
+        </li>
+        <li>
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5"
+            stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" />
+          </svg>
+          Desafios e conquistas
+        </li>
       </ul>
-      <p><strong>R$ 19,90/mês</strong> ou <strong>R$ 179/ano</strong></p>
+      <p class="sub-price">
+        <strong>R$ 49,90/mês</strong> ou <strong>R$ 179/ano</strong>
+      </p>
+      <a href="#" class="btn btn-destaque">Assinar o Vital+</a>
     </div>
-    <div class="plano">
-      <h3>❤️ Planos Compartilhados</h3>
-      <p>Em breve: Casal e Família, com perfis independentes e desconto coletivo.</p>
+
+    <div class="plano em-breve">
+      <h3><span aria-hidden="true"><i class="ri-group-fill"></i> </span> Planos Compartilhados</h3>
+      <p>
+        Em breve: Casal e Família, com perfis independentes e desconto coletivo.
+      </p>
+    </div>
+  </div>
+
+  <div class="comparativo-section">
+    <h2>Compare os Planos</h2><br>
+    <div class="comparativo-container">
+
+      <div class="comparativo-header">
+        <h4>Funcionalidades</h4>
+        <h4>Gratuito</h4>
+        <h4 class="col-destaque">Vital+</h4>
+        <h4>Compartilhado</h4>
+      </div>
+
+      <div class="comparativo-row">
+        <div class="feature-name">Estação Vital <span>Cultive sua planta emocional</span></div>
+        <div class="feature-value">Básica</div>
+        <div class="feature-value col-destaque">Completa</div>
+        <div class="feature-value">Completa</div>
+      </div>
+
+      <div class="comparativo-row">
+        <div class="feature-name">Diário Vital <span>Seu diário de emoções</span></div>
+        <div class="feature-value icon-x"><i class="ri-close-line"></i></div>
+        <div class="feature-value icon-check col-destaque"><i class="ri-check-line"></i></div>
+        <div class="feature-value icon-check"><i class="ri-check-line"></i></div>
+      </div>
+
+      <div class="comparativo-row">
+        <div class="feature-name">Aprender+ <span>Conteúdos sobre saúde mental</span></div>
+        <div class="feature-value">Acesso Limitado</div>
+        <div class="feature-value col-destaque">Acesso Total</div>
+        <div class="feature-value">Acesso Total</div>
+      </div>
+
+      <div class="comparativo-row">
+        <div class="feature-name">Cartas da Vitalis e Estatísticas<span>Receba insights sobre você</span></div>
+        <div class="feature-value icon-x"><i class="ri-close-line"></i></div>
+        <div class="feature-value icon-check col-destaque"><i class="ri-check-line"></i></div>
+        <div class="feature-value icon-check"><i class="ri-check-line"></i></div>
+      </div>
+
+      <div class="comparativo-row">
+        <div class="feature-name">Descontos em Consultas<span>Com psicólogos parceiros</span></div>
+        <div class="feature-value icon-x"><i class="ri-close-line"></i></div>
+        <div class="feature-value icon-check col-destaque"><i class="ri-check-line"></i></div>
+        <div class="feature-value icon-check"><i class="ri-check-line"></i></div>
+      </div>
+
+      <div class="comparativo-row">
+        <div class="feature-name">Perfis Independentes<span>Para Casal ou Família</span></div>
+        <div class="feature-value icon-x"><i class="ri-close-line"></i></div>
+        <div class="feature-value icon-x col-destaque"><i class="ri-close-line"></i></div>
+        <div class="feature-value icon-check"><i class="ri-check-line"></i></div>
+      </div>
+
     </div>
   </div>
 </section>
+
 <app-footer></app-footer>
