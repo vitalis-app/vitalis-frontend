@@ -1,0 +1,377 @@
+/* Botões */
+.gradient-btn {
+  background: linear-gradient(
+    90deg,
+    var(--gradiente-inicio),
+    var(--gradiente-fim)
+  );
+  color: var(--white);
+  font-weight: 500;
+  padding: 0.75rem 2rem;
+  border-radius: 9999px; /* full rounded */
+  transition: all 0.3s ease;
+  border: none;
+  cursor: pointer;
+  display: inline-block;
+  font-family: "Poppins";
+  text-decoration: none;
+}
+
+.gradient-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px var(--shadow-color-gradient-btn-hover);
+}
+
+.gradient-btn:active {
+  transform: translateY(-1px);
+  box-shadow: 0 1px 3px var(--shadow-color-gradient-btn-hover);
+}
+
+/* Hero Section */
+.hero {
+  background-color: var(--vitalis-light);
+}
+
+.hero-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+.hero-content {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.hero-title {
+  font-size: 45px;
+  font-weight: 700;
+  color: var(--gray-800);
+  margin-bottom: 16px;
+}
+
+.hero-subtitle {
+  font-size: 24px;
+  color: var(--gray-600);
+  margin-bottom: 32px;
+  max-width: 50rem;
+}
+
+.hero-image {
+  max-width: 500px;
+  width: 100%;
+}
+
+/* Section Styles */
+.section {
+  padding: 64px 0;
+}
+
+.section-light {
+  background-color: var(--gray-200);
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: 64px;
+}
+
+.section-title {
+  font-size: 40px;
+  font-weight: 700;
+  color: var(--gray-800);
+  margin-bottom: 16px;
+}
+
+.section-subtitle {
+  font-size: 24px;
+  color: var(--gray-600);
+  margin: 0 auto;
+}
+
+/* Como Funciona */
+.steps {
+  display: flex;
+  grid-template-columns: 1fr;
+  gap: 32px;
+}
+
+.step-card {
+  background-color: white;
+  border-radius: 12px;
+  padding: 24px;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+}
+
+.step-number {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: linear-gradient(
+    135deg,
+    var(--vitalis-green) 0%,
+    var(--vitalis-cyan) 100%
+  );
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 16px;
+}
+
+.step-title {
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--gray-800);
+  margin-bottom: 12px;
+}
+
+.step-description {
+  color: var(--gray-600);
+  margin-bottom: 16px;
+}
+
+.step-icon {
+  font-size: 32px;
+  color: var(--vitalis-green);
+}
+
+/* Por que ser parceiro */
+.reasons {
+  display: flex;
+  grid-template-columns: 1fr;
+  gap: 32px;
+}
+
+.reason-card {
+  background-color: var(--gray-200);
+  border-radius: 12px;
+  padding: 32px;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: flex-start;
+}
+
+.reason-icon {
+  font-size: 32px;
+  margin-right: 20px;
+}
+
+.reason-content h3 {
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--gray-800);
+  margin-bottom: 12px;
+}
+
+.reason-content p {
+  color: var(--gray-600);
+}
+
+/* Benefícios */
+.benefits {
+  display: flex;
+  grid-template-columns: 1fr;
+  gap: 24px;
+}
+
+.benefit-card {
+  background-color: var(--gray-200);
+  border-radius: 12px;
+  padding: 24px;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.benefit-icon-wrapper {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background-color: var(--vitalis-light);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 16px;
+}
+
+.benefit-icon {
+  color: var(--vitalis-green);
+  font-size: 24px;
+}
+
+.benefit-title {
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--gray-800);
+  margin-bottom: 12px;
+}
+
+.benefit-description {
+  color: var(--gray-600);
+}
+
+/* Depoimentos */
+.testimonials {
+  display: flex;
+  grid-template-columns: 1fr;
+  gap: 32px;
+}
+
+.testimonial-card {
+  background-color: white;
+  border-radius: 12px;
+  padding: 24px;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+}
+
+.testimonial-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.testimonial-avatar {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background-color: var(--vitalis-green);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 18px;
+}
+
+.testimonial-avatar.cyan {
+  background-color: var(--vitalis-cyan);
+}
+
+.testimonial-person {
+  margin-left: 16px;
+}
+
+.testimonial-name {
+  font-weight: 600;
+  color: var(--gray-800);
+}
+
+.testimonial-title {
+  font-size: 14px;
+  color: var(--gray-500);
+}
+
+.testimonial-text {
+  color: var(--gray-600);
+  font-style: italic;
+  margin-bottom: 16px;
+}
+
+.testimonial-rating {
+  color: var(--vitalis-green);
+  font-size: 20px;
+}
+
+/* CTA Section */
+.cta {
+  padding: 64px 0;
+  text-align: center;
+}
+
+.cta-container {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.cta-title {
+  font-size: 32px;
+  font-weight: 700;
+  color: var(--gray-800);
+  margin-bottom: 16px;
+}
+
+.cta-subtitle {
+  font-size: 20px;
+  color: var(--gray-600);
+  margin-bottom: 32px;
+}
+
+.cta-note {
+  margin-top: 24px;
+  color: var(--gray-500);
+}
+
+/* Footer */
+.footer {
+  background-color: var(--gray-800);
+  color: white;
+  padding: 48px 0;
+}
+
+.footer-grid {
+  display: flex;
+  grid-template-columns: 1fr;
+  gap: 32px;
+}
+
+.footer-logo {
+  display: flex;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.footer-logo-text {
+  margin-left: 8px;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.footer-description {
+  color: var(--gray-400);
+}
+
+.footer-heading {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 16px;
+}
+
+.footer-links li {
+  margin-bottom: 8px;
+}
+
+.footer-links a {
+  color: var(--gray-400);
+}
+
+.footer-contact li {
+  display: flex;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.footer-contact-icon {
+  color: var(--vitalis-green);
+  margin-right: 8px;
+}
+
+.footer-social {
+  display: flex;
+  gap: 16px;
+  margin-top: 16px;
+}
+
+.footer-social a {
+  color: var(--gray-400);
+}
+
+.footer-bottom {
+  margin-top: 48px;
+  padding-top: 32px;
+  border-top: 1px solid #4a5568;
+  text-align: center;
+  color: var(--gray-400);
+}
