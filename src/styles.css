@@ -6,7 +6,7 @@
   margin: 0;
   padding: 0;
   scrollbar-width: thin;
-  scrollbar-color: var(--gray-600) var(--background);
+  scrollbar-color: var(--verde-10) var(--background);
 }
 
 html {
@@ -27,12 +27,12 @@ body {
 }
 
 ::-webkit-scrollbar-track {
-  background: var(--verde-escuro); /* tom claro suave */
+  background: var(--verde-25); /* tom claro suave */
   border-radius: 10px;
 }
 
 
 
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--verde-escuro); /* cor mais forte no hover */
+  background: var(--verde-25); /* cor mais forte no hover */
 }

@@ -1,5 +1,5 @@
 .header {
-  background-color: var(--verde-claro-3);
+  background-color: var(--verde-6);
   position: fixed;
   width: 100%;
   top: 0;
@@ -16,7 +16,7 @@
 }
 
 .navbar.scrolled {
-  box-shadow: 0 2px 5px var(--shadow-color-navbar-scrolled);
+  box-shadow: 0 2px 5px var(--shadow-0);
   transition: background-color 0.3s ease, box-shadow 0.3s ease;
 }
 
@@ -41,7 +41,7 @@
 }
 
 .nav-link {
-  color: var(--verde-escuro-3); /* Cor do texto do link */
+  color: var(--verde-0); /* Cor do texto do link */
   text-decoration: none;
   font-size: 0.95rem; /* Tamanho da fonte dos links */
   padding: 0.5rem 0.25rem; /* Adiciona um pouco de padding para melhor área de clique */
@@ -50,9 +50,7 @@
 }
 
 .nav-link:hover {
-  color: var(
-    --ciano-claro
-  ); /* Cor do link no hover, usando --ciano-claro como nos botões */
+  color: var(--verde-3); /* Cor do link no hover, usando --ciano-claro como nos botões */
 }
 
 .nav-link::after {
@@ -63,7 +61,7 @@
   bottom: 0; /* Ajustado para ficar na base do padding */
   left: 50%;
   transform: translateX(-50%);
-  background-color: var(--ciano-claro);
+  background-color: var(--verde-3);
   transition: width 0.3s ease;
 }
 
@@ -79,7 +77,7 @@
 
 .btn-theme-toggle {
   background-color: transparent;
-  border: 1px solid var(--gray-400); /* Borda sutil */
+  border: 1px solid var(--text-color); /* Borda sutil */
   color: var(--text-color);
   width: 2.25rem; /* 36px */
   height: 2.25rem; /* 36px */
@@ -96,8 +94,8 @@
 }
 
 .btn-theme-toggle:hover {
-  background-color: var(--gray-100); /* Leve destaque no hover */
-  border-color: var(--ciano-claro);
+  background-color: var(--verde-5); /* Leve destaque no hover */
+  border-color: var(--verde-1);
   transform: translateY(-1px) scale(1.05); /* Pequena elevação e escala */
 }
 
@@ -113,8 +111,8 @@
 
 .btn-login {
   font-family: "Poppins", sans-serif;
-  background-color: var(--ciano-claro);
-  color: var(--verde-escuro-3); /* Texto inicial */
+  background-color: var(--verde-3);
+  color: var(--verde-0); /* Texto inicial */
   padding: 0.6rem 1.3rem; /* Ajuste no padding para melhor proporção */
   border-radius: 2rem; /* Mantém o arredondamento */
   border: none;
@@ -135,7 +133,7 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: var(--verde-escuro); /* Cor de fundo da transição */
+  background-color: var(--verde-1); /* Cor de fundo da transição */
   border-radius: inherit;
   z-index: -1;
   transform: scaleY(0); /* Começa escondido (escala de 0 para cima) */
@@ -144,7 +142,7 @@
 }
 
 .btn-login:hover {
-  color: var(--verde-claro-3); /* Texto no hover */
+  color: var(--verde-6); /* Texto no hover */
 }
 
 .btn-login:hover::before {

@@ -1,45 +1,50 @@
 :root {
   /* Tons fixos */
-  --branco-esverdeado: #f2fffb;
-  --verde-00: #b5eed9;
-  --verde-10: #50e0bc;
-  --verde-15: #76bca3;
-  --verde-20: #21bc95;
-  --verde-25: #1c7f6e;
-  --verde-30: #157b62;
-  --verde-40: #14715a;
-  --verde-50: #126853;
-  --verde-60: #0f5846;
-  --verde-70: #0b3f32;
+  --branco: #f2fffb;
+  --verde-0: #08241f;
+  --verde-1: #10473E;
+  --verde-2: #176B5D;
+  --verde-3: #27B29B;
+  --verde-4: #7DD1C3;
+  --verde-5: #c3e6df;
+  --verde-6: #D4F0EB;
 
   /*Sombras */
-  --shadow-color-card-hover: rgba(0, 0, 0, 0.1);
-  --shadow-color-btn-white-hover: rgba(42, 157, 143, 0.2);
-  --shadow-color-card: rgba(0, 0, 0, 0.05);
+  --shadow-0: rgba(0, 0, 0, 0.1);
+  --shadow-1: rgba(42, 157, 143, 0.2);
 
-   /* Gradientes */
-  --gradiente-inicio: var(--verde-10);
-  --gradiente-fim: var(--verde-20);
+  /* Gradientes */
+  --gradiente-inicio: var(--verde-4);
+  --gradiente-fim: var(--verde-2);
 
   /* Cores background/text */
-  --background: var(--verde-00);
-  --text-color: var(--verde-25);
+  --background: var(--verde-6);
+  --text-color: var(--verde-0);
 
   --red: #ce1111;
 }
 
 [data-theme='dark'] {
-    /*Sombras */
-  --shadow-color-card-hover: rgba(0, 0, 0, 0.1);
-  --shadow-color-btn-white-hover: rgba(42, 157, 143, 0.2);
-  --shadow-color-card: rgba(0, 0, 0, 0.05);
 
-  --gradiente-inicio: var(--verde-20);
-  --gradiente-fim: var(--verde-10);
+  --branco: #f2fffb;
+  --verde-0: #D4F0EB;
+  --verde-1: #A9E0D7;
+  --verde-2: #7DD1C3;
+  --verde-3: #27B29B;
+  --verde-4: #176B5D;
+  --verde-5: #10473E;
+  --verde-6: #08241f;
+
+  /*Sombras */
+  --shadow-0: rgba(0, 0, 0, 0.1);
+  --shadow-1: rgba(42, 157, 143, 0.2);
+
+  --gradiente-inicio: var(--verde-4);
+  --gradiente-fim: var(--verde-2);
 
   /* Cores background/text */
-  --background: var(--verde-70);
-  --text-color: var(--branco-esverdeado);
+  --background: var(--verde-6);
+  --text-color: var(--verde-0);
 
 
   --red: #ce1111;

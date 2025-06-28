@@ -24,7 +24,7 @@ import { HomeAppComponent } from './web-app/pages/home-app/home-app.component';
     FuncionalidadesComponent,
     SobreComponent,
     SidebarComponent,
-    HomeAppComponent
+    HomeAppComponent,
   ],
   imports: [
     BrowserModule,
