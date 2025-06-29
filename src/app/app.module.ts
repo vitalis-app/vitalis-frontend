@@ -12,6 +12,7 @@ import { FuncionalidadesComponent } from './site/pages/funcionalidades/funcional
 import { SobreComponent } from './site/pages/sobre/sobre.component';
 import { SidebarComponent } from './web-app/components/sidebar/sidebar.component';
 import { HomeAppComponent } from './web-app/pages/home-app/home-app.component';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,13 @@ import { HomeAppComponent } from './web-app/pages/home-app/home-app.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    RouterModule.forRoot
+    ([], 
+      {
+      anchorScrolling: 'enabled',
+      scrollPositionRestoration: 'enabled'
+    })
   ],
   providers: [],
   bootstrap: [AppComponent]
