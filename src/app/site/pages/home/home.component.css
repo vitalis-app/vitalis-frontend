@@ -36,23 +36,24 @@
 .btn-secondary {
   width: 100%;
   padding: 0.75rem 1rem;
-  background-color: var(--verde-5);
-  color: var(--verde-1);
+  background-color: var(--verde-6);
+  color: var(--verde-0);
   border-radius: 0.5rem;
   font-weight: 500;
   transition: all 0.2s ease;
-  border: none;
+  border: 1px solid var(--verde-5);
   cursor: pointer;
   font-family: "Poppins", sans-serif;
 }
 
 .btn-secondary:hover {
-  background-color: var(--verde-4);
+  background-color: var(--verde-5);
+  border: 1px solid var(--verde-2);
 }
 
 .btn-white {
-  background-color: var(--verde-6);
-  color: var(--verde-0);
+  background-color: var(--branco);
+  color: #08241f;
   font-weight: 600;
   padding: 0.75rem 2rem;
   border-radius: 9999px;
@@ -341,33 +342,33 @@ section {
 
 /* Plans Section */
 .plans-section {
-  background-color: var(--verde-00);
+  background-color: var(--verde-6);
 }
 
 .plans-grid {
   display: flex;
   flex-direction: row;
   justify-content: center;
-  gap: 2rem; /* gap-8 */
+  gap: 5rem; /* gap-8 */
 }
 
 .plan-card {
-  background-color: var(--verde-05);
+  background-color: var(--verde-5);
   border-radius: 0.75rem; /* rounded-xl */
-  box-shadow: 0 1px 2px 0 var(--shadow-color-card); /* shadow-sm */
-  border: 1px solid var(--verde-15);
+  box-shadow: 0 1px 2px 0 var(--shadow-0); /* shadow-sm */
+  border: 2px solid var(--verde-5);
   padding: 2rem; /* p-8 */
-  width: 100%;
+  width: 40%;
   transition: all 0.2s ease;
 }
 
 .plan-card:hover {
-  box-shadow: 0 4px 6px -1px var(--shadow-color-plan-card-hover),
+  box-shadow: 0 4px 6px -1px var(--shadow-0),
     0 2px 4px -1px rgba(0, 0, 0, 0.1); /* hover:shadow-md */
 }
 
 .premium-card {
-  border: 2px solid var(--verde-claro);
+  border: 2px solid var(--verde-3);
   position: relative;
 }
 
@@ -375,8 +376,8 @@ section {
   position: absolute;
   top: 0;
   right: 0;
-  background-color: var(--verde-claro);
-  color: var(--white);
+  background-color: var(--verde-3);
+  color: var(--branco);
   padding: 0.25rem 1rem; /* px-4 py-1 */
   border-bottom-left-radius: 0.5rem; /* rounded-bl-lg */
   border-top-right-radius: 0.5rem; /* rounded-tr-lg */
@@ -393,27 +394,15 @@ section {
   font-size: 1.5rem; /* text-2xl */
   font-weight: 700; /* font-bold */
   margin-top: 0.5rem; /* mt-2 */
+  color: var(--verde-2);
 }
 .plan-title i{
-  color: var(--verde-claro);
+  color: var(--verde-3);
 }
 
 .plan-subtitle {
-  color: var(--verde-050);
+  color: var(--verde-2);
   margin-top: 0.25rem; /* mt-1 */
-}
-
-.plan-price {
-  margin-top: 1rem; /* mt-4 */
-}
-
-.price-value {
-  font-size: 2.25rem; /* text-4xl */
-  font-weight: 700; /* font-bold */
-}
-
-.price-period {
-  color: var(--verde-050);
 }
 
 .plan-features {
@@ -426,24 +415,12 @@ section {
 .feature-item-check {
   display: flex;
   align-items: center;
-  color: var(--gray-900);
+  color: var(--verde-1);
 }
 
 .feature-item-check i{
   font-size: 1.2rem;
-  color: var(--ciano-claro);
-  margin-right: 0.5rem; /* mr-2 */
-}
-
-.feature-item-no {
-  display: flex;
-  align-items: center;
-  color: var(--gray-900);
-}
-
-.feature-item-no i{
-  font-size: 1.2rem;
-  color: var(--red);
+  color: var(--verde-2);
   margin-right: 0.5rem; /* mr-2 */
 }
 
@@ -451,7 +428,7 @@ section {
 
 /* Specialists Section */
 .specialists-section {
-  background-color: var(--verde-05);
+  background-color: var(--verde-5);
 }
 
 .specialists-grid {
@@ -461,7 +438,7 @@ section {
 }
 
 .specialist-card {
-  background-color: var(--verde-00);
+  background-color: var(--verde-6);
   padding: 2rem; /* p-8 */
   border-radius: 0.75rem; /* rounded-xl */
   text-align: center;
@@ -473,27 +450,27 @@ section {
   margin-left: auto;
   margin-right: auto;
   margin-bottom: 1rem; /* mb-4 */
-  background-color: rgba(72, 222, 184, 0.2); /* bg-[#48deb8] bg-opacity-20 */
+  background-color: var(--verde-5); /* bg-[#48deb8] bg-opacity-20 */
   border-radius: 9999px; /* rounded-full */
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-.specialist-icon {
-  width: 2rem; /* w-8 */
-  height: 2rem; /* h-8 */
-  color: var(--verde-escuro);
+.specialist-icon-container i{
+  font-size: 2rem;
+  color: var(--verde-2);
 }
 
 .specialist-title {
   font-size: 1.25rem; /* text-xl */
   font-weight: 600; /* font-semibold */
   margin-bottom: 0.75rem; /* mb-3 */
+  color: var(--verde-2);
 }
 
 .specialist-description {
-  color: var(--gray-600);
+  color: var(--verde-1);
 }
 
 .specialist-cta-container {
@@ -503,7 +480,7 @@ section {
 
 .specialist-cta-info {
   margin-top: 1rem; /* mt-4 */
-  color: var(--verde-050);
+  color: var(--verde-2);
   font-size: 0.875rem; /* text-sm */
 }
 
@@ -511,10 +488,10 @@ section {
 .cta-section {
   background: linear-gradient(
     to right,
-    var(--verde-claro),
-    var(--verde-escuro)
+    var(--gradiente-fim),
+    var(--gradiente-inicio)
   );
-  color: var(--white);
+  color: var(--branco);
   text-align: center;
 }
 
