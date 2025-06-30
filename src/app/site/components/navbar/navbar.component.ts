@@ -1,5 +1,6 @@
 import { Component, HostListener, OnInit, Renderer2, Inject, PLATFORM_ID } from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
+import { ThemeService } from 'src/app/services/theme.service';
 
 @Component({
   selector: 'app-navbar',
@@ -8,63 +9,49 @@ import { isPlatformBrowser } from '@angular/common';
 })
 export class NavbarComponent implements OnInit {
   isScrolled = false;
-  public currentTheme: 'light' | 'dark';
   public logoSrc: string = '';
+  public currentTheme: 'light' | 'dark' = 'light'; // Apenas como cache local
 
   constructor(
+    private themeService: ThemeService,
     private renderer: Renderer2,
     @Inject(PLATFORM_ID) private platformId: Object
-  ) {
-    this.currentTheme = 'light';
-  }
+  ) {}
 
   ngOnInit(): void {
     if (isPlatformBrowser(this.platformId)) {
-      this.initializeTheme();
+      // Inicializa com o tema salvo ou preferido
+      this.themeService.initializeTheme();
 
+      // Assina mudanças de tema e atualiza UI
+      this.themeService.theme$.subscribe(theme => {
+        this.applyTheme(theme);
+      });
+
+      // Escuta mudança de preferência do SO
       window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', e => {
         const storedTheme = localStorage.getItem('theme');
         if (!storedTheme) {
-          const newColorScheme = e.matches ? 'dark' : 'light';
-          this.setTheme(newColorScheme);
+          const newTheme = e.matches ? 'dark' : 'light';
+          this.themeService.setTheme(newTheme);
         }
       });
     }
   }
 
-  private initializeTheme(): void {
-    const savedTheme = localStorage.getItem('theme') as 'light' | 'dark' | null;
-    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-
-    if (savedTheme) {
-      this.currentTheme = savedTheme;
-    } else if (prefersDark) {
-      this.currentTheme = 'dark';
-    } else {
-      this.currentTheme = 'light';
-    }
-
-    this.applyTheme(this.currentTheme);
-  }
-
   private applyTheme(theme: 'light' | 'dark'): void {
     this.renderer.setAttribute(document.documentElement, 'data-theme', theme);
-    if (isPlatformBrowser(this.platformId)) {
-      localStorage.setItem('theme', theme);
-    }
     this.currentTheme = theme;
     this.updateLogo();
   }
 
   setTheme(theme: 'light' | 'dark'): void {
-    this.applyTheme(theme);
+    this.themeService.setTheme(theme);
   }
 
   toggleTheme(): void {
-    if (isPlatformBrowser(this.platformId)) {
-      const newTheme = this.currentTheme === 'dark' ? 'light' : 'dark';
-      this.setTheme(newTheme);
-    }
+    const newTheme = this.currentTheme === 'dark' ? 'light' : 'dark';
+    this.themeService.setTheme(newTheme);
   }
 
   private updateLogo(): void {
@@ -72,7 +59,6 @@ export class NavbarComponent implements OnInit {
       ? 'assets/imgs/vitalis-branca.png'
       : 'assets/imgs/vitalis.png';
   }
-
 
   @HostListener('window:scroll', [])
   onWindowScroll() {
@@ -82,4 +68,3 @@ export class NavbarComponent implements OnInit {
     }
   }
 }
-
