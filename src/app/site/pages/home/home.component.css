@@ -95,7 +95,7 @@ section {
 
 /* Home Section */
 .home-section {
-  padding-top: 6rem;
+  padding-top: 10rem;
   min-height: 100vh;
   display: flex;
   align-items: center;
@@ -114,9 +114,10 @@ section {
 
 .home-title {
   color: var(--verde-1);
-  font-size: 3rem; /* text-4xl */
-  font-weight: 700; /* font-bold */
+  font-size: 4rem; /* text-4xl */
+  font-weight: 400; /* font-bold */
   margin-bottom: 1.5rem; /* mb-6 */
+  font-family: Outfit;
 }
 
 .home-title .block {
@@ -125,6 +126,7 @@ section {
 
 .vital-text {
   color: var(--verde-0);
+  font-weight: 600;
 }
 
 .home-description {
@@ -133,7 +135,7 @@ section {
   margin-bottom: 2rem; /* mb-8 */
 }
 
-.home-svg-container {
+.hero-svg-container {
   width: 100%;
 }
 
