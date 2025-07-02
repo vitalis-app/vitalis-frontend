@@ -1,9 +1,9 @@
 import { Component, HostListener, OnInit, Renderer2, Inject, PLATFORM_ID } from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
-import { ThemeService } from 'src/app/services/theme.service';
+import { ThemeService } from 'src/app/services/theme/theme.service';
 
 @Component({
-  selector: 'app-navbar',
+  selector: 'web-navbar',
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.css']
 })

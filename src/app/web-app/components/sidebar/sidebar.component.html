@@ -1,6 +1,5 @@
 <aside
   class="sidebar"
-  [ngClass]="{ collapsed: isCollapsed, 'hover-mode': modoHover }"
   (mouseenter)="modoHover && (isCollapsed = false)"
   (mouseleave)="modoHover && (isCollapsed = true)"
 >
@@ -17,7 +16,7 @@
   </div>
 
   <nav class="sidebar-nav">
-    <a href="/" class="nav-item active" data-tooltip="Início">
+    <a href="/app-home" class="nav-item active" data-tooltip="Início">
       <i class="ri-home-heart-fill"></i>
       <span class="nav-text">Início</span>
     </a>
@@ -27,24 +26,14 @@
       <span class="nav-text">Estação Vital</span>
     </a>
 
-    <a href="/aprender" class="nav-item" data-tooltip="Aprender+">
+    <a href="/aprender-mais" class="nav-item" data-tooltip="Aprender+">
       <i class="ri-book-open-line"></i>
       <span class="nav-text">Aprender+</span>
     </a>
 
-    <a href="/psicoapoio" class="nav-item" data-tooltip="PsicoApoio">
+    <a href="/cuidar-mais" class="nav-item" data-tooltip="Cuidar+">
       <i class="ri-mental-health-line"></i>
       <span class="nav-text">PsicoApoio</span>
-    </a>
-
-    <a href="/minha-jornada" class="nav-item" data-tooltip="Minha Jornada">
-      <i class="ri-bar-chart-2-line"></i>
-      <span class="nav-text">Minha Jornada</span>
-    </a>
-
-    <a href="/comunidade" class="nav-item" data-tooltip="Comunidade">
-      <i class="ri-chat-smile-3-line"></i>
-      <span class="nav-text">Comunidade</span>
     </a>
 
     <a href="/planos" class="nav-item" data-tooltip="Planos">
