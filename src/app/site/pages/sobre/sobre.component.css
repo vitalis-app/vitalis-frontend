@@ -167,10 +167,12 @@ section {
   grid-template-columns: 1fr;
   gap: 2rem;
   margin-bottom: 6rem;
+  margin-top: 3rem;
 }
 
 .objective-card {
-  background-color: var(--verde-claro-3);
+  background-color: var(--verde-6);
+  border: 2px solid var(--verde-3);
   border-radius: 0.5rem;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   padding: 1.5rem;
@@ -191,7 +193,7 @@ section {
 .objective-icon-container {
   width: 3rem;
   height: 3rem;
-  background-color: var(--gray-300);
+  background-color: var(--verde-5);
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -206,17 +208,17 @@ section {
 
 .objective-icon-container i {
   font-size: 2rem;
-  color: var(--verde-escuro);
+  color: var(--verde-2);
 }
 
 .objective-title {
   font-size: 1.125rem;
   font-weight: 600;
-  color: var(--verde-escuro-3);
+  color: var(--verde-3);
 }
 
 .objective-description {
-  color: var(--gray-700);
+  color: var(--verde-1);
   padding-left: 4rem;
 }
 
@@ -230,10 +232,10 @@ section {
 
 /* Target Audience Section */
 .audience-section {
-  background-color: var(--verde-claro-3);
+  background-color: var(--verde-5);
   border-radius: 0.75rem;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  padding: 2.5rem;
+  padding: 6rem;
   margin-bottom: 6rem;
   text-align: center;
 }
@@ -241,13 +243,13 @@ section {
 .audience-title {
   font-size: 1.5rem;
   font-weight: 600;
-  color: var(--verde-escuro-3);
+  color: var(--verde-2);
   margin-bottom: 1.5rem;
 }
 
 .audience-description {
-  color: var(--gray-700);
-  max-width: 48rem;
+  color: var(--verde-1);
+  max-width: 50rem;
   margin: 0 auto 2rem;
 }
 
@@ -258,8 +260,8 @@ section {
 }
 
 .audience-tag {
-  background-color: var(--gray-100);
-  color: var(--verde-escuro-2);
+  background-color: var(--verde-4);
+  color: var(--verde-1);
   font-weight: 500;
   padding: 0.75rem 1.5rem;
   border-radius: 9999px;
