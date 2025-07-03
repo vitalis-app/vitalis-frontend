@@ -179,9 +179,8 @@ section {
 }
 
 .about-card:hover{
-  background-color: var(--verde-5);
   box-shadow: 0 10px 20px var(--shadow-0);
-  color: var(--verde-0);
+  transform: translateY(-2px);
 }
 
 .about-card-icon-container {
@@ -367,10 +366,11 @@ section {
 .plan-card:hover {
   box-shadow: 0 4px 6px -1px var(--shadow-0),
     0 2px 4px -1px rgba(0, 0, 0, 0.1); /* hover:shadow-md */
+    transform: translateY(-2px);
 }
 
 .premium-card {
-  border: 2px solid var(--verde-3);
+  border: 2px solid var(--verde-10);
   position: relative;
 }
 
@@ -378,7 +378,7 @@ section {
   position: absolute;
   top: 0;
   right: 0;
-  background-color: var(--verde-3);
+  background-color: var(--verde-10);
   color: var(--branco);
   padding: 0.25rem 1rem; /* px-4 py-1 */
   border-bottom-left-radius: 0.5rem; /* rounded-bl-lg */
@@ -399,7 +399,7 @@ section {
   color: var(--verde-2);
 }
 .plan-title i{
-  color: var(--verde-3);
+  color: var(--verde-10);
 }
 
 .plan-subtitle {
@@ -444,6 +444,12 @@ section {
   padding: 2rem; /* p-8 */
   border-radius: 0.75rem; /* rounded-xl */
   text-align: center;
+  transition: all 0.3s ease;
+}
+.specialist-card:hover {
+  box-shadow: 0 4px 6px -1px var(--shadow-0),
+    0 2px 4px -1px rgba(0, 0, 0, 0.1); /* hover:shadow-md */
+    transform: translateY(-2px);
 }
 
 .specialist-icon-container {
