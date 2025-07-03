@@ -8,6 +8,7 @@
   --verde-3: #27B29B;
   --verde-4: #7DD1C3;
   --verde-5: #c3e6df;
+  --verde-56: #cbeae4;
   --verde-6: #D4F0EB;
   --verde-7: #dcf3ef;
 
@@ -18,7 +19,7 @@
   --shadow-1: rgba(42, 157, 143, 0.2);
 
   /* Gradientes */
-  --gradiente-inicio: var(--verde-4);
+  --gradiente-inicio: var(--verde-3);
   --gradiente-fim: var(--verde-2);
 
   /* Cores background/text */
@@ -38,6 +39,7 @@
   --verde-3: #27B29B;
   --verde-4: #176B5D;
   --verde-5: #10473E;
+  --verde-56: #0c352e;
   --verde-6: #08241f;
   --verde-7: #061d19;
 
@@ -47,7 +49,7 @@
   --shadow-0: rgba(0, 0, 0, 0.1);
   --shadow-1: rgba(42, 157, 143, 0.2);
 
-  --gradiente-inicio: var(--verde-4);
+  --gradiente-inicio: var(--verde-3);
   --gradiente-fim: var(--verde-2);
 
   /* Cores background/text */

@@ -12,7 +12,7 @@
     var(--gradiente-inicio),
     var(--gradiente-fim)
   );
-  color: var(--branco);
+  color: var(--verde-7);
   font-weight: 500;
   padding: 0.75rem 2rem;
   border-radius: 9999px; /* full rounded */
@@ -66,9 +66,9 @@
 }
 
 .btn-white:hover {
-  background-color: var(--verde-5);
+  background-color: #176B5D;
   box-shadow: 0 10px 20px var(--shadow-1);
-  color: var(--verde-0);
+  color: var(--branco);
 }
 
 /* Main Content Sections */
@@ -146,7 +146,7 @@ section {
 
 /* About Section */
 .about-section {
-  background-color: var(--verde-5);
+  background-color: var(--verde-562);
 }
 
 .about-content {
@@ -496,11 +496,15 @@ section {
 .cta-section {
   background: linear-gradient(
     to right,
-    var(--gradiente-fim),
-    var(--gradiente-inicio)
+    #176B5D,
+    #27B29B
   );
   color: var(--branco);
   text-align: center;
+  height: 70vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .cta-title {
