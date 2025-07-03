@@ -5,6 +5,8 @@ import {
   Renderer2,
   Inject,
   PLATFORM_ID,
+  Output,
+  EventEmitter
 } from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
 
@@ -17,24 +19,7 @@ export class SidebarComponent implements OnInit {
   isCollapsed = false;
   modoHover = false;
 
-  toggleSidebar() {
-    if (this.modoHover) {
-      this.modoHover = false;
-      this.isCollapsed = false;
-    } else {
-      this.isCollapsed = !this.isCollapsed;
-    }
-    this.updateLogo();
-  }
-  toggleHoverMode() {
-    this.modoHover = !this.modoHover;
-    if (this.modoHover) {
-      this.isCollapsed = true; // inicia colapsado
-    } else {
-      this.isCollapsed = false;
-    }
-    this.updateLogo();
-  }
+  @Output() collapsedChange = new EventEmitter<boolean>();
 
   public currentTheme: 'light' | 'dark';
   public logoSrc: string = '';
@@ -45,6 +30,32 @@ export class SidebarComponent implements OnInit {
   ) {
     this.currentTheme = 'light';
   }
+
+
+  toggleSidebar() {
+    if (this.modoHover) {
+      this.modoHover = false;
+      this.isCollapsed = false;
+    } else {
+      this.isCollapsed = !this.isCollapsed;
+    }
+    this.updateLogo();
+
+    this.collapsedChange.emit(this.isCollapsed);
+  }
+
+  toggleHoverMode() {
+    this.modoHover = !this.modoHover;
+    if (this.modoHover) {
+      this.isCollapsed = true; 
+    } else {
+      this.isCollapsed = false;
+    }
+    this.updateLogo();
+
+    this.collapsedChange.emit(this.isCollapsed);
+  }
+
 
   ngOnInit(): void {
     if (isPlatformBrowser(this.platformId)) {

@@ -1,8 +1,14 @@
 import { Component, HostListener, OnInit, Renderer2, Inject, PLATFORM_ID } from '@angular/core';
-import { isPlatformBrowser } from '@angular/common';
+import { isPlatformBrowser, CommonModule } from '@angular/common'; // Importe CommonModule para usar *ngIf
+import { RouterModule } from '@angular/router'; // RouterModule vem de @angular/router
 
 @Component({
   selector: 'app-navbar',
+  standalone: true, // <-- Perfeito! O componente agora é independente.
+  imports: [
+    CommonModule,   // <-- Necessário para diretivas como *ngIf
+    RouterModule    // <-- Disponibiliza o routerLink para o template
+  ],
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.css']
 })
@@ -34,7 +40,9 @@ export class NavbarComponent implements OnInit {
 
   private initializeTheme(): void {
     const savedTheme = localStorage.getItem('theme') as 'light' | 'dark' | null;
-    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    const prefersDark = window.matchMedia(
+      '(prefers-color-scheme: dark)'
+    ).matches;
 
     if (savedTheme) {
       this.currentTheme = savedTheme;
@@ -82,4 +90,3 @@ export class NavbarComponent implements OnInit {
     }
   }
 }
-
