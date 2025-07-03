@@ -1,1 +1,106 @@
-<p>conta works!</p>
+<div class="account-page">
+  <!-- CABEÇALHO ADICIONADO COM AS CLASSES -->
+  <div class="page-header">
+    <h1>Minha Conta</h1>
+    <p>Faça a gestão das suas informações pessoais e da sua subscrição.</p>
+  </div>
+
+  <div class="account-grid">
+    
+    <!-- Coluna da Esquerda -->
+    <div class="account-column-left">
+      <!-- Cartão de Perfil -->
+      <div class="profile-card">
+        <div class="avatar-section">
+          <div class="avatar-initials">MS</div>
+          <button class="btn-edit-avatar"><i class="ri-camera-line"></i></button>
+        </div>
+        <h2>{{ user.name }}</h2>
+        <p>Usuário Premium</p>
+        <span class="member-since">
+          <i class="ri-calendar-line"></i>
+          Membro desde 15 de Janeiro, 2023
+        </span>
+      </div>
+      <!-- Cartão de Estatísticas -->
+      <div class="stats-card">
+        <h3>Estatísticas</h3>
+        <ul>
+          <li><span><i class="ri-vidicon-line"></i> Sessões</span> <strong>47</strong></li>
+          <li><span><i class="ri-check-double-line"></i> Check-ins</span> <strong>23</strong></li>
+        </ul>
+        <button class="btn-outline">Ver Histórico Completo</button>
+      </div>
+    </div>
+
+    <!-- Coluna da Direita -->
+    <div class="account-column-right">
+      <!-- Cartão de Informações Pessoais -->
+      <div class="settings-card">
+        <div class="card-header">
+          <h3>Informações Pessoais</h3>
+          <button class="btn-edit" (click)="toggleEditInfo()" *ngIf="!isEditingInfo">
+            <i class="ri-pencil-line"></i> Editar
+          </button>
+        </div>
+
+        <!-- Modo de Visualização -->
+        <div class="info-grid" *ngIf="!isEditingInfo">
+          <div class="info-item"><span>Nome Completo</span><p>{{ user.name }}</p></div>
+          <div class="info-item"><span>E-mail</span><p>{{ user.email }}</p></div>
+          <div class="info-item"><span>Telefone</span><p>{{ user.phone }}</p></div>
+          <div class="info-item"><span>Data de Nascimento</span><p>{{ user.birthDate | date: 'dd/MM/yyyy' }}</p></div>
+          <div class="info-item"><span>Gênero</span><p>{{ user.gender }}</p></div>
+          <div class="info-item"><span>Tipo de Conta</span><p>Usuário Premium</p></div>
+        </div>
+
+        <!-- Modo de Edição -->
+        <form class="info-form" *ngIf="isEditingInfo" (ngSubmit)="saveInfo()">
+          <div class="form-grid">
+            <div class="form-group"><label>Nome Completo</label><input type="text" class="custom-input" [(ngModel)]="user.name" name="name"></div>
+            <div class="form-group"><label>E-mail</label><input type="email" class="custom-input" [(ngModel)]="user.email" name="email"></div>
+            <div class="form-group"><label>Telefone</label><input type="tel" class="custom-input" [(ngModel)]="user.phone" name="phone"></div>
+            <div class="form-group"><label>Data de Nascimento</label><input type="date" class="custom-input" [(ngModel)]="user.birthDate" name="birthDate"></div>
+            <div class="form-group"><label>Gênero</label>
+              <select class="custom-input" [(ngModel)]="user.gender" name="gender">
+                <option>Feminino</option><option>Masculino</option><option>Outro</option><option>Prefiro não dizer</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-actions">
+            <button type="button" class="btn-secondary" (click)="toggleEditInfo()">Cancelar</button>
+            <button type="submit" class="btn-primary">Salvar</button>
+          </div>
+        </form>
+      </div>
+
+      <!-- Cartão de Segurança -->
+      <div class="settings-card">
+        <h3>Segurança</h3>
+        <div class="security-option" (click)="togglePasswordChange()">
+          <i class="ri-lock-password-line"></i>
+          <span>Alterar Senha</span>
+        </div>
+        <!-- Formulário de Alterar Senha (escondido) -->
+        <form class="password-form" *ngIf="isChangingPassword" (ngSubmit)="changePassword()">
+          <div class="form-group"><label>Senha Atual</label><input type="password" class="custom-input" placeholder="Digite sua senha atual"></div>
+          <div class="form-group"><label>Nova Senha</label><input type="password" class="custom-input" placeholder="Digite sua nova senha"></div>
+          <div class="form-group"><label>Confirmar Nova Senha</label><input type="password" class="custom-input" placeholder="Confirme sua nova senha"></div>
+          <div class="form-actions">
+            <button type="button" class="btn-secondary" (click)="togglePasswordChange()">Cancelar</button>
+            <button type="submit" class="btn-primary">Alterar Senha</button>
+          </div>
+        </form>
+      </div>
+
+      <!-- Cartão de Ações da Conta -->
+      <div class="settings-card">
+        <h3>Ações da Conta</h3>
+        <div class="account-actions">
+          <button class="btn-secondary"><i class="ri-download-2-line"></i> Exportar Dados</button>
+          <button class="btn-danger"><i class="ri-logout-box-r-line"></i> Sair da Conta</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

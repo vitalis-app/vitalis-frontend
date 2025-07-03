@@ -1,8 +1,7 @@
-<div class="app-container" [ngClass]="{ 'sidebar-collapsed': isSidebarCollapsed }">
+<div class="app-container">
+  <app-sidebar></app-sidebar>
 
-  <app-sidebar (collapsedChange)="isSidebarCollapsed = $event"></app-sidebar>
   <main class="content-area">
     <router-outlet></router-outlet>
   </main>
-
 </div>

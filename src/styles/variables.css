@@ -23,13 +23,23 @@
   --gradiente-inicio: var(--verde-3);
   --gradiente-fim: var(--verde-2);
 
-  /* Cores background/text */
+  /* Cores de Fundo e Texto para o Tema Claro */
   --background: var(--verde-6);
   --text-color: var(--verde-0);
 
   --red: #ce1111;
+
+  /* Variáveis de componentes para consistência */
+  --primary-light: var(--verde-56);
+  --primary-color: var(--verde-1);
+  --border-radius: 8px;
+  --transition-speed: 0.3s;
+  --shadow-color: rgba(0, 0, 0, 0.1);
+  --border-color: var(--verde-5);
+  --bg-color: var(--branco);
 }
 
+/* Tema Escuro */
 [data-theme="dark"] {
   --branco: #f2fffb;
   --verde-00: #dcf3ef;
@@ -48,15 +58,23 @@
   --glass: rgb(8, 36, 31, 0.85);
 
   /*Sombras */
-  --shadow-0: rgba(0, 0, 0, 0.1);
-  --shadow-1: rgba(42, 157, 143, 0.2);
+  --shadow-0: rgba(0, 0, 0, 0.2);
+  --shadow-1: rgba(0, 217, 181, 0.15);
 
+  /* Gradientes */
   --gradiente-inicio: var(--verde-3);
   --gradiente-fim: var(--verde-2);
 
-  /* Cores background/text */
-  --background: var(--verde-6);
+  /* Cores de Fundo e Texto para o Tema Escuro */
+  --background: var(--verde-7);
   --text-color: var(--verde-0);
 
   --red: #ce1111;
+
+  /* Variáveis de componentes para o Tema Escuro */
+  --primary-light: var(--verde-56);
+  --primary-color: var(--verde-10);
+  --shadow-color: rgba(0, 0, 0, 0.25);
+  --border-color: var(--verde-5);
+  --bg-color: var(--verde-6);
 }

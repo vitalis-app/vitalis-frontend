@@ -1,0 +1,335 @@
+/* Estilos gerais da página */
+.settings-page {
+    padding: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.settings-page h1 {
+    font-size: 2.5rem;
+    font-weight: 600;
+    color: var(--text-color);
+    margin-bottom: 0.5rem;
+}
+
+.settings-page .subtitle {
+    font-size: 1.1rem;
+    color: var(--verde-2);
+    margin-bottom: 3rem;
+}
+
+/* Grelha de layout */
+.settings-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    gap: 2rem;
+}
+
+.settings-column {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+/* Estilo padrão dos cartões */
+.settings-card {
+    background-color: var(--verde-56);
+    padding: 1.5rem;
+    border-radius: 16px;
+    border: 1px solid var(--verde-5);
+}
+
+[data-theme="dark"] .settings-card {
+    background-color: var(--verde-7);
+    border-color: var(--verde-5);
+}
+
+.settings-card h3 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    color: var(--text-color);
+}
+
+.settings-card h4 {
+    font-size: 1rem;
+    font-weight: 500;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    color: var(--verde-2);
+}
+
+/* Seletor de Tema */
+.theme-selector {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+}
+
+.theme-option {
+    padding: 1rem;
+    border-radius: 12px;
+    border: 2px solid var(--verde-5);
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.theme-option.active,
+.theme-option:hover {
+    border-color: var(--verde-3);
+    background-color: var(--verde-6);
+}
+
+[data-theme="dark"] .theme-option.active,
+[data-theme="dark"] .theme-option:hover {
+    background-color: var(--verde-56);
+}
+
+.theme-option i {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+    color: var(--verde-2);
+}
+
+.theme-option span {
+    font-weight: 500;
+    display: block;
+}
+
+.theme-option small {
+    font-size: 0.8rem;
+    color: var(--verde-2);
+}
+
+/* Seletor de Idioma */
+.custom-select {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    border-radius: 8px;
+    border: 1px solid var(--verde-4);
+    background-color: var(--background);
+    color: var(--text-color);
+    font-size: 1rem;
+}
+
+/* Lista de Notificações com Toggle */
+.notification-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.notification-list li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.notification-text strong {
+    display: block;
+    font-weight: 500;
+}
+
+.notification-text small {
+    color: var(--verde-2);
+}
+
+.toggle-switch {
+    position: relative;
+    display: inline-block;
+    width: 50px;
+    height: 28px;
+}
+
+.toggle-switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: var(--verde-5);
+    transition: .4s;
+    border-radius: 28px;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 20px;
+    width: 20px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    transition: .4s;
+    border-radius: 50%;
+}
+
+input:checked+.slider {
+    background-color: var(--verde-3);
+}
+
+input:checked+.slider:before {
+    transform: translateX(22px);
+}
+
+/* Métodos de Notificação */
+.notification-methods {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+}
+
+.method-option {
+    padding: 1rem;
+    border: 2px solid var(--verde-5);
+    border-radius: 12px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.method-option.active,
+.method-option:hover {
+    border-color: var(--verde-3);
+    background-color: var(--verde-6);
+}
+
+[data-theme="dark"] .method-option.active,
+[data-theme="dark"] .method-option:hover {
+    background-color: var(--verde-56);
+}
+
+.method-option i {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.method-option span {
+    font-weight: 500;
+    display: block;
+}
+
+/* Lista de Dispositivos */
+.device-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.device-list li {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--verde-5);
+}
+
+.device-list li:last-child {
+    border-bottom: none;
+}
+
+.device-list i {
+    font-size: 1.75rem;
+    color: var(--verde-2);
+}
+
+.device-info {
+    flex-grow: 1;
+}
+
+.device-info strong {
+    display: block;
+}
+
+.device-info span {
+    font-size: 0.9rem;
+    color: var(--verde-2);
+}
+
+/* Botões */
+.btn-icon {
+    background: none;
+    border: none;
+    font-size: 1.25rem;
+    color: var(--text-color);
+    cursor: pointer;
+}
+
+.btn-icon.active-session {
+    color: var(--verde-3);
+    font-size: 0.9rem;
+    font-weight: 500;
+    cursor: default;
+}
+
+.btn-secondary {
+    background-color: var(--verde-5);
+    color: var(--verde-1);
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 8px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.btn-secondary:hover {
+    background-color: var(--verde-4);
+    color: var(--branco);
+}
+
+.full-width {
+    width: 100%;
+    margin-top: 1rem;
+}
+
+/* Zona de Perigo */
+.danger-zone {
+    background-color: rgba(206, 17, 17, 0.05);
+    border: 1px solid var(--red);
+}
+
+[data-theme="dark"] .danger-zone {
+    background-color: rgba(206, 17, 17, 0.1);
+}
+
+.danger-zone h3 {
+    color: var(--red);
+}
+
+.danger-zone p {
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+}
+
+.btn-danger {
+    background-color: transparent;
+    color: var(--red);
+    border: 1px solid var(--red);
+    padding: 0.75rem 1.5rem;
+    border-radius: 8px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.btn-danger:hover {
+    background-color: var(--red);
+    color: var(--branco);
+}

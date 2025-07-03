@@ -20,6 +20,7 @@ import { BtnGradientComponent } from './site/components/widgets/buttons/btn-grad
 import { BtnSecondaryComponent } from './site/components/widgets/buttons/btn-secondary/btn-secondary.component';
 import { BtnDestaqueComponent } from './site/components/widgets/buttons/btn-destaque/btn-destaque.component';
 import { RouterModule } from '@angular/router';
+import { FormsModule } from '@angular/forms';
 
 import { AprenderComponent } from './web-app/pages/aprender/aprender.component';
 import { ComunidadeComponent } from './web-app/pages/comunidade/comunidade.component';
@@ -59,12 +60,13 @@ import { WebAppLayoutComponent } from './web-app/layout/web-app-layout/web-app-l
   imports: [
     BrowserModule,
     AppRoutingModule,
+    FormsModule,
     RouterModule.forRoot
-    ([], 
-      {
-      anchorScrolling: 'enabled',
-      scrollPositionRestoration: 'enabled'
-    })
+      ([],
+        {
+          anchorScrolling: 'enabled',
+          scrollPositionRestoration: 'enabled'
+        })
   ],
   providers: [],
   bootstrap: [AppComponent]
