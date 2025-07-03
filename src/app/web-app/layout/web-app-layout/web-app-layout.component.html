@@ -1,27 +1,8 @@
-<!--
-  Este é o contêiner principal.
-  - A classe 'app-container' é usada pelo CSS para aplicar o layout.
-  - O [ngClass] adiciona a classe 'sidebar-collapsed' dinamicamente,
-    o que permite que o CSS ajuste a margem do conteúdo.
--->
 <div class="app-container" [ngClass]="{ 'sidebar-collapsed': isSidebarCollapsed }">
-  
-  <!--
-    Este é o seu componente da sidebar.
-    - O (collapsedChange) é o "aviso" que a sidebar envia para este layout
-      sempre que seu estado de colapso muda.
-  -->
-  <app-sidebar (collapsedChange)="isSidebarCollapsed = $event"></app-sidebar>
 
-  <!--
-    Esta é a área de conteúdo principal.
-    - A classe 'content-area' é usada pelo CSS para aplicar a margem
-      e empurrar o conteúdo para a direita da sidebar.
-    - O <router-outlet> é onde o Angular irá renderizar o conteúdo
-      das suas páginas (Conta, Minha Jornada, etc.).
-  -->
+  <app-sidebar (collapsedChange)="isSidebarCollapsed = $event"></app-sidebar>
   <main class="content-area">
     <router-outlet></router-outlet>
   </main>
-  
+
 </div>

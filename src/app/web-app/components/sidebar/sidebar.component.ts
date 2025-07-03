@@ -31,7 +31,22 @@ export class SidebarComponent implements OnInit {
     this.currentTheme = 'light';
   }
 
+  handleMouseEnter(): void {
+    if (this.modoHover) {
+      this.isCollapsed = false;
+      this.collapsedChange.emit(this.isCollapsed);
+      this.updateLogo();
+    }
+  }
 
+  handleMouseLeave(): void {
+    if (this.modoHover) {
+      this.isCollapsed = true;
+      this.collapsedChange.emit(this.isCollapsed);
+      this.updateLogo(); 
+    }
+  }
+  
   toggleSidebar() {
     if (this.modoHover) {
       this.modoHover = false;
@@ -40,7 +55,6 @@ export class SidebarComponent implements OnInit {
       this.isCollapsed = !this.isCollapsed;
     }
     this.updateLogo();
-
     this.collapsedChange.emit(this.isCollapsed);
   }
 
@@ -52,10 +66,8 @@ export class SidebarComponent implements OnInit {
       this.isCollapsed = false;
     }
     this.updateLogo();
-
     this.collapsedChange.emit(this.isCollapsed);
   }
-
 
   ngOnInit(): void {
     if (isPlatformBrowser(this.platformId)) {

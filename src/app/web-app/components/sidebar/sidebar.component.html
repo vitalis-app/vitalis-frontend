@@ -1,11 +1,16 @@
 <aside
   class="sidebar"
-  (mouseenter)="modoHover && (isCollapsed = false)"
-  (mouseleave)="modoHover && (isCollapsed = true)"
+  [ngClass]="{ collapsed: isCollapsed, 'hover-mode': modoHover }"
+  (mouseenter)="handleMouseEnter()"
+  (mouseleave)="handleMouseLeave()"
 >
   <div class="sidebar-header">
-    <img [src]="logoSrc" alt="Vitalis Logo" class="logo" />
+    <a routerLink="/app" class="logo-link">
+      <img [src]="logoSrc" alt="Vitalis Logo" class="logo" />
+    </a>
+    
     <button
+      *ngIf="!isCollapsed"
       class="collapse-btn"
       (click)="toggleHoverMode()"
       [attr.title]="modoHover ? 'Fixar menu' : 'Ativar modo hover'"
@@ -96,6 +101,7 @@
       <i class="ri-user-star-line"></i>
       <span class="nav-text">Especialistas</span>
     </a>
+  </nav>
 
   <div class="sidebar-footer">
     <a
@@ -118,5 +124,4 @@
       <span class="nav-text">Conta</span>
     </a>
   </div>
-  </nav>
 </aside>
