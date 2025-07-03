@@ -17,46 +17,110 @@
 
   <nav class="sidebar-nav">
     <a href="/app-home" class="nav-item active" data-tooltip="Início">
+    <a
+      routerLink="/app"
+      routerLinkActive="active"
+      [routerLinkActiveOptions]="{ exact: true }"
+      class="nav-item"
+      data-tooltip="Início"
+    >
       <i class="ri-home-heart-fill"></i>
       <span class="nav-text">Início</span>
     </a>
 
-    <a href="/estacao-vital" class="nav-item" data-tooltip="Estação Vital">
+    <a
+      routerLink="/app/estacao-vital"
+      routerLinkActive="active"
+      class="nav-item"
+      data-tooltip="Estação Vital"
+    >
       <i class="ri-seedling-line"></i>
       <span class="nav-text">Estação Vital</span>
     </a>
 
     <a href="/aprender-mais" class="nav-item" data-tooltip="Aprender+">
+    <a
+      routerLink="/app/aprender"
+      routerLinkActive="active"
+      class="nav-item"
+      data-tooltip="Aprender+"
+    >
       <i class="ri-book-open-line"></i>
       <span class="nav-text">Aprender+</span>
     </a>
 
     <a href="/cuidar-mais" class="nav-item" data-tooltip="Cuidar+">
+    <a
+      routerLink="/app/psicoapoio"
+      routerLinkActive="active"
+      class="nav-item"
+      data-tooltip="PsicoApoio"
+    >
       <i class="ri-mental-health-line"></i>
       <span class="nav-text">PsicoApoio</span>
     </a>
 
     <a href="/planos" class="nav-item" data-tooltip="Planos">
+    <a
+      routerLink="/app/minha-jornada"
+      routerLinkActive="active"
+      class="nav-item"
+      data-tooltip="Minha Jornada"
+    >
+      <i class="ri-bar-chart-2-line"></i>
+      <span class="nav-text">Minha Jornada</span>
+    </a>
+
+    <a
+      routerLink="/app/comunidade"
+      routerLinkActive="active"
+      class="nav-item"
+      data-tooltip="Comunidade"
+    >
+      <i class="ri-chat-smile-3-line"></i>
+      <span class="nav-text">Comunidade</span>
+    </a>
+
+    <a
+      routerLink="/app/planos"
+      routerLinkActive="active"
+      class="nav-item"
+      data-tooltip="Planos"
+    >
       <i class="ri-star-line"></i>
       <span class="nav-text">Planos</span>
     </a>
 
-    <a href="/para-especialistas" class="nav-item" data-tooltip="Especialistas">
+    <a
+      routerLink="/app/especialistas"
+      routerLinkActive="active"
+      class="nav-item"
+      data-tooltip="Especialistas"
+    >
       <i class="ri-user-star-line"></i>
       <span class="nav-text">Especialistas</span>
     </a>
   </nav>
 
   <div class="sidebar-footer">
-    <a href="/configuracoes" class="nav-item" data-tooltip="Configurações">
+    <a
+      routerLink="/app/configuracoes"
+      routerLinkActive="active"
+      class="nav-item"
+      data-tooltip="Configurações"
+    >
       <i class="ri-settings-3-line"></i>
       <span class="nav-text">Configurações</span>
     </a>
 
-    <a href="/conta" class="nav-item" data-tooltip="Conta">
+    <a
+      routerLink="/app/conta"
+      routerLinkActive="active"
+      class="nav-item"
+      data-tooltip="Conta"
+    >
       <i class="ri-user-3-line"></i>
       <span class="nav-text">Conta</span>
     </a>
-
   </div>
 </aside>
