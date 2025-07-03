@@ -13,6 +13,7 @@ import { FuncionalidadesComponent } from './site/pages/funcionalidades/funcional
 import { SobreComponent } from './site/pages/sobre/sobre.component';
 import { SidebarComponent } from './web-app/components/sidebar/sidebar.component';
 import { HomeAppComponent } from './web-app/pages/home-app/home-app.component';
+import { RouterModule } from '@angular/router';
 
 import { AprenderComponent } from './web-app/pages/aprender/aprender.component';
 import { ComunidadeComponent } from './web-app/pages/comunidade/comunidade.component';
@@ -46,7 +47,13 @@ import { WebAppLayoutComponent } from './web-app/layout/web-app-layout/web-app-l
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    RouterModule.forRoot
+    ([], 
+      {
+      anchorScrolling: 'enabled',
+      scrollPositionRestoration: 'enabled'
+    })
   ],
   providers: [],
   bootstrap: [AppComponent]
