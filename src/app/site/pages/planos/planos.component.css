@@ -55,6 +55,7 @@
 .planos-section {
   padding: 80px 20px;
   text-align: center;
+  background-color: var(--verde-56);
 }
 
 .planos-section h2 {
@@ -73,7 +74,7 @@
 }
 
 .plano {
-  background-color: var(--verde-5);
+  background-color: var(--verde-56);
   border-radius: 24px;
   padding: 30px;
   flex: 1;
@@ -84,7 +85,7 @@
   transition: all 0.3s ease;
   display: flex;
   flex-direction: column;
-  border: 2px solid transparent;
+  border: 2px solid var(--verde-4);
 }
 
 .plano:hover {
@@ -93,6 +94,7 @@
 }
 
 .plano.destaque {
+  background-color: var(--verde-5);
   border: 2px solid var(--verde-10);
 }
 
