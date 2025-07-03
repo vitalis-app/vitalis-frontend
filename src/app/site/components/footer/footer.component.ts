@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { RouterModule } from '@angular/router'; 
 
 @Component({
-  selector: 'app-footer',
+  selector: 'web-footer',
   standalone: true, 
   imports: [RouterModule], 
   templateUrl: './footer.component.html',

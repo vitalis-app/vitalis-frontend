@@ -12,7 +12,7 @@
     var(--gradiente-inicio),
     var(--gradiente-fim)
   );
-  color: var(--branco);
+  color: var(--verde-7);
   font-weight: 500;
   padding: 0.75rem 2rem;
   border-radius: 9999px; /* full rounded */
@@ -66,9 +66,9 @@
 }
 
 .btn-white:hover {
-  background-color: var(--verde-5);
+  background-color: #176B5D;
   box-shadow: 0 10px 20px var(--shadow-1);
-  color: var(--verde-0);
+  color: var(--branco);
 }
 
 /* Main Content Sections */
@@ -95,7 +95,7 @@ section {
 
 /* Home Section */
 .home-section {
-  padding-top: 6rem;
+  padding-top: 10rem;
   min-height: 100vh;
   display: flex;
   align-items: center;
@@ -114,9 +114,10 @@ section {
 
 .home-title {
   color: var(--verde-1);
-  font-size: 3rem; /* text-4xl */
-  font-weight: 700; /* font-bold */
+  font-size: 4rem; /* text-4xl */
+  font-weight: 400; /* font-bold */
   margin-bottom: 1.5rem; /* mb-6 */
+  font-family: Outfit;
 }
 
 .home-title .block {
@@ -125,6 +126,7 @@ section {
 
 .vital-text {
   color: var(--verde-0);
+  font-weight: 600;
 }
 
 .home-description {
@@ -133,7 +135,7 @@ section {
   margin-bottom: 2rem; /* mb-8 */
 }
 
-.home-svg-container {
+.hero-svg-container {
   width: 100%;
 }
 
@@ -144,7 +146,7 @@ section {
 
 /* About Section */
 .about-section {
-  background-color: var(--verde-5);
+  background-color: var(--verde-562);
 }
 
 .about-content {
@@ -177,9 +179,8 @@ section {
 }
 
 .about-card:hover{
-  background-color: var(--verde-5);
   box-shadow: 0 10px 20px var(--shadow-0);
-  color: var(--verde-0);
+  transform: translateY(-2px);
 }
 
 .about-card-icon-container {
@@ -365,10 +366,11 @@ section {
 .plan-card:hover {
   box-shadow: 0 4px 6px -1px var(--shadow-0),
     0 2px 4px -1px rgba(0, 0, 0, 0.1); /* hover:shadow-md */
+    transform: translateY(-2px);
 }
 
 .premium-card {
-  border: 2px solid var(--verde-3);
+  border: 2px solid var(--verde-10);
   position: relative;
 }
 
@@ -376,7 +378,7 @@ section {
   position: absolute;
   top: 0;
   right: 0;
-  background-color: var(--verde-3);
+  background-color: var(--verde-10);
   color: var(--branco);
   padding: 0.25rem 1rem; /* px-4 py-1 */
   border-bottom-left-radius: 0.5rem; /* rounded-bl-lg */
@@ -397,7 +399,7 @@ section {
   color: var(--verde-2);
 }
 .plan-title i{
-  color: var(--verde-3);
+  color: var(--verde-10);
 }
 
 .plan-subtitle {
@@ -442,6 +444,12 @@ section {
   padding: 2rem; /* p-8 */
   border-radius: 0.75rem; /* rounded-xl */
   text-align: center;
+  transition: all 0.3s ease;
+}
+.specialist-card:hover {
+  box-shadow: 0 4px 6px -1px var(--shadow-0),
+    0 2px 4px -1px rgba(0, 0, 0, 0.1); /* hover:shadow-md */
+    transform: translateY(-2px);
 }
 
 .specialist-icon-container {
@@ -488,11 +496,15 @@ section {
 .cta-section {
   background: linear-gradient(
     to right,
-    var(--gradiente-fim),
-    var(--gradiente-inicio)
+    #176B5D,
+    #27B29B
   );
   color: var(--branco);
   text-align: center;
+  height: 70vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .cta-title {

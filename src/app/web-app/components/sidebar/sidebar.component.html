@@ -1,6 +1,5 @@
 <aside
   class="sidebar"
-  [ngClass]="{ collapsed: isCollapsed, 'hover-mode': modoHover }"
   (mouseenter)="modoHover && (isCollapsed = false)"
   (mouseleave)="modoHover && (isCollapsed = true)"
 >
@@ -17,6 +16,7 @@
   </div>
 
   <nav class="sidebar-nav">
+    <a href="/app-home" class="nav-item active" data-tooltip="Início">
     <a
       routerLink="/app"
       routerLinkActive="active"
@@ -38,6 +38,7 @@
       <span class="nav-text">Estação Vital</span>
     </a>
 
+    <a href="/aprender-mais" class="nav-item" data-tooltip="Aprender+">
     <a
       routerLink="/app/aprender"
       routerLinkActive="active"
@@ -48,6 +49,7 @@
       <span class="nav-text">Aprender+</span>
     </a>
 
+    <a href="/cuidar-mais" class="nav-item" data-tooltip="Cuidar+">
     <a
       routerLink="/app/psicoapoio"
       routerLinkActive="active"
@@ -58,6 +60,7 @@
       <span class="nav-text">PsicoApoio</span>
     </a>
 
+    <a href="/planos" class="nav-item" data-tooltip="Planos">
     <a
       routerLink="/app/minha-jornada"
       routerLinkActive="active"
