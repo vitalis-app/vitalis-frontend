@@ -17,10 +17,9 @@ import { EstacaoVitalComponent } from './web-app/pages/estacao-vital/estacao-vit
 import { MinhaJornadaComponent } from './web-app/pages/minha-jornada/minha-jornada.component';
 import { PsicoapoioComponent } from './web-app/pages/psicoapoio/psicoapoio.component';
 import { AprenderMaisComponent } from './web-app/pages/aprender-mais/aprender-mais.component';
-
+import { LoginComponent } from './web-app/pages/login/login.component';
 
 const routes: Routes = [
-
   {
     path: '',
     component: SiteLayoutComponent,
@@ -29,22 +28,23 @@ const routes: Routes = [
       { path: 'sobre', component: SobreComponent },
       { path: 'funcionalidades', component: FuncionalidadesComponent },
       { path: 'planos', component: SitePlanosComponent },
-      { path: 'para-especialistas', component: SiteEspecialistasComponent }
-    ]
+      { path: 'para-especialistas', component: SiteEspecialistasComponent },
+    ],
   },
 
   {
     path: 'app',
-    component: WebAppLayoutComponent, 
+    component: WebAppLayoutComponent,
     children: [
       { path: '', component: HomeAppComponent },
       { path: 'aprender-mais', component: AprenderMaisComponent },
       { path: 'configuracoes', component: ConfiguracoesComponent },
       { path: 'conta', component: ContaComponent },
       { path: 'estacao-vital', component: EstacaoVitalComponent },
+      { path: 'login', component: LoginComponent },
       { path: 'minha-jornada', component: MinhaJornadaComponent },
-      { path: 'psicoapoio', component: PsicoapoioComponent }
-    ]
+      { path: 'psicoapoio', component: PsicoapoioComponent },
+    ],
   },
 
   { path: '**', redirectTo: '', pathMatch: 'full' },
@@ -52,6 +52,6 @@ const routes: Routes = [
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}
