@@ -1,4 +1,12 @@
-<app-navbar></app-navbar>
+<btn-scrollup></btn-scrollup>
+<section class="hero">
+    <div class="container hero-container">
+        <div class="hero-content">
+            <h1 class="hero-title">Planos pensados para florescer com você.</h1>
+            <a [routerLink]="[]" fragment="planos" class="gradient-btn">Conheça nossos planos</a>
+        </div>
+    </div>
+</section>
 
 <section id="planos" class="planos-section">
   <h2>Planos e Preços</h2>
@@ -44,7 +52,7 @@
 
     <div class="plano destaque">
       <div class="selo-destaque">Mais Popular</div>
-      <h3><span aria-hidden="true"><i class="ri-vip-diamond-fill"></i> </span>Vital+</h3>
+      <h3><span aria-hidden="true"><i class="ri-vip-diamond-fill"></i> </span> Vital+</h3>
       <ul>
         <li>
           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5"
@@ -159,5 +167,3 @@
     </div>
   </div>
 </section>
-
-<app-footer></app-footer>

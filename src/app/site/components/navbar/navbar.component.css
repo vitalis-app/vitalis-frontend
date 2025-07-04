@@ -1,5 +1,4 @@
 .header {
-  background-color: var(--verde-6);
   position: fixed;
   width: 100%;
   top: 0;
@@ -8,11 +7,14 @@
 
 .navbar {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
   padding: 1rem 1rem; /* Ajuste o padding conforme necessário */
   width: 100%;
   margin: 0 auto;
+  background: var(--glass);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
 }
 
 .navbar.scrolled {
@@ -30,7 +32,7 @@
   transition: all 0.3s;
 }
 
-.logo-img:hover{
+.logo-img:hover {
   transform: scale(1.05);
   cursor: pointer;
 }
@@ -50,7 +52,9 @@
 }
 
 .nav-link:hover {
-  color: var(--verde-3); /* Cor do link no hover, usando --ciano-claro como nos botões */
+  color: var(
+    --verde-3
+  ); /* Cor do link no hover, usando --ciano-claro como nos botões */
 }
 
 .nav-link::after {

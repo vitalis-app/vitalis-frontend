@@ -1,1 +1,135 @@
-<p>configuracoes works!</p>
+<div class="settings-page">
+    <h1>Configurações</h1>
+    <p class="subtitle">Personalize a sua experiência na Vitalis</p>
+
+    <div class="settings-grid">
+
+
+        <div class="settings-column">
+
+
+            <div class="settings-card">
+                <h3><i class="ri-palette-line"></i> Aparência</h3>
+                <div class="theme-selector">
+
+                    <div class="theme-option" [class.active]="currentTheme === 'light'" (click)="setTheme('light')">
+                        <i class="ri-sun-line"></i>
+                        <span>Claro</span>
+                        <small>Tema padrão</small>
+                    </div>
+
+                    <div class="theme-option" [class.active]="currentTheme === 'dark'" (click)="setTheme('dark')">
+                        <i class="ri-moon-line"></i>
+                        <span>Escuro</span>
+                        <small>Ideal para a noite</small>
+                    </div>
+                </div>
+            </div>
+
+            <div class="settings-card">
+                <h3><i class="ri-global-line"></i> Idioma</h3>
+                <select class="custom-select">
+                    <option>Português (Brasil)</option>
+                    <option>English</option>
+                    <option>Español</option>
+                </select>
+            </div>
+
+            <div class="settings-card">
+                <h3><i class="ri-lightbulb-flash-line"></i> Sugestões Personalizadas</h3>
+                <div class="suggestion">
+                    <p>Você está há 4 dias sem regar a sua planta!</p>
+                    <small>Que tal cuidar da sua próxima semente para manter a rota de bem-estar? </small>
+                    <button class="btn-secondary" routerLink="/app/estacao-vital">Regar Agora</button>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="settings-column">
+
+            <div class="settings-card">
+                <h3><i class="ri-notification-3-line"></i> Notificações</h3>
+                <ul class="notification-list">
+                    <li>
+                        <div class="notification-text">
+                            <strong>Alertas de humor diários</strong>
+                            <small>Lembrete para registar o seu humor</small>
+                        </div>
+                        <label class="toggle-switch">
+                            <input type="checkbox" checked>
+                            <span class="slider"></span>
+                        </label>
+                    </li>
+                    <li>
+                        <div class="notification-text">
+                            <strong>Sessões agendadas</strong>
+                            <small>Lembretes de Consultas e Agendamentos</small>
+                        </div>
+                        <label class="toggle-switch">
+                            <input type="checkbox" checked>
+                            <span class="slider"></span>
+                        </label>
+                    </li>
+                    <li>
+                        <div class="notification-text">
+                            <strong>Novos vídeos no Aprender+</strong>
+                            <small>Conteúdo educativo sobre bem-estar</small>
+                        </div>
+                        <label class="toggle-switch">
+                            <input type="checkbox">
+                            <span class="slider"></span>
+                        </label>
+                    </li>
+                </ul>
+                <h4>Métodos de Notificação</h4>
+                <div class="notification-methods">
+                    <div class="method-option">
+                        <i class="ri-mail-line"></i>
+                        <span>E-mail</span>
+                    </div>
+                    <div class="method-option">
+                        <i class="ri-message-2-line"></i>
+                        <span>SMS</span>
+                    </div>
+                    <div class="method-option active">
+                        <i class="ri-smartphone-line"></i>
+                        <span>Push</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="settings-card">
+                <h3><i class="ri-shield-check-line"></i> Privacidade & Segurança</h3>
+                <h4>Dispositivos Conectados</h4>
+                <ul class="device-list">
+                    <li>
+                        <i class="ri-macbook-line"></i>
+                        <div class="device-info">
+                            <strong>MacBook Pro</strong>
+                            <span>Desktop - há 1 hora atrás</span>
+                        </div>
+                        <button class="btn-icon"><i class="ri-logout-box-r-line"></i></button>
+                    </li>
+                    <li>
+                        <i class="ri-smartphone-line"></i>
+                        <div class="device-info">
+                            <strong>iPhone 13 Pro</strong>
+                            <span>Móvel - 2 minutos atrás</span>
+                        </div>
+                        <button class="btn-icon active-session">Atual</button>
+                    </li>
+                </ul>
+                <button class="btn-secondary full-width">Desconectar todos os dispositivos</button>
+            </div>
+
+            <div class="settings-card danger-zone">
+                <h3><i class="ri-alert-line"></i> Zona de Perigo</h3>
+                <p>Esta ação não pode ser desfeita. Todos os seus dados, incluindo histórico de sessões, configurações e
+                    progresso serão permanentemente removidos.</p>
+                <button class="btn-danger">Excluir Conta</button>
+            </div>
+
+        </div>
+    </div>
+</div>

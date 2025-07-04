@@ -1,209 +1,213 @@
-<app-navbar></app-navbar>
+<btn-scrollup></btn-scrollup>
 
-<main>
-  <!-- About Section -->
-  <section id="about">
-    <div class="container">
-      <div class="section-header">
-        <h2 class="section-title">Sobre a Vitalis</h2>
-        <div class="section-divider"></div>
-        <p class="section-description">
-          A <strong>Vitalis</strong> é uma plataforma digital de bem-estar e saúde mental,
-          pensada para tornar o autocuidado emocional leve, acessível e constante.
-          Unimos apoio psicológico, conteúdos educativos e ferramentas de autoconhecimento em um ambiente 100% online, acolhedor e moderno,
-          feito especialmente para quem deseja cuidar da mente, mas não sabe por onde começar.
-        </p>
-      </div>
-
-      <!-- Our Story -->
-      <div class="story-container">
-        <div class="story-text">
-          <h3 class="story-title">Nossa História</h3>
-          <p class="story-paragraph">
-            A Vitalis nasceu como um projeto acadêmico com um propósito real: transformar o cuidado emocional em algo simples e natural, como regar uma planta todos os dias.
-          </p>
-          <p class="story-paragraph">
-            No início, queríamos apoiar empresas com equipes remotas. Mas logo percebemos que a necessidade era muito maior:
-            hoje, nossa plataforma se expande para acolher a todos.
-          </p>
-          <p class="story-paragraph">
-            Mais do que um projeto, a Vitalis é um movimento por uma nova forma de se cuidar.
-          </p>
-        </div>
-      </div>
-
-      <!-- Mission, Vision, Values -->
-      <div class="mvv-container">
-        <div class="mvv-card">
-          <div class="mvv-icon-container">
-            <i class="ri-compass-3-line"></i>
-          </div>
-          <h4 class="mvv-title">Missão</h4>
-          <p class="mvv-description">
-            Oferecer apoio emocional acessível, leve e contínuo, ajudando
-            pessoas a cultivarem sua saúde mental com constância e carinho.
-          </p>
-        </div>
-
-        <div class="mvv-card">
-          <div class="mvv-icon-container">
-            <i class="ri-eye-line"></i>
-          </div>
-          <h4 class="mvv-title">Visão</h4>
-          <p class="mvv-description">
-            Ser referência em cuidado emocional acessível, tornando o bem-estar
-            mental parte natural da rotina de milhares de pessoas.
-          </p>
-        </div>
-      </div>
-
-      <!-- Values in Detail -->
-      <h3
-        class="section-title"
-        style="text-align: center; margin-bottom: 2.5rem"
+<section class="hero" style="padding: 0">
+  <div class="container hero-container">
+    <div class="hero-content">
+      <h1 class="hero-title">Muito mais que uma plataforma.</h1>
+      <a [routerLink]="[]" fragment="sobre" class="gradient-btn"
+        >Conhecer a Vitalis</a
       >
-        Nossos Valores
-      </h3>
-      <div class="values-container">
-        <div class="value-card">
-          <div class="mvv-icon-container">
-            <i class="ri-empathize-line"></i>
-          </div>
-          <h4 class="mvv-title">Acolhimento</h4>
-          <p class="mvv-description">
-            	Criamos um espaço onde todos possam se sentir bem-vindos.
-          </p>
-          <p class="mvv-description">
-            	Sem julgamentos.
-          </p>
-          <p class="mvv-description">
-          </p>
-        </div>
+    </div>
+  </div>
+</section>
 
-        <div class="value-card">
-          <div class="mvv-icon-container">
-            <i class="ri-puzzle-line"></i>
-          </div>
-          <h4 class="mvv-title">Acessibilidade</h4>
-          <p class="mvv-description">
-            Cuidar da mente não pode ser um privilégio.
-          </p>
-          <p class="mvv-description">
-            Queremos tornar isso possível para todos.
-          </p>
-        </div>
-      </div>
-      <div class="values-container">
-        <div class="value-card">
-          <div class="mvv-icon-container">
-            <i class="ri-time-line"></i>
-          </div>
-          <h4 class="mvv-title">Constância</h4>
-          <p class="mvv-description">
-            Mais importante que intensidade é a presença diária.
-          </p>
-          <p class="mvv-description">
-            O cuidado emocional floresce com o tempo.
-          </p>
-        </div>
-
-        <div class="value-card">
-          <div class="mvv-icon-container">
-            <i class="ri-lightbulb-line"></i>
-          </div>
-          <h4 class="mvv-title">Autoconhecimento</h4>
-          <p class="mvv-description">
-            Conhecer a si mesmo é o primeiro passo.
-          </p>
-          <p class="mvv-description">
-            Cada funcionalidade da Vitalis incentiva essa reflexão.
-          </p>
-        </div>
-      </div>
-
-      <!-- Differentials -->
-      <h3
-        class="section-title"
-        style="text-align: center; margin-bottom: 2.5rem"
-      >
-        Nossos Diferenciais
-      </h3>
-      <div class="differentials-container">
-        <div class="objective-card">
-          <div class="objective-header">
-            <div class="objective-icon-container">
-              <i class="ri-money-dollar-circle-line"></i>
-            </div>
-            <h4 class="objective-title">Custo Acessível</h4>
-          </div>
-          <p class="objective-description">
-            Planos a partir de R$ 19,90/mês e consultas abaixo de R$ 150,00.
-          </p>
-        </div>
-
-        <div class="objective-card">
-          <div class="objective-header">
-            <div class="objective-icon-container">
-              <i class="ri-thumb-up-line"></i>
-            </div>
-            <h4 class="objective-title">Interface Amigável</h4>
-          </div>
-          <p class="objective-description">
-            Interface leve e amigável, para tratar o autocuidado com mais leveza.
-          </p>
-        </div>
-
-        <div class="objective-card">
-          <div class="objective-header">
-            <div class="objective-icon-container">
-              <i class="ri-gamepad-line"></i>
-            </div>
-            <h4 class="objective-title">Gamificação</h4>
-          </div>
-          <p class="objective-description">
-            Nossa planta emocional transforma o autocuidado em uma prática diária suave e intuitiva.
-          </p>
-        </div>
-
-        <div class="objective-card">
-          <div class="objective-header">
-            <div class="objective-icon-container">
-              <i class="ri-smartphone-line"></i>
-            </div>
-            <h4 class="objective-title">100% Digital</h4>
-          </div>
-          <p class="objective-description">
-            Pensada para funcionar no seu tempo, no seu dispositivo, do seu jeito.
-          </p>
-        </div>
-      </div>
-
-      <!-- Target Audience -->
-      <div class="audience-section">
-        <h3 class="audience-title">Público-Alvo</h3>
-        <p class="audience-description">
-          Inicialmente focada em empresas com equipes remotas, a Vitalis se
-          expandiu para atingir qualquer pessoa que esteja buscando apoio
-          psicológico, com foco especial em:
-        </p>
-        <div class="audience-tags">
-          <span class="audience-tag">Jovem adultos</span>
-          <span class="audience-tag">Profissionais em início de carreira</span>
-          <span class="audience-tag">Pessoas em busca de autoconhecimento</span>
-          <span class="audience-tag">Pessoas que buscam apoio psicológico</span>
-        </div>
-      </div>
-
-      <!-- CTA -->
-      <div class="cta-section">
-        <h3 class="cta-title">Pronto para cuidar da sua saúde mental?</h3>
-        <p class="cta-description">
-          <strong>Junte-se à Vitalis</strong> e comece a cultivar seu bem-estar emocional com constância e carinho.
-        </p>
-        <a href="web/planos" class="cta-button"> Conheça Nossos Planos </a>
-      </div>
+<!-- About Section -->
+<section id="sobre">
+  <section class="container">
+    <div class="section-header">
+      <h2 class="section-title">Sobre nós</h2>
+      <div class="section-divider"></div>
+      <p class="section-description">
+        A <strong>Vitalis</strong> é uma plataforma digital de bem-estar e saúde
+        mental, pensada para tornar o autocuidado emocional leve, acessível e
+        constante. Unimos apoio psicológico, conteúdos educativos e ferramentas
+        de autoconhecimento em um ambiente 100% online, acolhedor e moderno,
+        feito especialmente para quem deseja cuidar da mente, mas não sabe por
+        onde começar.
+      </p>
     </div>
   </section>
-</main>
 
-<app-footer></app-footer>
+  <!-- Our Story -->
+  <div class="story-container">
+    <div class="story-text">
+      <h3 class="story-title" style="margin-top: 2rem">Nossa História</h3>
+      <p class="story-paragraph">
+        A Vitalis nasceu como um projeto acadêmico com um propósito real:
+        transformar o cuidado emocional em algo simples e natural, como regar
+        uma planta todos os dias.
+      </p>
+      <p class="story-paragraph">
+        No início, queríamos apoiar empresas com equipes remotas. Mas logo
+        percebemos que a necessidade era muito maior: hoje, nossa plataforma se
+        expande para acolher a todos.
+      </p>
+      <p class="story-paragraph">
+        Mais do que um projeto, a Vitalis é um movimento por uma nova forma de
+        se cuidar.
+      </p>
+    </div>
+    <img class="logo-img" [src]="logoSrc" alt="Vitalis logo" />
+  </div>
+
+  <div class="container">
+    <!-- Mission, Vision, Values -->
+    <div class="mvv-container">
+      <div class="mvv-card">
+        <div class="mvv-icon-container">
+          <i class="ri-compass-3-line"></i>
+        </div>
+        <h4 class="mvv-title">Missão</h4>
+        <p class="mvv-description">
+          Oferecer apoio emocional acessível, leve e contínuo, ajudando pessoas
+          a cultivarem sua saúde mental com constância e carinho.
+        </p>
+      </div>
+
+      <div class="mvv-card">
+        <div class="mvv-icon-container">
+          <i class="ri-eye-line"></i>
+        </div>
+        <h4 class="mvv-title">Visão</h4>
+        <p class="mvv-description">
+          Ser referência em cuidado emocional acessível, tornando o bem-estar
+          mental parte natural da rotina de milhares de pessoas.
+        </p>
+      </div>
+    </div>
+
+    <!-- Values in Detail -->
+    <h3 class="section-title" style="text-align: center; margin-bottom: 2.5rem">
+      Nossos Valores
+    </h3>
+    <div class="values-container">
+      <div class="value-card">
+        <div class="mvv-icon-container">
+          <i class="ri-empathize-line"></i>
+        </div>
+        <h4 class="mvv-title">Acolhimento</h4>
+        <p class="mvv-description">
+          Criamos um espaço onde todos possam se sentir bem-vindos.
+        </p>
+        <p class="mvv-description">Sem julgamentos.</p>
+        <p class="mvv-description"></p>
+      </div>
+
+      <div class="value-card">
+        <div class="mvv-icon-container">
+          <i class="ri-puzzle-line"></i>
+        </div>
+        <h4 class="mvv-title">Acessibilidade</h4>
+        <p class="mvv-description">
+          Cuidar da mente não pode ser um privilégio.
+        </p>
+        <p class="mvv-description">Queremos tornar isso possível para todos.</p>
+      </div>
+    </div>
+    <div class="values-container">
+      <div class="value-card">
+        <div class="mvv-icon-container">
+          <i class="ri-time-line"></i>
+        </div>
+        <h4 class="mvv-title">Constância</h4>
+        <p class="mvv-description">
+          Mais importante que intensidade é a presença diária.
+        </p>
+        <p class="mvv-description">O cuidado emocional floresce com o tempo.</p>
+      </div>
+
+      <div class="value-card">
+        <div class="mvv-icon-container">
+          <i class="ri-lightbulb-line"></i>
+        </div>
+        <h4 class="mvv-title">Autoconhecimento</h4>
+        <p class="mvv-description">Conhecer a si mesmo é o primeiro passo.</p>
+        <p class="mvv-description">
+          Cada funcionalidade da Vitalis incentiva essa reflexão.
+        </p>
+      </div>
+    </div>
+
+    <!-- Differentials -->
+    <h3
+      class="section-title"
+      style="text-align: center; margin-bottom: 2.5rem; margin-top: 10rem"
+    >
+      Nossos Diferenciais
+    </h3>
+    <div class="differentials-container">
+      <div class="objective-card">
+        <div class="objective-header">
+          <div class="objective-icon-container">
+            <i class="ri-money-dollar-circle-line"></i>
+          </div>
+          <h4 class="objective-title">Custo Acessível</h4>
+        </div>
+        <p class="objective-description">
+          Planos a partir de R$ 19,90/mês e consultas abaixo de R$ 150,00.
+        </p>
+      </div>
+
+      <div class="objective-card">
+        <div class="objective-header">
+          <div class="objective-icon-container">
+            <i class="ri-thumb-up-line"></i>
+          </div>
+          <h4 class="objective-title">Interface Amigável</h4>
+        </div>
+        <p class="objective-description">
+          Interface leve e amigável, para tratar o autocuidado com mais leveza.
+        </p>
+      </div>
+
+      <div class="objective-card">
+        <div class="objective-header">
+          <div class="objective-icon-container">
+            <i class="ri-gamepad-line"></i>
+          </div>
+          <h4 class="objective-title">Gamificação</h4>
+        </div>
+        <p class="objective-description">
+          Nossa planta emocional transforma o autocuidado em uma prática diária
+          suave e intuitiva.
+        </p>
+      </div>
+
+      <div class="objective-card">
+        <div class="objective-header">
+          <div class="objective-icon-container">
+            <i class="ri-smartphone-line"></i>
+          </div>
+          <h4 class="objective-title">100% Digital</h4>
+        </div>
+      </div>
+    </div>
+
+  <section>
+    <!-- Target Audience -->
+    <div class="audience-section">
+      <h3 class="audience-title">Público-Alvo</h3>
+      <p class="audience-description">
+        Inicialmente focada em empresas com equipes remotas, a Vitalis se
+        expandiu para atingir qualquer pessoa que esteja buscando apoio
+        psicológico, com foco especial em:
+      </p>
+      <div class="audience-tags">
+        <span class="audience-tag">Jovem adultos</span>
+        <span class="audience-tag">Profissionais em início de carreira</span>
+        <span class="audience-tag">Pessoas em busca de autoconhecimento</span>
+        <span class="audience-tag">Pessoas que buscam apoio psicológico</span>
+      </div>
+    </div>
+    <!-- CTA -->
+    <div class="cta-section">
+      <h3 class="cta-title">Pronto para cuidar da sua saúde mental?</h3>
+      <p class="cta-description">
+        <strong>Junte-se à Vitalis</strong> e comece a cultivar seu bem-estar
+        emocional com constância e carinho.
+      </p>
+      <a href="web/planos" class="cta-button"> Conheça Nossos Planos </a>
+    </div>
+  </section>
+  </div>
+</section>
