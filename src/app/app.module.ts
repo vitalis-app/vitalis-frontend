@@ -1,14 +1,10 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-
 import { HomeComponent } from './site/pages/home/home.component';
 import { PlanosComponent } from './site/pages/planos/planos.component';
 import { EspecialistasComponent } from './site/pages/especialistas/especialistas.component';
-import { NavbarComponent } from './site/components/navbar/navbar.component';
-import { FooterComponent } from './site/components/footer/footer.component';
 import { FuncionalidadesComponent } from './site/pages/funcionalidades/funcionalidades.component';
 import { SobreComponent } from './site/pages/sobre/sobre.component';
 import { SidebarComponent } from './web-app/components/sidebar/sidebar.component';
@@ -21,9 +17,6 @@ import { BtnSecondaryComponent } from './site/components/widgets/buttons/btn-sec
 import { BtnDestaqueComponent } from './site/components/widgets/buttons/btn-destaque/btn-destaque.component';
 import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
-
-import { AprenderComponent } from './web-app/pages/aprender/aprender.component';
-import { ComunidadeComponent } from './web-app/pages/comunidade/comunidade.component';
 import { ConfiguracoesComponent } from './web-app/pages/configuracoes/configuracoes.component';
 import { ContaComponent } from './web-app/pages/conta/conta.component';
 import { EstacaoVitalComponent } from './web-app/pages/estacao-vital/estacao-vital.component';
@@ -48,8 +41,6 @@ import { WebAppLayoutComponent } from './web-app/layout/web-app-layout/web-app-l
     BtnGradientComponent,
     BtnSecondaryComponent,
     BtnDestaqueComponent,
-    AprenderComponent,
-    ComunidadeComponent,
     ConfiguracoesComponent,
     ContaComponent,
     EstacaoVitalComponent,
