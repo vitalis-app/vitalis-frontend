@@ -63,6 +63,14 @@ section {
   margin: 0 auto;
 }
 
+.about-container{
+  background-color: var(--verde-7);
+}
+
+#sobre{
+  background-color: var(--verde-7);
+}
+
 /* Story Section */
 .story-container {
   display: flex;
@@ -104,6 +112,7 @@ section {
 .mvv-card {
   background-color: var(--verde-5);
   border-radius: 0.5rem;
+  border-top: 3px solid transparent;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   padding: 3rem;
   transition: all 0.3s ease;
@@ -112,6 +121,7 @@ section {
 .mvv-card:hover {
   transform: translateY(-5px);
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  border-top: 3px solid var(--verde-3);
 }
 
 .mvv-icon-container {
