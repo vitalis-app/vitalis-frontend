@@ -4,16 +4,14 @@
   <div class="container hero-container">
     <div class="hero-content">
       <h1 class="hero-title">Muito mais que uma plataforma.</h1>
-      <a [routerLink]="[]" fragment="sobre" class="gradient-btn"
-        >Conhecer a Vitalis</a
-      >
+      <a [routerLink]="[]" fragment="sobre"><btn-gradient text="Conhecer a Vitalis"></btn-gradient></a>
     </div>
   </div>
 </section>
 
 <!-- About Section -->
 <section id="sobre">
-  <section class="container">
+  <section class="about-container">
     <div class="section-header">
       <h2 class="section-title">Sobre nós</h2>
       <div class="section-divider"></div>
@@ -180,6 +178,9 @@
           </div>
           <h4 class="objective-title">100% Digital</h4>
         </div>
+        <p class="objective-description">
+          Para você cuidar de si onde e quando quiser.
+        </p>
       </div>
     </div>
 
@@ -199,15 +200,15 @@
         <span class="audience-tag">Pessoas que buscam apoio psicológico</span>
       </div>
     </div>
-    <!-- CTA -->
-    <div class="cta-section">
-      <h3 class="cta-title">Pronto para cuidar da sua saúde mental?</h3>
-      <p class="cta-description">
-        <strong>Junte-se à Vitalis</strong> e comece a cultivar seu bem-estar
-        emocional com constância e carinho.
-      </p>
-      <a href="web/planos" class="cta-button"> Conheça Nossos Planos </a>
-    </div>
   </section>
-  </div>
+</div>
 </section>
+<!-- CTA -->
+<div class="cta-section">
+  <h3 class="cta-title">Pronto para cuidar da sua saúde mental?</h3>
+  <p class="cta-description">
+    <strong>Junte-se à Vitalis</strong> e comece a cultivar seu bem-estar
+    emocional com constância e carinho.
+  </p>
+  <a href="planos"><btn-gradient text="Conheça Nossos Planos"></btn-gradient></a>
+</div>

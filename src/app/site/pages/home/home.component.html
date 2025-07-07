@@ -12,9 +12,9 @@
             Transforme sua saúde mental com uma plataforma que une tecnologia,
             acolhimento e propósito.
           </p>
-          <button class="gradient-btn">
-            Conhecer
-          </button>
+          <a [routerLink]="[]" fragment="sobre">
+            <btn-gradient text="Conhecer"></btn-gradient>
+          </a>
         </div>
         <div class="hero-svg-container">
           <img
@@ -27,7 +27,7 @@
     </div>
   </section>
 
-  <section id="about" class="about-section">
+  <section id="sobre" class="about-section">
     <div class="container">
       <h2 class="section-title" style="color: var(--verde-1);">Sobre a Vitalis</h2>
       <div class="about-content">
@@ -124,7 +124,7 @@
               Agende consultas com psicólogos e mentores qualificados. Encontre
               o profissional ideal para suas necessidades.
             </p>
-            <a href="web/funcionalidades" class="feature-card-link">
+            <a href="funcionalidades" class="feature-card-link">
               Saiba mais
               <svg
                 class="feature-card-link-icon"
@@ -167,7 +167,7 @@
               Biblioteca completa com vídeos, podcasts e eventos sobre saúde
               mental, autoconhecimento e bem-estar.
             </p>
-            <a href="web/funcionalidades" class="feature-card-link">
+            <a href="funcionalidades" class="feature-card-link">
               Saiba mais
               <svg
                 class="feature-card-link-icon"
@@ -215,7 +215,7 @@
               cresce conforme seus cuidados pessoais.
             </p>
             <a
-              routerLink="web/funcionalidades"
+              routerLink="funcionalidades"
               class="feature-card-link"
             >
               Saiba mais
@@ -321,7 +321,7 @@
               <span>Descontos em consultas</span>
             </div>
           </div>
-          <a href="/web/planos"><button class="btn-secondary" style="background-color: var(--verde-10);">Conhecer os planos</button></a>
+          <a href="/planos"><button class="btn-secondary" style="background-color: var(--verde-10);">Conhecer os planos</button></a>
         </div>
       </div>
     </div>
@@ -372,11 +372,8 @@
       </div>
 
       <div class="specialist-cta-container">
-        <a href="web/para-especialistas"
-          ><button class="gradient-btn ">
-            Quero fazer parte
-          </button></a
-        >
+        <a href="para-especialistas"
+          ><btn-gradient text="Quero fazer parte"></btn-gradient></a>
         <p class="specialist-cta-info">
           Após o cadastro, nossa equipe entrará em contato para verificação de
           documentos.
