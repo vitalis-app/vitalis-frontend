@@ -1,63 +1,216 @@
 .auth-page-container {
     display: flex;
-    padding: 6rem;
+    padding: 5rem 4rem;
     width: 100vw;
     height: 100vh;
     justify-content: space-evenly;
+    background: radial-gradient(circle at right,
+            var(--verde-5   ),
+            var(--verde-7) 100%);
+    color: var(--verde-1)
 }
 
 /* Titulo/Lado Esquerdo */
 .auth-hero {
-    display:flex;
+    display: flex;
     flex-direction: column;
     justify-content: center;
+    max-width: 50%;
+}
+
+.text-title{
+    font-size: 3.5rem;    
+}
+.text-subtitle{
+    font-size: 1.5rem;
+    color: var(--verde-3)
 }
 
 #vitalis-logo {
-    width: 100px;
+    width: 130px;
     height: auto;
     margin-bottom: 1rem;
 }
 
 /* Painel de Login */
-.auth-panel {   
+.auth-panel {
+    background: linear-gradient(180deg,
+    var(--verde-56),
+    var(--verde-6));
     border-radius: 2rem;
     width: 25rem;
-    padding: 1rem;
+    padding: 2rem 1rem 2rem 1rem;
     display: flex;
     flex-direction: column;
     align-items: center;
-    box-shadow: 0 10px 20px 0 var(--shadow-1);
+    box-shadow: 0 0 15px 2px var(--shadow-0);
 }
-.auth-panel p, a{
+
+.auth-panel p, a,
+label {
     font-size: 0.85rem;
+    color: var(--verde-1)
 }
+
 .text-container {
     margin-bottom: 2rem;
 }
+
 .inputs-container {
     display: flex;
     flex-direction: column;
     width: 85%;
-}
-.inputs-container input {
+  }
+  
+  .input-icon-wrapper {
+    position: relative;
+    width: 100%;
+  }
+  
+  .input-icon-wrapper input {
     all: unset;
-    max-width: 100%;
+    width: 85%;
     background-color: transparent;
-    padding: 5px;
-    border: solid 2px var(--verde-5);
+    padding: 8px 8px 8px 36px; /* espaço para o ícone */
+    border: solid 2px var(--verde-4);
     border-radius: 10px;
-}
+    margin-bottom: 1rem;
+    font-size: 0.9rem;
+    color: white;
+  }
+  
+  .input-icon-wrapper input::placeholder {
+    color: var(--verde-4);
+  }
+  
+  .input-icon-wrapper .input-icon {
+    position: absolute;
+    left: 13px;
+    top: 13px; /* valor ajustado manualmente */
+    fill: var(--verde-4);
+    pointer-events: none;
+    width: 15px;
+    height: 15px;
+  }
+  
+  
+  .inputs-container p {
+    margin-left: 3px;
+  }  
+
 .remember-forgot-section {
-    max-width: 100%;
+    margin-top: 0.5rem;
+    width: 82%;
     display: flex;
     justify-content: space-between;
 }
+
 .remember-me {
     display: flex;
     gap: 0.2rem;
 }
-#panel-title, #panel-subtitle {
+
+.remember-me input {
+    accent-color: var(--verde-1);
+}
+
+a[routerLink="/app"] {
+    width: 85%;
+  }
+
+#login-btn {
+    margin: 1.2rem 0;
+    background-color: var(--verde-3);
+    color: var(--verde-7);
+    font-weight: 500;
+    padding: 0.75rem 2rem;
+    border-radius: 12px;
+    transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
+    display: inline-block;
+    font-family: "Poppins";
+    width: 100%;
+}
+
+.signin {
+    margin-top: 0.5rem;
+    display: flex;
+    gap: 9px;
+}
+
+.google-btn {
+    margin: 1.2rem 0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    background-color: white;
+    color: #444;
+    padding: 0.75rem 2rem;
+    border: 1px solid #ddd;
+    border-radius: 12px;
+    font-weight: 500;
+    font-family: "Poppins";
+    cursor: pointer;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s;
+    width: 85%;
+}
+
+.google-btn:hover {
+    background-color: #f7f7f7;
+}
+
+.google-icon {
+    width: 20px;
+    height: 20px;
+    display: block;
+}
+
+#panel-title,
+#panel-subtitle {
     text-align: center;
 }
 
+
+.checkbox-wrapper-37 input[type="checkbox"] {
+    display: none;
+    border-radius: 10px;
+  }
+
+  .checkbox-wrapper-37 .terms-label {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+  }
+
+  .checkbox-wrapper-37 .terms-label .label-text {
+    margin-left: 10px;
+    ;
+  }
+
+  .checkbox-wrapper-37 .checkbox-svg {
+    width: 20px;
+    height: 20px;
+  }
+
+  .checkbox-wrapper-37 .checkbox-box {
+    fill: #fff;
+    stroke: var(--verde-3);
+    stroke-dasharray: 800;
+    stroke-dashoffset: 800;
+    transition: stroke-dashoffset 0.6s ease-in;
+  }
+
+  .checkbox-wrapper-37 .checkbox-tick {
+    stroke: var(--verde-3);
+    stroke-dasharray: 172;
+    stroke-dashoffset: 172;
+    transition: stroke-dashoffset 0.6s ease-in;
+  }
+
+  .checkbox-wrapper-37 input[type="checkbox"]:checked + .terms-label .checkbox-box,
+  .checkbox-wrapper-37 input[type="checkbox"]:checked + .terms-label .checkbox-tick {
+    stroke-dashoffset: 0;
+  }

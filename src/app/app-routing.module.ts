@@ -19,6 +19,7 @@ import { PsicoapoioComponent } from './web-app/pages/psicoapoio/psicoapoio.compo
 import { AprenderMaisComponent } from './web-app/pages/aprender-mais/aprender-mais.component';
 import { LoginComponent } from './web-app/pages/auth/login/login.component';
 import { LoginPageLayoutComponent } from './web-app/layout/login-page-layout/login-page-layout.component';
+import { CadastroComponent } from './web-app/pages/auth/cadastro/cadastro.component';
 
 
 const routes: Routes = [
@@ -54,7 +55,8 @@ const routes: Routes = [
     path: '',
     component: LoginPageLayoutComponent,
     children: [
-      { path: 'auth/login', component: LoginComponent}
+      { path: 'auth/login', component: LoginComponent},
+      { path: 'auth/signin', component: CadastroComponent}
     ]
   },
 
