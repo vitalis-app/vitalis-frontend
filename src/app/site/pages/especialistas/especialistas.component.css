@@ -1,30 +1,7 @@
-/* Botões */
-.gradient-btn {
-  background: linear-gradient(
-    90deg,
-    var(--gradiente-inicio),
-    var(--gradiente-fim)
-  );
-  color: var(--branco);
-  font-weight: 500;
-  padding: 0.75rem 2rem;
-  border-radius: 9999px; /* full rounded */
-  transition: all 0.3s ease;
-  border: none;
-  cursor: pointer;
-  display: inline-block;
-  font-family: "Poppins";
-  text-decoration: none;
-}
-
-.gradient-btn:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 10px 20px var(--shadow-0);
-}
-
-.gradient-btn:active {
-  transform: translateY(-1px);
-  box-shadow: 0 1px 3px var(--shadow-0);
+.container {
+  width: 100%;
+  max-width: 80vw;
+  margin: 0 auto;
 }
 
 /* Hero Section */
@@ -58,13 +35,9 @@
   max-width: 50rem;
 }
 
-/* Section Styles */
-.section {
+/* General Section Styles */
+section {
   padding: 64px 0;
-}
-
-.section-light {
-  background-color: var(--gray-200);
 }
 
 .section-header {
@@ -75,43 +48,76 @@
 .section-title {
   font-size: 40px;
   font-weight: 700;
-  color: var(--gray-800);
+  color: var(--verde-2);
   margin-bottom: 16px;
 }
 
 .section-subtitle {
   font-size: 24px;
-  color: var(--gray-600);
+  color: var(--verde-2);
   margin: 0 auto;
+}
+
+/* Specific Section Backgrounds */
+.how-it-works-section {
+  background-color: var(--verde-7);
+}
+
+.why-partner-section {
+  background-color: var(--verde-7);
+}
+
+.benefits-section {
+  background-color: var(--verde-6);
+}
+
+.testimonials-section {
+  background-color: var(--verde-56);
+}
+
+.cta-section {
+  background-color: var(--verde-56);
 }
 
 /* Como Funciona */
 .steps {
   display: flex;
-  grid-template-columns: 1fr;
   gap: 32px;
+  justify-content: center;
+  flex-wrap: wrap;
 }
 
 .step-card {
-  background-color: white;
+  background-color: var(--verde-56);
+  border-top: 3px solid transparent;
   border-radius: 12px;
   padding: 24px;
   box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  transition: all 0.5s ease;
+  flex: 1;
+  min-width: 250px;
+  max-width: 300px;
+}
+.step-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  border-top: 3px solid var(--verde-10);
 }
 
 .step-number {
-  width: 56px;
-  height: 56px;
-  border-radius: 50%;
+  width: 100px;
+  height: 50px;
+  border-radius: 26px;
   background: linear-gradient(
     135deg,
-    var(--vitalis-green) 0%,
-    var(--vitalis-cyan) 100%
+    var(--gradiente-inicio) 0%,
+    var(--gradiente-fim) 100%
   );
-  color: white;
+  color: var(--verde-7);
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-around;
+  padding: 10px;
   font-size: 20px;
   font-weight: 700;
   margin-bottom: 16px;
@@ -120,72 +126,93 @@
 .step-title {
   font-size: 20px;
   font-weight: 600;
-  color: var(--gray-800);
+  color: var(--verde-2);
   margin-bottom: 12px;
 }
 
 .step-description {
-  color: var(--gray-600);
+  color: var(--verde-1);
   margin-bottom: 16px;
 }
 
 .step-icon {
   font-size: 32px;
-  color: var(--vitalis-green);
+  color: var(--verde-7);
 }
 
 /* Por que ser parceiro */
 .reasons {
   display: flex;
-  grid-template-columns: 1fr;
   gap: 32px;
+  justify-content: center;
+  flex-wrap: wrap;
 }
 
 .reason-card {
-  background-color: var(--gray-200);
+  background-color: var(--verde-6);
   border-radius: 12px;
   padding: 32px;
   box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
   display: flex;
+  flex-direction: column;
   align-items: flex-start;
+  flex: 1;
+  min-width: 300px;
+  max-width: 45%;
+  transition: all 0.5s ease;
+}
+
+.reason-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+.reason-title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+.reason-title h3 {
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--verde-3);
 }
 
 .reason-icon {
   font-size: 32px;
   margin-right: 20px;
-}
-
-.reason-content h3 {
-  font-size: 20px;
-  font-weight: 600;
-  color: var(--gray-800);
-  margin-bottom: 12px;
+  color: var(--verde-3);
 }
 
 .reason-content p {
-  color: var(--gray-600);
+  color: var(--verde-1);
 }
 
 /* Benefícios */
 .benefits {
   display: flex;
-  grid-template-columns: 1fr;
   gap: 24px;
+  justify-content: center;
+  flex-wrap: wrap;
 }
 
 .benefit-card {
-  background-color: var(--gray-200);
+  background-color: var(--verde-7);
   border-radius: 12px;
   padding: 24px;
   box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
   text-align: center;
+  flex: 1;
+  min-width: 280px;
+  max-width: 30%;
 }
 
 .benefit-icon-wrapper {
   width: 64px;
   height: 64px;
   border-radius: 50%;
-  background-color: var(--vitalis-light);
+  background-color: var(--verde-56);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -193,33 +220,38 @@
 }
 
 .benefit-icon {
-  color: var(--vitalis-green);
+  stroke: var(--verde-10);
+  color: var(--verde-10);
   font-size: 24px;
 }
 
 .benefit-title {
   font-size: 20px;
   font-weight: 600;
-  color: var(--gray-800);
+  color: var(--verde-2);
   margin-bottom: 12px;
 }
 
 .benefit-description {
-  color: var(--gray-600);
+  color: var(--verde-1);
 }
 
 /* Depoimentos */
 .testimonials {
   display: flex;
-  grid-template-columns: 1fr;
   gap: 32px;
+  justify-content: center;
+  flex-wrap: wrap;
 }
 
 .testimonial-card {
-  background-color: white;
+  background-color: var(--verde-7);
   border-radius: 12px;
   padding: 24px;
   box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  flex: 1;
+  min-width: 300px;
+  max-width: 30%;
 }
 
 .testimonial-header {
@@ -228,21 +260,17 @@
   margin-bottom: 16px;
 }
 
-.testimonial-avatar {
+.testimonial-avatar img{
   width: 48px;
   height: 48px;
   border-radius: 50%;
-  background-color: var(--vitalis-green);
-  color: white;
+  background-color: var(--verde-2);
+  color: var(--verde-7);
   display: flex;
   align-items: center;
   justify-content: center;
   font-weight: 700;
   font-size: 18px;
-}
-
-.testimonial-avatar.cyan {
-  background-color: var(--vitalis-cyan);
 }
 
 .testimonial-person {
@@ -251,122 +279,84 @@
 
 .testimonial-name {
   font-weight: 600;
-  color: var(--gray-800);
+  color: var(--verde-2);
 }
 
 .testimonial-title {
   font-size: 14px;
-  color: var(--gray-500);
+  color: var(--verde-1);
 }
 
 .testimonial-text {
-  color: var(--gray-600);
+  color: var(--verde-1);
   font-style: italic;
   margin-bottom: 16px;
 }
 
 .testimonial-rating {
-  color: var(--vitalis-green);
+  color: var(--verde-10);
   font-size: 20px;
 }
 
 /* CTA Section */
-.cta {
+.cta-section {
   padding: 64px 0;
   text-align: center;
+  background: linear-gradient(90deg, #176b5d, #10473e);
+  height: 70vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .cta-container {
-  max-width: 800px;
   margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .cta-title {
   font-size: 32px;
   font-weight: 700;
-  color: var(--gray-800);
+  color: #00d9b5;
   margin-bottom: 16px;
 }
 
 .cta-subtitle {
   font-size: 20px;
-  color: var(--gray-600);
+  color: #a9e0d7;
   margin-bottom: 32px;
 }
 
 .cta-note {
   margin-top: 24px;
-  color: var(--gray-500);
+  color: #a9e0d7;
 }
 
-/* Footer */
-.footer {
-  background-color: var(--gray-800);
-  color: white;
-  padding: 48px 0;
-}
-
-.footer-grid {
-  display: flex;
-  grid-template-columns: 1fr;
-  gap: 32px;
-}
-
-.footer-logo {
-  display: flex;
-  align-items: center;
-  margin-bottom: 16px;
-}
-
-.footer-logo-text {
-  margin-left: 8px;
-  font-size: 20px;
+.btn-large {
+  display: block;
+  width: 25rem;
+  padding: 14px;
+  border-radius: 9999px;
   font-weight: 600;
-}
-
-.footer-description {
-  color: var(--gray-400);
-}
-
-.footer-heading {
-  font-size: 18px;
-  font-weight: 600;
-  margin-bottom: 16px;
-}
-
-.footer-links li {
-  margin-bottom: 8px;
-}
-
-.footer-links a {
-  color: var(--gray-400);
-}
-
-.footer-contact li {
-  display: flex;
-  align-items: center;
-  margin-bottom: 8px;
-}
-
-.footer-contact-icon {
-  color: var(--vitalis-green);
-  margin-right: 8px;
-}
-
-.footer-social {
-  display: flex;
-  gap: 16px;
-  margin-top: 16px;
-}
-
-.footer-social a {
-  color: var(--gray-400);
-}
-
-.footer-bottom {
-  margin-top: 48px;
-  padding-top: 32px;
-  border-top: 1px solid #4a5568;
+  font-size: 16px;
   text-align: center;
-  color: var(--gray-400);
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  margin-top: auto;
+  border: none;
+}
+
+.btn-large {
+  background-color: var(--verde-10);
+  color: #08241f;
+}
+
+.btn-large:hover {
+  background-color: #dcf3ef;
+  transform: scale(1.03);
 }

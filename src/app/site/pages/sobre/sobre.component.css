@@ -2,37 +2,6 @@
   width: 100%;
   max-width: 80vw;
   margin: 0 auto;
-  padding: 0 20px;
-}
-
-
-/* Botões */
-.gradient-btn {
-  background: linear-gradient(
-    90deg,
-    var(--gradiente-inicio),
-    var(--gradiente-fim)
-  );
-  color: var(--branco);
-  font-weight: 500;
-  padding: 0.75rem 2rem;
-  border-radius: 9999px; /* full rounded */
-  transition: all 0.3s ease;
-  border: none;
-  cursor: pointer;
-  display: inline-block;
-  font-family: "Poppins";
-  text-decoration: none;
-}
-
-.gradient-btn:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 10px 20px var(--shadow-0);
-}
-
-.gradient-btn:active {
-  transform: translateY(-1px);
-  box-shadow: 0 1px 3px var(--shadow-0);
 }
 
 /* Hero Section */
@@ -60,16 +29,13 @@
 }
 
 section {
-  padding: 4rem 0;
   background-color: var(--background);
 }
-
 
 .section-header {
   text-align: center;
   margin-bottom: 4rem;
   margin-top: 2rem;
-
 }
 
 .section-title {
@@ -97,15 +63,22 @@ section {
   margin: 0 auto;
 }
 
+.about-container{
+  background-color: var(--verde-7);
+}
+
+#sobre{
+  background-color: var(--verde-7);
+}
+
 /* Story Section */
 .story-container {
   display: flex;
   justify-content: space-evenly;
   align-items: center;
   margin-bottom: 7rem;
-
 }
-.story-container img{
+.story-container img {
   width: 20rem;
   height: auto;
 }
@@ -128,7 +101,6 @@ section {
   margin-bottom: 1.2rem;
 }
 
-
 /* Mission, Vision, Values */
 .mvv-container {
   display: flex;
@@ -140,6 +112,7 @@ section {
 .mvv-card {
   background-color: var(--verde-5);
   border-radius: 0.5rem;
+  border-top: 3px solid transparent;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   padding: 3rem;
   transition: all 0.3s ease;
@@ -148,6 +121,7 @@ section {
 .mvv-card:hover {
   transform: translateY(-5px);
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  border-top: 3px solid var(--verde-3);
 }
 
 .mvv-icon-container {
@@ -318,48 +292,32 @@ section {
   transition: all 0.3s ease;
 }
 
-.audience-tag:hover{
+.audience-tag:hover {
   transform: translateY(-3px);
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 /* CTA Section */
 .cta-section {
+  height: 70vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   text-align: center;
-  margin-top: 6rem;
+  margin-top: 2rem;
+  background-color: var(--verde-56);
 }
 
 .cta-title {
   font-size: 1.5rem;
   font-weight: 600;
-  color: var(--verde-escuro-3);
+  color: var(--verde-2);
   margin-bottom: 1.5rem;
 }
 
 .cta-description {
   font-size: 1.125rem;
-  color: var(--gray-700);
+  color: var(--verde-1);
   max-width: 32rem;
   margin: 0 auto 2rem;
 }
-
-.cta-button {
-  display: inline-block;
-  background: linear-gradient(
-    90deg,
-    var(--gradiente-inicio),
-    var(--gradiente-fim)
-  );
-  color: white;
-  font-weight: 500;
-  padding: 1rem 2rem;
-  border-radius: 9999px;
-  text-decoration: none;
-  transition: all 0.3s ease;
-}
-
-.cta-button:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 10px 20px rgba(76, 175, 80, 0.2);
-}
-

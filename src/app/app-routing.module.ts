@@ -23,7 +23,6 @@ import { CadastroComponent } from './web-app/pages/auth/cadastro/cadastro.compon
 
 
 const routes: Routes = [
-
   {
     path: '',
     component: SiteLayoutComponent,
@@ -33,22 +32,22 @@ const routes: Routes = [
       { path: 'para-especialistas', component: SiteEspecialistasComponent },
       { path: 'planos', component: SitePlanosComponent },
       { path: 'sobre', component: SobreComponent },
-
     ]
   },
 
   {
     path: 'app',
-    component: WebAppLayoutComponent, 
+    component: WebAppLayoutComponent,
     children: [
       { path: '', component: HomeAppComponent },
       { path: 'aprender-mais', component: AprenderMaisComponent },
       { path: 'configuracoes', component: ConfiguracoesComponent },
       { path: 'conta', component: ContaComponent },
       { path: 'estacao-vital', component: EstacaoVitalComponent },
+      { path: 'login', component: LoginComponent },
       { path: 'minha-jornada', component: MinhaJornadaComponent },
-      { path: 'psicoapoio', component: PsicoapoioComponent }
-    ]
+      { path: 'psicoapoio', component: PsicoapoioComponent },
+    ],
   },
 
   {
@@ -65,6 +64,6 @@ const routes: Routes = [
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}
