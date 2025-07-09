@@ -17,7 +17,10 @@ import { EstacaoVitalComponent } from './web-app/pages/estacao-vital/estacao-vit
 import { MinhaJornadaComponent } from './web-app/pages/minha-jornada/minha-jornada.component';
 import { PsicoapoioComponent } from './web-app/pages/psicoapoio/psicoapoio.component';
 import { AprenderMaisComponent } from './web-app/pages/aprender-mais/aprender-mais.component';
-import { LoginComponent } from './web-app/pages/login/login.component';
+import { LoginComponent } from './web-app/pages/auth/login/login.component';
+import { LoginPageLayoutComponent } from './web-app/layout/login-page-layout/login-page-layout.component';
+import { CadastroComponent } from './web-app/pages/auth/cadastro/cadastro.component';
+
 
 const routes: Routes = [
   {
@@ -25,11 +28,11 @@ const routes: Routes = [
     component: SiteLayoutComponent,
     children: [
       { path: '', component: HomeComponent },
-      { path: 'sobre', component: SobreComponent },
       { path: 'funcionalidades', component: FuncionalidadesComponent },
-      { path: 'planos', component: SitePlanosComponent },
       { path: 'para-especialistas', component: SiteEspecialistasComponent },
-    ],
+      { path: 'planos', component: SitePlanosComponent },
+      { path: 'sobre', component: SobreComponent },
+    ]
   },
 
   {
@@ -45,6 +48,15 @@ const routes: Routes = [
       { path: 'minha-jornada', component: MinhaJornadaComponent },
       { path: 'psicoapoio', component: PsicoapoioComponent },
     ],
+  },
+
+  {
+    path: '',
+    component: LoginPageLayoutComponent,
+    children: [
+      { path: 'auth/login', component: LoginComponent},
+      { path: 'auth/signin', component: CadastroComponent}
+    ]
   },
 
   { path: '**', redirectTo: '', pathMatch: 'full' },
