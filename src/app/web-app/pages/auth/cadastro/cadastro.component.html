@@ -1,13 +1,20 @@
+<button class="voltar-btn">
+    <a routerLink="home">
+        <i class="ri-arrow-left-s-line"></i>
+    </a>
+</button>
+
+
 <div class="auth-page-container">
     <!-- Lado esquerdo da página -->
     <div class="auth-hero">
         <img id="vitalis-logo" src="\assets\imgs\vitalis.png" alt="">
         <div class="text-container">
             <h1 class="text-title">
-                Bem Vindo(a) de volta!
+                {{tituloAtual}}
             </h1>
             <p class="text-subtitle">
-                Entre para cultivar sua saúde mental e continuar sua jornada de bem-estar emocional.
+                {{subtituloAtual}}
             </p>
         </div>
     </div>
@@ -52,7 +59,7 @@
             </div>
 
         </div>
-        <a routerLink="/app">
+        <a routerLink="/auth/login">
             <button id="login-btn" href="">
                 CRIAR CONTA
             </button> <!-- verde-3 ou verde-10 -->

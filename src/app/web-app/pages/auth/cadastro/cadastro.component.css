@@ -1,13 +1,41 @@
-.auth-page-container {
+
+.voltar-btn{
+    left: 24px;
+    top: 24px;
+    position: fixed;
+    background: var(--verde-7);
+    color: var(--verde-00);
+    border: none;
+    border-radius: 50%;
+    width: 48px;
+    height: 48px;
+    box-shadow: 0 0 5px var(--verde-5);
+    z-index: 999;
+    transition: opacity 0.4s ease, transform 0.4s ease;
+    cursor:pointer;
+  }
+  
+  .voltar-btn:hover {
+    cursor:pointer;
+  }
+  
+  .voltar-btn a {
+    text-decoration: none;
+    font-size: 1.5rem;
+    text-align: center;
+    margin-right: 2px;
+  }
+  .auth-page-container {
     display: flex;
-    padding: 5rem 4rem;
     width: 100vw;
+    min-height: 100vh;
     height: 100vh;
     justify-content: space-evenly;
     background: radial-gradient(circle at right,
             var(--verde-5   ),
             var(--verde-7) 100%);
-    color: var(--verde-1)
+    color: var(--verde-1);
+    align-items: center;
 }
 
 /* Titulo/Lado Esquerdo */
@@ -15,7 +43,8 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    max-width: 50%;
+    height: 100%;
+    width: 40%;
 }
 
 .text-title{
@@ -27,7 +56,7 @@
 }
 
 #vitalis-logo {
-    width: 100px;
+    width: 130px;
     height: auto;
     margin-bottom: 1rem;
 }
@@ -44,6 +73,7 @@
     flex-direction: column;
     align-items: center;
     box-shadow: 0 0 15px 2px var(--shadow-0);
+    border: solid 1px var(--verde-4);
 }
 
 .auth-panel p, a,
@@ -72,22 +102,21 @@ label {
     width: 85%;
     background-color: transparent;
     padding: 8px 8px 8px 36px; /* espaço para o ícone */
-    border: solid 2px var(--verde-4);
+    border: solid 1px var(--verde-2);
     border-radius: 10px;
     margin-bottom: 1rem;
     font-size: 0.9rem;
-    color: white;
   }
   
   .input-icon-wrapper input::placeholder {
-    color: var(--verde-4);
+    color: var(--verde-2);
   }
   
   .input-icon-wrapper .input-icon {
     position: absolute;
     left: 13px;
     top: 13px; /* valor ajustado manualmente */
-    fill: var(--verde-4);
+    fill: var(--verde-2);
     pointer-events: none;
     width: 15px;
     height: 15px;

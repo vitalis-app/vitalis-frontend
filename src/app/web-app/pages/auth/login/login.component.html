@@ -1,13 +1,19 @@
+<button class="voltar-btn">
+    <a routerLink="home">
+        <i class="ri-arrow-left-s-line"></i>
+    </a>
+</button>
+
 <div class="auth-page-container">
     <!-- Lado esquerdo da página -->
     <div class="auth-hero">
         <img id="vitalis-logo" src="\assets\imgs\vitalis.png" alt="">
         <div class="text-container">
             <h1 class="text-title">
-                Bem Vindo(a) de volta!
+                {{tituloAtual}}
             </h1>
             <p class="text-subtitle">
-                Entre para cultivar sua saúde mental e continuar sua jornada de bem-estar emocional.
+                {{subtituloAtual}}
             </p>
         </div>
     </div>
@@ -46,31 +52,17 @@
                 <div class="checkbox-wrapper-37">
                     <input type="checkbox" name="checkbox" id="terms-checkbox-37" />
                     <label for="terms-checkbox-37" class="terms-label">
-                      <svg
-                        class="checkbox-svg"
-                        viewBox="0 0 200 200"
-                        fill="none"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <mask id="path-1-inside-1_476_5-37" fill="white">
-                          <rect width="200" height="200" />
-                        </mask>
-                        <rect
-                          width="200"
-                          height="200"
-                          class="checkbox-box"
-                          stroke-width="40"
-                          mask="url(#path-1-inside-1_476_5-37)"
-                        />
-                        <path
-                          class="checkbox-tick"
-                          d="M52 111.018L76.9867 136L149 64"
-                          stroke-width="15"
-                        />
-                      </svg>
-                      <span class="label-text">Lembrar de mim</span>
+                        <svg class="checkbox-svg" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <mask id="path-1-inside-1_476_5-37" fill="white">
+                                <rect width="200" height="200" />
+                            </mask>
+                            <rect width="200" height="200" class="checkbox-box" stroke-width="40"
+                                mask="url(#path-1-inside-1_476_5-37)" />
+                            <path class="checkbox-tick" d="M52 111.018L76.9867 136L149 64" stroke-width="15" />
+                        </svg>
+                        <span class="label-text">Lembrar de mim</span>
                     </label>
-                  </div>
+                </div>
             </div>
             <a id="forgot-password" href="">Esqueceu a senha?</a>
         </div>
@@ -89,7 +81,7 @@
         </button>
         <div class="signin">
             <p>Não tem uma conta ainda?</p>
-            <a href="auth/signin">Cadastre-se</a>
+            <a href="auth/cadastro">Cadastre-se</a>
         </div>
     </div>
 </div>

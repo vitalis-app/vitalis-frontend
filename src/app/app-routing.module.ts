@@ -44,7 +44,6 @@ const routes: Routes = [
       { path: 'configuracoes', component: ConfiguracoesComponent },
       { path: 'conta', component: ContaComponent },
       { path: 'estacao-vital', component: EstacaoVitalComponent },
-      { path: 'login', component: LoginComponent },
       { path: 'minha-jornada', component: MinhaJornadaComponent },
       { path: 'psicoapoio', component: PsicoapoioComponent },
     ],
@@ -55,7 +54,7 @@ const routes: Routes = [
     component: LoginPageLayoutComponent,
     children: [
       { path: 'auth/login', component: LoginComponent},
-      { path: 'auth/signin', component: CadastroComponent}
+      { path: 'auth/cadastro', component: CadastroComponent}
     ]
   },
 
