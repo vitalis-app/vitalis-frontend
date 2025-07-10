@@ -1,18 +1,203 @@
+
 .aprender-page {
     padding: 2rem;
     max-width: 1200px;
-    margin: 0 auto;
-}
-
-.aprender-page h1 {
+  }
+  
+  /* Cabeçalho */
+  .page-header {
+    margin-bottom: 2rem;
+    text-align: center; /* Centraliza o texto */
+  }
+  
+  .page-header h1 {
     font-size: 2.5rem;
     font-weight: 600;
     color: var(--text-color);
-    margin-bottom: 0.5rem;
-}
-
-.aprender-page .subtitle {
+    margin: 0;
+  }
+  
+  .page-header p {
     font-size: 1.1rem;
     color: var(--verde-2);
+    margin-top: 0.25rem;
+  }
+  
+  /* Barra de Pesquisa */
+  .search-section {
+    margin-bottom: 2rem;
+  }
+  
+  .search-bar {
+    display: flex;
+    align-items: center;
+    background-color: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 0.5rem;
+    padding: 0.5rem 1rem;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+    max-width: 1200px; /* Largura máxima para a barra */
+    margin: 0 auto; /* Centraliza a barra de pesquisa */
+  }
+  
+  .search-bar i {
+    font-size: 1.25rem;
+    color: #a0aec0;
+    margin-right: 0.75rem;
+  }
+  
+  .search-bar input {
+    border: none;
+    outline: none;
+    width: 100%;
+    font-size: 1rem;
+    background-color: transparent;
+  }
+  
+  /* Filtros de Categoria */
+  .categories-section {
+    display: flex;
+    justify-content: center; /* Centraliza os botões */
+    gap: 0.75rem;
+    margin-bottom: 2.5rem;
+    flex-wrap: wrap;
+  }
+  
+  .category-btn {
+    padding: 0.5rem 1.25rem;
+    border-radius: 1.5rem;
+    border: 1px solid #e2e8f0;
+    background-color: #ffffff;
+    font-size: 0.875rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+  }
+  
+  .category-btn:hover {
+    background-color: #f7fafc;
+    border-color: #cbd5e0;
+  }
+  
+  .category-btn.active {
+    background-color: #2c5282;
+    color: #ffffff;
+    border-color: #2c5282;
+  }
+  
+  /* Seções de Tópicos */
+  .topic-section {
     margin-bottom: 3rem;
-}
+  }
+  
+  .topic-header {
+    display: flex;
+    align-items: baseline;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .topic-title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #2d3748;
+  }
+  
+  .topic-subtitle {
+    font-size: 0.875rem;
+    color: #a0aec0;
+  }
+  
+  /* Grid de Cards de Aprendizado (Reflexão) */
+  .cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+  }
+  
+  .no-results {
+    grid-column: 1 / -1; /* Ocupa todas as colunas do grid */
+    text-align: center;
+    color: #718096;
+    padding: 2rem;
+  }
+  
+  .learning-card {
+    background-color: #ffffff;
+    border-radius: 0.75rem;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.07);
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+    cursor: pointer;
+  }
+  
+  .learning-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 15px rgba(0,0,0,0.1);
+  }
+  
+  .card-image {
+    height: 160px;
+    background-size: cover;
+    background-position: center;
+  }
+  
+  .card-content {
+    padding: 1rem;
+  }
+  
+  .card-category {
+    display: inline-block;
+    background-color: #e2e8f0;
+    color: #4a5568;
+    padding: 0.25rem 0.75rem;
+    border-radius: 1rem;
+    font-size: 0.75rem;
+    font-weight: 500;
+    margin-bottom: 0.75rem;
+  }
+  
+  .card-title {
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: #2d3748;
+    margin: 0;
+  }
+  
+  /* Grid de Cards Pequenos (Motivacional) */
+  .cards-grid-small {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 1rem;
+  }
+  
+  .motivation-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #f7fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 0.75rem;
+    padding: 1.5rem;
+    text-align: center;
+    transition: background-color 0.2s ease-in-out;
+    cursor: pointer;
+  }
+  
+  .motivation-card:hover {
+    background-color: #e2e8f0;
+  }
+  
+  .motivation-card i {
+    font-size: 2rem;
+    color: #4a5568;
+    margin-bottom: 0.5rem;
+  }
+  
+  .motivation-card span {
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: #4a5568;
+  }
+  
