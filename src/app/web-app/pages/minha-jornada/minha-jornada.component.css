@@ -1,0 +1,531 @@
+:root {
+  --laranja: #f97316;
+  --amarelo: #eab308;
+  --verde-claro: #4ade80;
+  --azul-claro: #60a5fa;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1rem 1rem; /* px-4 py-8 */
+}
+
+/* Cabeçalho */
+.header-section {
+  text-align: center;
+  margin-bottom: 1.5rem; /* mb-8 */
+}
+
+.header-section h1 {
+  font-size: 2.25rem; /* text-4xl */
+  font-weight: 700; /* font-bold */
+  color: var(--verde-2);
+}
+
+.header-section p {
+  font-size: 1.125rem; /* text-lg */
+  color: rgba(26, 26, 26, 0.7); /* text-vitalis-text/70 */
+  max-width: 32rem; /* max-w-md */
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Cards */
+.card {
+  background-color: var(--verde-56);
+  border: 1px solid var(--verde-5);
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  border-radius: 16px;
+  transition: all 0.3s ease-in-out;
+}
+
+.card:hover {
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+    0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  transform: scale(1.02);
+}
+
+.card-content {
+  padding: 1.5rem;
+}
+
+.card-header {
+  padding: 1.5rem 1.5rem 0;
+}
+
+.card-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--verde-2);
+  display: flex;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+/* Resumo Semanal */
+.weekly-stats-grid {
+  display: grid;
+  gap: 1rem; /* gap-4 */
+  margin-bottom: 1rem; /* mb-8 */
+}
+
+@media (min-width: 768px) {
+  /* md */
+  .weekly-stats-grid {
+    grid-template-columns: repeat(4, 1fr); /* md:grid-cols-4 */
+  }
+}
+
+.weekly-stat-item i {
+  font-size: 1.5rem;
+  margin: 0 auto 0.75rem; /* mx-auto mb-3 */
+  color: var(--verde-10);
+}
+
+.weekly-stat-item p:first-of-type {
+  font-size: 1.5rem; /* text-2xl */
+  font-weight: 700; /* font-bold */
+  color: var(--verde-1);
+  margin-bottom: 0.25rem; /* mb-1 */
+}
+
+.weekly-stat-item p:last-of-type {
+  font-size: 0.875rem; /* text-sm */
+  color: rgba(26, 26, 26, 0.6); /* text-vitalis-text/60 */
+}
+
+/* Abas Interativas */
+.tabs {
+  width: 100%; /* w-full */
+}
+
+.tabs-list {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* grid-cols-4 */
+  width: 100%; /* w-full */
+  background-color: rgba(225, 255, 243, 0.5); /* bg-vitalis-light/50 */
+  padding: 0.25rem; /* p-1 */
+  border-radius: 0.75rem; /* rounded-xl */
+  margin-bottom: 1rem; /* mb-8 */
+}
+
+.tabs-trigger {
+  font-family: "Poppins", sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem 1rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: rgba(26, 26, 26, 0.6);
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out; /* transition-all duration-200 */
+  background-color: transparent;
+  border: 1px transparent;
+  outline: none;
+  white-space: nowrap; /* Prevent wrapping */
+}
+
+.tabs-trigger svg {
+  height: 1rem; /* h-4 */
+  width: 1rem; /* w-4 */
+  margin-right: 0.5rem; /* mr-2 */
+}
+
+.tabs-trigger:hover {
+  color: var(--verde-10);
+}
+
+.tabs-trigger.active {
+  background-color: var(--verde-56);
+  color: var(--verde-3);
+  border: 1px solid var(--verde-5);
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+}
+
+.tabs-content {
+  display: none;
+}
+
+.tabs-content.active {
+  display: block;
+  animation: fade-in 0.3s ease-out forwards;
+}
+
+/* Estação Vital - Gráfico de XP */
+.xp-chart {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 1rem; /* gap-4 */
+  height: 11rem; /* h-48 */
+}
+
+.xp-bar-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 1; /* flex-1 */
+}
+
+.xp-bar {
+  background: linear-gradient(to top, var(--verde-1), rgba(46, 181, 140, 0.7));
+  border-top-left-radius: 0.375rem; /* rounded-t-md */
+  border-top-right-radius: 0.375rem; /* rounded-t-md */
+  width: 100%; /* w-full */
+  transition: all 0.5s ease-in-out;
+}
+
+.xp-bar:hover {
+  background: linear-gradient(
+    to top,
+    var(--verde-1),
+    rgba(46, 181, 140, 0.9)
+  ); /* hover:from-vitalis-primary hover:to-vitalis-primary/90 */
+}
+
+.xp-bar-container p:first-of-type {
+  font-size: 0.875rem; /* text-sm */
+  color: rgba(26, 26, 26, 0.6); /* text-vitalis-text/60 */
+  margin-top: 0.5rem; /* mt-2 */
+}
+
+.xp-bar-container p:last-of-type {
+  font-size: 0.75rem; /* text-xs */
+  font-weight: 500; /* font-medium */
+  color: var(--verde-1);
+}
+
+.xp-summary {
+  margin-top: 1.5rem; /* mt-6 */
+  padding: 1rem; /* p-4 */
+  background-color: rgba(225, 255, 243, 0.3); /* bg-vitalis-light/30 */
+  border-radius: var(--radius); /* rounded-lg */
+}
+
+.xp-summary p {
+  font-size: 0.875rem; /* text-sm */
+  color: var(--text-color);
+}
+
+.xp-summary .font-semibold {
+  font-weight: 600; /* font-semibold */
+  color: var(--verde-2);
+}
+
+/* Estatísticas */
+.stats-grid {
+  display: grid;
+  grid-template-columns: 1fr; /* grid-cols-1 */
+  gap: 1.5rem; /* gap-6 */
+}
+
+@media (min-width: 768px) {
+  /* md */
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr); /* md:grid-cols-2 */
+  }
+}
+
+.emotion-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.emotion-item-left {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem; /* gap-3 */
+}
+
+.emotion-color-box {
+  width: 1rem; /* w-4 */
+  height: 1rem; /* h-4 */
+  border-radius: 9999px; /* rounded-full */
+}
+
+.emotion-color-box.bg-green-400 {
+  background-color: var(--green-400);
+}
+.emotion-color-box.bg-blue-400 {
+  background-color: var(--blue-400);
+}
+.emotion-color-box.bg-yellow-400 {
+  background-color: var(--yellow-400);
+}
+.emotion-color-box.bg-gray-400 {
+  background-color: var(--verde-3);
+}
+
+.emotion-item span:last-of-type {
+  font-weight: 600; /* font-semibold */
+  color: var(--text-color);
+}
+
+.general-summary-section {
+  text-align: center;
+}
+
+.general-summary-section p:first-of-type {
+  font-size: 1.875rem; /* text-3xl */
+  font-weight: 700; /* font-bold */
+  color: var(--verde-2);
+}
+
+.general-summary-section p:last-of-type {
+  font-size: 0.875rem; /* text-sm */
+  color: rgba(26, 26, 26, 0.6); /* text-vitalis-text/60 */
+}
+
+.summary-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* grid-cols-3 */
+  gap: 1rem; /* gap-4 */
+  text-align: center;
+}
+
+.summary-grid div p:first-of-type {
+  font-size: 1.5rem; /* text-2xl */
+  font-weight: 700; /* font-bold */
+  color: var(--text-color);
+}
+
+.summary-grid div p:last-of-type {
+  font-size: 0.75rem; /* text-xs */
+  color: rgba(26, 26, 26, 0.6); /* text-vitalis-text/60 */
+}
+
+/* Conquistas */
+.achievements-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem; /* space-y-4 */
+}
+
+.achievement-item:hover {
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+    0 2px 4px -1px rgba(0, 0, 0, 0.06); /* hover:shadow-md */
+}
+
+.achievement-content {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem; /* gap-4 */
+  padding: 1.5rem; /* p-6 */
+}
+
+.achievement-icon-wrapper {
+  padding: 0.5rem; /* p-2 */
+  border-radius: 9999px; /* rounded-full */
+}
+
+.achievement-icon-wrapper.completed {
+  background-color: rgba(46, 181, 140, 0.1); /* bg-vitalis-primary/10 */
+}
+
+.achievement-icon-wrapper.pending {
+  background-color: var(--verde-4); /* bg---verde-4 */
+}
+
+.achievement-icon-wrapper svg {
+  height: 1.5rem; /* h-6 */
+  width: 1.5rem; /* w-6 */
+}
+
+.achievement-icon-wrapper.completed svg {
+  color: var(--verde-2);
+}
+
+.achievement-icon-wrapper.pending svg {
+  color: var(--verde-3);
+}
+
+.achievement-text-content {
+  flex: 1; /* flex-1 */
+}
+
+.achievement-text-content h3 {
+  font-weight: 600; /* font-semibold */
+  color: var(--text-color);
+  margin-bottom: 0.25rem; /* mb-1 */
+}
+
+.achievement-text-content p {
+  font-size: 0.875rem; /* text-sm */
+  color: rgba(26, 26, 26, 0.6); /* text-vitalis-text/60 */
+  margin-bottom: 0.75rem; /* mb-3 */
+}
+
+.achievement-text-content .completed-date {
+  font-size: 0.75rem; /* text-xs */
+  color: var(--verde-2);
+  font-weight: 500; /* font-medium */
+}
+
+.progress-container {
+  margin-top: 0.5rem; /* space-y-2 */
+}
+
+.progress-bar {
+  height: 0.5rem; /* h-2 */
+  background-color: var(--vitalis-light); /* Background for the track */
+  border-radius: 9999px; /* rounded-full */
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  background-color: var(--verde-2);
+  border-radius: 9999px;
+  transition: width 0.3s ease-in-out;
+}
+
+.progress-text {
+  font-size: 0.75rem; /* text-xs */
+  color: rgba(26, 26, 26, 0.6); /* text-vitalis-text/60 */
+  margin-top: 0.25rem;
+}
+
+/* Histórico */
+.history-section {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem; /* space-y-6 */
+}
+
+.recent-videos-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem; /* space-y-4 */
+}
+
+.video-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem; /* gap-4 */
+  padding: 1rem; /* p-4 */
+  background-color: rgba(225, 255, 243, 0.3); /* bg-vitalis-light/30 */
+  border-radius: var(--radius); /* rounded-lg */
+  transition: background-color 0.2s ease-in-out; /* transition-colors duration-200 */
+}
+
+.video-item:hover {
+  background-color: rgba(225, 255, 243, 0.5); /* hover:bg-vitalis-light/50 */
+}
+
+.video-icon-wrapper {
+  width: 3rem; /* w-12 */
+  height: 3rem; /* h-12 */
+  background-color: rgba(46, 181, 140, 0.1); /* bg-vitalis-primary/10 */
+  border-radius: 0.5rem; /* rounded-lg */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.video-icon-wrapper svg {
+  height: 1.5rem; /* h-6 */
+  width: 1.5rem; /* w-6 */
+  color: var(--verde-2);
+}
+
+.video-details {
+  flex: 1; /* flex-1 */
+}
+
+.video-details h4 {
+  font-weight: 500; /* font-medium */
+  color: var(--text-color);
+}
+
+.video-meta {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem; /* gap-3 */
+  margin-top: 0.25rem; /* mt-1 */
+}
+
+.video-meta span:first-of-type {
+  font-size: 0.875rem; /* text-sm */
+  color: rgba(26, 26, 26, 0.6); /* text-vitalis-text/60 */
+}
+
+.video-category-tag {
+  font-size: 0.75rem; /* text-xs */
+  background-color: rgba(46, 181, 140, 0.1); /* bg-vitalis-primary/10 */
+  color: var(--verde-2);
+  padding: 0.25rem 0.5rem; /* px-2 py-1 */
+  border-radius: 9999px; /* rounded-full */
+}
+
+/* Calendário Emocional */
+.emotion-calendar-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr); /* grid-cols-7 */
+  gap: 0.5rem; /* gap-2 */
+}
+
+.calendar-day {
+  width: 2rem; /* w-8 */
+  height: 2rem; /* h-8 */
+  border-radius: 0.5rem; /* rounded-lg */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem; /* text-xs */
+  font-weight: 500; /* font-medium */
+  cursor: pointer;
+  transition: all 0.2s ease-in-out; /* transition-all duration-200 */
+}
+
+.calendar-day:hover {
+  transform: scale(1.1); /* hover:scale-110 */
+}
+
+.calendar-day.green {
+  background-color: var(--green-200);
+  color: #166534; /* text-green-800 */
+}
+
+.calendar-day.blue {
+  background-color: var(--blue-200);
+  color: #1e40af; /* text-blue-800 */
+}
+
+.calendar-day.yellow {
+  background-color: var(--yellow-200);
+  color: #a16207; /* text-yellow-800 */
+}
+
+.calendar-day.gray {
+  background-color: var(--gray-200);
+  color: var(--gray-600);
+}
+
+.emotion-legend {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem; /* gap-6 */
+  margin-top: 1.5rem; /* mt-6 */
+  font-size: 0.75rem; /* text-xs */
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem; /* gap-2 */
+}
+
+.legend-color-box {
+  width: 0.75rem; /* w-3 */
+  height: 0.75rem; /* h-3 */
+  border-radius: 9999px; /* rounded-full */
+}
+
+.legend-item span {
+  color: rgba(26, 26, 26, 0.6); /* text-vitalis-text/60 */
+}

@@ -6,5 +6,11 @@ import { Component } from '@angular/core';
   styleUrls: ['./minha-jornada.component.css']
 })
 export class MinhaJornadaComponent {
+    // Estado para a aba ativa, inicializado como 'vital'
+    activeTab: string = 'vital';
 
+    // Método para mudar a aba ativa
+    setActiveTab(tabName: string): void {
+        this.activeTab = tabName;
+    }
 }
