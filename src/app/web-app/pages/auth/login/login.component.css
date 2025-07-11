@@ -10,12 +10,15 @@
   height: 48px;
   box-shadow: 0 0 5px var(--verde-5);
   z-index: 999;
-  transition: opacity 0.4s ease, transform 0.4s ease;
+  transition: all 0.35s ease;
   cursor:pointer;
 }
 
 .voltar-btn:hover {
   cursor:pointer;
+  background-color: var(--verde-1);
+  box-shadow: 0 0 5px var(--verde-1);
+  color: var(--verde-7)
 }
 
 .voltar-btn a {
@@ -23,6 +26,9 @@
   font-size: 1.5rem;
   text-align: center;
   margin-right: 2px;
+}
+.voltar-btn:hover a{
+  color: var(--verde-7)
 }
 
 .auth-page-container {
@@ -165,6 +171,9 @@ a[routerLink="/app"] {
   font-family: "Poppins";
   width: 100%;
 }
+#login-btn:hover {
+    background-color: var(--verde-3);
+}
 
 .signin {
   margin-top: 0.5rem;
@@ -229,15 +238,15 @@ a[routerLink="/app"] {
 }
 
 .checkbox-wrapper-37 .checkbox-box {
-  fill: var(--branco);
-  stroke: var(--verde-2);
+  fill: var(--verde-2);
+  stroke: var(--verde-6);
   stroke-dasharray: 800;
   stroke-dashoffset: 800;
   transition: stroke-dashoffset 0.6s ease-in;
 }
 
 .checkbox-wrapper-37 .checkbox-tick {
-  stroke: var(--verde-2);
+  stroke: var(--verde-6);
   stroke-dasharray: 172;
   stroke-dashoffset: 172;
   transition: stroke-dashoffset 0.6s ease-in;
