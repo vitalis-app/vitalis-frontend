@@ -27,8 +27,8 @@ interface CalendarDay {
 
 @Component({
   selector: 'app-cuidar-mais',
-  templateUrl: './psicoapoio.component.html',
-  styleUrls: ['./psicoapoio.component.css'],
+  templateUrl: './CuidarMais.component.html',
+  styleUrls: ['./CuidarMais.component.css'],
   providers: [DatePipe]
 })
 export class CuidarMaisComponent implements OnInit {

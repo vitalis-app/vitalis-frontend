@@ -20,7 +20,7 @@ import { ConfiguracoesComponent } from './web-app/pages/configuracoes/configurac
 import { ContaComponent } from './web-app/pages/conta/conta.component';
 import { EstacaoVitalComponent } from './web-app/pages/estacao-vital/estacao-vital.component';
 import { MinhaJornadaComponent } from './web-app/pages/minha-jornada/minha-jornada.component';
-import { PsicoapoioComponent } from './web-app/pages/psicoapoio/psicoapoio.component';
+import { CuidarMaisComponent } from './web-app/pages/CuidarMais/CuidarMais.component';
 // Corrigido o caminho do import para corresponder ao seu componente
 import { AprenderComponent } from './web-app/pages/aprender-mais/aprender-mais.component';
 
@@ -55,7 +55,7 @@ const routes: Routes = [
       { path: 'conta', component: ContaComponent },
       { path: 'estacao-vital', component: EstacaoVitalComponent },
       { path: 'minha-jornada', component: MinhaJornadaComponent },
-      { path: 'psicoapoio', component: PsicoapoioComponent },
+      { path: 'psicoapoio', component: CuidarMaisComponent },
     ],
   },
 

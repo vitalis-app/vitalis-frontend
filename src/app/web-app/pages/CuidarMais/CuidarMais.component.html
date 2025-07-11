@@ -1,0 +1,160 @@
+<div class="cuidar-container">
+  <!-- Cabeçalho da Página -->
+  <header class="page-header">
+    <div class="header-content">
+      <h1>Cuidar+</h1>
+      <p>Conecte-se com psicólogos e terapeutas especializados</p>
+    </div>
+  </header>
+
+  <!-- Seção de Filtros -->
+  <section class="filters-section">
+    <div class="search-bar">
+      <i class="ri-search-line"></i>
+      <input type="text" placeholder="Buscar psicólogos por nome ou especialidade..." [(ngModel)]="searchTerm" (input)="filterProfessionals()">
+    </div>
+    <div class="categories-nav">
+      <button 
+        *ngFor="let category of categories"
+        class="category-chip"
+        [class.active]="isActiveFilter(category)"
+        (click)="toggleFilter(category)">
+        {{ category }}
+        <i class="ri-close-line" *ngIf="isActiveFilter(category)"></i>
+      </button>
+      <button class="btn-clear-filters" *ngIf="activeFilters.size > 0" (click)="clearFilters()">
+        Limpar filtros
+      </button>
+    </div>
+  </section>
+
+  <!-- Grid de Profissionais -->
+  <main class="professionals-grid-section">
+    <header class="grid-header">
+      <h3>{{ filteredProfessionals.length > 0 ? 'Todos os Profissionais' : 'Nenhum profissional encontrado' }}</h3>
+      <p *ngIf="activeFilters.size > 0">Filtros ativos: {{ getActiveFiltersText() }}</p>
+    </header>
+    <div class="professionals-grid">
+      <div class="professional-card" *ngFor="let prof of filteredProfessionals" (click)="openProfileModal(prof)">
+        <div class="card-image">
+          <img [src]="prof.imageUrl" [alt]="prof.name">
+          <div class="card-badge" *ngIf="prof.badge">{{ prof.badge }}</div>
+          <button class="btn-like"><i class="ri-heart-line"></i></button>
+        </div>
+        <div class="card-body">
+          <h4 class="prof-name">{{ prof.name }}</h4>
+          <p class="prof-crp">CRP {{ prof.crp }}</p>
+          <div class="prof-rating">
+            <i class="ri-star-fill"></i>
+            <span>{{ prof.rating }}</span>
+            <span>({{ prof.reviews }} avaliações)</span>
+          </div>
+          <div class="prof-tags">
+            <span class="tag" *ngFor="let tag of prof.tags">{{ tag }}</span>
+          </div>
+        </div>
+        <div class="card-footer">
+          <div class="prof-price">
+            <span>a partir de</span>
+            <p>R$ {{ prof.price }}</p>
+          </div>
+          <button class="btn-ver-perfil">Ver perfil</button>
+        </div>
+      </div>
+    </div>
+  </main>
+</div>
+
+<!-- Modal de Perfil e Agendamento -->
+<div class="modal-overlay" *ngIf="selectedProfessional" (click)="closeProfileModal()">
+  <div class="modal-content" (click)="$event.stopPropagation()">
+    <button class="btn-close-modal" (click)="closeProfileModal()"><i class="ri-close-line"></i></button>
+    
+    <!-- Conteúdo do Modal -->
+    <div class="modal-grid" *ngIf="selectedProfessional">
+      <!-- Coluna Esquerda: Perfil do Profissional -->
+      <div class="modal-profile-col">
+        <div class="profile-header">
+          <div class="profile-avatar"><img [src]="selectedProfessional.imageUrl" [alt]="selectedProfessional.name"></div>
+          <div class="profile-header-info">
+            <h2>{{ selectedProfessional.name }}</h2>
+            <p>CRP {{ selectedProfessional.crp }}</p>
+            <div class="prof-rating">
+              <i class="ri-star-fill"></i><span>{{ selectedProfessional.rating }}</span><span>({{ selectedProfessional.reviews }} avaliações)</span>
+            </div>
+          </div>
+        </div>
+        <div class="profile-price-banner">
+          a partir de <strong>R$ {{ selectedProfessional.price }}</strong>
+          <span>20% de desconto para assinantes Vital+</span>
+        </div>
+        <div class="profile-section">
+          <h4>Sobre</h4>
+          <p>{{ selectedProfessional.about }}</p>
+        </div>
+        <div class="profile-section">
+          <h4>Especialidades</h4>
+          <div class="prof-tags">
+             <span class="tag" *ngFor="let tag of selectedProfessional.tags">{{ tag }}</span>
+          </div>
+        </div>
+        <div class="profile-details-grid">
+          <div class="detail-item"><h4><i class="ri-psychotherapy-line"></i> Abordagem</h4><p>{{ selectedProfessional.details.abordagem }}</p></div>
+          <div class="detail-item"><h4><i class="ri-group-line"></i> Faixa Etária</h4><p>{{ selectedProfessional.details.faixaEtaria }}</p></div>
+          <div class="detail-item"><h4><i class="ri-earth-line"></i> Idiomas</h4><p>{{ selectedProfessional.details.idiomas }}</p></div>
+          <div class="detail-item"><h4><i class="ri-vidicon-line"></i> Modalidade</h4><p>{{ selectedProfessional.details.modalidade }}</p></div>
+        </div>
+      </div>
+
+      <!-- Coluna Direita: Agendamento -->
+      <div class="modal-schedule-col">
+        <h3>Agendar Consulta</h3>
+        <p class="schedule-subtitle">Selecione uma data:</p>
+        <div class="calendar">
+          <div class="calendar-header">
+            <button (click)="changeMonth(-1)"><i class="ri-arrow-left-s-line"></i></button>
+            <span>{{ currentDate | date:'MMMM yyyy' }}</span>
+            <button (click)="changeMonth(1)"><i class="ri-arrow-right-s-line"></i></button>
+          </div>
+          <div class="calendar-grid">
+            <div class="day-name" *ngFor="let day of weekDays">{{ day }}</div>
+            <div class="day-cell" *ngFor="let day of calendarDays" 
+                 [class.other-month]="day.otherMonth"
+                 [class.selected]="isSameDay(day.date, selectedDate)"
+                 (click)="selectDate(day.date)">
+              {{ day.date | date:'d' }}
+            </div>
+          </div>
+        </div>
+        <div class="available-times" *ngIf="selectedDate">
+          <p class="schedule-subtitle">Horários disponíveis:</p>
+          <div class="times-grid">
+            <button *ngFor="let time of availableTimes" 
+                    class="time-slot"
+                    [class.selected]="time === selectedTime"
+                    (click)="selectTime(time)">
+              {{ time }}
+            </button>
+          </div>
+        </div>
+        <div class="discount-banner" *ngIf="selectedTime">
+          <i class="ri-price-tag-3-fill"></i>
+          Como assinante Vital+, você tem 20% de desconto nesta consulta.
+        </div>
+        <button class="btn-confirm-schedule" [disabled]="!selectedTime" (click)="confirmAppointment()">
+          {{ selectedTime ? 'Confirmar agendamento - ' + (selectedDate | date:'dd/MM/yyyy') + ' às ' + selectedTime : 'Selecione data e horário' }}
+        </button>
+        <p class="confirm-notice">Você receberá uma confirmação por email após o agendamento</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Toast de Confirmação -->
+<div class="toast-notification" [class.show]="showConfirmationToast">
+  <i class="ri-checkbox-circle-fill"></i>
+  <div class="toast-content">
+    <h4>Consulta agendada com sucesso!</h4>
+    <p>{{ confirmationMessage }}</p>
+  </div>
+</div>
