@@ -74,7 +74,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule],
+  imports: [RouterModule.forRoot(routes), FormsModule], // Importando FormsModule para uso em componentes que necessitam de formulários
+  exports: [RouterModule, FormsModule] // Exportando RouterModule e FormsModule para uso em outros módulos
 })
 export class AppRoutingModule {}
