@@ -5,6 +5,7 @@ interface LearningContent {
   title: string;
   titleOverlay: string;
   imageUrl: string;
+  tags: string[]; // Adicionado para permitir múltiplos filtros
 }
 
 interface MotivationContent {
@@ -19,17 +20,17 @@ interface MotivationContent {
 })
 export class AprenderComponent implements OnInit {
 
-  // --- Estado da UI ---
+  // --- Estado da UI  ---
   searchTerm: string = '';
-  categories: string[] = ['Todos', 'Artigos', 'Vídeos', 'Podcasts', 'Cursos', 'Palestras', 'Ansiedade', 'Sono', 'Estudo'];
-  activeCategory: string = 'Todos';
-
-  // --- Dados de Exemplo com Placeholders ---
+  categories: string[] = ['Artigos', 'Vídeos', 'Podcasts', 'Cursos', 'Palestras', 'Ansiedade', 'Sono', 'Estudo'];
+  activeFilters: Set<string> = new Set(); // Usa um Set para múltiplos filtros
+  
+  // --- Dados de Exemplo com Placeholders e Tags ---
   allLearningContent: LearningContent[] = [
-    { type: 'Artigo', title: 'Título do Artigo Genérico', titleOverlay: 'Roberto', imageUrl: 'https://soumaisfavela.com.br/wp-content/uploads/2023/07/RobertoCarlos.jpg' },
-    { type: 'Vídeo', title: 'Título do Vídeo Genérico', titleOverlay: 'Romario', imageUrl: 'https://cdn-imgs.s3.sa-east-1.amazonaws.com/wp-content/uploads/2025/01/Romario.webp' },
-    { type: 'Curso', title: 'Título do Curso Genérico', titleOverlay: 'Rodnei', imageUrl: 'https://www.marcoeusebio.com.br/files/rodnei-inter-ricardo-duarte.jpg' },
-    { type: 'Podcast', title: 'Título do Podcast Genérico', titleOverlay: 'Ronaldo', imageUrl: 'https://editorial.uefa.com/resources/0282-184d73110076-1612dd46f21d-1000/cristiano_ronaldo_of_portugal_celebrates_after_scoring_a.jpeg' }
+    { type: 'Artigo', title: 'O poder do agora', titleOverlay: 'Reflexão', imageUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSopIJhxZ3dBmlYwkhWlb-IDMK_tBy6oAH6_g&s', tags: ['Artigos', 'Ansiedade', 'Estudo'] },
+    { type: 'Vídeo', title: 'Mindfulness para iniciantes', titleOverlay: 'Mindfulness', imageUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSopIJhxZ3dBmlYwkhWlb-IDMK_tBy6oAH6_g&s', tags: ['Vídeos', 'Sono'] },
+    { type: 'Curso', title: 'Construindo hábitos positivos', titleOverlay: 'Hábitos', imageUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSopIJhxZ3dBmlYwkhWlb-IDMK_tBy6oAH6_g&s', tags: ['Cursos', 'Estudo'] },
+    { type: 'Podcast', title: 'Conversas sobre estoicismo', titleOverlay: 'Estoicismo', imageUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSopIJhxZ3dBmlYwkhWlb-IDMK_tBy6oAH6_g&s', tags: ['Podcast', 'Palestras'] }
   ];
 
   motivationContent: MotivationContent[] = [
@@ -46,26 +47,45 @@ export class AprenderComponent implements OnInit {
     this.filterContent();
   }
 
+  // --- Lógica de Filtragem  ---
+
   /**
-   * Define a categoria ativa e refiltra o conteúdo.
-   * @param category A categoria selecionada.
+   * Adiciona ou remove um filtro da lista de filtros ativos.
+   * @param category A categoria a ser adicionada/removida.
    */
-  selectCategory(category: string): void {
-    this.activeCategory = category;
+  toggleFilter(category: string): void {
+    if (this.activeFilters.has(category)) {
+      this.activeFilters.delete(category);
+    } else {
+      this.activeFilters.add(category);
+    }
     this.filterContent();
   }
 
   /**
-   * Filtra o conteúdo de aprendizado com base na categoria e no termo de pesquisa.
+   * Verifica se um filtro está ativo.
+   * @param category A categoria a ser verificada.
+   * @returns Verdadeiro se o filtro estiver ativo.
+   */
+  isActiveFilter(category: string): boolean {
+    return this.activeFilters.has(category);
+  }
+
+  /**
+   * Limpa todos os filtros ativos e a pesquisa.
+   */
+  clearFilters(): void {
+    this.activeFilters.clear();
+    this.searchTerm = '';
+    this.filterContent();
+  }
+
+  /**
+   * Filtra o conteúdo com base nos filtros ativos e no termo de pesquisa.
    */
   filterContent(): void {
     let tempContent = this.allLearningContent;
     const searchLower = this.searchTerm.toLowerCase();
-
-    // Filtra por categoria
-    if (this.activeCategory !== 'Todos') {
-      tempContent = tempContent.filter(item => item.type === this.activeCategory);
-    }
 
     // Filtra por termo de pesquisa
     if (searchLower) {
@@ -75,6 +95,21 @@ export class AprenderComponent implements OnInit {
       );
     }
 
+    // Filtra por categorias ativas (tags)
+    if (this.activeFilters.size > 0) {
+      tempContent = tempContent.filter(item => 
+        Array.from(this.activeFilters).every(filter => item.tags.includes(filter))
+      );
+    }
+    
     this.filteredLearningContent = tempContent;
+  }
+
+  /**
+   * Retorna os filtros ativos como uma string para exibição.
+   * @returns Uma string com os filtros ativos, separados por vírgula.
+   */
+  getActiveFiltersText(): string {
+    return Array.from(this.activeFilters).join(', ');
   }
 }

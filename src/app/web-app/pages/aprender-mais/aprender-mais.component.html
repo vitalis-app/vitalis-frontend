@@ -1,34 +1,43 @@
 <div class="aprender-container">
-  <!-- Seção de Filtros -->
-     <header class="page-header">
+  <!-- Cabeçalho da Página -->
+  <header class="page-header">
     <div class="header-content">
       <h1>Aprender+</h1>
       <p>Ferramentas e conhecimentos para fortalecer a sua jornada de bem-estar</p>
     </div>
   </header>
 
+  <!-- Seção de Filtros -->
   <section class="filters-section">
     <div class="search-bar">
       <i class="ri-search-line"></i>
-      <!-- CORRIGIDO: O nome da variável agora é 'searchTerm' para corresponder ao TS -->
       <input type="text" placeholder="Pesquisar artigos, vídeos, cursos..." [(ngModel)]="searchTerm" (input)="filterContent()">
     </div>
     <div class="categories-nav">
+      <!-- lógica de clique e classe ativa -->
       <button 
         *ngFor="let category of categories"
         class="category-chip"
-        [class.active]="category === activeCategory"
-        (click)="selectCategory(category)">
+        [class.active]="isActiveFilter(category)"
+        (click)="toggleFilter(category)">
         {{ category }}
+        <i class="ri-close-line" *ngIf="isActiveFilter(category)"></i>
+      </button>
+      <!-- Botão para limpar filtros, igual ao da página Cuidar+ -->
+      <button class="btn-clear-filters" *ngIf="activeFilters.size > 0" (click)="clearFilters()">
+        Limpar filtros
       </button>
     </div>
   </section>
 
   <!-- Grid de Conteúdo -->
   <main class="content-grid-section">
-    <!-- Seção Reflexão -->
     <section class="topic-section">
-      <h3 class="section-title">Reflexão</h3>
+      <!-- Cabeçalho da seção que mostra os filtros ativos -->
+      <header class="grid-header">
+        <h3 class="section-title">Reflexão</h3>
+        <p *ngIf="activeFilters.size > 0">Filtros ativos: {{ getActiveFiltersText() }}</p>
+      </header>
       <div class="learning-grid">
         <div class="learning-card" *ngFor="let item of filteredLearningContent">
           <div class="learning-card-image" [style.backgroundImage]="'url(' + item.imageUrl + ')'">
@@ -39,10 +48,14 @@
             <p class="learning-card-title">{{ item.title }}</p>
           </div>
         </div>
+         <!-- Mensagem de "Nenhum resultado" -->
+        <p *ngIf="filteredLearningContent.length === 0" class="no-results">
+          Nenhum conteúdo encontrado. Tente uma pesquisa ou filtro diferente.
+        </p>
       </div>
     </section>
 
-    <!-- Seção Motivacional -->
+    <!-- Seção Motivacional (não é afetada pelos filtros) -->
     <section class="topic-section">
       <h3 class="section-title">Motivacional</h3>
       <div class="motivation-grid">
