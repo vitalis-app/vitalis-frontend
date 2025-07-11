@@ -1,8 +1,7 @@
 /* Estilos gerais da página */
 .settings-page {
-    padding: 2rem;
-    max-width: 1200px;
-    margin: 0 auto;
+    padding: 2rem 4rem;
+    background-color: var(--background)
 }
 
 .settings-page h1 {

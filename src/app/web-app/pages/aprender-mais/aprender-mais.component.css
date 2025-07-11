@@ -1,0 +1,169 @@
+.page-header {
+  margin-bottom: 2rem;
+  text-align: center; /* Centraliza o texto */
+}
+
+.page-header h1 {
+  font-size: 2.5rem;
+  font-weight: 600;
+  color: var(--text-color);
+  margin: 0;
+}
+
+.page-header p {
+  font-size: 1.1rem;
+  color: var(--verde-2);
+  margin-top: 0.25rem;
+}
+
+.aprender-container {
+  padding: 2rem 4rem;
+  background-color: var(--background);
+  color: var(--text-color);
+}
+
+/* --- Filtros --- */
+.filters-section {
+  background-color: var(--primary-light);
+  padding: 1.5rem;
+  border-radius: var(--border-radius);
+  margin-bottom: 2.5rem;
+}
+.search-bar {
+  display: flex;
+  align-items: center;
+  background-color: var(--bg-color);
+  border-radius: var(--border-radius);
+  padding: 0.75rem 1rem;
+  margin-bottom: 1rem;
+}
+.search-bar i { color: var(--verde-2); margin-right: 0.75rem; }
+.search-bar input { border: none; outline: none; width: 100%; font-size: 1rem; background: transparent; color: var(--text-color); }
+.categories-nav { display: flex; flex-wrap: wrap; gap: 0.75rem; }
+.category-chip {
+  padding: 0.5rem 1rem;
+  border: 1px solid var(--border-color);
+  border-radius: 1.5rem;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  font-size: 0.875rem;
+  cursor: pointer;
+  transition: all var(--transition-speed);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.category-chip:hover { border-color: var(--primary-color); }
+.category-chip.active {
+  background-color: var(--primary-color);
+  color: var(--branco);
+  border-color: var(--primary-color);
+}
+.category-chip.active i { font-size: 1rem; }
+.btn-clear-filters {
+  background: none;
+  border: none;
+  color: var(--primary-color);
+  text-decoration: underline;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+/* --- Seções de Conteúdo --- */
+.topic-section {
+  margin-bottom: 3rem;
+}
+.section-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--text-color);
+  margin: 0 0 1.5rem 0;
+}
+
+/* --- Grid de Aprendizado (Reflexão) --- */
+.learning-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1.5rem;
+}
+.learning-card {
+  background-color: var(--bg-color);
+  border: 1px solid var(--verde-5);
+  border-radius: var(--border-radius);
+  overflow: hidden;
+  transition: all var(--transition-speed);
+}
+.learning-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px var(--shadow-0);
+  border-color: var(--verde-4);
+}
+.learning-card-image {
+  height: 180px;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+}
+.learning-card-title-overlay {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--branco);
+  text-align: center;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+  margin: 0;
+}
+.learning-card-body {
+  padding: 1rem;
+}
+.learning-card-tag {
+  display: inline-block;
+  background-color: var(--verde-5);
+  color: var(--verde-0);
+  padding: 0.25rem 0.75rem;
+  border-radius: 0.25rem;
+  font-size: 0.75rem;
+  font-weight: 500;
+  margin-bottom: 0.75rem;
+}
+.learning-card-title {
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: var(--text-color);
+  margin: 0;
+}
+
+/* --- Grid Motivacional --- */
+.motivation-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 1.5rem;
+}
+.motivation-card {
+  background-color: var(--bg-color);
+  border: 1px solid var(--verde-5);
+  border-radius: var(--border-radius);
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  text-align: center;
+  transition: all var(--transition-speed);
+}
+.motivation-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px var(--shadow-0);
+  border-color: var(--verde-4);
+}
+.motivation-card i {
+  font-size: 2rem;
+  color: var(--verde-2);
+}
+.motivation-card span {
+  font-weight: 500;
+  color: var(--text-color);
+}
