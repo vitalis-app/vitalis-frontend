@@ -11,7 +11,6 @@ import { SidebarComponent } from './web-app/components/sidebar/sidebar.component
 import { HomeAppComponent } from './web-app/pages/home-app/home-app.component';
 import { BtnScrollupComponent } from './site/components/widgets/buttons/btn-scrollup/btn-scrollup.component';
 import { LoginComponent } from './web-app/pages/auth/login/login.component';
-import { CadastroComponent } from './web-app/pages/auth/cadastro/cadastro.component';
 import { BtnGradientComponent } from './site/components/widgets/buttons/btn-gradient/btn-gradient.component';
 import { BtnSecondaryComponent } from './site/components/widgets/buttons/btn-secondary/btn-secondary.component';
 import { BtnDestaqueComponent } from './site/components/widgets/buttons/btn-destaque/btn-destaque.component';
@@ -38,7 +37,6 @@ import { LoginPageLayoutComponent } from './web-app/layout/login-page-layout/log
     HomeAppComponent,
     BtnScrollupComponent,
     LoginComponent,
-    CadastroComponent,
     BtnGradientComponent,
     BtnSecondaryComponent,
     BtnDestaqueComponent,

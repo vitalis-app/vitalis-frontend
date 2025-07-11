@@ -1,15 +1,16 @@
 import { Component, HostListener, OnInit, Renderer2, Inject, PLATFORM_ID } from '@angular/core';
-import { isPlatformBrowser } from '@angular/common';
+import { isPlatformBrowser, CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
 import { ThemeService } from 'src/app/services/theme/theme.service';
-import { CommonModule } from '@angular/common'; // Importe CommonModule para usar *ngIf
-import { RouterModule } from '@angular/router'; // RouterModule vem de @angular/router
+import { CadastroComponent } from 'src/app/web-app/pages/auth/cadastro/cadastro.component';
 
 @Component({
   selector: 'web-navbar',
-  standalone: true, // <-- Perfeito! O componente agora é independente.
+  standalone: true, // Componente independente
   imports: [
-    CommonModule,   // <-- Necessário para diretivas como *ngIf
-    RouterModule    // <-- Disponibiliza o routerLink para o template
+    CommonModule,    // para *ngIf, etc.
+    RouterModule,    // para routerLink
+    CadastroComponent // usar o componente de cadastro aqui
   ],
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.css']

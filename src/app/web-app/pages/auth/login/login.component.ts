@@ -5,6 +5,7 @@ import { Component } from '@angular/core';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
+
 export class LoginComponent {
   titulos: string[] = [
     'Bem-vindo de volta.',
@@ -44,4 +45,10 @@ export class LoginComponent {
     const indice = Math.floor(Math.random() * texto.length);
     return texto[indice];
   } 
+}
+
+export interface Pessoa {
+  id?: number;
+  nome: string;
+  email: string;
 }

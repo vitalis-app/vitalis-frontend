@@ -1,217 +1,42 @@
-
-.voltar-btn{
-  left: 24px;
-  top: 24px;
-  position: fixed;
-  background: var(--verde-7);
-  color: var(--verde-00);
-  border: none;
-  border-radius: 50%;
-  width: 48px;
-  height: 48px;
-  box-shadow: 0 0 5px var(--verde-5);
-  z-index: 999;
-  transition: all 0.35s ease;
-  cursor:pointer;
-}
-
-.voltar-btn:hover {
-  cursor:pointer;
-  background-color: var(--verde-1);
-  box-shadow: 0 0 5px var(--verde-1);
-  color: var(--verde-7)
-}
-
-.voltar-btn a {
-  text-decoration: none;
-  font-size: 1.5rem;
-  text-align: center;
-  margin-right: 2px;
-}
-.voltar-btn:hover a{
-  color: var(--verde-7)
-}
-
-  .auth-page-container {
-    display: flex;
-    width: 100vw;
-    min-height: 100vh;
-    height: 100vh;
-    justify-content: space-evenly;
-    background: radial-gradient(circle at right,
-            var(--verde-5   ),
-            var(--verde-7) 100%);
-    color: var(--verde-1);
-    align-items: center;
-}
-
-/* Titulo/Lado Esquerdo */
-.auth-hero {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    height: 100%;
-    width: 40%;
-}
-
-.text-title{
-    font-size: 3.5rem;    
-}
-.text-subtitle{
-    font-size: 1.5rem;
-    color: var(--verde-3)
-}
-
-#vitalis-logo {
-    width: 130px;
-    height: auto;
-    margin-bottom: 1rem;
-}
-
-/* Painel de Login */
-.auth-panel {
-    background: linear-gradient(180deg,
-    var(--verde-56),
-    var(--verde-6));
-    border-radius: 2rem;
-    width: 25rem;
-    padding: 2rem 1rem 2rem 1rem;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    box-shadow: 0 0 15px 2px var(--shadow-0);
-    border: solid 1px var(--verde-4);
-}
-
-.auth-panel p, a,
-label {
-    font-size: 0.85rem;
-    color: var(--verde-1)
-}
-
-.text-container {
-    margin-bottom: 1rem;
-}
-
-.inputs-container {
-    display: flex;
-    flex-direction: column;
-    width: 85%;
-  }
-  
-  .input-icon-wrapper {
-    position: relative;
+.registro-overlay {
+    position: fixed;
+    bottom: -100%;
+    left: 0;
     width: 100%;
-  }
-  
-  .input-icon-wrapper input {
-    all: unset;
-    width: 85%;
-    background-color: transparent;
-    padding: 8px 8px 8px 36px; /* espaço para o ícone */
-    border: solid 1px var(--verde-2);
-    border-radius: 10px;
-    margin-bottom: 1rem;
-    font-size: 0.9rem;
-  }
-  
-  .input-icon-wrapper input::placeholder {
-    color: var(--verde-2);
-  }
-  
-  .input-icon-wrapper .input-icon {
-    position: absolute;
-    left: 13px;
-    top: 13px; /* valor ajustado manualmente */
-    fill: var(--verde-2);
-    pointer-events: none;
-    width: 15px;
-    height: 15px;
-  }
-  
-  
-  .inputs-container p {
-    margin-left: 3px;
-  }  
-
-.remember-forgot-section {
-    margin-top: 0.5rem;
-    width: 82%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
     display: flex;
-    justify-content: space-between;
-}
-
-.remember-me {
-    display: flex;
-    gap: 0.2rem;
-}
-
-.remember-me input {
-    accent-color: var(--verde-10);
-}
-
-a[routerLink="/app"] {
-    width: 85%;
-  }
-
-.btn-container {
-  width: 85%;
-}
-
-#login-btn {
-    margin: 1.2rem 0;
-    background-color: var(--verde-10);
-    color: var(--verde-7);
-    font-weight: 500;
-    padding: 0.75rem 2rem;
-    border-radius: 12px;
-    transition: all 0.3s ease;
-    border: none;
-    cursor: pointer;
-    display: inline-block;
-    font-family: "Poppins";
-    min-width: 100%;
-}
-
-#login-btn:hover{
-  background-color: var(--verde-3);
-}
-.signin {
-    margin-top: 0.5rem;
-    display: flex;
-    gap: 9px;
-}
-
-.google-btn {
-    margin: 1.2rem 0;
-    display: inline-flex;
-    align-items: center;
     justify-content: center;
-    gap: 10px;
-    background-color: white;
-    color: #444;
-    padding: 0.75rem 2rem;
-    border: 1px solid #ddd;
-    border-radius: 12px;
-    font-weight: 500;
-    font-family: "Poppins";
+    align-items: flex-end;
+    transition: bottom 0.4s ease;
+    z-index: 1000;
+  }
+  
+  .registro-overlay.ativo {
+    bottom: 0;
+  }
+  
+  .registro-container {
+    background-color: #fff;
+    width: 100%;
+    max-width: 500px;
+    padding: 2rem;
+    border-radius: 16px 16px 0 0;
+    box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.3);
+    transform: translateY(100%);
+    transition: transform 0.4s ease;
+  }
+  
+  .registro-overlay.ativo .registro-container {
+    transform: translateY(0);
+  }
+  
+  .fechar-btn {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    background: transparent;
+    border: none;
+    font-size: 1.2rem;
     cursor: pointer;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    transition: background-color 0.3s;
-    width: 85%;
-}
-
-.google-btn:hover {
-    background-color: #f7f7f7;
-}
-
-.google-icon {
-    width: 20px;
-    height: 20px;
-    display: block;
-}
-
-#panel-title,
-#panel-subtitle {
-    text-align: center;
-}
+  }
