@@ -55,7 +55,7 @@ const routes: Routes = [
       { path: 'conta', component: ContaComponent },
       { path: 'estacao-vital', component: EstacaoVitalComponent },
       { path: 'minha-jornada', component: MinhaJornadaComponent },
-      { path: 'psicoapoio', component: CuidarMaisComponent },
+      { path: 'CuidarMais', component: CuidarMaisComponent },
     ],
   },
 
