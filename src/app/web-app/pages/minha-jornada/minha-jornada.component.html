@@ -1,1 +1,426 @@
-<p>minha-jornada works!</p>
+<!-- min-h-screen para garantir que o conteúdo ocupe pelo menos a altura total da tela -->
+<div class="min-h-screen">
+    <!-- Container principal com largura máxima e centralizado -->
+    <div class="container">
+        <!-- Seção de Cabeçalho -->
+        <div class="header-section">
+            <h1>Minha Jornada</h1>
+            <p>Veja a sua história de autocuidado com a Vitalis.</p>
+        </div>
+
+        <!-- Resumo Semanal - Exibição de estatísticas fixas -->
+        <div class="weekly-stats-grid">
+            <!-- Item de estatística: Dias ativos -->
+            <div class="card weekly-stat-item">
+                <div class="card-content text-center">
+                    <!-- Ícone fixo para Dias ativos -->
+                    <i class="ri-leaf-line"></i>
+                    <p>152</p>
+                    <p>Dias ativos</p>
+                </div>
+            </div>
+            <!-- Item de estatística: Total de XP -->
+            <div class="card weekly-stat-item">
+                <div class="card-content text-center">
+                    <!-- Ícone fixo para Total de XP -->
+                    <i class="ri-fire-line"></i>
+                    <p>1.250</p>
+                    <p>Total de XP</p>
+                </div>
+            </div>
+            <!-- Item de estatística: Emoção frequente -->
+            <div class="card weekly-stat-item">
+                <div class="card-content text-center">
+                    <!-- Ícone fixo para Emoção frequente -->
+                    <i class="ri-emotion-happy-line"></i>
+                    <p>Tranquilo</p>
+                    <p>Emoção frequente</p>
+                </div>
+            </div>
+            <!-- Item de estatística: Vídeos assistidos -->
+            <div class="card weekly-stat-item">
+                <div class="card-content text-center">
+                    <!-- Ícone fixo para Vídeos assistidos -->
+                    <i class="ri-play-circle-line"></i>
+                    <p>3</p>
+                    <p>Vídeos assistidos</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Abas Interativas -->
+        <div class="tabs">
+            <div class="tabs-list" role="tablist">
+                <!-- Botão da aba "Estação Vital" -->
+                <button
+                    class="tabs-trigger"
+                    [class.active]="activeTab === 'vital'"
+                    (click)="setActiveTab('vital')"
+                    role="tab"
+                    [attr.aria-selected]="activeTab === 'vital'"
+                >
+                    <i class="ri-leaf-line"></i>Estação Vital</button>
+                <!-- Botão da aba "Estatísticas" -->
+                <button
+                    class="tabs-trigger"
+                    [class.active]="activeTab === 'stats'"
+                    (click)="setActiveTab('stats')"
+                    role="tab"
+                    [attr.aria-selected]="activeTab === 'stats'"
+                >
+                    <!-- Ícone fixo para Estatísticas -->
+                    <i class="ri-bar-chart-2-line"></i>
+                    Estatísticas
+                </button>
+                <!-- Botão da aba "Conquistas" -->
+                <button
+                    class="tabs-trigger"
+                    [class.active]="activeTab === 'achievements'"
+                    (click)="setActiveTab('achievements')"
+                    role="tab"
+                    [attr.aria-selected]="activeTab === 'achievements'"
+                >
+                    <!-- Ícone fixo para Conquistas -->
+                    <i class="ri-award-line"></i>
+                    Conquistas
+                </button>
+                <!-- Botão da aba "Histórico" -->
+                <button
+                    class="tabs-trigger"
+                    [class.active]="activeTab === 'history'"
+                    (click)="setActiveTab('history')"
+                    role="tab"
+                    [attr.aria-selected]="activeTab === 'history'"
+                >
+                    <!-- Ícone fixo para Histórico -->
+                    <i class="ri-time-line"></i>
+                    Histórico
+                </button>
+            </div>
+
+            <!-- Conteúdo da Aba "Estação Vital" -->
+            <div id="vital-content" class="tabs-content" [class.active]="activeTab === 'vital'">
+                <div class="card">
+                    <div class="card-header">
+                        <h2 class="card-title">
+                            <!-- Ícone fixo para XP Ganho por Dia -->
+                            <i class="ri-fire-fill"></i>
+                            XP Ganho por Dia
+                        </h2>
+                    </div>
+                    <div class="card-content">
+                        <div class="xp-chart">
+                            <!-- Barras de XP fixas para cada dia -->
+                            <div class="xp-bar-container">
+                                <div class="xp-bar" style="height: 56.25%;"></div> <!-- 180/320 * 100 -->
+                                <p>Dom</p>
+                                <p>180</p>
+                            </div>
+                            <div class="xp-bar-container">
+                                <div class="xp-bar" style="height: 78.125%;"></div> <!-- 250/320 * 100 -->
+                                <p>Seg</p>
+                                <p>250</p>
+                            </div>
+                            <div class="xp-bar-container">
+                                <div class="xp-bar"></div> <!-- 320/320 * 100 -->
+                                <p>Ter</p>
+                                <p>320</p>
+                            </div>
+                            <div class="xp-bar-container">
+                                <div class="xp-bar" style="height: 56.25%;"></div> <!-- 180/320 * 100 -->
+                                <p>Qua</p>
+                                <p>180</p>
+                            </div>
+                            <div class="xp-bar-container">
+                                <div class="xp-bar" style="height: 68.75%;"></div> <!-- 220/320 * 100 -->
+                                <p>Qui</p>
+                                <p>220</p>
+                            </div>
+                            <div class="xp-bar-container">
+                                <div class="xp-bar" style="height: 87.5%;"></div> <!-- 280/320 * 100 -->
+                                <p>Sex</p>
+                                <p>280</p>
+                            </div>
+                            <div class="xp-bar-container">
+                                <div class="xp-bar" style="height: 46.875%;"></div> <!-- 150/320 * 100 -->
+                                <p>Sáb</p>
+                                <p>150</p>
+                            </div>
+                        </div>
+                        <div class="xp-summary">
+                            <p>
+                                <span class="font-semibold text-vitalis-primary">Terça-feira</span> foi seu dia mais produtivo com
+                                <span class="font-semibold text-vitalis-primary"> 320 XP</span>!
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Conteúdo da Aba "Estatísticas" -->
+            <div id="stats-content" class="tabs-content" [class.active]="activeTab === 'stats'">
+                <div class="stats-grid">
+                    <div class="card">
+                        <div class="card-header">
+                            <h2 class="card-title">Emoções Registradas</h2>
+                        </div>
+                        <div class="card-content">
+                            <div class="space-y-4">
+                                <!-- Emoções fixas -->
+                                <div class="emotion-item">
+                                    <div class="emotion-item-left">
+                                        <div class="emotion-color-box bg-green-400"></div>
+                                        <span class="text-vitalis-text">Tranquilo</span>
+                                    </div>
+                                    <span class="font-semibold text-vitalis-text">12</span>
+                                </div>
+                                <div class="emotion-item">
+                                    <div class="emotion-item-left">
+                                        <div class="emotion-color-box bg-blue-400"></div>
+                                        <span class="text-vitalis-text">Motivado</span>
+                                    </div>
+                                    <span class="font-semibold text-vitalis-text">8</span>
+                                </div>
+                                <div class="emotion-item">
+                                    <div class="emotion-item-left">
+                                        <div class="emotion-color-box bg-yellow-400"></div>
+                                        <span class="text-vitalis-text">Ansioso</span>
+                                    </div>
+                                    <span class="font-semibold text-vitalis-text">5</span>
+                                </div>
+                                <div class="emotion-item">
+                                    <div class="emotion-item-left">
+                                        <div class="emotion-color-box bg-gray-400"></div>
+                                        <span class="text-vitalis-text">Triste</span>
+                                    </div>
+                                    <span class="font-semibold text-vitalis-text">3</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-header">
+                            <h2 class="card-title">Resumo Geral</h2>
+                        </div>
+                        <div class="card-content">
+                            <div class="space-y-6 general-summary-section">
+                                <div>
+                                    <p>12 min</p>
+                                    <p>Tempo médio de uso</p>
+                                </div>
+                                <div class="summary-grid">
+                                    <div>
+                                        <p>28</p>
+                                        <p>Consultas</p>
+                                    </div>
+                                    <div>
+                                        <p>45</p>
+                                        <p>Vídeos</p>
+                                    </div>
+                                    <div>
+                                        <p>89</p>
+                                        <p>Registros</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Conteúdo da Aba "Conquistas" -->
+            <div id="achievements-content" class="tabs-content" [class.active]="activeTab === 'achievements'">
+                <div class="achievements-list">
+                    <!-- Conquista 1: Concluída -->
+                    <div class="card achievement-item">
+                        <div class="achievement-content">
+                            <div class="achievement-icon-wrapper completed">
+                                <!-- Ícone fixo para conquista concluída -->
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-vitalis-primary">
+                                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                                    <path d="m9 11 3 3L22 4"/>
+                                </svg>
+                            </div>
+                            <div class="achievement-text-content">
+                                <h3 class="font-semibold text-vitalis-text mb-1">Semana Consistente</h3>
+                                <p class="text-sm text-vitalis-text/60 mb-3">7 dias seguidos ativos</p>
+                                <span class="completed-date">2 dias atrás</span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Conquista 2: Em progresso -->
+                    <div class="card achievement-item">
+                        <div class="achievement-content">
+                            <div class="achievement-icon-wrapper pending">
+                                <!-- Ícone fixo para conquista pendente -->
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-gray-400">
+                                    <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+                                </svg>
+                            </div>
+                            <div class="achievement-text-content">
+                                <h3 class="font-semibold text-vitalis-text mb-1">Explorador de Conteúdo</h3>
+                                <p class="text-sm text-vitalis-text/60 mb-3">50 vídeos assistidos</p>
+                                <div class="progress-container">
+                                    <div class="progress-bar">
+                                        <div class="progress-fill" style="width: 80%;"></div>
+                                    </div>
+                                    <p class="progress-text">40 de 50</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Conquista 3: Em progresso -->
+                    <div class="card achievement-item">
+                        <div class="achievement-content">
+                            <div class="achievement-icon-wrapper pending">
+                                <!-- Ícone fixo para conquista pendente -->
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-gray-400">
+                                    <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+                                </svg>
+                            </div>
+                            <div class="achievement-text-content">
+                                <h3 class="font-semibold text-vitalis-text mb-1">Mindfulness Master</h3>
+                                <p class="text-sm text-vitalis-text/60 mb-3">30 sessões de meditação</p>
+                                <div class="progress-container">
+                                    <div class="progress-bar">
+                                        <div class="progress-fill" style="width: 60%;"></div>
+                                    </div>
+                                    <p class="progress-text">18 de 30</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Conteúdo da Aba "Histórico" -->
+            <div id="history-content" class="tabs-content" [class.active]="activeTab === 'history'">
+                <div class="history-section">
+                    <div class="card">
+                        <div class="card-header">
+                            <h2 class="card-title">Vídeos Recentes</h2>
+                        </div>
+                        <div class="card-content">
+                            <div class="recent-videos-list">
+                                <!-- Vídeo 1 -->
+                                <div class="video-item">
+                                    <div class="video-icon-wrapper">
+                                        <!-- Ícone fixo para vídeo -->
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-vitalis-primary">
+                                            <polygon points="5 3 19 12 5 21 5 3"/>
+                                        </svg>
+                                    </div>
+                                    <div class="video-details">
+                                        <h4 class="font-medium text-vitalis-text">Respiração para Ansiedade</h4>
+                                        <div class="video-meta">
+                                            <span class="text-sm text-vitalis-text/60">8 min</span>
+                                            <span class="video-category-tag">Respiração</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Vídeo 2 -->
+                                <div class="video-item">
+                                    <div class="video-icon-wrapper">
+                                        <!-- Ícone fixo para vídeo -->
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-vitalis-primary">
+                                            <polygon points="5 3 19 12 5 21 5 3"/>
+                                        </svg>
+                                    </div>
+                                    <div class="video-details">
+                                        <h4 class="font-medium text-vitalis-text">Meditação Matinal</h4>
+                                        <div class="video-meta">
+                                            <span class="text-sm text-vitalis-text/60">15 min</span>
+                                            <span class="video-category-tag">Meditação</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Vídeo 3 -->
+                                <div class="video-item">
+                                    <div class="video-icon-wrapper">
+                                        <!-- Ícone fixo para vídeo -->
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-vitalis-primary">
+                                            <polygon points="5 3 19 12 5 21 5 3"/>
+                                        </svg>
+                                    </div>
+                                    <div class="video-details">
+                                        <h4 class="font-medium text-vitalis-text">Exercícios de Gratidão</h4>
+                                        <div class="video-meta">
+                                            <span class="text-sm text-vitalis-text/60">5 min</span>
+                                            <span class="video-category-tag">Mindfulness</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-header">
+                            <h2 class="card-title">
+                                <!-- Ícone fixo para Calendário Emocional -->
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-5 w-5 text-vitalis-primary">
+                                    <path d="M8 2v4"/><path d="M16 2v4"/><rect width="18" height="18" x="3" y="4" rx="2"/><path d="M3 10h18"/>
+                                </svg>
+                                Calendário Emocional
+                            </h2>
+                        </div>
+                        <div class="card-content">
+                            <div class="emotion-calendar-grid">
+                                <!-- Dias do calendário com cores fixas para demonstração -->
+                                <div class="calendar-day green">1</div>
+                                <div class="calendar-day blue">2</div>
+                                <div class="calendar-day yellow">3</div>
+                                <div class="calendar-day gray">4</div>
+                                <div class="calendar-day green">5</div>
+                                <div class="calendar-day blue">6</div>
+                                <div class="calendar-day yellow">7</div>
+                                <div class="calendar-day gray">8</div>
+                                <div class="calendar-day green">9</div>
+                                <div class="calendar-day blue">10</div>
+                                <div class="calendar-day yellow">11</div>
+                                <div class="calendar-day gray">12</div>
+                                <div class="calendar-day green">13</div>
+                                <div class="calendar-day blue">14</div>
+                                <div class="calendar-day yellow">15</div>
+                                <div class="calendar-day gray">16</div>
+                                <div class="calendar-day green">17</div>
+                                <div class="calendar-day blue">18</div>
+                                <div class="calendar-day yellow">19</div>
+                                <div class="calendar-day gray">20</div>
+                                <div class="calendar-day green">21</div>
+                                <div class="calendar-day blue">22</div>
+                                <div class="calendar-day yellow">23</div>
+                                <div class="calendar-day gray">24</div>
+                                <div class="calendar-day green">25</div>
+                                <div class="calendar-day blue">26</div>
+                                <div class="calendar-day yellow">27</div>
+                                <div class="calendar-day gray">28</div>
+                                <div class="calendar-day green">29</div>
+                                <div class="calendar-day blue">30</div>
+                            </div>
+                            <div class="emotion-legend">
+                                <div class="legend-item">
+                                    <div class="legend-color-box bg-green-200"></div>
+                                    <span>Tranquilo</span>
+                                </div>
+                                <div class="legend-item">
+                                    <div class="legend-color-box bg-blue-200"></div>
+                                    <span>Motivado</span>
+                                </div>
+                                <div class="legend-item">
+                                    <div class="legend-color-box bg-yellow-200"></div>
+                                    <span>Ansioso</span>
+                                </div>
+                                <div class="legend-item">
+                                    <div class="legend-color-box bg-gray-200"></div>
+                                    <span>Neutro</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
