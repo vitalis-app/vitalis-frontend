@@ -24,6 +24,7 @@ import { MinhaJornadaComponent } from './web-app/pages/minha-jornada/minha-jorna
 import { CuidarMaisComponent } from './web-app/pages/CuidarMais/CuidarMais.component';
 import { WebAppLayoutComponent } from './web-app/layout/web-app-layout/web-app-layout.component';
 import { LoginPageLayoutComponent } from './web-app/layout/login-page-layout/login-page-layout.component';
+import { AprenderComponent } from './web-app/pages/aprender-mais/aprender-mais.component';
 
 @NgModule({
   declarations: [
@@ -36,6 +37,7 @@ import { LoginPageLayoutComponent } from './web-app/layout/login-page-layout/log
     SobreComponent,
     SidebarComponent,
     HomeAppComponent,
+    AprenderComponent,
     BtnScrollupComponent,
     LoginComponent,
     CadastroComponent,
@@ -48,7 +50,7 @@ import { LoginPageLayoutComponent } from './web-app/layout/login-page-layout/log
     MinhaJornadaComponent,
     CuidarMaisComponent,
     WebAppLayoutComponent,
-    LoginPageLayoutComponent
+    LoginPageLayoutComponent,
   ],
   imports: [
     BrowserModule,

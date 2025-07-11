@@ -1,195 +1,169 @@
+.page-header {
+  margin-bottom: 2rem;
+  text-align: center; /* Centraliza o texto */
+}
 
-.aprender-page {
+.page-header h1 {
+  font-size: 2.5rem;
+  font-weight: 600;
+  color: var(--text-color);
+  margin: 0;
+}
+
+.page-header p {
+  font-size: 1.1rem;
+  color: var(--verde-2);
+  margin-top: 0.25rem;
+}
+
+.aprender-container {
   padding: 2rem 4rem;
   background-color: var(--background);
-  }
-  
-  .filters-section {
-    background-color: var(--primary-light);
-    padding: 1.5rem;
-    border-radius: var(--border-radius);
-    margin-bottom: 2.5rem;
-  }
-  
-  /* Cabeçalho */
-  .page-header {
-    margin-bottom: 2rem;
-    text-align: center; /* Centraliza o texto */
-  }
-  
-  .page-header h1 {
-    font-size: 2.5rem;
-    font-weight: 600;
-    color: var(--text-color);
-    margin: 0;
-  }
-  
-  .page-header p {
-    font-size: 1.1rem;
-    color: var(--verde-2);
-    margin-top: 0.25rem;
-  }
-  
-  /* Barra de Pesquisa */
-  .search-section {
-    margin-bottom: 2rem;
-  }
-  
-  .search-bar {
-    display: flex;
-    align-items: center;
-    background-color: var(--bg-color);
-    border-radius: var(--border-radius);
-    padding: 0.75rem 1rem;
-    margin-bottom: 1rem;
-  }
-  .search-bar i { color: var(--verde-2); margin-right: 0.75rem; }
-  .search-bar input { border: none; outline: none; width: 100%; font-size: 1rem; background: transparent; color: var(--text-color); }
-  
-  /* Filtros de Categoria */
-  .categories-section {
-    display: flex;
-    justify-content: center; /* Centraliza os botões */
-    gap: 0.75rem;
-    margin-bottom: 2.5rem;
-    flex-wrap: wrap;
-  }
-  
-  .category-btn {
-    padding: 0.5rem 1.25rem;
-    border-radius: 1.5rem;
-    border: 1px solid #e2e8f0;
-    background-color: #ffffff;
-    font-size: 0.875rem;
-    font-weight: 500;
-    cursor: pointer;
-    transition: all 0.2s ease-in-out;
-  }
-  
-  .category-btn:hover {
-    background-color: #f7fafc;
-    border-color: #cbd5e0;
-  }
-  
-  .category-btn.active {
-    background-color: #2c5282;
-    color: #ffffff;
-    border-color: #2c5282;
-  }
-  
-  /* Seções de Tópicos */
-  .topic-section {
-    margin-bottom: 3rem;
-  }
-  
-  .topic-header {
-    display: flex;
-    align-items: baseline;
-    gap: 1rem;
-    margin-bottom: 1.5rem;
-  }
-  
-  .topic-title {
-    font-size: 1.5rem;
-    font-weight: 600;
-    color: var(--verde-0);
-  }
-  
-  .topic-subtitle {
-    font-size: 0.875rem;
-    color: #a0aec0;
-  }
-  
-  /* Grid de Cards de Aprendizado (Reflexão) */
-  .cards-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 1.5rem;
-  }
-  
-  .no-results {
-    grid-column: 1 / -1; /* Ocupa todas as colunas do grid */
-    text-align: center;
-    color: #718096;
-    padding: 2rem;
-  }
-  
-  .learning-card {
-    background-color: #ffffff;
-    border-radius: 0.75rem;
-    overflow: hidden;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.07);
-    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
-    cursor: pointer;
-  }
-  
-  .learning-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 15px rgba(0,0,0,0.1);
-  }
-  
-  .card-image {
-    height: 160px;
-    background-size: cover;
-    background-position: center;
-  }
-  
-  .card-content {
-    padding: 1rem;
-  }
-  
-  .card-category {
-    display: inline-block;
-    background-color: #e2e8f0;
-    color: #4a5568;
-    padding: 0.25rem 0.75rem;
-    border-radius: 1rem;
-    font-size: 0.75rem;
-    font-weight: 500;
-    margin-bottom: 0.75rem;
-  }
-  
-  .card-title {
-    font-size: 1.125rem;
-    font-weight: 600;
-    color: #2d3748;
-    margin: 0;
-  }
-  
-  /* Grid de Cards Pequenos (Motivacional) */
-  .cards-grid-small {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-    gap: 1rem;
-  }
-  
-  .motivation-card {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    background-color: #f7fafc;
-    border: 1px solid #e2e8f0;
-    border-radius: 0.75rem;
-    padding: 1.5rem;
-    text-align: center;
-    transition: background-color 0.2s ease-in-out;
-    cursor: pointer;
-  }
-  
-  .motivation-card:hover {
-    background-color: #e2e8f0;
-  }
-  
-  .motivation-card i {
-    font-size: 2rem;
-    color: #4a5568;
-    margin-bottom: 0.5rem;
-  }
-  
-  .motivation-card span {
-    font-size: 0.875rem;
-    font-weight: 500;
-    color: #4a5568;
-  }
-  
+  color: var(--text-color);
+}
+
+/* --- Filtros --- */
+.filters-section {
+  background-color: var(--primary-light);
+  padding: 1.5rem;
+  border-radius: var(--border-radius);
+  margin-bottom: 2.5rem;
+}
+.search-bar {
+  display: flex;
+  align-items: center;
+  background-color: var(--bg-color);
+  border-radius: var(--border-radius);
+  padding: 0.75rem 1rem;
+  margin-bottom: 1rem;
+}
+.search-bar i { color: var(--verde-2); margin-right: 0.75rem; }
+.search-bar input { border: none; outline: none; width: 100%; font-size: 1rem; background: transparent; color: var(--text-color); }
+.categories-nav { display: flex; flex-wrap: wrap; gap: 0.75rem; }
+.category-chip {
+  padding: 0.5rem 1rem;
+  border: 1px solid var(--border-color);
+  border-radius: 1.5rem;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  font-size: 0.875rem;
+  cursor: pointer;
+  transition: all var(--transition-speed);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.category-chip:hover { border-color: var(--primary-color); }
+.category-chip.active {
+  background-color: var(--primary-color);
+  color: var(--branco);
+  border-color: var(--primary-color);
+}
+.category-chip.active i { font-size: 1rem; }
+.btn-clear-filters {
+  background: none;
+  border: none;
+  color: var(--primary-color);
+  text-decoration: underline;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+/* --- Seções de Conteúdo --- */
+.topic-section {
+  margin-bottom: 3rem;
+}
+.section-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--text-color);
+  margin: 0 0 1.5rem 0;
+}
+
+/* --- Grid de Aprendizado (Reflexão) --- */
+.learning-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1.5rem;
+}
+.learning-card {
+  background-color: var(--verde-6);
+  border: 1px solid var(--verde-5);
+  border-radius: var(--border-radius);
+  overflow: hidden;
+  transition: all var(--transition-speed);
+}
+.learning-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px var(--shadow-0);
+  border-color: var(--verde-4);
+}
+.learning-card-image {
+  height: 180px;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+}
+.learning-card-title-overlay {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--branco);
+  text-align: center;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+  margin: 0;
+}
+.learning-card-body {
+  padding: 1rem;
+}
+.learning-card-tag {
+  display: inline-block;
+  background-color: var(--verde-5);
+  color: var(--verde-0);
+  padding: 0.25rem 0.75rem;
+  border-radius: 0.25rem;
+  font-size: 0.75rem;
+  font-weight: 500;
+  margin-bottom: 0.75rem;
+}
+.learning-card-title {
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: var(--text-color);
+  margin: 0;
+}
+
+/* --- Grid Motivacional --- */
+.motivation-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 1.5rem;
+}
+.motivation-card {
+  background-color: var(--verde-6);
+  border: 1px solid var(--verde-5);
+  border-radius: var(--border-radius);
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  text-align: center;
+  transition: all var(--transition-speed);
+}
+.motivation-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px var(--shadow-0);
+  border-color: var(--verde-4);
+}
+.motivation-card i {
+  font-size: 2rem;
+  color: var(--verde-2);
+}
+.motivation-card span {
+  font-weight: 500;
+  color: var(--text-color);
+}

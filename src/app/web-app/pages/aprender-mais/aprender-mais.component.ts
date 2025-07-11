@@ -1,15 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 
-// Interface para definir a estrutura de um cartão de aprendizado
-export interface LearningCard {
-  imageUrl: string;
-  category: string;
+interface LearningContent {
+  type: 'Artigo' | 'Vídeo' | 'Curso' | 'Podcast';
   title: string;
-  type: 'Artigo' | 'Vídeo' | 'Podcast' | 'Curso';
+  titleOverlay: string;
+  imageUrl: string;
 }
 
-// Interface para definir a estrutura de um cartão de motivação
-export interface MotivationCard {
+interface MotivationContent {
   icon: string;
   text: string;
 }
@@ -21,71 +19,62 @@ export interface MotivationCard {
 })
 export class AprenderComponent implements OnInit {
 
-  // --- Propriedades para os Dados e Estado ---
-  
-  // Lista de categorias para os botões de filtro
-  categories: string[] = ['Todos', 'Artigos', 'Vídeos', 'Podcasts', 'Cursos'];
-  
-  // Categoria ativa atualmente
-  activeCategory: string = 'Todos';
-  
-  // Termo digitado na barra de pesquisa
+  // --- Estado da UI ---
   searchTerm: string = '';
+  categories: string[] = ['Todos', 'Artigos', 'Vídeos', 'Podcasts', 'Cursos', 'Palestras', 'Ansiedade', 'Sono', 'Estudo'];
+  activeCategory: string = 'Todos';
 
-  // Lista completa com todos os cartões de "Reflexão"
-  allLearningCards: LearningCard[] = [
-    { imageUrl: 'https://placehold.co/300x160/a4c3b2/ffffff?text=Reflexão', category: 'Artigo', title: 'O poder do agora', type: 'Artigo' },
-    { imageUrl: 'https://placehold.co/300x160/6b9080/ffffff?text=Mindfulness', category: 'Vídeo', title: 'Mindfulness para iniciantes', type: 'Vídeo' },
-    { imageUrl: 'https://placehold.co/300x160/eaf4f4/333333?text=Hábitos', category: 'Curso', title: 'Construindo hábitos positivos', type: 'Curso' },
-    { imageUrl: 'https://placehold.co/300x160/ccd5ae/333333?text=Podcast', category: 'Podcast', title: 'Conversas sobre estoicismo', type: 'Podcast' }
+  // --- Dados de Exemplo com Placeholders ---
+  allLearningContent: LearningContent[] = [
+    { type: 'Artigo', title: 'Título do Artigo Genérico', titleOverlay: 'Roberto', imageUrl: 'https://soumaisfavela.com.br/wp-content/uploads/2023/07/RobertoCarlos.jpg' },
+    { type: 'Vídeo', title: 'Título do Vídeo Genérico', titleOverlay: 'Romario', imageUrl: 'https://cdn-imgs.s3.sa-east-1.amazonaws.com/wp-content/uploads/2025/01/Romario.webp' },
+    { type: 'Curso', title: 'Título do Curso Genérico', titleOverlay: 'Rodnei', imageUrl: 'https://www.marcoeusebio.com.br/files/rodnei-inter-ricardo-duarte.jpg' },
+    { type: 'Podcast', title: 'Título do Podcast Genérico', titleOverlay: 'Ronaldo', imageUrl: 'https://editorial.uefa.com/resources/0282-184d73110076-1612dd46f21d-1000/cristiano_ronaldo_of_portugal_celebrates_after_scoring_a.jpeg' }
   ];
 
-  // Lista de cartões de "Motivacional"
-  motivationCards: MotivationCard[] = [
-    { icon: 'ri-lightbulb-flash-line', text: 'Seja grato' },
-    { icon: 'ri-plant-line', text: 'Cuide de você' },
-    { icon: 'ri-sun-line', text: 'Aproveite o dia' }
+  motivationContent: MotivationContent[] = [
+    { icon: 'ri-lightbulb-flash-line', text: 'Pensamento Positivo' },
+    { icon: 'ri-plant-line', text: 'Crescimento Pessoal' },
+    { icon: 'ri-sun-line', text: 'Energia Diária' }
   ];
 
-  // Lista que será exibida na tela, após os filtros
-  filteredLearningCards: LearningCard[] = [];
+  filteredLearningContent: LearningContent[] = [];
 
   constructor() { }
 
   ngOnInit(): void {
-    // Ao iniciar o componente, exibe todos os cartões
-    this.filterCards();
+    this.filterContent();
   }
 
   /**
-   * Define a categoria ativa e refiltra os cartões.
-   * @param category A categoria selecionada pelo clique.
+   * Define a categoria ativa e refiltra o conteúdo.
+   * @param category A categoria selecionada.
    */
   selectCategory(category: string): void {
     this.activeCategory = category;
-    this.filterCards();
+    this.filterContent();
   }
 
   /**
-   * Filtra os cartões com base na categoria ativa e no termo de pesquisa.
+   * Filtra o conteúdo de aprendizado com base na categoria e no termo de pesquisa.
    */
-  filterCards(): void {
-    let tempCards = this.allLearningCards;
+  filterContent(): void {
+    let tempContent = this.allLearningContent;
+    const searchLower = this.searchTerm.toLowerCase();
 
-    // 1. Filtra por categoria
+    // Filtra por categoria
     if (this.activeCategory !== 'Todos') {
-      tempCards = tempCards.filter(card => card.type === this.activeCategory);
+      tempContent = tempContent.filter(item => item.type === this.activeCategory);
     }
 
-    // 2. Filtra pelo termo de pesquisa
-    if (this.searchTerm.trim() !== '') {
-      const lowerCaseSearchTerm = this.searchTerm.toLowerCase();
-      tempCards = tempCards.filter(card => 
-        card.title.toLowerCase().includes(lowerCaseSearchTerm) ||
-        card.category.toLowerCase().includes(lowerCaseSearchTerm)
+    // Filtra por termo de pesquisa
+    if (searchLower) {
+      tempContent = tempContent.filter(item => 
+        item.title.toLowerCase().includes(searchLower) ||
+        item.titleOverlay.toLowerCase().includes(searchLower)
       );
     }
 
-    this.filteredLearningCards = tempCards;
+    this.filteredLearningContent = tempContent;
   }
 }

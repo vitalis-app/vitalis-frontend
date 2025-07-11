@@ -1,91 +1,54 @@
-<div class="aprender-page">
-  <!-- Cabeçalho da Página -->
-  <header class="page-header">
-    <h1>Aprender +</h1>
-    <p>Explore novos conhecimentos e habilidades para o seu bem-estar.</p>
+<div class="aprender-container">
+  <!-- Seção de Filtros -->
+     <header class="page-header">
+    <div class="header-content">
+      <h1>Aprender+</h1>
+      <p>Ferramentas e conhecimentos para fortalecer a sua jornada de bem-estar</p>
+    </div>
   </header>
 
-<section class="filters-section">
-  <!-- Barra de Pesquisa -->
-  <div class="search-section">
+  <section class="filters-section">
     <div class="search-bar">
       <i class="ri-search-line"></i>
-      <input type="text" placeholder="Pesquisar artigos, vídeos, cursos...">
+      <!-- CORRIGIDO: O nome da variável agora é 'searchTerm' para corresponder ao TS -->
+      <input type="text" placeholder="Pesquisar artigos, vídeos, cursos..." [(ngModel)]="searchTerm" (input)="filterContent()">
     </div>
-  </div>
+    <div class="categories-nav">
+      <button 
+        *ngFor="let category of categories"
+        class="category-chip"
+        [class.active]="category === activeCategory"
+        (click)="selectCategory(category)">
+        {{ category }}
+      </button>
+    </div>
+  </section>
 
-  <!-- Filtros de Categoria -->
-  <nav class="categories-section">
-    <button class="category-btn active">Todos</button>
-    <button class="category-btn">Artigos</button>
-    <button class="category-btn">Vídeos</button>
-    <button class="category-btn">Podcasts</button>
-    <button class="category-btn">Cursos</button> 
-    <button class="category-btn">Palestras</button>
-    <button class="category-btn">Ansiedade</button>
-    <button class="category-btn">Sono</button>
-    <button class="category-btn">Vlogs</button>
-    <button class="category-btn">Sono</button>
-    <button class="category-btn">Estudo</button>
-  </nav>
-</section>
-
-  <!-- Seção de Conteúdo Principal -->
-  <main class="content-section">
-    <!-- Tópico: Reflexão -->
+  <!-- Grid de Conteúdo -->
+  <main class="content-grid-section">
+    <!-- Seção Reflexão -->
     <section class="topic-section">
-      <h2 class="topic-title">Reflexão</h2>
-      <div class="cards-grid">
-        <!-- Card de Exemplo 1 -->
-        <div class="learning-card">
-          <div class="card-image"
-            style="background-image: url('https://placehold.co/300x160/a4c3b2/ffffff?text=Reflexão')"></div>
-          <div class="card-content">
-            <span class="card-category">Artigo</span>
-            <h3 class="card-title">O poder do agora</h3>
+      <h3 class="section-title">Reflexão</h3>
+      <div class="learning-grid">
+        <div class="learning-card" *ngFor="let item of filteredLearningContent">
+          <div class="learning-card-image" [style.backgroundImage]="'url(' + item.imageUrl + ')'">
+            <h4 class="learning-card-title-overlay">{{ item.titleOverlay }}</h4>
           </div>
-        </div>
-        <!-- Card de Exemplo 2 -->
-        <div class="learning-card">
-          <div class="card-image"
-            style="background-image: url('https://placehold.co/300x160/6b9080/ffffff?text=Mindfulness')"></div>
-          <div class="card-content">
-            <span class="card-category">Vídeo</span>
-            <h3 class="card-title">Mindfulness para iniciantes</h3>
-          </div>
-        </div>
-        <!-- Card de Exemplo 3 -->
-        <div class="learning-card">
-          <div class="card-image"
-            style="background-image: url('https://placehold.co/300x160/eaf4f4/333333?text=Hábitos')"></div>
-          <div class="card-content">
-            <span class="card-category">Curso</span>
-            <h3 class="card-title">Construindo hábitos positivos</h3>
+          <div class="learning-card-body">
+            <span class="learning-card-tag">{{ item.type }}</span>
+            <p class="learning-card-title">{{ item.title }}</p>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Tópico: Motivacional -->
+    <!-- Seção Motivacional -->
     <section class="topic-section">
-      <div class="topic-header">
-        <h2 class="topic-title">Motivacional</h2>
-      </div>
-      <div class="cards-grid-small">
-        <!-- Card de Motivação 1 -->
-        <div class="motivation-card">
-          <i class="ri-lightbulb-flash-line"></i>
-          <span>Seja grato</span>
-        </div>
-        <!-- Card de Motivação 2 -->
-        <div class="motivation-card">
-          <i class="ri-plant-line"></i>
-          <span>Cuide de você</span>
-        </div>
-        <!-- Card de Motivação 3 -->
-        <div class="motivation-card">
-          <i class="ri-sun-line"></i>
-          <span>Aproveite o dia</span>
+      <h3 class="section-title">Motivacional</h3>
+      <div class="motivation-grid">
+        <div class="motivation-card" *ngFor="let item of motivationContent">
+          <i [class]="item.icon"></i>
+          <span>{{ item.text }}</span>
         </div>
       </div>
     </section>
