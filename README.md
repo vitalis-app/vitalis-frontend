@@ -14,9 +14,7 @@ Vitalis é uma plataforma digital desenvolvida com Angular, focada em promover o
 ## 📂 Funcionalidades principais
 - **Estação Vital**: Registro de humor com crescimento simbólico de uma planta emocional
 - **Aprender+**: Biblioteca de conteúdo com vídeos, lives e eventos sobre autocuidado
-- **PsicoApoio**: Agendamento de consultas com psicólogos parceiros
-- **Cartas da Vitalis**: Mensagens semanais para acolhimento emocional
-- **Diário Vital**: Escrita terapêutica guiada
+- **Cuidar+**: Agendamento de consultas com psicólogos parceiros
 - **Conquistas emocionais**: Gamificação simbólica com medalhas e selos de progresso
 
 ---
@@ -29,27 +27,6 @@ npm install
 ng serve
 ```
 Acesse em [http://localhost:4200/](http://localhost:4200/)
-
-### ⚙️ Gerar novo componente
-```bash
-ng generate component nome-do-componente
-```
-
-### 🛠️ Build
-```bash
-ng build
-```
-Os artefatos serão salvos na pasta `/dist`.
-
-### 🧪 Testes unitários
-```bash
-ng test
-```
-
-### 🧪 Testes end-to-end (E2E)
-```bash
-ng e2e
-```
 
 ---
 
@@ -68,70 +45,63 @@ Para mais informações, consulte a documentação oficial do [Angular CLI](http
 
 ---
 
-# 🌱 Vitalis — Well-being and Mental Health Platform (ENGLISH VERSION)
 
-Vitalis is a digital platform built with Angular that promotes emotional care through symbolic, lightweight and accessible features. With tools such as an emotional plant, psychoeducation, session booking and self-care challenges, it turns emotional well-being into a daily habit.
+
+# 🌱 Vitalis — Well-being and Mental Health Platform
+
+**Vitalis** is a digital platform built with Angular, designed to promote emotional well-being through symbolic, light, and accessible tools. With features like the emotional plant, psychoeducational content, appointment booking, and self-care challenges, it aims to turn mental health into a daily habit.
 
 ---
 
 ## 🚀 Technologies Used
-- Angular CLI v16.2.16
-- HTML5 / Pure CSS3
-- Modular structure with reusable components
+
+- ⚙️ Angular CLI v16.2.16  
+- 🌐 HTML5 / CSS3  
+- 🧩 Modular structure with reusable components
 
 ---
 
-## 📂 Core Features
-- **Estação Vital (Vital Station)**: Mood tracking with symbolic growth of a plant
-- **Aprender+ (Learn+)**: Content library with videos, lives and events on self-care
-- **PsicoApoio**: Schedule sessions with partner psychologists easily
-- **Cartas da Vitalis (Vitalis Letters)**: Weekly messages to comfort and support users
-- **Diário Vital (Vital Journal)**: Guided therapeutic journaling space
-- **Conquistas emocionais (Emotional Achievements)**: Symbolic gamification with badges
+## 📂 Main Features
+
+- 🌼 **Vital Station**  
+  Mood tracking visualized through the symbolic growth of an emotional plant.
+
+- 📚 **Learn+**  
+  A content library with videos, live events, and materials focused on self-care and emotional education.
+
+- 🧠 **Care+**  
+  Schedule appointments with partner psychologists directly through the platform.
+
+- 🏅 **Emotional Achievements**  
+  Symbolic gamification with medals and badges to mark progress and encourage healthy habits.
 
 ---
 
 ## 📦 Installation & Usage
 
 ### 🔧 Local Development
+
+To run the project locally:
+
 ```bash
 npm install
 ng serve
 ```
-Navigate to [http://localhost:4200/](http://localhost:4200/)
 
-### ⚙️ Generate new component
-```bash
-ng generate component component-name
-```
-
-### 🛠️ Build
-```bash
-ng build
-```
-Build artifacts will be stored in the `/dist` directory.
-
-### 🧪 Unit tests
-```bash
-ng test
-```
-
-### 🧪 End-to-end (E2E) tests
-```bash
-ng e2e
-```
+Then open your browser at: [http://localhost:4200/](http://localhost:4200/)
 
 ---
 
 ## 💡 Notes
-- This project was developed as part of a final graduation project (TCC)
-- It is still under development and focuses on a visual prototype of the experience
+- This project is part of a Final Undergraduate Thesis (TCC).
+
+- It is currently under development with a scenographic focus for feature demonstration.
 
 ---
 
-## 📚 Further help
-Check out the official [Angular CLI documentation](https://angular.io/cli) for more information.
+## 📚 More Help
+For additional guidance, refer to the official [Angular CLI](https://angular.io/cli) documentation
 
 ---
 
-> Made with ❤️❤️ by the Vitalis team
+> Made with ❤️ by the Vitalis Team
