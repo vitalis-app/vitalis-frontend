@@ -159,7 +159,7 @@
 .professional-card:hover {
   transform: translateY(-5px);
   box-shadow: 0 10px 20px var(--shadow-0);
-  border-color: var(--primary-color);
+  border-color: var(--verde-3);
 }
 
 .card-image {
@@ -633,33 +633,33 @@
   .cuidar-container {
     padding: 1rem 2rem;
   }
-  
+
   .page-header h1 {
     font-size: 2rem;
   }
-  
+
   .professionals-grid {
     grid-template-columns: 1fr;
   }
-  
+
   .modal-grid {
     grid-template-columns: 1fr;
     gap: 1rem;
   }
-  
+
   .calendar-grid {
     gap: 0.5rem;
   }
-  
+
   .times-grid {
     grid-template-columns: repeat(2, 1fr);
   }
-  
+
   .categories-nav {
     flex-direction: column;
     gap: 0.5rem;
   }
-  
+
   .category-chip {
     justify-content: center;
   }
@@ -669,27 +669,27 @@
   .cuidar-container {
     padding: 1rem;
   }
-  
+
   .page-header h1 {
     font-size: 1.75rem;
   }
-  
+
   .filters-section {
     padding: 1rem;
   }
-  
+
   .professionals-grid {
     grid-template-columns: 1fr;
   }
-  
+
   .times-grid {
     grid-template-columns: 1fr;
   }
-  
+
   .modal-content {
     width: 95%;
   }
-  
+
   .modal-grid {
     padding: 1rem;
   }
