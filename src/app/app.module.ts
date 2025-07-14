@@ -25,6 +25,7 @@ import { CuidarMaisComponent } from './web-app/pages/CuidarMais/CuidarMais.compo
 import { WebAppLayoutComponent } from './web-app/layout/web-app-layout/web-app-layout.component';
 import { LoginPageLayoutComponent } from './web-app/layout/login-page-layout/login-page-layout.component';
 import { AprenderComponent } from './web-app/pages/aprender-mais/aprender-mais.component';
+import { CalendarioComponent } from './web-app/components/calendario/calendario.component';
 
 @NgModule({
   declarations: [
@@ -51,6 +52,7 @@ import { AprenderComponent } from './web-app/pages/aprender-mais/aprender-mais.c
     CuidarMaisComponent,
     WebAppLayoutComponent,
     LoginPageLayoutComponent,
+    CalendarioComponent,
   ],
   imports: [
     BrowserModule,
