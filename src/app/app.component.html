@@ -25,7 +25,7 @@
             behavior: "smooth",
           });
         }
-
+        
         // Close mobile menu if open
         if (
           mobileMenu &&
@@ -38,7 +38,7 @@
 
     // Animation on scroll
     const animateElements = document.querySelectorAll(".animate-element");
-
+    
     function checkVisibility() {
       animateElements.forEach((element) => {
         const elementTop = element.getBoundingClientRect().top;
@@ -57,3 +57,4 @@
     window.addEventListener("scroll", checkVisibility);
   });
 </script>
+<app-cadastro></app-cadastro>

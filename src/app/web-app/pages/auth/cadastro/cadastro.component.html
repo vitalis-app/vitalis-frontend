@@ -1,12 +1,115 @@
-<div class="cadastro-overlay" [class.ativo]="visivel">
-    <div class="cadastro-container">
-      <button class="fechar-btn" (click)="fechar()">X</button>
-      <h2>Crie sua conta</h2>
-      <form (ngSubmit)="registrar()">
-        <input type="text" placeholder="Nome completo" [(ngModel)]="nome" name="nome" required />
-        <input type="email" placeholder="E-mail" [(ngModel)]="email" name="email" required />
-        <input type="password" placeholder="Senha" [(ngModel)]="senha" name="senha" required />
-        <button type="submit">Registrar</button>
-      </form>
-    </div>
+<!-- Botão para abrir o modal -->
+<button (click)="abrir()">Abrir Cadastro</button>
+
+<!-- Modal -->
+<div class="modal-overlay" [ngClass]="{ 'show': ativo }">
+  <div class="modal-container" [ngClass]="{ 'show': ativo }">
+    <button class="fechar-btn" (click)="fechar()">
+      <svg fill="var(--verde-3)" height="1rem" width="auto" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg"
+        xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 460.775 460.775" xml:space="preserve">
+        <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+        <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+        <g id="SVGRepo_iconCarrier">
+          <path
+            d="M285.08,230.397L456.218,59.27c6.076-6.077,6.076-15.911,0-21.986L423.511,4.565c-2.913-2.911-6.866-4.55-10.992-4.55 c-4.127,0-8.08,1.639-10.993,4.55l-171.138,171.14L59.25,4.565c-2.913-2.911-6.866-4.55-10.993-4.55 c-4.126,0-8.08,1.639-10.992,4.55L4.558,37.284c-6.077,6.075-6.077,15.909,0,21.986l171.138,171.128L4.575,401.505 c-6.074,6.077-6.074,15.911,0,21.986l32.709,32.719c2.911,2.911,6.865,4.55,10.992,4.55c4.127,0,8.08-1.639,10.994-4.55 l171.117-171.12l171.118,171.12c2.913,2.911,6.866,4.55,10.993,4.55c4.128,0,8.081-1.639,10.992-4.55l32.709-32.719 c6.074-6.075,6.074-15.909,0-21.986L285.08,230.397z">
+          </path>
+        </g>
+      </svg>
+    </button>
+    <h2>Crie sua conta</h2>
+    <form (ngSubmit)="registrar()">
+
+      <div class="input-individual">
+        <p>Nome</p>
+        <div class="input-icon-wrapper">
+          <svg class="input-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 400">
+            <g transform="translate(0, -24)">
+              <path
+                d="M48 64C21.5 64 0 85.5 0 112c0 15.1 7.1 29.3 19.2 38.4L236.8 313.6c11.4 8.5 27 8.5 38.4 0L492.8 150.4c12.1-9.1 19.2-23.3 19.2-38.4c0-26.5-21.5-48-48-48L48 64zM0 176L0 384c0 35.3 28.7 64 64 64l384 0c35.3 0 64-28.7 64-64l0-208L294.4 339.2c-22.8 17.1-54 17.1-76.8 0L0 176z" />
+            </g>
+          </svg>
+        </div>
+
+        <input type="text" [(ngModel)]="nome" name="nome" placeholder="Nome completo" required />
+      </div>
+
+      <div class="input-individual">
+        <p>E-mail</p>
+        <div class="input-icon-wrapper">
+          <svg class="input-icon" xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 448 512"><!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.-->
+            <path
+              d="M144 144l0 48 160 0 0-48c0-44.2-35.8-80-80-80s-80 35.8-80 80zM80 192l0-48C80 64.5 144.5 0 224 0s144 64.5 144 144l0 48 16 0c35.3 0 64 28.7 64 64l0 192c0 35.3-28.7 64-64 64L64 512c-35.3 0-64-28.7-64-64L0 256c0-35.3 28.7-64 64-64l16 0z" />
+          </svg>
+          <input type="email" [(ngModel)]="email" name="email" placeholder="E-mail" required />
+        </div>
+      </div>
+
+      <div class="input-individual">
+        <p>Senha</p>
+        <div class="input-icon-wrapper">
+          <svg class="input-icon" xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 448 512"><!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.-->
+            <path
+              d="M144 144l0 48 160 0 0-48c0-44.2-35.8-80-80-80s-80 35.8-80 80zM80 192l0-48C80 64.5 144.5 0 224 0s144 64.5 144 144l0 48 16 0c35.3 0 64 28.7 64 64l0 192c0 35.3-28.7 64-64 64L64 512c-35.3 0-64-28.7-64-64L0 256c0-35.3 28.7-64 64-64l16 0z" />
+          </svg>
+          <input type="password" [(ngModel)]="senha" name="senha" placeholder="Senha" required />
+        </div>
+      </div>
+
+      <div class="input-individual">
+        <p>Telefone</p>
+        <div class="input-icon-wrapper">
+          <svg class="input-icon" xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 448 512"><!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.-->
+            <path
+              d="M144 144l0 48 160 0 0-48c0-44.2-35.8-80-80-80s-80 35.8-80 80zM80 192l0-48C80 64.5 144.5 0 224 0s144 64.5 144 144l0 48 16 0c35.3 0 64 28.7 64 64l0 192c0 35.3-28.7 64-64 64L64 512c-35.3 0-64-28.7-64-64L0 256c0-35.3 28.7-64 64-64l16 0z" />
+          </svg>
+          <input type="tel" [(ngModel)]="telefone" name="telefone" placeholder="Telefone" required />
+        </div>
+      </div>
+
+      <div id='genero-data'>
+        <div class="input-individual">
+          <p>Data de nascimento</p>
+          <div class="input-icon-wrapper">
+            <svg class="input-icon" xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 448 512"><!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.-->
+              <path
+                d="M144 144l0 48 160 0 0-48c0-44.2-35.8-80-80-80s-80 35.8-80 80zM80 192l0-48C80 64.5 144.5 0 224 0s144 64.5 144 144l0 48 16 0c35.3 0 64 28.7 64 64l0 192c0 35.3-28.7 64-64 64L64 512c-35.3 0-64-28.7-64-64L0 256c0-35.3 28.7-64 64-64l16 0z" />
+            </svg>
+            <input type="date" [(ngModel)]="dataNascimento" name="dataNascimento" placeholder="Data de nascimento"
+              required />
+          </div>
+        </div>
+        <div class="input-individual">
+          <p>Gênero</p>
+          <div class="input-icon-wrapper">
+            <svg class="input-icon" xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 448 512"><!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.-->
+              <path
+                d="M144 144l0 48 160 0 0-48c0-44.2-35.8-80-80-80s-80 35.8-80 80zM80 192l0-48C80 64.5 144.5 0 224 0s144 64.5 144 144l0 48 16 0c35.3 0 64 28.7 64 64l0 192c0 35.3-28.7 64-64 64L64 512c-35.3 0-64-28.7-64-64L0 256c0-35.3 28.7-64 64-64l16 0z" />
+            </svg>
+          </div>
+
+          <select [(ngModel)]="generoSelecionado" name="genero" id="custom-select" required>
+            <option value="" disabled selected hidden>Selecione</option>
+            <option>Masculino</option>
+            <option>Feminino</option>
+            <option>Outro</option>
+          </select>
+        </div>
+      </div>
+      <button id='login-btn' type="submit">Registrar</button>
+    </form>
   </div>
+</div>
+
+<!--
+        <select [(ngModel)]="generoSelecionado" name="genero" class="custom-select" required>
+          <option value="" disabled selected hidden>Selecione</option>
+          <option value="Masculino">Masculino</option>
+          <option value="Feminino">Feminino</option>
+          <option value="Outro">Outro</option>
+        </select>
+-->

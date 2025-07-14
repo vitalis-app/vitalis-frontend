@@ -40,16 +40,9 @@
           Entrar
         </button>
       </a>
-      <a routerLink="/auth/cadastro">
-        <button (click)="cadastroModal.abrir()" class="btn-login">
+        <button (click)="abrirCadastroModal()" class="btn-login">
           Cadastrar-se
         </button>
-      </a>
     </div>
-    <!-- Botão que chama o componente -->
-    <button (click)="cadastroModal.abrir()">Registrar-se</button>
-
-    <!-- Componente de cadastro -->
-    <app-cadastro #cadastroModal></app-cadastro>
   </nav>
 </header>

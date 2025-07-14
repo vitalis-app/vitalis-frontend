@@ -23,6 +23,8 @@ import { MinhaJornadaComponent } from './web-app/pages/minha-jornada/minha-jorna
 import { PsicoapoioComponent } from './web-app/pages/psicoapoio/psicoapoio.component';
 import { WebAppLayoutComponent } from './web-app/layout/web-app-layout/web-app-layout.component';
 import { LoginPageLayoutComponent } from './web-app/layout/login-page-layout/login-page-layout.component';
+import { CadastroComponent } from './web-app/pages/auth/cadastro/cadastro.component';
+import { CadastroService } from './shared/services/cadastro.service';
 
 @NgModule({
   declarations: [
@@ -46,7 +48,8 @@ import { LoginPageLayoutComponent } from './web-app/layout/login-page-layout/log
     MinhaJornadaComponent,
     PsicoapoioComponent,
     WebAppLayoutComponent,
-    LoginPageLayoutComponent
+    LoginPageLayoutComponent,
+    CadastroComponent
   ],
   imports: [
     BrowserModule,
@@ -59,7 +62,7 @@ import { LoginPageLayoutComponent } from './web-app/layout/login-page-layout/log
           scrollPositionRestoration: 'enabled'
         })
   ],
-  providers: [],
+  providers: [CadastroService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
