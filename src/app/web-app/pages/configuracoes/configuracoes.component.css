@@ -34,7 +34,7 @@
 .settings-card {
     background-color: var(--verde-56);
     padding: 1.5rem;
-    border-radius: 16px;
+    border-radius: var(--border-radius);
     border: 1px solid var(--verde-5);
 }
 
@@ -70,7 +70,7 @@
 
 .theme-option {
     padding: 1rem;
-    border-radius: 12px;
+    border-radius: var(--border-radius);
     border: 2px solid var(--verde-5);
     cursor: pointer;
     transition: all 0.2s ease;
@@ -107,7 +107,7 @@
 .custom-select {
     width: 100%;
     padding: 0.75rem 1rem;
-    border-radius: 8px;
+    border-radius: var(--border-radius);
     border: 1px solid var(--verde-4);
     background-color: var(--background);
     color: var(--text-color);
@@ -161,7 +161,7 @@
     bottom: 0;
     background-color: var(--verde-5);
     transition: .4s;
-    border-radius: 28px;
+    border-radius: var(--border-radius);
 }
 
 .slider:before {
@@ -194,7 +194,7 @@ input:checked+.slider:before {
 .method-option {
     padding: 1rem;
     border: 2px solid var(--verde-5);
-    border-radius: 12px;
+    border-radius: var(--border-radius);
     text-align: center;
     cursor: pointer;
     transition: all 0.2s ease;
@@ -279,10 +279,10 @@ input:checked+.slider:before {
 
 .btn-secondary {
     background-color: var(--verde-5);
-    color: var(--verde-1);
+    color: var(--text-color);
     border: none;
     padding: 0.75rem 1.5rem;
-    border-radius: 8px;
+    border-radius: var(--border-radius);
     font-weight: 500;
     cursor: pointer;
     transition: background-color 0.2s ease;
@@ -322,7 +322,7 @@ input:checked+.slider:before {
     color: var(--red);
     border: 1px solid var(--red);
     padding: 0.75rem 1.5rem;
-    border-radius: 8px;
+    border-radius: var(--border-radius);
     font-weight: 500;
     cursor: pointer;
     transition: all 0.2s ease;
