@@ -1,6 +1,7 @@
-import { FormsModule } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators, AbstractControl, ValidationErrors } from '@angular/forms';
 import { CadastroService } from 'src/app/shared/services/cadastro.service';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-cadastro',
@@ -8,52 +9,55 @@ import { CadastroService } from 'src/app/shared/services/cadastro.service';
   styleUrls: ['./cadastro.component.css'],
   standalone: false
 })
-
 export class CadastroComponent implements OnInit {
-  ativo: boolean = true; // Define se o modal está visível ou não
+  ativo: boolean = true;
 
-  constructor(private cadastroService: CadastroService) { }
+  form: FormGroup;
+
+  constructor(
+    private cadastroService: CadastroService,
+    private fb: FormBuilder
+  ) {
+    this.form = this.fb.group({
+      nome: ['', Validators.required],
+      email: ['', [Validators.required, Validators.email]],
+      senha: ['', [Validators.required, Validators.minLength(8), SenhaForteValidator]],
+      telefone: ['', Validators.required],
+      dataNascimento: ['', Validators.required],
+      generoSelecionado: ['', Validators.required],
+    });
+  }
 
   ngOnInit() {
-    // Escuta as mudanças emitidas pelo CadastroService
     this.cadastroService.mostrarCadastro$.subscribe((estado) => {
-      this.ativo = estado;  // Atualiza a visibilidade com base no estado
+      this.ativo = estado;
     });
   }
 
   abrir() {
-    this.ativo = true;  // Torna o modal visível
+    this.ativo = true;
   }
 
   fechar() {
-    this.cadastroService.fecharCadastro();  // Fecha o modal
+    this.cadastroService.fecharCadastro();
   }
 
-  nome = '';
-  email = '';
-  senha = '';
-  genero = '';
-  telefone = '';
-  dataNascimento = '';
-  
   registrar() {
-    // Enviar para API ou salvar local
-    console.log('Dados de cadastro:', {
-      nome: this.nome,
-      email: this.email,
-      senha: this.senha,
-      telefone: this.telefone
-    });
+    if (this.form.valid) {
+      console.log('Dados de cadastro:', this.form.value);
+      // Aqui pode mandar para API etc
+    } else {
+      // Marca todos os campos como "tocados" para mostrar erros
+      this.form.markAllAsTouched();
+    }
   }
+}
 
-  generoSelecionado: string = '';
-  dropdownAberto: boolean = false;
-
-  toggleDropdown() {
-    this.dropdownAberto = !this.dropdownAberto;
-  }
-
-  fecharDropdown() {
-    this.dropdownAberto = false;
-  }
+export function SenhaForteValidator(control: AbstractControl): ValidationErrors | null {
+  const senha = control.value;
+  const temMaiuscula = /[A-Z]/.test(senha);
+  const temMinuscula = /[a-z]/.test(senha);
+  const temNumero = /[0-9]/.test(senha);
+  const senhaValida = temMaiuscula && temMinuscula && temNumero;
+  return senhaValida ? null : { senhaFraca: true };
 }

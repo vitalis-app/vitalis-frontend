@@ -25,6 +25,7 @@ import { WebAppLayoutComponent } from './web-app/layout/web-app-layout/web-app-l
 import { LoginPageLayoutComponent } from './web-app/layout/login-page-layout/login-page-layout.component';
 import { CadastroComponent } from './web-app/pages/auth/cadastro/cadastro.component';
 import { CadastroService } from './shared/services/cadastro.service';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -55,6 +56,7 @@ import { CadastroService } from './shared/services/cadastro.service';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
+    ReactiveFormsModule,
     RouterModule.forRoot
       ([],
         {
