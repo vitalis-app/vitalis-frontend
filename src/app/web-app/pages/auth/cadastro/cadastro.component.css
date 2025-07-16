@@ -103,6 +103,17 @@
     z-index: 10;
     user-select: none;
   }
+
+  .input-error-message-out {
+    position: absolute;
+    color: #ff4d4f; /* vermelho erro */
+    font-size: 0.75rem;
+    font-weight: 600;
+    white-space: nowrap;
+    pointer-events: none;
+    z-index: 10;
+    user-select: none;
+  }
   
 
   /* Estilo da label/placeholder em sua posição inicial */
