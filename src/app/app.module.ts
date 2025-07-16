@@ -26,6 +26,9 @@ import { LoginPageLayoutComponent } from './web-app/layout/login-page-layout/log
 import { CadastroComponent } from './web-app/pages/auth/cadastro/cadastro.component';
 import { CadastroService } from './shared/services/cadastro.service';
 import { ReactiveFormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
+import { UsuarioEspecialistaComponent } from './web-app/pages/auth/usuario-especialista/usuario-especialista.component';
+import { UsuarioService } from './shared/services/usuario.service';
 
 @NgModule({
   declarations: [
@@ -50,11 +53,13 @@ import { ReactiveFormsModule } from '@angular/forms';
     PsicoapoioComponent,
     WebAppLayoutComponent,
     LoginPageLayoutComponent,
-    CadastroComponent
+    CadastroComponent,
+    UsuarioEspecialistaComponent 
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    CommonModule,
     FormsModule,
     ReactiveFormsModule,
     RouterModule.forRoot
@@ -64,7 +69,7 @@ import { ReactiveFormsModule } from '@angular/forms';
           scrollPositionRestoration: 'enabled'
         })
   ],
-  providers: [CadastroService],
+  providers: [CadastroService, UsuarioService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
