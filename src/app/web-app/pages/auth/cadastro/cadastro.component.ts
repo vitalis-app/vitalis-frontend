@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, AbstractControl, ValidationErrors } from '@angular/forms';
 import { CadastroService } from 'src/app/shared/services/cadastro.service';
-import { ReactiveFormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-cadastro',
@@ -22,7 +21,10 @@ export class CadastroComponent implements OnInit {
       nome: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
       senha: ['', [Validators.required, Validators.minLength(8), SenhaForteValidator]],
-      telefone: ['', Validators.required],
+      telefone: ['', [
+        Validators.required,
+        Validators.pattern(/^\(?\d{2}\)?\s?\d{4,5}-?\d{4}$/)
+      ]],
       dataNascimento: ['', Validators.required],
       generoSelecionado: ['', Validators.required],
     });
@@ -51,6 +53,20 @@ export class CadastroComponent implements OnInit {
       this.form.markAllAsTouched();
     }
   }
+
+  dropdownAberto: boolean = false;
+  generoSelecionado: string = '';
+
+  alternarDropdown() {
+    this.dropdownAberto = !this.dropdownAberto;
+  }
+
+  selecionarGenero(valor: string) {
+    this.generoSelecionado = valor;
+    this.form.get('generoSelecionado')?.setValue(valor);
+    this.dropdownAberto = false;
+  }
+
 }
 
 export function SenhaForteValidator(control: AbstractControl): ValidationErrors | null {
@@ -61,3 +77,4 @@ export function SenhaForteValidator(control: AbstractControl): ValidationErrors 
   const senhaValida = temMaiuscula && temMinuscula && temNumero;
   return senhaValida ? null : { senhaFraca: true };
 }
+
