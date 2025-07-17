@@ -112,10 +112,10 @@
             </ul>
             <input type="hidden" formControlName="generoSelecionado" />
             <label class="placeholder-label">Gênero</label>
-            <div class="input-error-message"
-              *ngIf="form.get('generoSelecionado')?.invalid && form.get('generoSelecionado')?.touched">
-              Gênero é obrigatório.
-            </div>
+          </div>
+          <div class="input-error-message-out"
+            *ngIf="form.get('generoSelecionado')?.invalid && form.get('generoSelecionado')?.touched">
+            Gênero é obrigatório.
           </div>
         </div>
       </div>

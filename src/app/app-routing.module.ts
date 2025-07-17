@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { FormsModule } from '@angular/forms'; 
-
 // --- Layouts ---
 import { SiteLayoutComponent } from './site/layout/site-layout/site-layout.component';
 import { WebAppLayoutComponent } from './web-app/layout/web-app-layout/web-app-layout.component';
@@ -26,7 +25,6 @@ import { AprenderComponent } from './web-app/pages/aprender-mais/aprender-mais.c
 
 // --- Páginas de Autenticação ---
 import { LoginComponent } from './web-app/pages/auth/login/login.component';
-import { LoginPageLayoutComponent }
 import { CadastroComponent } from './web-app/pages/auth/cadastro/cadastro.component';
 
 
@@ -66,7 +64,7 @@ const routes: Routes = [
     component: LoginPageLayoutComponent,
     children: [
       { path: 'auth/login', component: LoginComponent},
-      ]s
+      ]
   },
 
   // 4. Rota de Fallback (se nenhuma outra rota corresponder)

@@ -57,7 +57,7 @@ import { CalendarioComponent } from './web-app/components/calendario/calendario.
     WebAppLayoutComponent,
     LoginPageLayoutComponent,
     CadastroComponent,
-    UsuarioEspecialistaComponent 
+    UsuarioEspecialistaComponent,
     CalendarioComponent
   ],
   imports: [
