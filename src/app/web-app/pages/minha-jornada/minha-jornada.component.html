@@ -1,1 +1,402 @@
-<p>minha-jornada works!</p>
+<!-- min-h-screen para garantir que o conteúdo ocupe pelo menos a altura total da tela -->
+<div class="min-h-screen">
+  <!-- Container principal com largura máxima e centralizado -->
+  <div class="container">
+    <!-- Seção de Cabeçalho -->
+    <div class="header-section">
+      <h1>Minha Jornada</h1>
+      <p>Veja a sua história de autocuidado com a Vitalis.</p>
+    </div>
+
+    <!-- Resumo Semanal - Exibição de estatísticas fixas -->
+    <div class="weekly-stats-grid">
+      <!-- Item de estatística: Dias ativos -->
+      <div class="card weekly-stat-item">
+        <div class="card-content text-center">
+          <!-- Ícone fixo para Dias ativos -->
+          <i class="ri-leaf-line"></i>
+          <p>152</p>
+          <p>Dias ativos</p>
+        </div>
+      </div>
+      <!-- Item de estatística: Total de XP -->
+      <div class="card weekly-stat-item">
+        <div class="card-content text-center">
+          <!-- Ícone fixo para Total de XP -->
+          <i class="ri-fire-line"></i>
+          <p>1.250</p>
+          <p>Total de XP</p>
+        </div>
+      </div>
+      <!-- Item de estatística: Emoção frequente -->
+      <div class="card weekly-stat-item">
+        <div class="card-content text-center">
+          <!-- Ícone fixo para Emoção frequente -->
+          <i class="ri-emotion-happy-line"></i>
+          <p>Tranquilo</p>
+          <p>Emoção frequente</p>
+        </div>
+      </div>
+      <!-- Item de estatística: Vídeos assistidos -->
+      <div class="card weekly-stat-item">
+        <div class="card-content text-center">
+          <!-- Ícone fixo para Vídeos assistidos -->
+          <i class="ri-play-circle-line"></i>
+          <p>3</p>
+          <p>Vídeos assistidos</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Abas Interativas -->
+    <div class="tabs">
+      <div class="tabs-list" role="tablist">
+        <!-- Botão da aba "Estação Vital" -->
+        <button
+          class="tabs-trigger"
+          [class.active]="activeTab === 'vital'"
+          (click)="setActiveTab('vital')"
+          role="tab"
+          [attr.aria-selected]="activeTab === 'vital'"
+        >
+          <i class="ri-leaf-line"></i>Estação Vital
+        </button>
+        <!-- Botão da aba "Estatísticas" -->
+        <button
+          class="tabs-trigger"
+          [class.active]="activeTab === 'stats'"
+          (click)="setActiveTab('stats')"
+          role="tab"
+          [attr.aria-selected]="activeTab === 'stats'"
+        >
+          <!-- Ícone fixo para Estatísticas -->
+          <i class="ri-bar-chart-2-line"></i>
+          Estatísticas
+        </button>
+        <!-- Botão da aba "Conquistas" -->
+        <button
+          class="tabs-trigger"
+          [class.active]="activeTab === 'achievements'"
+          (click)="setActiveTab('achievements')"
+          role="tab"
+          [attr.aria-selected]="activeTab === 'achievements'"
+        >
+          <!-- Ícone fixo para Conquistas -->
+          <i class="ri-award-line"></i>
+          Conquistas
+        </button>
+        <!-- Botão da aba "Histórico" -->
+        <button
+          class="tabs-trigger"
+          [class.active]="activeTab === 'history'"
+          (click)="setActiveTab('history')"
+          role="tab"
+          [attr.aria-selected]="activeTab === 'history'"
+        >
+          <!-- Ícone fixo para Histórico -->
+          <i class="ri-time-line"></i>
+          Histórico
+        </button>
+      </div>
+
+      <!-- Conteúdo da Aba "Estação Vital" -->
+      <div
+        id="vital-content"
+        class="tabs-content"
+        [class.active]="activeTab === 'vital'"
+      >
+        <div class="card">
+          <div class="card-header">
+            <h2 class="card-title">
+              <!-- Ícone fixo para XP Ganho por Dia -->
+              <i class="ri-fire-fill"></i>
+              XP Ganho por Dia
+            </h2>
+          </div>
+          <div class="card-content">
+            <div class="xp-chart">
+              <!-- Barras de XP fixas para cada dia -->
+              <div class="xp-bar-container">
+                <div class="xp-bar" style="height: 56.25%"></div>
+                <!-- 180/320 * 100 -->
+                <p>Dom</p>
+                <p>180</p>
+              </div>
+              <div class="xp-bar-container">
+                <div class="xp-bar" style="height: 78.125%"></div>
+                <!-- 250/320 * 100 -->
+                <p>Seg</p>
+                <p>250</p>
+              </div>
+              <div class="xp-bar-container">
+                <div class="xp-bar"></div>
+                <!-- 320/320 * 100 -->
+                <p>Ter</p>
+                <p>320</p>
+              </div>
+              <div class="xp-bar-container">
+                <div class="xp-bar" style="height: 56.25%"></div>
+                <!-- 180/320 * 100 -->
+                <p>Qua</p>
+                <p>180</p>
+              </div>
+              <div class="xp-bar-container">
+                <div class="xp-bar" style="height: 68.75%"></div>
+                <!-- 220/320 * 100 -->
+                <p>Qui</p>
+                <p>220</p>
+              </div>
+              <div class="xp-bar-container">
+                <div class="xp-bar" style="height: 87.5%"></div>
+                <!-- 280/320 * 100 -->
+                <p>Sex</p>
+                <p>280</p>
+              </div>
+              <div class="xp-bar-container">
+                <div class="xp-bar" style="height: 46.875%"></div>
+                <!-- 150/320 * 100 -->
+                <p>Sáb</p>
+                <p>150</p>
+              </div>
+            </div>
+            <div class="xp-summary">
+              <p>
+                <span class="font-semibold text-vitalis-primary"
+                  >Terça-feira</span
+                >
+                foi seu dia mais produtivo com
+                <span class="font-semibold text-vitalis-primary"> 320 XP</span>!
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Conteúdo da Aba "Estatísticas" -->
+      <div
+        id="stats-content"
+        class="tabs-content"
+        [class.active]="activeTab === 'stats'"
+      >
+        <div class="stats-grid">
+          <div class="card">
+            <div class="card-header">
+              <h2 class="card-title">Emoções Registradas</h2>
+            </div>
+            <div class="card-content">
+              <div class="space-y-4">
+                <!-- Emoções fixas -->
+                <div class="emotion-item">
+                  <div class="emotion-item-left">
+                    <div class="emotion-color-box bg-green-400"></div>
+                    <span class="text-vitalis-text">Tranquilo</span>
+                  </div>
+                  <span class="font-semibold text-vitalis-text">12</span>
+                </div>
+                <div class="emotion-item">
+                  <div class="emotion-item-left">
+                    <div class="emotion-color-box bg-blue-400"></div>
+                    <span class="text-vitalis-text">Motivado</span>
+                  </div>
+                  <span class="font-semibold text-vitalis-text">8</span>
+                </div>
+                <div class="emotion-item">
+                  <div class="emotion-item-left">
+                    <div class="emotion-color-box bg-yellow-400"></div>
+                    <span class="text-vitalis-text">Ansioso</span>
+                  </div>
+                  <span class="font-semibold text-vitalis-text">5</span>
+                </div>
+                <div class="emotion-item">
+                  <div class="emotion-item-left">
+                    <div class="emotion-color-box bg-gray-400"></div>
+                    <span class="text-vitalis-text">Triste</span>
+                  </div>
+                  <span class="font-semibold text-vitalis-text">3</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card-header">
+              <h2 class="card-title">Resumo Geral</h2>
+            </div>
+            <div class="card-content">
+              <div class="space-y-6 general-summary-section">
+                <div>
+                  <p>12 min</p>
+                  <p>Tempo médio de uso</p>
+                </div>
+                <div class="summary-grid">
+                  <div>
+                    <p>28</p>
+                    <p>Consultas</p>
+                  </div>
+                  <div>
+                    <p>45</p>
+                    <p>Vídeos</p>
+                  </div>
+                  <div>
+                    <p>89</p>
+                    <p>Registros</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Conteúdo da Aba "Conquistas" -->
+      <div
+  id="achievements-content"
+  class="tabs-content"
+  [class.active]="activeTab === 'achievements'"
+>
+  <div class="achievements-controls">
+    <!-- Filtro de status -->
+    <label class="filter-switch">
+      <input type="checkbox" [(ngModel)]="showCompletedOnly" />
+      <span class="slider"></span>
+      <span class="label-text">
+        {{ showCompletedOnly ? 'Concluídas' : 'Pendentes' }}
+      </span>
+    </label>
+
+    <!-- Botão de ordenação -->
+    <div class="sort-dropdown">
+      <button (click)="toggleSortDropdown()" class="sort-button">
+        <i class="ri-arrow-up-down-line"></i>
+      </button>
+      <div class="sort-options" *ngIf="showSortDropdown">
+        <button (click)="setSortOrder('desc')">Mais recentes</button>
+        <button (click)="setSortOrder('asc')">Mais antigas</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="achievements-list">
+    <div
+      class="card achievement-item"
+      *ngFor="let achievement of filteredAchievements"
+    >
+      <div class="achievement-content">
+        <div
+          class="achievement-icon-wrapper"
+          [ngClass]="achievement.status"
+        >
+          <i
+            [ngClass]="{
+              'ri-checkbox-circle-line': achievement.status === 'completed',
+              'ri-time-line': achievement.status === 'pending'
+            }"
+          ></i>
+        </div>
+
+        <div class="achievement-text-content">
+          <h3 class="font-semibold text-vitalis-text mb-1">
+            {{ achievement.titulo }}
+          </h3>
+          <p class="text-sm text-vitalis-text/60 mb-3">
+            {{ achievement.descricao }}
+          </p>
+
+          <!-- Se completed: mostra data -->
+          <span
+            class="completed-date"
+            *ngIf="achievement.status === 'completed'"
+          >
+            {{ getRelativeDate(achievement.completedDate) }}
+          </span>
+
+          <!-- Se pendente com progresso -->
+          <div *ngIf="achievement.status === 'pending' && achievement.progressoAtual !== undefined" class="progress-container">
+            <div class="progress-bar">
+              <div
+                class="progress-fill"
+                [style.width.%]="(achievement.progressoAtual / achievement.progressoTotal) * 100"
+              ></div>
+            </div>
+            <p class="progress-text">
+              {{ achievement.progressoAtual }} de
+              {{ achievement.progressoTotal }}
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+      <!-- Conteúdo da Aba "Histórico" -->
+      <div
+        id="history-content"
+        class="tabs-content"
+        [class.active]="activeTab === 'history'"
+      >
+        <div class="history-section">
+          <div class="card">
+            <div class="card-header">
+              <h2 class="card-title">Vídeos Recentes</h2>
+            </div>
+            <div class="card-content">
+              <div class="recent-videos-list">
+                <!-- Vídeo 1 -->
+                <div class="video-item">
+                  <div class="video-icon-wrapper">
+                    <!-- Ícone fixo para vídeo -->
+                    <i class="ri-play-large-line"></i>
+                  </div>
+                  <div class="video-details">
+                    <h4 class="font-medium text-vitalis-text">
+                      Respiração para Ansiedade
+                    </h4>
+                    <div class="video-meta">
+                      <span class="text-sm text-vitalis-text/60">8 min</span>
+                      <span class="video-category-tag">Respiração</span>
+                    </div>
+                  </div>
+                </div>
+                <!-- Vídeo 2 -->
+                <div class="video-item">
+                  <div class="video-icon-wrapper">
+                    <!-- Ícone fixo para vídeo -->
+                    <i class="ri-play-large-line"></i>
+                  </div>
+                  <div class="video-details">
+                    <h4 class="font-medium text-vitalis-text">
+                      Meditação Matinal
+                    </h4>
+                    <div class="video-meta">
+                      <span class="text-sm text-vitalis-text/60">15 min</span>
+                      <span class="video-category-tag">Meditação</span>
+                    </div>
+                  </div>
+                </div>
+                <!-- Vídeo 3 -->
+                <div class="video-item">
+                  <div class="video-icon-wrapper">
+                    <!-- Ícone fixo para vídeo -->
+                    <i class="ri-play-large-line"></i>
+                  </div>
+                  <div class="video-details">
+                    <h4 class="font-medium text-vitalis-text">
+                      Exercícios de Gratidão
+                    </h4>
+                    <div class="video-meta">
+                      <span class="text-sm text-vitalis-text/60">5 min</span>
+                      <span class="video-category-tag">Mindfulness</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <calendario></calendario>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

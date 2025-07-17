@@ -1,9 +1,7 @@
 /* Estilos gerais da página */
 .account-page {
-  padding: 2rem;
-  max-width: 1200px;
-  margin: 0 auto;
-  color: var(--text-color);
+  padding: 2rem 4rem;
+  background-color: var(--background)
 }
 
 /* --- ESTILOS DO CABEÇALHO --- */
@@ -28,7 +26,7 @@
 
 .account-grid {
   display: grid;
-  grid-template-columns: 300px 1fr;
+  grid-template-columns: 350px 1fr;
   gap: 2rem;
   align-items: start;
 }

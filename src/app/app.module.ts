@@ -20,7 +20,7 @@ import { ConfiguracoesComponent } from './web-app/pages/configuracoes/configurac
 import { ContaComponent } from './web-app/pages/conta/conta.component';
 import { EstacaoVitalComponent } from './web-app/pages/estacao-vital/estacao-vital.component';
 import { MinhaJornadaComponent } from './web-app/pages/minha-jornada/minha-jornada.component';
-import { PsicoapoioComponent } from './web-app/pages/psicoapoio/psicoapoio.component';
+import { CuidarMaisComponent } from './web-app/pages/CuidarMais/CuidarMais.component';
 import { WebAppLayoutComponent } from './web-app/layout/web-app-layout/web-app-layout.component';
 import { LoginPageLayoutComponent } from './web-app/layout/login-page-layout/login-page-layout.component';
 import { CadastroComponent } from './web-app/pages/auth/cadastro/cadastro.component';
@@ -29,6 +29,8 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { UsuarioEspecialistaComponent } from './web-app/pages/auth/usuario-especialista/usuario-especialista.component';
 import { UsuarioService } from './shared/services/usuario.service';
+import { AprenderComponent } from './web-app/pages/aprender-mais/aprender-mais.component';
+import { CalendarioComponent } from './web-app/components/calendario/calendario.component';
 
 @NgModule({
   declarations: [
@@ -41,6 +43,7 @@ import { UsuarioService } from './shared/services/usuario.service';
     SobreComponent,
     SidebarComponent,
     HomeAppComponent,
+    AprenderComponent,
     BtnScrollupComponent,
     LoginComponent,
     BtnGradientComponent,
@@ -50,11 +53,12 @@ import { UsuarioService } from './shared/services/usuario.service';
     ContaComponent,
     EstacaoVitalComponent,
     MinhaJornadaComponent,
-    PsicoapoioComponent,
+    CuidarMaisComponent,
     WebAppLayoutComponent,
     LoginPageLayoutComponent,
     CadastroComponent,
     UsuarioEspecialistaComponent 
+    CalendarioComponent
   ],
   imports: [
     BrowserModule,
