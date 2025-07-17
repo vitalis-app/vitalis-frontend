@@ -63,7 +63,7 @@ const routes: Routes = [
     path: 'auth', // Adicionado um caminho 'auth' para evitar conflito
     component: LoginPageLayoutComponent,
     children: [
-      { path: 'auth/login', component: LoginComponent},
+      { path: 'login', component: LoginComponent},
       ]
   },
 
