@@ -26,6 +26,7 @@ import { AprenderComponent } from './web-app/pages/aprender-mais/aprender-mais.c
 // --- Páginas de Autenticação ---
 import { LoginComponent } from './web-app/pages/auth/login/login.component';
 import { CadastroComponent } from './web-app/pages/auth/cadastro/cadastro.component';
+import { RegistroEmocionalComponent } from './web-app/pages/estacao-vital/registro-emocional/registro-emocional.component';
 
 
 const routes: Routes = [
@@ -53,6 +54,7 @@ const routes: Routes = [
       { path: 'configuracoes', component: ConfiguracoesComponent },
       { path: 'conta', component: ContaComponent },
       { path: 'estacao-vital', component: EstacaoVitalComponent },
+      { path: 'estacao-vital/registro-emocional', component: RegistroEmocionalComponent },
       { path: 'minha-jornada', component: MinhaJornadaComponent },
       { path: 'CuidarMais', component: CuidarMaisComponent },
     ],

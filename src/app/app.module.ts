@@ -31,6 +31,7 @@ import { UsuarioEspecialistaComponent } from './web-app/pages/auth/usuario-espec
 import { UsuarioService } from './shared/services/usuario.service';
 import { AprenderComponent } from './web-app/pages/aprender-mais/aprender-mais.component';
 import { CalendarioComponent } from './web-app/components/calendario/calendario.component';
+import { RegistroEmocionalComponent } from './web-app/pages/estacao-vital/registro-emocional/registro-emocional.component';
 
 @NgModule({
   declarations: [
@@ -58,7 +59,8 @@ import { CalendarioComponent } from './web-app/components/calendario/calendario.
     LoginPageLayoutComponent,
     CadastroComponent,
     UsuarioEspecialistaComponent,
-    CalendarioComponent
+    CalendarioComponent,
+    RegistroEmocionalComponent
   ],
   imports: [
     BrowserModule,
