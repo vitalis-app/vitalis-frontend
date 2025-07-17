@@ -9,7 +9,7 @@ import { CadastroService } from 'src/app/shared/services/cadastro.service';
   styleUrls: ['./usuario-especialista.component.css']
 })
 export class UsuarioEspecialistaComponent {
-  ativo: boolean = true;
+  ativo: boolean = false;
   
   constructor(
     private usuarioEscolhaService: UsuarioService,
