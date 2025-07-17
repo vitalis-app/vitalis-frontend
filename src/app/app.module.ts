@@ -11,7 +11,6 @@ import { SidebarComponent } from './web-app/components/sidebar/sidebar.component
 import { HomeAppComponent } from './web-app/pages/home-app/home-app.component';
 import { BtnScrollupComponent } from './site/components/widgets/buttons/btn-scrollup/btn-scrollup.component';
 import { LoginComponent } from './web-app/pages/auth/login/login.component';
-import { CadastroComponent } from './web-app/pages/auth/cadastro/cadastro.component';
 import { BtnGradientComponent } from './site/components/widgets/buttons/btn-gradient/btn-gradient.component';
 import { BtnSecondaryComponent } from './site/components/widgets/buttons/btn-secondary/btn-secondary.component';
 import { BtnDestaqueComponent } from './site/components/widgets/buttons/btn-destaque/btn-destaque.component';
@@ -24,6 +23,12 @@ import { MinhaJornadaComponent } from './web-app/pages/minha-jornada/minha-jorna
 import { CuidarMaisComponent } from './web-app/pages/CuidarMais/CuidarMais.component';
 import { WebAppLayoutComponent } from './web-app/layout/web-app-layout/web-app-layout.component';
 import { LoginPageLayoutComponent } from './web-app/layout/login-page-layout/login-page-layout.component';
+import { CadastroComponent } from './web-app/pages/auth/cadastro/cadastro.component';
+import { CadastroService } from './shared/services/cadastro.service';
+import { ReactiveFormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
+import { UsuarioEspecialistaComponent } from './web-app/pages/auth/usuario-especialista/usuario-especialista.component';
+import { UsuarioService } from './shared/services/usuario.service';
 import { AprenderComponent } from './web-app/pages/aprender-mais/aprender-mais.component';
 import { CalendarioComponent } from './web-app/components/calendario/calendario.component';
 
@@ -41,7 +46,6 @@ import { CalendarioComponent } from './web-app/components/calendario/calendario.
     AprenderComponent,
     BtnScrollupComponent,
     LoginComponent,
-    CadastroComponent,
     BtnGradientComponent,
     BtnSecondaryComponent,
     BtnDestaqueComponent,
@@ -52,12 +56,16 @@ import { CalendarioComponent } from './web-app/components/calendario/calendario.
     CuidarMaisComponent,
     WebAppLayoutComponent,
     LoginPageLayoutComponent,
-    CalendarioComponent,
+    CadastroComponent,
+    UsuarioEspecialistaComponent 
+    CalendarioComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    CommonModule,
     FormsModule,
+    ReactiveFormsModule,
     RouterModule.forRoot
       ([],
         {
@@ -65,7 +73,7 @@ import { CalendarioComponent } from './web-app/components/calendario/calendario.
           scrollPositionRestoration: 'enabled'
         })
   ],
-  providers: [],
+  providers: [CadastroService, UsuarioService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

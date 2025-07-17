@@ -1,15 +1,16 @@
 import { Component, HostListener, OnInit, Renderer2, Inject, PLATFORM_ID } from '@angular/core';
-import { isPlatformBrowser } from '@angular/common';
+import { isPlatformBrowser, CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
 import { ThemeService } from 'src/app/services/theme/theme.service';
-import { CommonModule } from '@angular/common'; // Importe CommonModule para usar *ngIf
-import { RouterModule } from '@angular/router'; // RouterModule vem de @angular/router
+import { CadastroService } from 'src/app/shared/services/cadastro.service';
+import { UsuarioService } from 'src/app/shared/services/usuario.service';
 
 @Component({
   selector: 'web-navbar',
-  standalone: true, // <-- Perfeito! O componente agora é independente.
+  standalone: true, // Componente independente
   imports: [
-    CommonModule,   // <-- Necessário para diretivas como *ngIf
-    RouterModule    // <-- Disponibiliza o routerLink para o template
+    CommonModule,    // para *ngIf, etc.
+    RouterModule    // para routerLink
   ],
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.css']
@@ -22,6 +23,7 @@ export class NavbarComponent implements OnInit {
   constructor(
     private themeService: ThemeService,
     private renderer: Renderer2,
+    private usuarioService: UsuarioService,
     @Inject(PLATFORM_ID) private platformId: Object
   ) {}
 
@@ -87,6 +89,12 @@ export class NavbarComponent implements OnInit {
     if (isPlatformBrowser(this.platformId)) {
       const offset = window.scrollY;
       this.isScrolled = offset > 50;
-    }
+    }    
+  }
+  //abrirCadastroModal() {
+  //  this.cadastroService.abrirCadastro();  // Chama o método do serviço
+  //}
+  abrirUsuarioModal() {
+    this.usuarioService.abrirCadastro();
   }
 }

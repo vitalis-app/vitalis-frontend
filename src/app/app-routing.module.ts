@@ -26,6 +26,7 @@ import { AprenderComponent } from './web-app/pages/aprender-mais/aprender-mais.c
 
 // --- Páginas de Autenticação ---
 import { LoginComponent } from './web-app/pages/auth/login/login.component';
+import { LoginPageLayoutComponent }
 import { CadastroComponent } from './web-app/pages/auth/cadastro/cadastro.component';
 
 
@@ -64,9 +65,8 @@ const routes: Routes = [
     path: 'auth', // Adicionado um caminho 'auth' para evitar conflito
     component: LoginPageLayoutComponent,
     children: [
-      { path: 'login', component: LoginComponent},
-      { path: 'cadastro', component: CadastroComponent} // Alterado para um nome mais comum
-    ]
+      { path: 'auth/login', component: LoginComponent},
+      ]s
   },
 
   // 4. Rota de Fallback (se nenhuma outra rota corresponder)
