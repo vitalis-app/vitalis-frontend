@@ -1,0 +1,131 @@
+/* Card principal */
+.card {
+  background-color: var(--verde-56);
+  border: 1px solid var(--verde-5);
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  border-radius: 16px;
+  transition: all 0.3s ease-in-out;
+  padding: 1.5rem;
+}
+
+.card:hover {
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+    0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  transform: scale(1.02);
+}
+
+.card-header {
+  padding: 1.5rem 1.5rem 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+  color: var(--verde-2)
+}
+
+.card-title {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+/* Navegação do Calendário */
+.calendar-nav {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.month-year {
+  font-weight: 500;
+  min-width: 120px;
+  text-align: center;
+}
+
+.nav-button {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  color: var(--verde-2);
+  font-size: 1.5rem;
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.2s;
+}
+
+.nav-button:hover {
+  background-color: var(--verde-5)
+}
+
+/* Grid do Calendário */
+.calendar-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 0.5rem;
+}
+
+.weekday-header {
+  text-align: center;
+  font-weight: 600;
+  font-size: 0.875rem;
+  color: var(--verde-2);
+  margin-bottom: 0.5rem;
+}
+
+.calendar-day {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 3rem;
+  border-radius: 0.75rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.calendar-day:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+/* Estilos para dias fora do mês atual e dia de hoje */
+.not-current-month {
+  color: #aab8b6; /* Cor suave para dias de outro mês */
+  background-color: transparent !important; /* Remove qualquer fundo */
+}
+
+.is-today {
+  border: 3px solid var(--verde-0); /* Borda forte para destacar o dia de hoje */
+  font-weight: 700;
+}
+
+/* Cores das Emoções */
+.calendar-day.tranquilo { background-color: #4ade80; color: #166534; }
+.calendar-day.motivado { background-color: #60a5fa; color: #1e40af; }
+.calendar-day.ansioso { background-color: #facc15; color: #854d0e; }
+.calendar-day.neutro { background-color: var(--verde-7); color: var(--verde-1); }
+
+/* Legenda */
+.emotion-legend {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+  font-size: 0.875rem;
+  color: var(--verde-1);
+}
+.legend-item { display: flex; align-items: center; gap: 0.5rem; }
+.legend-color-box { width: 0.8rem; height: 0.8rem; border-radius: 50%; }
+
+/* Cores da Legenda */
+.legend-color-box.tranquilo { background-color: #4ade80; }
+.legend-color-box.motivado { background-color: #60a5fa; }
+.legend-color-box.ansioso { background-color: #facc15; }
+.legend-color-box.neutro { background-color: #ffffff; border: 1px solid #cdd4d3; }

@@ -1,17 +1,21 @@
 <btn-scrollup></btn-scrollup>
-<!-- Hero Section -->
+
 <section class="hero">
-    <div class="container hero-container">
-        <div class="hero-content">
-            <h1 class="hero-title">Seja Especialista na Vitalis</h1>
-            <p class="hero-subtitle">Use sua vocação para transformar vidas. <br>Junte-se à nossa rede de profissionais.</p>
-            <a [routerLink]="[]" fragment="como-funciona" class="gradient-btn">Saiba como funciona</a>
-        </div>
+  <div class="container hero-container">
+    <div class="hero-content">
+      <h1 class="hero-title">Seja Especialista na Vitalis</h1>
+      <p class="hero-subtitle">
+        Use sua vocação para transformar vidas. <br />Junte-se à nossa rede de
+        profissionais.
+      </p>
+      <a [routerLink]="[]" fragment="como-funciona"
+        ><btn-gradient text="Saiba como funciona"></btn-gradient
+      ></a>
     </div>
+  </div>
 </section>
 
-<!-- Como Funciona Section -->
-<section id="como-funciona" class="section">
+<section id="como-funciona" class="how-it-works-section">
   <div class="container">
     <div class="section-header">
       <h2 class="section-title">Como Funciona</h2>
@@ -22,54 +26,64 @@
     </div>
 
     <div class="steps">
-      <!-- Step 1 -->
       <div class="step-card">
-        <div class="step-number">1</div>
+        <div class="step-number">
+          1.
+          <div class="step-icon">
+            <i class="fa-solid fa-address-card"></i>
+          </div>
+        </div>
         <h3 class="step-title">Crie seu perfil</h3>
         <p class="step-description">
           Cadastre seu nome, CRP, especialidades e horários disponíveis para
           atendimento.
         </p>
-        <div class="step-icon">✅</div>
       </div>
 
-      <!-- Step 2 -->
       <div class="step-card">
-        <div class="step-number">2</div>
+        <div class="step-number">
+          2.
+          <div class="step-icon">
+            <i class="fa-solid fa-calendar-days"></i>
+          </div>
+        </div>
+
         <h3 class="step-title">Receba agendamentos</h3>
         <p class="step-description">
           Pacientes poderão encontrar seu perfil e agendar consultas facilmente.
         </p>
-        <div class="step-icon">🗓️</div>
       </div>
 
-      <!-- Step 3 -->
       <div class="step-card">
-        <div class="step-number">3</div>
+        <div class="step-number">
+          3.
+          <div class="step-icon"><i class="fa-solid fa-hand-holding-dollar"></i></div>
+        </div>
         <h3 class="step-title">Defina seu valor</h3>
         <p class="step-description">
-          Estabeleça o valor da sua sessão entre R$50 e R$90, de acordo com sua
+          Estabeleça o valor da sua sessão entre R$30 e R$120, de acordo com sua
           experiência.
         </p>
-        <div class="step-icon">💰</div>
       </div>
 
-      <!-- Step 4 -->
       <div class="step-card">
-        <div class="step-number">4</div>
+        <div class="step-number">
+          4.
+          <div class="step-icon">
+            <i class="fa-solid fa-circle-check"></i>
+          </div>
+        </div>
         <h3 class="step-title">Receba seus pagamentos</h3>
         <p class="step-description">
           A plataforma fica com apenas 10 a 15% de comissão por consulta
           realizada.
         </p>
-        <div class="step-icon">📊</div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- Por que ser parceiro Section -->
-<section id="por-que" class="section section-light">
+<section id="por-que" class="why-partner-section">
   <div class="container">
     <div class="section-header">
       <h2 class="section-title">Por que ser parceiro da Vitalis?</h2>
@@ -79,11 +93,14 @@
     </div>
 
     <div class="reasons">
-      <!-- Reason 1 -->
       <div class="reason-card">
-        <div class="reason-icon">🎯</div>
-        <div class="reason-content">
+        <div class="reason-title">
+          <div class="reason-icon">
+            <i class="fa-solid fa-face-smile-beam"></i>
+          </div>
           <h3>Alcance um público real</h3>
+        </div>
+        <div class="reason-content">
           <p>
             Conecte-se com pessoas que estão ativamente buscando acolhimento e
             apoio psicológico.
@@ -91,11 +108,12 @@
         </div>
       </div>
 
-      <!-- Reason 2 -->
       <div class="reason-card">
-        <div class="reason-icon">🤝</div>
-        <div class="reason-content">
+        <div class="reason-title">
+          <div class="reason-icon"><i class="fa-solid fa-handshake"></i></div>
           <h3>Receba suporte completo</h3>
+        </div>
+        <div class="reason-content">
           <p>
             Nossa equipe oferece suporte humano e técnico para garantir a melhor
             experiência para você e seus pacientes.
@@ -103,11 +121,12 @@
         </div>
       </div>
 
-      <!-- Reason 3 -->
       <div class="reason-card">
-        <div class="reason-icon">🌱</div>
+        <div class="reason-title">
+          <div class="reason-icon"><i class="fa-solid fa-seedling"></i></div>
+          <h3>Faça a sua parte</h3>
+        </div>
         <div class="reason-content">
-          <h3>Faça parte de um movimento</h3>
           <p>
             Contribua para tornar a saúde mental mais acessível e
             desestigmatizada na sociedade.
@@ -115,11 +134,12 @@
         </div>
       </div>
 
-      <!-- Reason 4 -->
       <div class="reason-card">
-        <div class="reason-icon">📱</div>
-        <div class="reason-content">
+        <div class="reason-title">
+          <div class="reason-icon"><i class="fa-solid fa-thumbs-up"></i></div>
           <h3>Atenda com flexibilidade</h3>
+        </div>
+        <div class="reason-content">
           <p>
             Defina seus próprios horários e atenda de onde estiver, com total
             liberdade e autonomia.
@@ -130,8 +150,7 @@
   </div>
 </section>
 
-<!-- Benefícios Section -->
-<section id="beneficios" class="section">
+<section id="beneficios" class="benefits-section">
   <div class="container">
     <div class="section-header">
       <h2 class="section-title">Benefícios</h2>
@@ -141,7 +160,6 @@
     </div>
 
     <div class="benefits">
-      <!-- Benefit 1 -->
       <div class="benefit-card">
         <div class="benefit-icon-wrapper">
           <svg
@@ -166,7 +184,6 @@
         </p>
       </div>
 
-      <!-- Benefit 2 -->
       <div class="benefit-card">
         <div class="benefit-icon-wrapper">
           <svg
@@ -191,7 +208,6 @@
         </p>
       </div>
 
-      <!-- Benefit 3 -->
       <div class="benefit-card">
         <div class="benefit-icon-wrapper">
           <svg
@@ -217,7 +233,6 @@
         </p>
       </div>
 
-      <!-- Benefit 4 -->
       <div class="benefit-card">
         <div class="benefit-icon-wrapper">
           <svg
@@ -242,7 +257,6 @@
         </p>
       </div>
 
-      <!-- Benefit 5 -->
       <div class="benefit-card">
         <div class="benefit-icon-wrapper">
           <svg
@@ -268,7 +282,6 @@
         </p>
       </div>
 
-      <!-- Benefit 6 -->
       <div class="benefit-card">
         <div class="benefit-icon-wrapper">
           <svg
@@ -297,8 +310,7 @@
   </div>
 </section>
 
-<!-- Depoimentos Section -->
-<section id="depoimentos" class="section section-light">
+<section id="depoimentos" class="testimonials-section">
   <div class="container">
     <div class="section-header">
       <h2 class="section-title">Depoimentos de Especialistas</h2>
@@ -308,10 +320,9 @@
     </div>
 
     <div class="testimonials">
-      <!-- Testimonial 1 -->
       <div class="testimonial-card">
         <div class="testimonial-header">
-          <div class="testimonial-avatar">LM</div>
+          <div class="testimonial-avatar"><img src="assets/imgs/site/especialistas/psico-2.png" alt="Dra. Laura Mendes"></div>
           <div class="testimonial-person">
             <h4 class="testimonial-name">Dra. Laura Mendes</h4>
             <p class="testimonial-title">Psicóloga Clínica</p>
@@ -325,13 +336,12 @@
         <div class="testimonial-rating">★★★★★</div>
       </div>
 
-      <!-- Testimonial 2 -->
       <div class="testimonial-card">
         <div class="testimonial-header">
-          <div class="testimonial-avatar cyan">RS</div>
+          <div class="testimonial-avatar"><img src="assets/imgs/site/especialistas/psico-1.png" alt="Dr. Rafael Santos"></div>
           <div class="testimonial-person">
             <h4 class="testimonial-name">Dr. Rafael Santos</h4>
-            <p class="testimonial-title">Terapeuta Cognitivo-Comportamental</p>
+            <p class="testimonial-title">Terapeuta</p>
           </div>
         </div>
         <p class="testimonial-text">
@@ -342,13 +352,12 @@
         <div class="testimonial-rating">★★★★★</div>
       </div>
 
-      <!-- Testimonial 3 -->
       <div class="testimonial-card">
         <div class="testimonial-header">
-          <div class="testimonial-avatar">CA</div>
+          <div class="testimonial-avatar"><img src="assets/imgs/site/especialistas/psico-3.png" alt="Dra. Carlos Almeida"></div>
           <div class="testimonial-person">
-            <h4 class="testimonial-name">Dra. Carla Almeida</h4>
-            <p class="testimonial-title">Psicóloga e Coach</p>
+            <h4 class="testimonial-name">Dra. Carlos Almeida</h4>
+            <p class="testimonial-title">Psicólogo Clínico</p>
           </div>
         </div>
         <p class="testimonial-text">
@@ -362,14 +371,13 @@
   </div>
 </section>
 
-<!-- CTA Section -->
-<section id="cadastro" class="cta">
+<section id="cadastro" class="cta-section">
   <div class="container cta-container">
     <h2 class="cta-title">
       Pronto para impactar mais vidas com o seu cuidado?
     </h2>
     <p class="cta-subtitle">Leva menos de 5 minutos para se cadastrar.</p>
-    <a href="#" class="btn btn-large">Comece agora</a>
+    <a href="#" class="btn-large">Comece agora</a>
     <p class="cta-note">
       Junte-se a centenas de profissionais que já estão transformando vidas
       através da Vitalis.

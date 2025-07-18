@@ -1,0 +1,87 @@
+<button class="voltar-btn">
+    <a routerLink="home">
+        <i class="ri-arrow-left-s-line"></i>
+    </a>
+</button>
+
+<div class="auth-page-container">
+    <!-- Lado esquerdo da página -->
+    <div class="auth-hero">
+        <img id="vitalis-logo" src="\assets\imgs\vitalis.png" alt="">
+        <div class="text-container">
+            <h1 class="text-title">
+                {{tituloAtual}}
+            </h1>
+            <p class="text-subtitle">
+                {{subtituloAtual}}
+            </p>
+        </div>
+    </div>
+
+    <!-- Painel de login -->
+    <div class="auth-panel">
+        <div class="text-container">
+            <h2 id="panel-title">Acesse sua conta</h2>
+            <p id="panel-subtitle">Que bom ter você conosco novamente! </p>
+        </div>
+        <div class="inputs-container">
+            <p>E-mail</p>
+            <div class="input-icon-wrapper">
+                <svg class="input-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 400">
+                    <g transform="translate(0, -24)">
+                        <path
+                            d="M48 64C21.5 64 0 85.5 0 112c0 15.1 7.1 29.3 19.2 38.4L236.8 313.6c11.4 8.5 27 8.5 38.4 0L492.8 150.4c12.1-9.1 19.2-23.3 19.2-38.4c0-26.5-21.5-48-48-48L48 64zM0 176L0 384c0 35.3 28.7 64 64 64l384 0c35.3 0 64-28.7 64-64l0-208L294.4 339.2c-22.8 17.1-54 17.1-76.8 0L0 176z" />
+                    </g>
+                </svg>
+
+                <input type="email" placeholder="seu@email.com" />
+            </div>
+
+            <p>Senha</p>
+            <div class="input-icon-wrapper">
+                <svg class="input-icon" xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 448 512"><!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.-->
+                    <path
+                        d="M144 144l0 48 160 0 0-48c0-44.2-35.8-80-80-80s-80 35.8-80 80zM80 192l0-48C80 64.5 144.5 0 224 0s144 64.5 144 144l0 48 16 0c35.3 0 64 28.7 64 64l0 192c0 35.3-28.7 64-64 64L64 512c-35.3 0-64-28.7-64-64L0 256c0-35.3 28.7-64 64-64l16 0z" />
+                </svg>
+                <input type="text" placeholder="Digite a sua senha" />
+            </div>
+        </div>
+        <div class="remember-forgot-section">
+            <div class="remember-me">
+                <div class="checkbox-wrapper-37">
+                    <input type="checkbox" name="checkbox" id="terms-checkbox-37" />
+                    <label for="terms-checkbox-37" class="terms-label">
+                        <svg class="checkbox-svg" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <mask id="path-1-inside-1_476_5-37" fill="white">
+                                <rect width="200" height="200" />
+                            </mask>
+                            <rect width="200" height="200" class="checkbox-box" stroke-width="40"
+                                mask="url(#path-1-inside-1_476_5-37)" />
+                            <path class="checkbox-tick" d="M52 111.018L76.9867 136L149 64" stroke-width="15" />
+                        </svg>
+                        <span class="label-text">Lembrar de mim</span>
+                    </label>
+                </div>
+            </div>
+            <a id="forgot-password" href="">Esqueceu a senha?</a>
+        </div>
+        <a routerLink="/app">
+            <button id="login-btn" href="">
+                ENTRAR
+            </button> <!-- verde-3 ou verde-10 -->
+        </a>
+        <div class="or-division">
+            <a>OU</a>
+        </div>
+        <button class="google-btn" onclick="loginComGoogle()">
+            <img class="google-icon" src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/google.svg"
+                alt="Google logo">
+            Entrar com Google
+        </button>
+        <div class="signin">
+            <p>Não tem uma conta ainda?</p>
+            <a href="">Cadastre-se</a>
+        </div>
+    </div>
+</div>

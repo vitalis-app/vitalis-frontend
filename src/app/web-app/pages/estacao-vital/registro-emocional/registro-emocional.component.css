@@ -1,0 +1,257 @@
+
+/* Estilos de base para o corpo da página */
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  margin: 0;
+}
+
+/* Container principal para centralizar o conteúdo */
+.registration-container {
+  min-height: 100vh;
+  background: linear-gradient(135deg, hsl(200, 50%, 97%), hsl(0, 0%, 100%), hsl(142, 50%, 97%));
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.registration-wrapper {
+  max-width: 64rem; /* 4xl */
+  width: 100%;
+  margin: auto;
+}
+
+/* Barra de progresso */
+.progress-bar-container {
+  width: 100%;
+  background-color: #e5e7eb; /* gray-200 */
+  border-radius: 9999px;
+  height: 0.5rem; /* h-2 */
+  margin-bottom: 2rem;
+}
+
+.progress-bar-fill {
+  background-color: var(--vitalis-blue);
+  height: 100%;
+  border-radius: 9999px;
+  transition: width 0.5s ease-in-out;
+}
+
+/* Estilos de texto */
+.step-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+.step-header h2 {
+  font-size: 1.5rem; /* text-2xl */
+  font-weight: 700;
+  color: #1f2937; /* gray-800 */
+  margin-bottom: 0.5rem;
+}
+.step-header p {
+  color: #4b5563; /* gray-600 */
+}
+
+/* Grid de emoções */
+.emotions-grid {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: 1rem;
+}
+@media (min-width: 768px) {
+  .emotions-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (min-width: 1024px) {
+  .emotions-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+
+/* Cards de Emoção */
+.emotion-card {
+  background-color: white;
+  border-radius: 1rem; /* rounded-2xl */
+  box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05); /* shadow-sm */
+  border: 1px solid #f3f4f6; /* border-gray-100 */
+  padding: 1.5rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-align: center;
+}
+
+.emotion-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1); /* shadow-lg */
+}
+
+.emotion-card.selected {
+  box-shadow: 0 0 0 2px var(--vitalis-blue); /* ring-2 ring-blue-400 */
+  background-color: var(--vitalis-calm);
+}
+
+.emotion-card h3 {
+  font-weight: 600;
+  color: #1f2937;
+  margin-bottom: 0.25rem;
+}
+.emotion-card p {
+  font-size: 0.875rem;
+  color: #4b5563;
+}
+
+/* Cores específicas dos cards */
+.emotion-card.happy { background-color: var(--vitalis-happy); color: var(--vitalis-happy-text); }
+.emotion-card.calm { background-color: var(--vitalis-calm); color: var(--vitalis-calm-text); }
+.emotion-card.sad { background-color: var(--vitalis-sad); color: var(--vitalis-sad-text); }
+.emotion-card.tired { background-color: var(--vitalis-tired); color: var(--vitalis-tired-text); }
+.emotion-card.anxious { background-color: var(--vitalis-anxious); color: var(--vitalis-anxious-text); }
+.emotion-card.confused { background-color: var(--vitalis-confused); color: var(--vitalis-confused-text); }
+
+/* Bolhas de Gatilho */
+.triggers-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  justify-content: center;
+}
+
+.tag-bubble {
+  padding: 0.5rem 1rem;
+  border-radius: 9999px;
+  background-color: #f3f4f6; /* gray-100 */
+  color: #374151; /* gray-700 */
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-size: 0.875rem;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.tag-bubble:hover {
+  background-color: #e5e7eb; /* gray-200 */
+  transform: scale(1.05);
+}
+
+.tag-bubble.selected {
+  background-color: var(--vitalis-calm);
+  color: var(--vitalis-calm-text);
+  box-shadow: 0 0 0 2px var(--vitalis-blue); /* ring-2 ring-blue-400 */
+}
+
+/* Inputs e Textarea */
+.vitalis-input, .vitalis-textarea {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid #e5e7eb; /* border-gray-200 */
+  border-radius: 0.5rem; /* rounded-lg */
+  transition: all 0.2s ease;
+}
+.vitalis-input:focus, .vitalis-textarea:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px var(--vitalis-blue); /* focus:ring-2 focus:ring-blue-400 */
+  border-color: transparent;
+}
+.vitalis-textarea {
+  min-height: 120px;
+  resize: none;
+}
+.journal-wrapper {
+  max-width: 28rem;
+  margin: auto;
+}
+
+/* Mensagem de XP */
+.xp-message {
+  margin-top: 1rem;
+  padding: 0.75rem;
+  background-color: hsl(142, 80%, 96%); /* green-50 */
+  color: hsl(142, 70%, 35%); /* green-700 */
+  border-radius: 0.5rem;
+  font-size: 0.875rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+
+/* Botões */
+.buttons-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 2rem;
+}
+
+.vitalis-button {
+  border-radius: 9999px;
+  padding: 0.75rem 1.5rem;
+  font-weight: 500;
+  transition: all 0.2s ease;
+  border: none;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.vitalis-button:hover {
+  transform: scale(1.05);
+}
+
+.vitalis-button.primary {
+  background-color: var(--verde-10);
+  color: white;
+}
+.vitalis-button.primary:hover {
+  background-color: var(--verde-3);
+}
+.vitalis-button.primary:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.vitalis-button.secondary {
+  background-color: var(--vitalis-green);
+  color: white;
+}
+.vitalis-button.secondary:hover {
+  background-color: var(--vitalis-green-hover);
+}
+
+/* Tela Final */
+.final-screen {
+  text-align: center;
+  max-width: 28rem;
+  margin: auto;
+}
+.final-screen .icon-wrapper {
+  width: 4rem;
+  height: 4rem;
+  background-color: hsl(142, 80%, 96%); /* green-100 */
+  border-radius: 9999px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1rem;
+}
+.final-screen .icon-wrapper svg {
+  width: 2rem;
+  height: 2rem;
+  color: var(--vitalis-green);
+}
+
+/* Animações */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+.animate-fade-in {
+  animation: fadeIn 0.5s ease-out forwards;
+}

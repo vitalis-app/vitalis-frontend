@@ -1,0 +1,349 @@
+
+h2 {
+  color: var(--verde-3);
+  margin-bottom: 2rem;
+}
+
+/* Fundo que cobre a tela */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(5px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+/* Quando visível */
+.modal-overlay.show {
+  opacity: 1;
+  pointer-events: all;
+}
+
+/* Container do modal */
+.modal-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: radial-gradient(circle at right,
+      var(--verde-5),
+      var(--verde-7) 100%) padding-box,
+      linear-gradient(90deg, var(--verde-5), var(--verde-7)) border-box;
+  width: 45%;
+  height: 45%;
+  padding: 2rem;
+  border-radius: 16px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+  position: relative;
+  transform: translateY(100%);
+  transition: transform 0.7s ease;
+  border: 2px solid transparent;
+}
+
+/* Animação de entrada */
+.modal-container.show {
+  transform: translateY(0);
+}
+
+/* Botão de fechar */
+.fechar-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: transparent;
+  border: none;
+  font-size: 1.3rem;
+  cursor: pointer;
+}
+
+/* Estilos do Formulário */
+form {
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Input individual (para cada campo) */
+.input-individual {
+  width: 100%;
+  margin-bottom: 1.8rem;
+}
+
+.input-icon-wrapper {
+  position: relative;
+  width: 100%;
+}
+
+/* Espaço extra à direita no input para a mensagem de erro */
+.input-icon-wrapper input,
+.input-icon-wrapper select {
+  padding-right: 120px; /* espaço para a mensagem no lado direito */
+  position: relative;
+  z-index: 0;
+}
+
+/* Mensagem de erro dentro do input, no lado direito */
+.input-error-message {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #ff4d4f; /* vermelho erro */
+  font-size: 0.75rem;
+  font-weight: 600;
+  white-space: nowrap;
+  pointer-events: none;
+  z-index: 10;
+  user-select: none;
+}
+
+.input-error-message-out {
+  position: absolute;
+  color: #ff4d4f; /* vermelho erro */
+  font-size: 0.75rem;
+  font-weight: 600;
+  white-space: nowrap;
+  pointer-events: none;
+  z-index: 10;
+  user-select: none;
+}
+
+#password-error{
+  color: var(--verde-3);
+  top: 109%;
+  right: 1px;
+}
+
+
+/* Estilo da label/placeholder em sua posição inicial */
+.placeholder-label {
+  position: absolute;
+  left: 36px;
+  /* Alinha com o texto do input, levando em conta o ícone */
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--verde-3);
+  pointer-events: none;
+  transition: all 0.3s ease;
+  font-size: 0.9rem;
+  z-index: 1; /* Garante que a label esteja acima do input */
+}
+
+/* Animação da label/placeholder quando o input é focado ou preenchido */
+.input-icon-wrapper.filled .placeholder-label,
+.input-icon-wrapper input:focus + .placeholder-label, #estatico {
+  top: 0;
+  left: 2.3rem;
+  font-size: 0.65rem;
+  color: var(--verde-6);
+  transform: translateY(-50%);
+  background-color: var(--verde-3);
+  padding: 0 5px;
+  border-radius: 5px;
+}
+
+.input-icon-wrapper.filled .placeholder-label,
+.input-icon-wrapper input:focus + .placeholder-label{
+  top: 0;
+  left: 2.3rem;
+  font-size: 0.65rem;
+  color: var(--verde-6);
+  transform: translateY(-50%);
+  background-color: var(--verde-3);
+  padding: 0 5px;
+  border-radius: 5px;
+}
+
+#genero.input-icon-wrapper.filled .placeholder-label,
+#genero.input-icon-wrapper input:focus + .placeholder-label
+{
+  top: 0;
+  left: 1rem;
+  font-size: 0.65rem;
+  color: var(--verde-6);
+  transform: translateY(-50%);
+  background-color: var(--verde-3);
+  padding: 0 5px;
+  border-radius: 5px;
+}
+
+input:focus,
+select:focus {
+outline: none;
+}
+
+
+#genero-data {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  gap: 1.5rem;
+}
+
+#genero-data .input-individual {
+  width: 50%;
+}
+
+/* Estilo do ícone dentro do input */
+.input-icon {
+  position: absolute;
+  left: 13px;
+  top: 50%; /* Centraliza o ícone verticalmente */
+  transform: translateY(-50%);
+  fill: var(--verde-3);
+  pointer-events: none;
+  width: 15px;
+  height: 15px;
+  z-index: 2; /* Garante que o ícone esteja acima da label e input */
+}
+
+/* Ajuste para o ícone da data que fica à direita */
+.input-icon.icon-right {
+  right: 13px;
+  width: 20px;
+  height: 20px;
+}
+
+/* Estilo geral dos inputs e select */
+.modal-container input,
+.input-icon-wrapper select { /* Corrigido o seletor para select */
+  width: 100%;
+  background-color: transparent;
+  padding: 12px 12px 12px 36px; /* Padding para o ícone */
+  border: 1px solid var(--verde-3);
+  border-radius: 10px;
+  font-size: 0.9rem;
+  font-family: Poppins;
+  color: var(--verde-2);
+  transition: all 0.3s ease; /* Transição para todas as propriedades, incluindo cor e borda */
+  z-index: 0; /* O input fica abaixo da label */
+}
+
+/* Ajuste de padding para inputs sem ícone na esquerda (como a data) */
+#dataNascimento {
+  padding-left: 8px; /* Remove o padding extra da esquerda, já que o ícone está à direita */
+}
+
+/* Remover placeholder padrão (agora a label fará o papel) */
+.modal-container input::placeholder {
+  color: transparent; /* Torna o placeholder padrão invisível */
+}
+
+#genero option {
+  padding: 8px;
+  width: 100%;
+  border-radius: 10px;
+  border: none;
+  background-color: var(--verde-6);
+  color: var(--verde-2);
+}
+
+/* Esconder o ícone padrão do input type="date" */
+input[type="date"]::-webkit-calendar-picker-indicator {
+  opacity: 0;
+  cursor: pointer;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 3; /* Z-index alto para garantir que seja clicável */
+}
+
+/* Estilo do botão de login/registro */
+#login-btn {
+  margin: 1.2rem 0;
+  background-color: var(--verde-3);
+  color: var(--verde-7);
+  font-weight: 500;
+  padding: 0.75rem 2rem;
+  border-radius: 12px;
+  transition: all 0.3s ease;
+  border: none;
+  cursor: pointer;
+  display: inline-block;
+  font-family: "Poppins";
+  width: 100%;
+}
+
+.buttons #login-btn{
+  width: 13rem;
+  height: 10rem;
+  border: 2px solid var(--verde-6);
+  background-color: transparent;
+  color: var(--verde-10);
+  border: 2px solid var(--verde-3);
+}
+
+.buttons #login-btn:hover {
+  background-color: var(--verde-3);
+  color: var(--verde-7);
+  border: 2px solid var(--verde-3);
+}
+
+.buttons {
+  display: flex;
+  gap: 2rem;
+}
+
+#login-btn:hover {
+  background-color: var(--verde-10);
+}
+
+.custom-dropdown {
+  background-color: transparent;
+  border: 1px solid var(--verde-3);
+  border-radius: 10px;
+  padding: 12px 36px 12px 12px;
+  color: var(--verde-2);
+  cursor: pointer;
+  position: relative;
+  font-family: 'Poppins';
+  font-size: 0.9rem;
+}
+
+.dropdown-icon {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 14px;
+  height: 14px;
+  fill: var(--verde-3);
+  pointer-events: none;
+}
+
+.dropdown-opcoes {
+  position: absolute;
+  background-color: var(--verde-6);
+  border: 1px solid var(--verde-3);
+  border-radius: 10px;
+  margin-top: 4px;
+  width: 100%;
+  list-style: none;
+  padding: 0;
+  z-index: 100;
+}
+
+.dropdown-opcoes li {
+  padding: 0.75rem 1rem;
+  cursor: pointer;
+  color: var(--verde-1);
+  font-family: 'Poppins';
+}
+
+.dropdown-opcoes li:hover {
+  background-color: var(--verde-5);
+  border-radius: 10px; 
+  border: 1px solid var(--verde-3);
+  padding: 0.75rem 1rem;
+  
+}

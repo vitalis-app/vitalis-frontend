@@ -1,0 +1,86 @@
+<div class="registration-container">
+  <div class="registration-wrapper">
+
+    <div class="progress-bar-container">
+      <div class="progress-bar-fill" [style.width.%]="progress"></div>
+    </div>
+
+    <div class="animate-fade-in">
+      <div *ngIf="currentStep === 1">
+        <div class="step-header">
+          <h2>Como você está se sentindo?</h2>
+          <p>Escolha o que mais combina com você agora</p>
+        </div>
+        <div class="emotions-grid">
+          <div *ngFor="let emotion of emotions"
+               class="emotion-card"
+               [class]="emotion.cssClass"
+               [class.selected]="selectedEmotion === emotion.id"
+               (click)="handleEmotionSelect(emotion.id)">
+            <h3>{{ emotion.name }}</h3>
+            <p>{{ emotion.description }}</p>
+          </div>
+        </div>
+      </div>
+
+      <div *ngIf="currentStep === 2">
+        <div class="step-header">
+          <h2>O que influenciou esse sentimento?</h2>
+          <p>Pode escolher várias opções ou nenhuma, como preferir</p>
+        </div>
+        <div class="triggers-container">
+          <div *ngFor="let trigger of triggers"
+               class="tag-bubble"
+               [class.selected]="selectedTriggers.includes(trigger.id) || (trigger.id === 'other' && showCustomTriggerInput)"
+               (click)="handleTriggerSelect(trigger.id)">
+            <span>{{ trigger.name }}</span>
+          </div>
+        </div>
+        <div *ngIf="showCustomTriggerInput" class="journal-wrapper" style="margin-top: 1.5rem;">
+          <input type="text"
+                 class="vitalis-input"
+                 placeholder="Conta aí o que tá rolando..."
+                 [(ngModel)]="customTrigger" />
+        </div>
+      </div>
+
+      <div *ngIf="currentStep === 3">
+        <div class="step-header">
+          <h2>Quer deixar um registro sobre isso?</h2>
+          <p>Se quiser desabafar ou contar algo que aconteceu, esse espaço é só seu.</p>
+        </div>
+        <div class="journal-wrapper">
+          <textarea class="vitalis-textarea"
+                    placeholder="Escreve aí... ou só segue, se preferir :)"
+                    [(ngModel)]="journalEntry"
+                    (ngModelChange)="onJournalChange()"></textarea>
+
+          <div *ngIf="showXpMessage" class="xp-message animate-fade-in">
+            <span>+5 XP por cuidar de você com palavras</span>
+          </div>
+        </div>
+      </div>
+
+      <div *ngIf="currentStep === 4" class="final-screen">
+        <div class="icon-wrapper">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg>
+        </div>
+        <h2>Você fez isso por você. Isso importa.</h2>
+        <p>Registrar o que sente é um ato de coragem e cuidado.</p>
+        <div class="buttons-container">
+           <button class="vitalis-button secondary" (click)="goToVitalisStation()">
+            Ir para Estação Vital
+            </button>
+        </div>
+      </div>
+
+      <div *ngIf="currentStep < 4" class="buttons-container">
+        <button class="vitalis-button primary" 
+                (click)="nextStep()" 
+                [disabled]="!canProceed">
+          {{ currentStep === 3 ? 'Finalizar' : 'Continuar' }}
+          </button>
+      </div>
+    </div>
+  </div>
+</div>

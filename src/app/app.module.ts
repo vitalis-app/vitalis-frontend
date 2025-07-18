@@ -10,8 +10,7 @@ import { SobreComponent } from './site/pages/sobre/sobre.component';
 import { SidebarComponent } from './web-app/components/sidebar/sidebar.component';
 import { HomeAppComponent } from './web-app/pages/home-app/home-app.component';
 import { BtnScrollupComponent } from './site/components/widgets/buttons/btn-scrollup/btn-scrollup.component';
-import { LoginComponent } from './web-app/pages/login/login.component';
-import { CadastroComponent } from './web-app/pages/cadastro/cadastro.component';
+import { LoginComponent } from './web-app/pages/auth/login/login.component';
 import { BtnGradientComponent } from './site/components/widgets/buttons/btn-gradient/btn-gradient.component';
 import { BtnSecondaryComponent } from './site/components/widgets/buttons/btn-secondary/btn-secondary.component';
 import { BtnDestaqueComponent } from './site/components/widgets/buttons/btn-destaque/btn-destaque.component';
@@ -21,8 +20,18 @@ import { ConfiguracoesComponent } from './web-app/pages/configuracoes/configurac
 import { ContaComponent } from './web-app/pages/conta/conta.component';
 import { EstacaoVitalComponent } from './web-app/pages/estacao-vital/estacao-vital.component';
 import { MinhaJornadaComponent } from './web-app/pages/minha-jornada/minha-jornada.component';
-import { PsicoapoioComponent } from './web-app/pages/psicoapoio/psicoapoio.component';
+import { CuidarMaisComponent } from './web-app/pages/CuidarMais/CuidarMais.component';
 import { WebAppLayoutComponent } from './web-app/layout/web-app-layout/web-app-layout.component';
+import { LoginPageLayoutComponent } from './web-app/layout/login-page-layout/login-page-layout.component';
+import { CadastroComponent } from './web-app/pages/auth/cadastro/cadastro.component';
+import { CadastroService } from './shared/services/cadastro.service';
+import { ReactiveFormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
+import { UsuarioEspecialistaComponent } from './web-app/pages/auth/usuario-especialista/usuario-especialista.component';
+import { UsuarioService } from './shared/services/usuario.service';
+import { AprenderComponent } from './web-app/pages/aprender-mais/aprender-mais.component';
+import { CalendarioComponent } from './web-app/components/calendario/calendario.component';
+import { RegistroEmocionalComponent } from './web-app/pages/estacao-vital/registro-emocional/registro-emocional.component';
 
 @NgModule({
   declarations: [
@@ -35,9 +44,9 @@ import { WebAppLayoutComponent } from './web-app/layout/web-app-layout/web-app-l
     SobreComponent,
     SidebarComponent,
     HomeAppComponent,
+    AprenderComponent,
     BtnScrollupComponent,
     LoginComponent,
-    CadastroComponent,
     BtnGradientComponent,
     BtnSecondaryComponent,
     BtnDestaqueComponent,
@@ -45,13 +54,20 @@ import { WebAppLayoutComponent } from './web-app/layout/web-app-layout/web-app-l
     ContaComponent,
     EstacaoVitalComponent,
     MinhaJornadaComponent,
-    PsicoapoioComponent,
-    WebAppLayoutComponent
+    CuidarMaisComponent,
+    WebAppLayoutComponent,
+    LoginPageLayoutComponent,
+    CadastroComponent,
+    UsuarioEspecialistaComponent,
+    CalendarioComponent,
+    RegistroEmocionalComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    CommonModule,
     FormsModule,
+    ReactiveFormsModule,
     RouterModule.forRoot
       ([],
         {
@@ -59,7 +75,7 @@ import { WebAppLayoutComponent } from './web-app/layout/web-app-layout/web-app-l
           scrollPositionRestoration: 'enabled'
         })
   ],
-  providers: [],
+  providers: [CadastroService, UsuarioService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
