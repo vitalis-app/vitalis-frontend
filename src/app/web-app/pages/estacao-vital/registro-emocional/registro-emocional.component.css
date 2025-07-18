@@ -1,17 +1,6 @@
-
-/* Estilos de base para o corpo da página */
-body {
-  background-color: var(--background);
-  color: var(--foreground);
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-  margin: 0;
-}
-
 /* Container principal para centralizar o conteúdo */
 .registration-container {
-  min-height: 100vh;
-  background: linear-gradient(135deg, hsl(200, 50%, 97%), hsl(0, 0%, 100%), hsl(142, 50%, 97%));
-  padding: 1rem;
+  padding: 2rem 4rem;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -26,14 +15,14 @@ body {
 /* Barra de progresso */
 .progress-bar-container {
   width: 100%;
-  background-color: #e5e7eb; /* gray-200 */
+  background-color: var(--verde-4);
   border-radius: 9999px;
   height: 0.5rem; /* h-2 */
   margin-bottom: 2rem;
 }
 
 .progress-bar-fill {
-  background-color: var(--vitalis-blue);
+  background-color: var(--verde-2);
   height: 100%;
   border-radius: 9999px;
   transition: width 0.5s ease-in-out;
@@ -47,11 +36,11 @@ body {
 .step-header h2 {
   font-size: 1.5rem; /* text-2xl */
   font-weight: 700;
-  color: #1f2937; /* gray-800 */
+  color: var(--verde-2);
   margin-bottom: 0.5rem;
 }
 .step-header p {
-  color: #4b5563; /* gray-600 */
+  color: var(--verde-1)
 }
 
 /* Grid de emoções */
@@ -74,10 +63,10 @@ body {
 
 /* Cards de Emoção */
 .emotion-card {
-  background-color: white;
+  background-color: var(--verde-7);
   border-radius: 1rem; /* rounded-2xl */
   box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05); /* shadow-sm */
-  border: 1px solid #f3f4f6; /* border-gray-100 */
+  border: 1px solid var(--verde-10);
   padding: 1.5rem;
   cursor: pointer;
   transition: all 0.2s ease;
@@ -90,27 +79,28 @@ body {
 }
 
 .emotion-card.selected {
-  box-shadow: 0 0 0 2px var(--vitalis-blue); /* ring-2 ring-blue-400 */
-  background-color: var(--vitalis-calm);
+  box-shadow: 0 0 0 2px var(--shadow-0);
+  background-color: var(--verde-56);
 }
 
 .emotion-card h3 {
   font-weight: 600;
-  color: #1f2937;
+  color: var(--verde-3);
   margin-bottom: 0.25rem;
 }
 .emotion-card p {
   font-size: 0.875rem;
-  color: #4b5563;
+  color: var(--verde-2);
 }
 
-/* Cores específicas dos cards */
+/* Cores específicas dos cards
 .emotion-card.happy { background-color: var(--vitalis-happy); color: var(--vitalis-happy-text); }
 .emotion-card.calm { background-color: var(--vitalis-calm); color: var(--vitalis-calm-text); }
 .emotion-card.sad { background-color: var(--vitalis-sad); color: var(--vitalis-sad-text); }
 .emotion-card.tired { background-color: var(--vitalis-tired); color: var(--vitalis-tired-text); }
 .emotion-card.anxious { background-color: var(--vitalis-anxious); color: var(--vitalis-anxious-text); }
 .emotion-card.confused { background-color: var(--vitalis-confused); color: var(--vitalis-confused-text); }
+*/
 
 /* Bolhas de Gatilho */
 .triggers-container {
@@ -123,8 +113,8 @@ body {
 .tag-bubble {
   padding: 0.5rem 1rem;
   border-radius: 9999px;
-  background-color: #f3f4f6; /* gray-100 */
-  color: #374151; /* gray-700 */
+  background-color: var(--verde-1);
+  color: var(--verde-56);
   cursor: pointer;
   transition: all 0.2s ease;
   font-size: 0.875rem;
@@ -135,27 +125,32 @@ body {
 }
 
 .tag-bubble:hover {
-  background-color: #e5e7eb; /* gray-200 */
+  background-color: var(--verde-56);
+  color: var(--verde-1);
   transform: scale(1.05);
 }
 
 .tag-bubble.selected {
-  background-color: var(--vitalis-calm);
-  color: var(--vitalis-calm-text);
-  box-shadow: 0 0 0 2px var(--vitalis-blue); /* ring-2 ring-blue-400 */
+  background-color: var(--verde-10);
+  color: var(--verde-7);
+  box-shadow: 0 0 0 2px var(--shadow-1); /* ring-2 ring-blue-400 */
 }
 
 /* Inputs e Textarea */
 .vitalis-input, .vitalis-textarea {
   width: 100%;
+  font-family: 'Poppins', sans-serif;
+  background-color: var(--verde-56);
+  color: var(--verde-0);
   padding: 0.75rem;
-  border: 1px solid #e5e7eb; /* border-gray-200 */
+  border: 1px solid var(--verde-3);
   border-radius: 0.5rem; /* rounded-lg */
   transition: all 0.2s ease;
 }
 .vitalis-input:focus, .vitalis-textarea:focus {
+  color: var(--verde-0);
   outline: none;
-  box-shadow: 0 0 0 2px var(--vitalis-blue); /* focus:ring-2 focus:ring-blue-400 */
+  box-shadow: 0 0 0 2px var(--verde-10); /* focus:ring-2 focus:ring-blue-400 */
   border-color: transparent;
 }
 .vitalis-textarea {
@@ -171,8 +166,9 @@ body {
 .xp-message {
   margin-top: 1rem;
   padding: 0.75rem;
-  background-color: hsl(142, 80%, 96%); /* green-50 */
-  color: hsl(142, 70%, 35%); /* green-700 */
+  background-color: var(--verde-4);
+  color: var(--verde-1);
+  border: 2px solid var(--verde-10);
   border-radius: 0.5rem;
   font-size: 0.875rem;
   display: flex;
@@ -190,6 +186,7 @@ body {
 
 .vitalis-button {
   border-radius: 9999px;
+  font-family: 'Poppins', sans-serif;
   padding: 0.75rem 1.5rem;
   font-weight: 500;
   transition: all 0.2s ease;
@@ -206,7 +203,7 @@ body {
 
 .vitalis-button.primary {
   background-color: var(--verde-10);
-  color: white;
+  color: var(--verde-6)
 }
 .vitalis-button.primary:hover {
   background-color: var(--verde-3);
@@ -218,11 +215,11 @@ body {
 }
 
 .vitalis-button.secondary {
-  background-color: var(--vitalis-green);
-  color: white;
+  background-color: var(--verde-3);
+  color: var(--branco);
 }
 .vitalis-button.secondary:hover {
-  background-color: var(--vitalis-green-hover);
+  background-color: var(--verde-2);
 }
 
 /* Tela Final */
@@ -234,7 +231,7 @@ body {
 .final-screen .icon-wrapper {
   width: 4rem;
   height: 4rem;
-  background-color: hsl(142, 80%, 96%); /* green-100 */
+  background-color: var(--verde-56);
   border-radius: 9999px;
   display: flex;
   align-items: center;
@@ -244,7 +241,15 @@ body {
 .final-screen .icon-wrapper svg {
   width: 2rem;
   height: 2rem;
-  color: var(--vitalis-green);
+  color: var(--verde-10);
+}
+
+.final-screen h2{
+  color: var(--verde-2);
+}
+
+.final-screen p{
+  color: var(--verde-3);
 }
 
 /* Animações */
