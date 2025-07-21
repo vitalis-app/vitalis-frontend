@@ -47,11 +47,11 @@ export class RegistroEmocionalComponent {
     { id: 'self-esteem', name: 'Autoestima', icon: 'ri-sparkling-line' },
     { id: 'work-study', name: 'Trabalho/Estudos', icon: 'ri-book-open-line' },
     { id: 'sleep', name: 'Qualidade do sono', icon: 'ri-hotel-bed-line' },
-    { id: 'food', name: 'Alimentação', icon: 'utensils' },
-    { id: 'social-media', name: 'Redes sociais', icon: 'smartphone' },
-    { id: 'time', name: 'Falta de tempo', icon: 'clock' },
-    { id: 'unknown', name: 'Não sei / Sem motivo', icon: 'help-circle' },
-    { id: 'other', name: 'Outro', icon: 'plus' }
+    { id: 'food', name: 'Alimentação', icon: 'ri-restaurant-line' },
+    { id: 'social-media', name: 'Redes sociais', icon: 'ri-smartphone-line' },
+    { id: 'time', name: 'Falta de tempo', icon: 'ri-time-line' },
+    { id: 'unknown', name: 'Não sei / Sem motivo', icon: 'ri-question-mark' },
+    { id: 'other', name: 'Outro', icon: 'ri-add-line' }
   ];
 
   // --- GETTERS (PROPRIEDADES COMPUTADAS) ---
