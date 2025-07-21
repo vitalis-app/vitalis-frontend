@@ -21,7 +21,7 @@ export interface Trigger {
   styleUrls: ['./registro-emocional.component.css']
 })
 export class RegistroEmocionalComponent {
-  
+
   // --- ESTADO DO COMPONENTE ---
   currentStep: number = 1;
   selectedEmotion: string = '';
@@ -42,11 +42,11 @@ export class RegistroEmocionalComponent {
   ];
 
   triggers: Trigger[] = [
-    { id: 'love', name: 'Amor', icon: 'heart' },
-    { id: 'relationships', name: 'Relacionamentos', icon: 'users' },
-    { id: 'self-esteem', name: 'Autoestima', icon: 'sparkles' },
-    { id: 'work-study', name: 'Trabalho/Estudos', icon: 'book-open' },
-    { id: 'sleep', name: 'Qualidade do sono', icon: 'bed' },
+    { id: 'love', name: 'Amor', icon: 'ri-heart-line' },
+    { id: 'relationships', name: 'Relacionamentos', icon: 'ri-group-line' },
+    { id: 'self-esteem', name: 'Autoestima', icon: 'ri-sparkling-line' },
+    { id: 'work-study', name: 'Trabalho/Estudos', icon: 'ri-book-open-line' },
+    { id: 'sleep', name: 'Qualidade do sono', icon: 'ri-hotel-bed-line' },
     { id: 'food', name: 'Alimentação', icon: 'utensils' },
     { id: 'social-media', name: 'Redes sociais', icon: 'smartphone' },
     { id: 'time', name: 'Falta de tempo', icon: 'clock' },
@@ -76,8 +76,6 @@ export class RegistroEmocionalComponent {
   // --- MÉTODOS (AÇÕES DO USUÁRIO) ---
   handleEmotionSelect(emotionId: string): void {
     this.selectedEmotion = emotionId;
-    // Avança automaticamente após a seleção
-    setTimeout(() => this.nextStep(), 300);
   }
 
   handleTriggerSelect(triggerId: string): void {
@@ -127,9 +125,4 @@ export class RegistroEmocionalComponent {
     this.currentStep = 4; // Vai para a tela de finalização
   }
 
-  goToVitalisStation(): void {
-    // Redireciona para outra rota no app Angular
-    // this.router.navigate(['/estacao-vital']);
-    alert('Redirecionando para a Estação Vital...');
-  }
 }
