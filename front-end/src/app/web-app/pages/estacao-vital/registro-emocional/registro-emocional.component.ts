@@ -1,6 +1,6 @@
-import { Component } from '@angular/core';
+import { Component } from '@angular/core'; // Removido OnChanges e SimpleChanges
 
-// Interfaces para tipagem dos dados
+// Interfaces (mantidas como estão)
 export interface Emotion {
   id: string;
   name: string;
@@ -20,7 +20,7 @@ export interface Trigger {
   templateUrl: './registro-emocional.component.html',
   styleUrls: ['./registro-emocional.component.css']
 })
-export class RegistroEmocionalComponent {
+export class RegistroEmocionalComponent { // Removido "implements OnChanges"
 
   // --- ESTADO DO COMPONENTE ---
   currentStep: number = 1;
@@ -30,8 +30,9 @@ export class RegistroEmocionalComponent {
   showCustomTriggerInput: boolean = false;
   journalEntry: string = '';
   showXpMessage: boolean = false;
+  animatedXp: number = 0;
 
-  // --- DADOS ---
+  // --- DADOS (mantidos como estão) ---
   emotions: Emotion[] = [
     { id: 'happy', name: 'Feliz', description: 'Tô de boa, tudo flui', cssClass: 'happy', icon: 'sun' },
     { id: 'calm', name: 'Tranquilo', description: 'Paz interior rolando', cssClass: 'calm', icon: 'cloud' },
@@ -54,7 +55,10 @@ export class RegistroEmocionalComponent {
     { id: 'other', name: 'Outro', icon: 'ri-add-line' }
   ];
 
-  // --- GETTERS (PROPRIEDADES COMPUTADAS) ---
+  // >>>>>> LÓGICA REMOVIDA <<<<<<
+  // O método ngOnChanges foi completamente removido.
+
+  // --- GETTERS (mantidos como estão) ---
   get progress(): number {
     return (this.currentStep / 4) * 100;
   }
@@ -64,16 +68,13 @@ export class RegistroEmocionalComponent {
       case 1:
         return this.selectedEmotion !== '';
       case 2:
-        // Permite avançar mesmo sem selecionar gatilhos
-        return true;
       case 3:
-        return true; // Etapa opcional
       default:
         return true;
     }
   }
 
-  // --- MÉTODOS (AÇÕES DO USUÁRIO) ---
+  // --- MÉTODOS ---
   handleEmotionSelect(emotionId: string): void {
     this.selectedEmotion = emotionId;
   }
@@ -81,19 +82,17 @@ export class RegistroEmocionalComponent {
   handleTriggerSelect(triggerId: string): void {
     if (triggerId === 'other') {
       this.showCustomTriggerInput = !this.showCustomTriggerInput;
-      // Remove 'other' da seleção para não ser salvo como um gatilho
       const index = this.selectedTriggers.indexOf('other');
       if (index > -1) {
         this.selectedTriggers.splice(index, 1);
       }
       return;
     }
-
     const index = this.selectedTriggers.indexOf(triggerId);
     if (index > -1) {
-      this.selectedTriggers.splice(index, 1); // Desseleciona
+      this.selectedTriggers.splice(index, 1);
     } else {
-      this.selectedTriggers.push(triggerId); // Seleciona
+      this.selectedTriggers.push(triggerId);
     }
   }
 
@@ -103,12 +102,21 @@ export class RegistroEmocionalComponent {
     }
   }
 
+  // >>>>>> LÓGICA CORRIGIDA <<<<<<
   nextStep(): void {
-    if (this.currentStep < 4) {
-      this.currentStep++;
-    } else {
-      // Lógica para finalizar e salvar os dados
+    if (this.currentStep === 3) {
+      // Quando o usuário clica em "Finalizar"
       this.submitRegistration();
+      this.currentStep++; // O passo vira 4
+
+      // **A chamada da animação agora é feita aqui!**
+      const totalXp = this.calculateTotalXp();
+      setTimeout(() => {
+        this.animateXp(totalXp, 1500); // Anima até o XP total em 1.5 segundos
+      }, 300); // Atraso para dar tempo da tela aparecer
+
+    } else if (this.currentStep < 4) {
+      this.currentStep++;
     }
   }
 
@@ -121,8 +129,31 @@ export class RegistroEmocionalComponent {
       timestamp: new Date()
     };
     console.log('Dados salvos:', registrationData);
-    // Aqui você enviaria os dados para uma API
-    this.currentStep = 4; // Vai para a tela de finalização
   }
 
+  // --- MÉTODOS DE ANIMAÇÃO (mantidos como estão) ---
+  calculateTotalXp(): number {
+    let base_xp = 100;
+    if (this.journalEntry.length > 0) {
+      base_xp += 50;
+    }
+    return base_xp;
+  }
+
+  animateXp(finalValue: number, duration: number): void {
+    const startValue = 0;
+    let startTime: number | null = null;
+    const step = (timestamp: number) => {
+      if (!startTime) startTime = timestamp;
+      const progress = Math.min((timestamp - startTime) / duration, 1);
+      const easedProgress = 1 - Math.pow(1 - progress, 3);
+      this.animatedXp = Math.floor(easedProgress * (finalValue - startValue) + startValue);
+      if (progress < 1) {
+        window.requestAnimationFrame(step);
+      } else {
+        this.animatedXp = finalValue;
+      }
+    };
+    window.requestAnimationFrame(step);
+  }
 }
