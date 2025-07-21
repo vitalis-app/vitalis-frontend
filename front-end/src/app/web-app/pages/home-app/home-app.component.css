@@ -1,0 +1,383 @@
+/* Global Container */
+.container {
+  padding: 0.5rem 2rem;
+}
+
+/* Header */
+.header {
+  margin-bottom: 1rem;
+}
+
+.header h1 {
+  font-size: 2.25rem;
+  font-weight: 700;
+  color: var(--verde-1);
+}
+
+.header p {
+  font-size: 1.125rem;
+  color: var(--verde-2);
+  margin-top: 0.25rem;
+}
+
+/* Message Banner */
+.message-banner {
+  background-color: var(--verde-56);
+  border: 1px solid var(--verde-4);
+  border-radius: 1rem;
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.message-banner .message-icon {
+  font-size: 1.5rem;
+}
+
+.message-banner p {
+  color: #4b5563;
+}
+
+/* Card Grid */
+.card-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+}
+
+@media (min-width: 1024px) {
+  .card-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Generic Card Styles */
+.vitalis-card {
+  background-color: var(--verde-7);
+  border-radius: 16px;
+  border: 2px solid var(--verde-4);
+  box-shadow: 0 8px 30px var(--shadow-0); /* Using shadow-0 from variables */
+  padding: 1.75rem;
+  transition: all 0.3s ease;
+}
+
+.vitalis-card h2 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--verde-1);
+}
+
+/* Lucide Icons sizing */
+.icon {
+  font-size: 4rem;
+}
+
+/* --- Specific Card Styles --- */
+
+/* Vital Station Card */
+.vital-station-card {
+  display: flex;
+  flex-direction: column;
+}
+.vitalis-card a{
+  text-decoration: none;
+  border: none;
+}
+
+.vital-station-card .plant-display {
+  flex: 1;
+  border-radius: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.vital-station-card .plant-icon {
+  font-size: 1.5rem;
+  margin-right: 1rem;
+}
+
+.vital-station-card .plant-display p {
+  color: var(--verde-2);
+  margin-top: 1rem;
+}
+
+.vital-station-card .plant-button {
+  height: 55px;
+  width: 100%;
+  border: none;
+  background-color: var(--verde-10);
+  color: var(--verde-00); /* Use verde-00 for dark text */
+  padding: 0.5rem;
+  border-radius: 0.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-family: 'Poppins', sans-serif;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+.vital-station-card .plant-button:hover {
+  background-color: var(--verde-3);
+  transform: scale(1.02);
+}
+
+.vital-station-card .plant-button-icon {
+  margin-right: 0.25rem;
+}
+
+/* Calendar Card */
+.calendar-card .card-header-with-link {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.calendar-card .calendar-link {
+  font-size: 0.875rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--verde-10); /* Using primary-color for the link */
+  text-decoration: none;
+}
+
+.calendar-card .calendar-link:hover {
+  text-decoration: underline;
+}
+
+.calendar-card .event-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.calendar-card .event-item {
+  padding: 1rem;
+  border-radius: 0.75rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.calendar-card .event-icon-wrapper {
+  padding: 0.75rem;
+  border-radius: 0.5rem;
+}
+
+/* Specific event types */
+.calendar-card .event-type-consultation {
+  background-color: var(--verde-56); /* Example: using a light green from variables */
+}
+
+.calendar-card .event-type-consultation .event-icon-wrapper {
+  background-color: #bee3f8; /* A light blue for consultation icon background */
+  color: #2b6cb0; /* A darker blue for consultation icon */
+}
+
+.calendar-card .event-type-activity {
+  background-color: var(--verde-56); /* Example: using a light green from variables */
+}
+
+.calendar-card .event-type-activity .event-icon-wrapper {
+  background-color: #c6f6d5; /* A light green for activity icon background */
+  color: #2f855a; /* A darker green for activity icon */
+}
+
+
+.calendar-card .event-item h3 {
+  font-weight: 600;
+  color: var(--verde-2)
+}
+
+.calendar-card .event-item p {
+  font-size: 0.875rem;
+  color: var(--verde-2)
+}
+
+/* Content Card */
+.content-card .content-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.content-card .content-item {
+  padding: 1rem;
+  border-radius: 0.75rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+/* Specific content types */
+.content-card .content-type-breathing {
+  background-color: var(--verde-56); /* Using a light green from variables */
+}
+
+.content-card .content-type-meditation {
+  background-color: var(--verde-56); /* Using a light green from variables */
+}
+
+
+.content-card .content-thumbnail {
+  width: 5rem;
+  height: 5rem;
+  border-radius: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.875rem;
+  font-weight: 700;
+  color: var(--verde-0);
+}
+
+.content-card .content-type-breathing .content-thumbnail {
+  background-color: var(--primary-color); /* Using primary-color for breathing thumbnail */
+}
+
+.content-card .content-type-meditation .content-thumbnail {
+  background-color: #4a85e8; /* Direct hex for meditation thumbnail */
+}
+
+
+.content-card .content-details {
+  flex: 1;
+}
+
+.content-card .content-details h3 {
+  font-weight: 600;
+  color: var(--verde-2)
+}
+
+.content-card .content-details p {
+  font-size: 0.875rem;
+  color: var(--verde-0);
+  margin-bottom: 0.5rem;
+}
+
+.content-card .content-tags {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.content-card .content-tag {
+  font-size: 0.75rem;
+  font-weight: 600;
+  background-color: var(--verde-10); /* Using verde-10 for tag background */
+  color: var(--verde-00); /* Using verde-00 for tag text */
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
+  cursor: pointer;
+}
+
+/* Weekly Record Card */
+.weekly-record-card .subtitle {
+  color: var(--verde-1);
+  margin-bottom: 1.5rem;
+}
+
+.weekly-record-card .mood-tracker {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  text-align: center;
+}
+
+.weekly-record-card .mood-day {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  position: relative;
+}
+
+.weekly-record-card .mood-day .day-letter {
+  font-size: 0.875rem;
+  color: var(--verde-1);
+}
+
+.weekly-record-card .mood-day .day-letter.current-day-letter {
+  font-weight: 800;
+  color: var(--verde-0); /* Using primary-color for current day letter */
+}
+
+.weekly-record-card .mood-circle {
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 9999px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.weekly-record-card .mood-circle.mood-good { background-color: #48bb78; } /* Specific green for good mood */
+.weekly-record-card .mood-circle.mood-neutral { background-color: #ecc94b; } /* Specific yellow for neutral mood */
+.weekly-record-card .mood-circle.mood-bad { background-color: #e53e3e; } /* Specific red for bad mood */
+.weekly-record-card .mood-circle.mood-no-record { background-color: #cbd5e0; } /* Specific gray for no record */
+
+.weekly-record-card .mood-circle.current-day-circle {
+  border: 2px solid var(--verde-0);
+  box-shadow: 0 0 0 2px #d1d5db; /* Direct hex for ring color if not in variables */
+}
+
+.weekly-record-card .mood-check-icon {
+  color: white;
+}
+
+/* Tooltip for mood circles */
+.tooltip {
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 0.3s;
+  position: absolute;
+  top: -2.5rem;
+  background-color: #1f2937;
+  color: white;
+  font-size: 0.75rem;
+  border-radius: 0.25rem;
+  padding: 0.25rem 0.5rem;
+  white-space: nowrap;
+  z-index: 10;
+}
+
+.has-tooltip:hover .tooltip {
+  visibility: visible;
+  opacity: 1;
+}
+
+.weekly-record-card .record-summary {
+  text-align: center;
+  color: var(--verde-2);
+  margin-top: 1.5rem;
+}
+
+.record-button {
+  height: 55px;
+  width: 100%;
+  background-color: var(--verde-10);
+  color: var(--verde-00);
+  border: none;
+  padding: 0.5rem;
+  border-radius: 0.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-family: 'Poppins', sans-serif;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+.weekly-record-card .record-button:hover {
+  background-color: var(--verde-3);
+  transform: scale(1.02);
+}

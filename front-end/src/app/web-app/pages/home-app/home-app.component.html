@@ -1,0 +1,113 @@
+<div class="container">
+  <header class="header">
+    <h1>Que bom ver você aqui, Jorge!</h1>
+    <p>Sua jornada de autocuidado continua hoje.</p>
+  </header>
+
+  <div class="card-grid">
+    <div class="vitalis-card vital-station-card">
+      <h2>Estação Vital</h2>
+      <div class="plant-display">
+        <div class="icon"><i class="ri-plant-line"></i></div>
+        <p>Sua planta está crescendo. Continue assim!</p>
+      </div>
+      <a routerLink="/app/estacao-vital">
+      <button class="plant-button">
+        <div class="plant-icon"><i class="ri-seedling-fill"></i></div>
+        Regar sua planta
+      </button>
+      </a>
+    </div>
+
+    <div class="vitalis-card weekly-record-card">
+      <h2>Registro Semanal</h2>
+      <p class="subtitle">Veja como você se sentiu nesta semana.</p>
+      <div class="mood-tracker">
+        <div *ngFor="let day of weeklyMood" class="mood-day has-tooltip">
+          <span
+            class="day-letter"
+            [ngClass]="{ 'current-day-letter': day.isToday }"
+            >{{ day.letter }}</span
+          >
+          <div
+            class="mood-circle"
+            [ngClass]="{
+              'mood-good': day.mood === 'good',
+              'mood-neutral': day.mood === 'neutral',
+              'mood-bad': day.mood === 'bad',
+              'mood-no-record': day.mood === 'no_record',
+              'current-day-circle': day.isToday
+            }"
+          >
+            <i
+              *ngIf="day.mood === 'good'"
+              data-lucide="check"
+              class="lucide-icon mood-check-icon"
+            ></i>
+          </div>
+          <span class="tooltip">{{ getTooltipMessage(day.mood) }}</span>
+        </div>
+      </div>
+      <p class="record-summary">
+        Você registrou seu humor em {{ registeredMoodCount }} de
+        {{ weeklyMood.length }} dias esta semana
+      </p>
+      <a routerLink="/app/estacao-vital/registro-emocional">
+        <button class="record-button">Registrar humor de hoje</button>
+      </a>
+    </div>
+
+    <div class="vitalis-card content-card">
+      <h2>Conteúdos do Aprender+</h2>
+      <div class="content-list">
+        <div
+          *ngFor="let content of recommendedContent"
+          [ngClass]="{
+            'content-type-breathing': content.type === 'breathing',
+            'content-type-meditation': content.type === 'meditation'
+          }"
+          class="content-item"
+        >
+          <div class="content-thumbnail">V</div>
+          <div class="content-details">
+            <h3>{{ content.title }}</h3>
+            <p>{{ content.duration }}</p>
+            <div class="content-tags">
+              <span *ngFor="let tag of content.tags" class="content-tag">
+                {{ tag }}
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="vitalis-card calendar-card">
+      <div class="card-header-with-link">
+        <h2>Calendário</h2>
+        <a href="#" class="calendar-link">
+          <i data-lucide="calendar-days" class="lucide-icon"></i>
+          Ver calendário completo
+        </a>
+      </div>
+      <div class="event-list">
+        <div
+          *ngFor="let event of calendarEvents"
+          [ngClass]="{
+            'event-type-consultation': event.type === 'consultation',
+            'event-type-activity': event.type === 'activity'
+          }"
+          class="event-item"
+        >
+          <div class="event-icon-wrapper">
+            <i [attr.data-lucide]="event.icon" class="lucide-icon"></i>
+          </div>
+          <div>
+            <h3>{{ event.title }}</h3>
+            <p>{{ event.time }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
