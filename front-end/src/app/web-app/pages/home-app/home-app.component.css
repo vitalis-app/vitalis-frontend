@@ -69,7 +69,6 @@
   color: var(--verde-1);
 }
 
-/* Lucide Icons sizing */
 .icon {
   font-size: 4rem;
 }
@@ -111,7 +110,8 @@
   width: 100%;
   border: none;
   background-color: var(--verde-10);
-  color: var(--verde-00); /* Use verde-00 for dark text */
+  color: #061d19;
+  font-weight: 600;
   padding: 0.5rem;
   border-radius: 0.75rem;
   display: flex;
@@ -125,7 +125,7 @@
 
 .vital-station-card .plant-button:hover {
   background-color: var(--verde-3);
-  transform: scale(1.02);
+  transform: scale(1.05);
 }
 
 .vital-station-card .plant-button-icon {
@@ -271,9 +271,9 @@
 
 .content-card .content-tag {
   font-size: 0.75rem;
-  font-weight: 600;
+  font-weight: 700;
   background-color: var(--verde-10); /* Using verde-10 for tag background */
-  color: var(--verde-00); /* Using verde-00 for tag text */
+  color: #061d19;
   padding: 0.25rem 0.75rem;
   border-radius: 9999px;
   cursor: pointer;
@@ -364,10 +364,11 @@
   height: 55px;
   width: 100%;
   background-color: var(--verde-10);
-  color: var(--verde-00);
+  color: #061d19;
   border: none;
   padding: 0.5rem;
   border-radius: 0.75rem;
+  font-weight: 600;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -379,5 +380,5 @@
 
 .weekly-record-card .record-button:hover {
   background-color: var(--verde-3);
-  transform: scale(1.02);
+  transform: scale(1.05);
 }

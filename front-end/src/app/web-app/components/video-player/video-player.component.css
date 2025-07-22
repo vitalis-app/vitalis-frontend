@@ -1,0 +1,184 @@
+/* video-player.component.css */
+*{
+  font-family: 'Poppins', sans-serif; /* Ajustado para a fonte da Vitalis */
+}
+:host {
+  display: block;
+  color: var(--text-color); /* Ajustado para a cor de texto principal da Vitalis */
+  width: 100%; /* Garante que o player ocupe a largura total do seu contêiner modal */
+  height: 100%; /* Garante que o player ocupe a altura total do seu contêiner modal */
+  display: flex;
+  flex-direction: column;
+}
+
+.video-player-container {
+  background-color: var(--verde-56); /* Ajustado para a cor de fundo do card da Vitalis */
+  border-radius: var(--border-radius); /* Ajustado para o border-radius da Vitalis */
+  box-shadow: 0 4px 12px var(--shadow-0); /* Ajustado para a sombra da Vitalis */
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  width: 100%; /* Ocupa a largura total do modal */
+  height: 100%; /* Ocupa a altura total do modal */
+  border: 2px solid var(--verde-5); /* Adicionado border do card da Vitalis */
+  /* Removido transition e hover aqui, pois o card de vídeo no aprender-mais.component.html já lida com isso */
+}
+
+[data-theme="dark"] .video-player-container {
+  background-color: var(--verde-7); /* Ajustado para o tema escuro */
+  border-color: var(--verde-3); /* Ajustado para o tema escuro */
+}
+
+.video-wrapper {
+  position: relative;
+  width: 100%;
+  padding-bottom: 56.25%; /* Proporção 16:9 para vídeos responsivos */
+  height: 0;
+  overflow: hidden;
+  flex-shrink: 0; /* Impede que o wrapper encolha */
+}
+
+.video-wrapper iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: var(--border-radius) var(--border-radius) 0 0; /* Bordas arredondadas apenas na parte superior */
+}
+
+.video-details {
+  padding: 1.5rem; /* Ajustado para padding da Vitalis */
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem; /* Ajustado para espaçamento da Vitalis */
+  flex-grow: 1; /* Permite que os detalhes ocupem o espaço restante */
+  overflow-y: auto; /* Adiciona scroll se o conteúdo for muito longo */
+}
+
+.video-title {
+  font-size: 1.2em; /* Ajustado para se adequar melhor ao card */
+  font-weight: 600; /* Ajustado para o peso da fonte da Vitalis */
+  color: var(--text-color); /* Ajustado para a cor de texto da Vitalis */
+  margin: 0;
+  line-height: 1.4;
+  /* Removido text-overflow ellipsis para o modal, pois o scroll já resolve */
+}
+
+.video-description {
+  font-size: 0.9em; /* Ajustado para se adequar melhor ao card */
+  line-height: 1.3;
+  color: var(--verde-1); /* Ajustado para a cor de texto suave da Vitalis */
+  margin: 0;
+  /* Removido text-overflow ellipsis para o modal, pois o scroll já resolve */
+}
+
+.video-meta {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.5rem; /* Ajustado para espaçamento da Vitalis */
+  font-size: 0.85em;
+  color: var(--verde-2); /* Ajustado para a cor de texto secundária da Vitalis */
+}
+
+.video-meta .separator {
+  margin: 0 0.25rem; /* Ajustado para espaçamento menor */
+}
+
+.channel-name {
+  font-weight: 500; /* Ajustado para o peso da fonte da Vitalis */
+  color: var(--verde-3); /* Ajustado para uma cor mais integrada à paleta Vitalis */
+}
+
+.video-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem; /* Ajustado para espaçamento da Vitalis */
+  margin-top: 0.5rem; /* Ajustado para espaçamento */
+}
+
+.tag-chip {
+  background-color: var(--verde-5); /* Ajustado para a cor de fundo da Vitalis */
+  color: var(--verde-0); /* Ajustado para a cor do texto da Vitalis */
+  padding: 0.3rem 0.7rem; /* Ajustado para padding menor */
+  border-radius: var(--border-radius); /* Ajustado para border-radius menor */
+  font-size: 0.75em; /* Ajustado para tamanho menor */
+  white-space: nowrap;
+  cursor: pointer; /* Tags sempre clicáveis no contexto do card de vídeo */
+  transition: all var(--transition-speed); /* Adicionado transition */
+  border: 1px solid var(--verde-4); /* Adicionado border */
+}
+
+.tag-chip:hover {
+  background-color: var(--primary-color); /* Efeito de hover */
+  color: var(--branco); /* Efeito de hover */
+  border-color: var(--primary-color); /* Efeito de hover */
+}
+
+.watch-on-youtube-button {
+  background-color: var(--red); /* Vermelho padrão do YouTube */
+  color: var(--branco);
+  padding: 0.75rem 1.25rem; /* Ajustado para padding da Vitalis */
+  border: none;
+  border-radius: var(--border-radius); /* Ajustado para border-radius da Vitalis */
+  font-size: 0.95em; /* Ajustado para tamanho da Vitalis */
+  cursor: pointer;
+  align-self: flex-start; /* Alinha o botão à esquerda */
+  transition: background-color 0.2s ease;
+  margin-top: 1rem; /* Ajustado para espaçamento */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem; /* Ajustado para espaçamento */
+}
+
+.watch-on-youtube-button:hover {
+  background-color: #b10000;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .video-player-container {
+    border-radius: 0; /* Remove bordas arredondadas em telas menores para ocupar 100% da largura */
+    box-shadow: none;
+    border: none; /* Remove border em mobile */
+  }
+
+  .video-details {
+    padding: 1rem; /* Ajustado para padding menor */
+  }
+
+  .video-title {
+    font-size: 1.1em;
+  }
+
+  .video-description {
+    font-size: 0.85em;
+  }
+
+  .video-meta {
+    font-size: 0.8em;
+  }
+
+  .tag-chip {
+    padding: 0.25rem 0.6rem;
+    font-size: 0.7em;
+  }
+
+  .watch-on-youtube-button {
+    width: 100%; /* Botão ocupa 100% da largura em telas menores */
+    padding: 0.6rem 1rem;
+    font-size: 0.9em;
+  }
+}
+
+@media (max-width: 480px) {
+  .video-details {
+    padding: 0.75rem;
+  }
+
+  .video-title {
+    font-size: 1em;
+  }
+}

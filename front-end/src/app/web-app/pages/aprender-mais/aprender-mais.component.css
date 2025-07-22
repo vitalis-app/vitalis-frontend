@@ -1,9 +1,14 @@
 /* CSS Padronizado - Aprender Mais */
+*{
+  font-family: 'Poppins', sans-serif;
+}
 
 .aprender-container {
   padding: 2rem 4rem;
   background-color: var(--background);
   color: var(--text-color);
+  position: relative; /* Necessário para o sidebar e modal */
+  overflow-x: hidden; /* Evita scroll horizontal quando o sidebar está aberto */
 }
 
 /* --- Cabeçalho --- */
@@ -67,10 +72,37 @@
   color: var(--verde-2);
 }
 
+/* Popular Tags Section */
+.popular-tags-section {
+  margin-bottom: 1.5rem;
+}
+
+.popular-tags-section .section-label {
+  font-size: 0.9rem;
+  color: var(--verde-2);
+  margin-bottom: 0.5rem;
+  display: block;
+}
+
+.popular-tags-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.main-filters-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start; /* Alinha ao topo para quando as categorias quebram linha */
+  flex-wrap: wrap; /* Permite quebrar linha em telas menores */
+  gap: 1rem;
+}
+
 .categories-nav {
   display: flex;
   flex-wrap: wrap;
   gap: 0.75rem;
+  flex-grow: 1; /* Permite que ocupe o espaço disponível */
 }
 
 .category-chip {
@@ -112,10 +144,81 @@
   cursor: pointer;
   font-weight: 500;
   transition: all var(--transition-speed);
+  white-space: nowrap; /* Evita que o texto quebre */
 }
 
 .btn-clear-filters:hover {
   color: var(--verde-2);
+}
+
+.sort-and-more-filters {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  white-space: nowrap; /* Evita que os botões quebrem linha */
+}
+
+/* Dropdown de Ordenação */
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.btn-sort, .btn-more-filters {
+  font-family: 'Poppins', sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  padding: 0.75rem 1.25rem;
+  border: 1px solid var(--verde-4);
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  transition: all var(--transition-speed);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 500;
+}
+
+.btn-sort:hover, .btn-more-filters:hover {
+  background-color: var(--verde-5);
+  border-color: var(--primary-color);
+  color: var(--primary-color);
+}
+
+[data-theme="dark"] .btn-sort:hover, [data-theme="dark"] .btn-more-filters:hover {
+  background-color: var(--verde-8);
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: var(--bg-color);
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px var(--shadow-0);
+  z-index: 1;
+  border-radius: var(--border-radius);
+  overflow: hidden;
+  border: 1px solid var(--verde-4);
+  top: 100%; /* Posiciona abaixo do botão */
+  left: 0;
+  margin-top: 0.5rem; /* Espaçamento entre botão e dropdown */
+}
+
+.dropdown-content a {
+  color: var(--text-color);
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  transition: background-color 0.2s ease;
+  cursor: pointer;
+}
+
+.dropdown-content a:hover {
+  background-color: var(--verde-5);
+}
+
+.dropdown-content.show {
+  display: block;
 }
 
 /* --- Seções de Conteúdo --- */
@@ -137,81 +240,7 @@
   gap: 1.5rem;
 }
 
-.learning-card {
-  background-color: var(--verde-56);
-  border: 2px solid var(--verde-5);
-  border-radius: var(--border-radius);
-  overflow: hidden;
-  transition: all var(--transition-speed);
-  cursor: pointer;
-}
 
-[data-theme="dark"] .learning-card {
-  background-color: var(--verde-7);
-  border-color: var(--verde-3);
-}
-
-.learning-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 10px 20px var(--shadow-0);
-  border-color: var(--verde-3);
-}
-
-.learning-card-image {
-  height: 180px;
-  background-size: cover;
-  background-position: center;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 1rem;
-  position: relative;
-}
-
-.learning-card-image::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: rgba(0, 0, 0, 0.3);
-  border-radius: var(--border-radius) var(--border-radius) 0 0;
-}
-
-.learning-card-title-overlay {
-  font-size: 2.5rem;
-  font-weight: 700;
-  color: var(--branco);
-  text-align: center;
-  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
-  margin: 0;
-  position: relative;
-  z-index: 1;
-}
-
-.learning-card-body {
-  padding: 1rem;
-}
-
-.learning-card-tag {
-  display: inline-block;
-  background-color: var(--verde-5);
-  color: var(--verde-0);
-  padding: 0.25rem 0.75rem;
-  border-radius: var(--border-radius);
-  font-size: 0.75rem;
-  font-weight: 500;
-  margin-bottom: 0.75rem;
-}
-
-.learning-card-title {
-  font-size: 1.1rem;
-  font-weight: 500;
-  color: var(--text-color);
-  margin: 0;
-  line-height: 1.4;
-}
 
 /* --- Grid Motivacional --- */
 .motivation-grid {
@@ -264,6 +293,209 @@
   line-height: 1.4;
 }
 
+/* --- Sidebar "Mais Filtros" --- */
+.more-filters-sidebar {
+  position: fixed;
+  top: 0;
+  right: -350px; /* Esconde a sidebar inicialmente */
+  width: 350px;
+  height: 100%;
+  background-color: var(--background);
+  border-left: 1px solid var(--verde-5);
+  box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+  transition: right 0.3s ease-in-out;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+}
+
+[data-theme="dark"] .more-filters-sidebar {
+  background-color: var(--verde-8);
+  border-color: var(--verde-5);
+}
+
+.more-filters-sidebar.open {
+  right: 0; /* Mostra a sidebar */
+}
+
+.sidebar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 1.5rem;
+  border-bottom: 1px solid var(--verde-5);
+}
+
+.sidebar-header h3 {
+  margin: 0;
+  font-size: 1.3rem;
+  color: var(--text-color);
+}
+
+.btn-close-sidebar {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  color: var(--verde-2);
+  cursor: pointer;
+  transition: color var(--transition-speed);
+}
+
+.btn-close-sidebar:hover {
+  color: var(--primary-color);
+}
+
+.sidebar-content {
+  flex-grow: 1;
+  padding: 1.5rem;
+  overflow-y: auto; /* Permite scroll se o conteúdo for muito longo */
+}
+
+.filter-group {
+  margin-bottom: 1.5rem;
+}
+
+.filter-group h4 {
+  font-size: 1.1rem;
+  color: var(--text-color);
+  margin-bottom: 0.75rem;
+  border-bottom: 1px solid var(--verde-5);
+  padding-bottom: 0.5rem;
+}
+
+.filter-options-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.filter-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 0.75rem;
+  border: 1px solid var(--verde-4);
+  border-radius: var(--border-radius);
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  font-size: 0.875rem;
+  cursor: pointer;
+  transition: all var(--transition-speed);
+}
+
+.filter-chip:hover {
+  background-color: var(--verde-5);
+  border-color: var(--primary-color);
+}
+
+.filter-chip input[type="radio"],
+.filter-chip input[type="checkbox"] {
+  margin-right: 0.25rem;
+  accent-color: var(--primary-color); /* Cor do checkbox/radio */
+}
+
+.sidebar-actions {
+  padding: 1rem 1.5rem;
+  border-top: 1px solid var(--verde-5);
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+}
+
+.btn-clear-sidebar-filters, .btn-apply-filters {
+  font-family: 'Poppins', sans-serif;
+  padding: 0.75rem 1.25rem;
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  transition: all var(--transition-speed);
+  font-weight: 500;
+}
+
+.btn-clear-sidebar-filters {
+  background: none;
+  border: 1px solid var(--verde-4);
+  color: var(--text-color);
+}
+
+.btn-clear-sidebar-filters:hover {
+  background-color: var(--verde-5);
+  border-color: var(--verde-3);
+}
+
+.btn-apply-filters {
+  background-color: var(--primary-color);
+  color: var(--branco);
+  border: 1px solid var(--primary-color);
+}
+
+.btn-apply-filters:hover {
+  background-color: var(--verde-10);
+  border-color: var(--verde-10);
+}
+
+/* --- Modal do Video Player --- */
+.video-player-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7); /* Overlay escuro */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2000; /* Garante que fique acima de tudo */
+  backdrop-filter: blur(5px); /* Efeito de blur no fundo */
+}
+
+.video-player-modal-content {
+  position: relative;
+  background-color: var(--background); /* Fundo do modal */
+  border-radius: var(--border-radius);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  max-width: 900px; /* Largura máxima do modal */
+  width: 90%; /* Ocupa 90% da largura disponível */
+  max-height: 90vh; /* Altura máxima do modal */
+  overflow: hidden; /* Garante que o conteúdo não vaze */
+  display: flex;
+  flex-direction: column;
+  animation: fadeInScale 0.3s ease-out; /* Animação de entrada */
+}
+
+[data-theme="dark"] .video-player-modal-content {
+  background-color: var(--verde-8);
+}
+
+.btn-close-video-modal {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: none;
+  border: none;
+  font-size: 2rem;
+  color: var(--branco); /* Cor do ícone de fechar */
+  cursor: pointer;
+  z-index: 2001; /* Acima do player */
+  transition: transform 0.2s ease-in-out;
+}
+
+.btn-close-video-modal:hover {
+  transform: scale(1.1);
+}
+
+/* Animação para o modal */
+@keyframes fadeInScale {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+
 /* --- Responsividade --- */
 @media (max-width: 768px) {
   .aprender-container {
@@ -286,13 +518,56 @@
     padding: 1.5rem;
   }
 
-  .categories-nav {
+  .main-filters-row {
     flex-direction: column;
-    gap: 0.5rem;
+    align-items: stretch;
   }
 
-  .category-chip {
+  .categories-nav {
+    flex-direction: row; /* Mantém como linha, mas permite quebra */
     justify-content: center;
+  }
+
+  .sort-and-more-filters {
+    justify-content: center;
+    width: 100%;
+  }
+
+  .more-filters-sidebar {
+    width: 100%; /* Ocupa a largura total em mobile */
+    right: -100%;
+  }
+
+  /* Ajustes para o card de vídeo no grid principal (não o modal) */
+  .video-duration-overlay {
+    font-size: 0.7rem;
+    padding: 0.2rem 0.4rem;
+  }
+
+  .video-meta-info {
+    font-size: 0.8rem;
+  }
+
+  .video-description {
+    font-size: 0.85rem;
+  }
+
+  .video-tag-chip {
+    font-size: 0.7rem;
+    padding: 0.25rem 0.6rem;
+  }
+
+  /* Modal em mobile */
+  .video-player-modal-content {
+    width: 95%;
+    max-width: 100%; /* Ocupa quase toda a largura */
+    max-height: 95vh; /* Ocupa quase toda a altura */
+  }
+
+  .btn-close-video-modal {
+    font-size: 1.5rem;
+    top: 0.75rem;
+    right: 0.75rem;
   }
 }
 
@@ -315,5 +590,19 @@
 
   .learning-card-title-overlay {
     font-size: 2rem;
+  }
+
+  .popular-tags-chips, .categories-nav, .filter-options-grid {
+    gap: 0.5rem;
+  }
+
+  .category-chip, .filter-chip {
+    padding: 0.4rem 0.8rem;
+    font-size: 0.8rem;
+  }
+
+  .btn-sort, .btn-more-filters {
+    padding: 0.6rem 1rem;
+    font-size: 0.9rem;
   }
 }

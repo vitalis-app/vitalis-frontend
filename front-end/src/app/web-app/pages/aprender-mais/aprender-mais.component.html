@@ -1,5 +1,4 @@
 <div class="aprender-container">
-  <!-- Cabeçalho da Página -->
   <header class="page-header">
     <div class="header-content">
       <h1>Aprender+</h1>
@@ -7,55 +6,82 @@
     </div>
   </header>
 
-  <!-- Seção de Filtros -->
   <section class="filters-section">
     <div class="search-bar">
       <i class="ri-search-line"></i>
       <input type="text" placeholder="Pesquisar artigos, vídeos, cursos..." [(ngModel)]="searchTerm" (input)="filterContent()">
     </div>
-    <div class="categories-nav">
-      <!-- lógica de clique e classe ativa -->
-      <button 
-        *ngFor="let category of categories"
-        class="category-chip"
-        [class.active]="isActiveFilter(category)"
-        (click)="toggleFilter(category)">
-        {{ category }}
-        <i class="ri-close-line" *ngIf="isActiveFilter(category)"></i>
-      </button>
-      <!-- Botão para limpar filtros, igual ao da página Cuidar+ -->
-      <button class="btn-clear-filters" *ngIf="activeFilters.size > 0" (click)="clearFilters()">
-        Limpar filtros
-      </button>
+
+    <div class="popular-tags-section">
+      <span class="section-label">Tags mais populares:</span>
+      <div class="popular-tags-chips">
+        <button
+          *ngFor="let tag of popularTags"
+          class="category-chip"
+          [class.active]="isActiveFilter(tag)"
+          (click)="toggleFilter(tag)">
+          {{ tag }}
+          <i class="ri-close-line" *ngIf="isActiveFilter(tag)"></i>
+        </button>
+      </div>
+    </div>
+
+    <div class="main-filters-row">
+      <div class="categories-nav">
+        <button
+          *ngFor="let category of categories"
+          class="category-chip"
+          [class.active]="isActiveFilter(category)"
+          (click)="toggleFilter(category)">
+          {{ category }}
+          <i class="ri-close-line" *ngIf="isActiveFilter(category)"></i>
+        </button>
+        <button class="btn-clear-filters" *ngIf="activeFilters.size > 0 || searchTerm" (click)="clearFilters()">
+          Limpar filtros
+        </button>
+      </div>
+
+      <div class="sort-and-more-filters">
+        <div class="dropdown">
+          <button class="btn-sort" (click)="toggleSortDropdown()">
+            {{ getSortOptionText(sortBy) }} <i class="ri-arrow-down-s-line"></i>
+          </button>
+          <div class="dropdown-content" [class.show]="showSortDropdown">
+            <a (click)="setSortBy('popular'); toggleSortDropdown()">Mais Populares</a>
+            <a (click)="setSortBy('recent'); toggleSortDropdown()">Mais Recentes</a>
+            <a (click)="setSortBy('favorites'); toggleSortDropdown()">Favoritos</a>
+          </div>
+        </div>
+
+        <button class="btn-more-filters" (click)="toggleMoreFiltersSidebar()">
+          <i class="ri-filter-3-line"></i> Mais Filtros
+        </button>
+      </div>
     </div>
   </section>
 
-  <!-- Grid de Conteúdo -->
   <main class="content-grid-section">
     <section class="topic-section">
-      <!-- Cabeçalho da seção que mostra os filtros ativos -->
       <header class="grid-header">
         <h3 class="section-title">Reflexão</h3>
-        <p *ngIf="activeFilters.size > 0">Filtros ativos: {{ getActiveFiltersText() }}</p>
+        <p *ngIf="activeFilters.size > 0 || searchTerm || filterDuration || filterContentType.size > 0 || filterAudience.size > 0 || filterCategories.size > 0 || filterSpecificTags.size > 0">
+          Filtros ativos: {{ getActiveFiltersText() }}
+        </p>
       </header>
       <div class="learning-grid">
-        <div class="learning-card" *ngFor="let item of filteredLearningContent">
-          <div class="learning-card-image" [style.backgroundImage]="'url(' + item.imageUrl + ')'">
-            <h4 class="learning-card-title-overlay">{{ item.titleOverlay }}</h4>
-          </div>
-          <div class="learning-card-body">
-            <span class="learning-card-tag">{{ item.type }}</span>
-            <p class="learning-card-title">{{ item.title }}</p>
-          </div>
-        </div>
-         <!-- Mensagem de "Nenhum resultado" -->
-        <p *ngIf="filteredLearningContent.length === 0" class="no-results">
+        <ng-container *ngFor="let item of filteredLearningContent">
+          <app-video-card
+            [videoData]="item"
+            (videoCardClick)="openVideoModal($event)"
+            (tagClick)="toggleFilter($event)">
+          </app-video-card>
+        </ng-container>
+         <p *ngIf="filteredLearningContent.length === 0" class="no-results">
           Nenhum conteúdo encontrado. Tente uma pesquisa ou filtro diferente.
         </p>
       </div>
     </section>
 
-    <!-- Seção Motivacional (não é afetada pelos filtros) -->
     <section class="topic-section">
       <h3 class="section-title">Motivacional</h3>
       <div class="motivation-grid">
@@ -66,4 +92,87 @@
       </div>
     </section>
   </main>
+</div>
+
+<div class="more-filters-sidebar" [class.open]="showMoreFiltersSidebar">
+  <div class="sidebar-header">
+    <h3>Mais Filtros</h3>
+    <button class="btn-close-sidebar" (click)="toggleMoreFiltersSidebar()">
+      <i class="ri-close-line"></i>
+    </button>
+  </div>
+  <div class="sidebar-content">
+    <div class="filter-group">
+      <h4>Duração</h4>
+      <div class="filter-options-grid">
+        <label *ngFor="let duration of durationOptions" class="filter-chip">
+          <input type="radio" name="duration" [value]="duration.value" [(ngModel)]="filterDuration" (change)="filterContent()">
+          {{ duration.label }}
+        </label>
+      </div>
+    </div>
+
+    <div class="filter-group">
+      <h4>Tipo de Conteúdo</h4>
+      <div class="filter-options-grid">
+        <label *ngFor="let type of contentTypeOptions" class="filter-chip">
+          <input type="checkbox" [value]="type" [checked]="filterContentType.has(type)" (change)="toggleSetFilter(filterContentType, type)">
+          {{ type }}
+        </label>
+      </div>
+    </div>
+
+    <div class="filter-group">
+      <h4>Público-alvo</h4>
+      <div class="filter-options-grid">
+        <label *ngFor="let audience of audienceOptions" class="filter-chip">
+          <input type="checkbox" [value]="audience" [checked]="filterAudience.has(audience)" (change)="toggleSetFilter(filterAudience, audience)">
+          {{ audience }}
+        </label>
+      </div>
+    </div>
+
+    <div class="filter-group">
+      <h4>Categorias</h4>
+      <div class="filter-options-grid">
+        <label *ngFor="let category of mainCategoriesOptions" class="filter-chip">
+          <input type="checkbox" [value]="category" [checked]="filterCategories.has(category)" (change)="toggleSetFilter(filterCategories, category)">
+          {{ category }}
+        </label>
+      </div>
+    </div>
+
+    <div class="filter-group">
+      <h4>Tags Específicas</h4>
+      <div class="filter-options-grid">
+        <label *ngFor="let tag of specificTagsOptions" class="filter-chip">
+          <input type="checkbox" [value]="tag" [checked]="filterSpecificTags.has(tag)" (change)="toggleSetFilter(filterSpecificTags, tag)">
+          {{ tag }}
+        </label>
+      </div>
+    </div>
+
+    <div class="sidebar-actions">
+      <button class="btn-clear-sidebar-filters" (click)="clearAllSidebarFilters()">Limpar Filtros</button>
+      <button class="btn-apply-filters" (click)="toggleMoreFiltersSidebar()">Aplicar Filtros</button>
+    </div>
+  </div>
+</div>
+
+<div class="video-player-modal-overlay" *ngIf="showVideoPlayerModal" (click)="closeVideoModal()">
+  <div class="video-player-modal-content" (click)="$event.stopPropagation()">
+    <button class="btn-close-video-modal" (click)="closeVideoModal()">
+      <i class="ri-close-line"></i>
+    </button>
+    <app-video-player
+      *ngIf="selectedVideo"
+      [videoId]="selectedVideo.videoId || ''"
+      [title]="selectedVideo.title"
+      [description]="selectedVideo.shortDescription || ''"
+      [channelName]="selectedVideo.channelAuthor || 'Canal Vitalis'"
+      [views]="selectedVideo.views || 0"
+      [duration]="selectedVideo.videoDuration || '00:00'"
+      [tags]="mapTagsToVideoTags(selectedVideo.tags)">
+    </app-video-player>
+  </div>
 </div>

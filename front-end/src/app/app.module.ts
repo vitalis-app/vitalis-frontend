@@ -32,6 +32,8 @@ import { UsuarioService } from './shared/services/usuario.service';
 import { AprenderComponent } from './web-app/pages/aprender-mais/aprender-mais.component';
 import { CalendarioComponent } from './web-app/components/calendario/calendario.component';
 import { RegistroEmocionalComponent } from './web-app/pages/estacao-vital/registro-emocional/registro-emocional.component';
+import { VideoPlayerComponent } from './web-app/components/video-player/video-player.component';
+import { VideoCardComponent } from './web-app/components/video-card/video-card.component';
 
 @NgModule({
   declarations: [
@@ -60,7 +62,9 @@ import { RegistroEmocionalComponent } from './web-app/pages/estacao-vital/regist
     CadastroComponent,
     UsuarioEspecialistaComponent,
     CalendarioComponent,
-    RegistroEmocionalComponent
+    RegistroEmocionalComponent,
+    VideoPlayerComponent,
+    VideoCardComponent
   ],
   imports: [
     BrowserModule,
