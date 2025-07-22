@@ -33,7 +33,7 @@
                class="tag-bubble"
                [class.selected]="selectedTriggers.includes(trigger.id) || (trigger.id === 'other' && showCustomTriggerInput)"
                (click)="handleTriggerSelect(trigger.id)">
-            <span>{{ trigger.name }}</span>
+            <span><i [class]="trigger.icon"></i> {{ trigger.name }}</span>
           </div>
         </div>
         <div *ngIf="showCustomTriggerInput" class="journal-wrapper" style="margin-top: 1.5rem;">
@@ -68,15 +68,17 @@
         <h2>Você fez isso por você. Isso importa.</h2>
         <p>Registrar o que sente é um ato de coragem e cuidado.</p>
         <div class="buttons-container">
-           <button class="vitalis-button secondary" (click)="goToVitalisStation()">
+          <a routerLink="/app/estacao-vital">
+            <button class="vitalis-button secondary">
             Ir para Estação Vital
             </button>
+          </a>
         </div>
       </div>
 
       <div *ngIf="currentStep < 4" class="buttons-container">
-        <button class="vitalis-button primary" 
-                (click)="nextStep()" 
+        <button class="vitalis-button primary"
+                (click)="nextStep()"
                 [disabled]="!canProceed">
           {{ currentStep === 3 ? 'Finalizar' : 'Continuar' }}
           </button>
