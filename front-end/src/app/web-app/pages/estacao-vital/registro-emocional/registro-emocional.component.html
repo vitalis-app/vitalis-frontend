@@ -56,7 +56,7 @@
                     (ngModelChange)="onJournalChange()"></textarea>
 
           <div *ngIf="showXpMessage" class="xp-message animate-fade-in">
-            <span>+5 XP por cuidar de você com palavras</span>
+            <span>+50 XP por cuidar de você com palavras</span>
           </div>
         </div>
       </div>
@@ -67,9 +67,12 @@
         </div>
         <h2>Você fez isso por você. Isso importa.</h2>
         <p>Registrar o que sente é um ato de coragem e cuidado.</p>
+          <div class="xp-message">
+          +{{ animatedXp | number:'1.0-0' }}XP
+          </div>
         <div class="buttons-container">
           <a routerLink="/app/estacao-vital">
-            <button class="vitalis-button secondary">
+            <button class="vitalis-button primary">
             Ir para Estação Vital
             </button>
           </a>

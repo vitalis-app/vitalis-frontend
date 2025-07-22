@@ -27,8 +27,8 @@ interface CalendarDay {
 
 @Component({
   selector: 'app-cuidar-mais',
-  templateUrl: './CuidarMais.component.html',
-  styleUrls: ['./CuidarMais.component.css'],
+  templateUrl: './cuidar-mais.component.html',
+  styleUrls: ['./cuidar-mais.component.css'],
   providers: [DatePipe]
 })
 export class CuidarMaisComponent implements OnInit {
@@ -53,6 +53,7 @@ export class CuidarMaisComponent implements OnInit {
   currentDate: Date = new Date();
   calendarDays: CalendarDay[] = [];
   weekDays = ['Dom', 'Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sáb'];
+  public monthNames: string[] = ["Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"];
   selectedDate: Date | null = null;
   availableTimes = ['09:00', '10:00', '11:00', '14:00', '15:00', '16:00', '17:00'];
   selectedTime: string | null = null;
@@ -143,8 +144,14 @@ export class CuidarMaisComponent implements OnInit {
     }
   }
 
-  changeMonth(amount: number): void {
-    this.currentDate.setMonth(this.currentDate.getMonth() + amount);
+  // Funções para navegar entre os meses (bônus)
+  public previousMonth(): void {
+    this.currentDate.setMonth(this.currentDate.getMonth() - 1);
+    this.generateCalendar();
+  }
+
+  public nextMonth(): void {
+    this.currentDate.setMonth(this.currentDate.getMonth() + 1);
     this.generateCalendar();
   }
 
