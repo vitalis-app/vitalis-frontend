@@ -20,7 +20,7 @@ import { ConfiguracoesComponent } from './web-app/pages/configuracoes/configurac
 import { ContaComponent } from './web-app/pages/conta/conta.component';
 import { EstacaoVitalComponent } from './web-app/pages/estacao-vital/estacao-vital.component';
 import { MinhaJornadaComponent } from './web-app/pages/minha-jornada/minha-jornada.component';
-import { CuidarMaisComponent } from './web-app/pages/CuidarMais/CuidarMais.component';
+import { CuidarMaisComponent } from './web-app/pages/cuidar-mais/cuidar-mais.component';
 import { WebAppLayoutComponent } from './web-app/layout/web-app-layout/web-app-layout.component';
 import { LoginPageLayoutComponent } from './web-app/layout/login-page-layout/login-page-layout.component';
 import { CadastroComponent } from './web-app/pages/auth/cadastro/cadastro.component';
