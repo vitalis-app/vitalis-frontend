@@ -1,26 +1,32 @@
-.container {
-    display: flex;
-    justify-content: center;
-    height: 100%;
-    width: 100%;
-}
-
-.menu-direito {
-    position: absolute;
-    top: 0px;
-    right: 0px;
+section {
     display: flex;
     justify-content: center;
     align-items: center;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 64px;
+    gap: 8rem;
+    padding: 2rem;
+}
+
+.menu-direito {
+    background-color: var(--verde-7);
+    box-shadow: 0px 0px 10px var(--shadow-0);
+    display: flex;
+    align-items: center;
+    justify-content: center;
     flex-direction: column;
     height: 100%;
-    width: 440px;
-    background: linear-gradient(180deg, var(--verde-6), var(--verde-7));
-    border: 2px solid var(--verde-5);
+    width: 460px;
+    border-radius: 16px;
+    gap: 10px;
 }
 
 .card {
-    width: 400px;
+    min-width: 400px;
     border-radius: 16px;
     margin: 12px;
     padding: 15px;
@@ -38,7 +44,7 @@
 .card h1 {
     color: var(--verde-2);
     font-size: 1.3rem;
-    height: 1.5rem;
+    height: 2.2rem;
 }
 
 .card p {
@@ -77,9 +83,9 @@
 
 .icon-card,
 .icon-card-intra,
-.icon-card-intra-yellow {
+.icon-card-no-background{
     font-size: 1rem;
-    border-radius: 8px;
+    border-radius: 12px;
     border-style: solid;
     border-width: 4px 10px;
 }
@@ -87,29 +93,35 @@
 .icon-card {
     background-color: var(--verde-4);
     border-color: var(--verde-4);
+    box-shadow: 2px 2px 6px var(--shadow-0);
 }
 
 .icon-card-intra {
-    color: #10473e;
-    background-color: #a3e7da;
-    border-color: #a3e7da;
-}
-
-.icon-card-intra-yellow {
     color: #10473e;
     background-color: var(--verde-3);
     border-color: var(--verde-3);
 }
 
+.icon-card-no-background {
+    color: var(--verde-3);
+    background-color: transparent;
+    border-color: transparent;
+}
+
 .intra-container {
-    background-color: var(--verde-5);
-    border: 1px solid var(--verde-3);
+    background-color: var(--verde-6);
+    box-shadow: 2px 2px 0px var(--shadow-0);
     border-radius: 8px;
     padding: 10px;
     margin-top: 12px;
     display: flex;
     align-items: center;
     justify-content: space-between;
+}
+
+.intra-container .text p {
+    font-size: 0.9rem;
+    margin-bottom: 0.4rem;
 }
 
 .text {
@@ -120,14 +132,20 @@
     width: 80%;
 }
 
+.text .barra-progresso {
+    background-color: var(--verde-7);
+    border: 1px solid var(--verde-7);
+    height: 0.5rem;
+}
+
+.text .barra-progresso-atual {
+    width: 10%;
+}
+
 .text-icon {
     display: flex;
     width: 75%;
     overflow: hidden;
-}
-
-.intra-container h1 {
-    font-size: 1.1rem;
 }
 
 .completar-botao {
@@ -145,8 +163,11 @@
 }
 
 #card-diaria,
-#card-semanal {
+#card-semanal,
+#card-conquistas {
     height: auto;
+    margin: 0px;
+    gap: 3px;
 }
 
 #card-conquistas {
@@ -154,18 +175,22 @@
 }
 
 #card-stats {
-    position: relative;
-    top: 76%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     width: 410px;
-    margin-right: 20%;
     padding: 0.5rem 1rem;
     color: #10473e;
     flex-direction: column;
-    position: absolute;
+    margin-bottom: 1rem;
 }
 
-.content {
-    width: 100%;
+#card-stats .barra-progresso, #regar-btn {
+    box-shadow: 3px 3px var(--shadow-0);
+}
+
+#card-stats #nivel-atual {
+    text-shadow: 3px 3px var(--shadow-0);
 }
 
 #barra-progresso-container {
@@ -194,6 +219,7 @@
     font-weight: 600;
 }
 
+
 .barra-progresso {
     width: 100%;
     height: 1.2rem;
@@ -211,7 +237,7 @@
     position: absolute;
     left: 0;
     height: 100%;
-    width: 50%;
+    width: 87.5%;
     border: 1px solid var(--verde-5);
     border-radius: 999px;
     background-color: var(--verde-5);
@@ -221,25 +247,18 @@
     color: var(--verde-2);
     font-size: 0.8rem;
     font-weight: 600;
-    margin-right: 10px;
-    position: absolute;
-    right: 0;
 }
 
 #nivel-planta {
     color: var(--verde-2);
     font-weight: 600;
-    padding: 0.5rem 1rem;
-    position: absolute;
-    top: 70%;
-    margin-right: 20%;
     width: auto;
     font-size: 2rem;
     border-radius: 16px;
     display: flex;
     align-items: center;
     justify-content: center;
-    z-index: 1;
+    text-shadow: 3px 3px var(--shadow-0);
 }
 
 #regar-btn {
@@ -248,7 +267,7 @@
     font-size: 1.5rem;
     font-weight: 500;
     padding: 0.25rem 2rem;
-    border-radius: 8px;
+    border-radius: 64px;
     transition: all 0.3s ease;
     border: none;
     cursor: pointer;
@@ -257,7 +276,6 @@
     justify-content: center;
     font-family: "Poppins", sans-serif;
     text-decoration: none;
-    width: 400px;
     height: 50px;
 }
 
@@ -271,10 +289,23 @@
     box-shadow: 0 1px 3px var(--shadow-0);
 }
 
-.foto-planta {
-    width: 300px;
-    height: 300px;
-    position: absolute;
-    top: 30%;
-    margin-right: 20%;
+.planta-menu {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    padding: 2rem;
+    border-radius: 16px;
+    background-image: url("src/assets/imgs/estacao-vital/blank-nature-park-landscape-scene-daytime_1308-62625.png");
+    background-size: cover;
+    background-position: center;
+    /*background: linear-gradient(0deg, var(--verde-6), var(--verde-7));*/
+    box-shadow: 0px 0px 10px var(--shadow-0);
+    border: 4px solid var(--verde-6);
+}
+
+.planta-menu img {
+    width: 400px;
+    height: 400px;
 }
