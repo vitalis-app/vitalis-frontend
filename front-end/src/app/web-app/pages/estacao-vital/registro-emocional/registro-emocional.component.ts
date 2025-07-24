@@ -50,7 +50,7 @@ export class RegistroEmocionalComponent { // Removido "implements OnChanges"
     { id: 'sleep', name: 'Qualidade do sono', icon: 'ri-hotel-bed-line' },
     { id: 'food', name: 'Alimentação', icon: 'ri-restaurant-line' },
     { id: 'social-media', name: 'Redes sociais', icon: 'ri-smartphone-line' },
-    { id: 'time', name: 'Falta de tempo', icon: 'ri-time-line' },
+    { id: 'time', name: 'Tempo', icon: 'ri-time-line' },
     { id: 'unknown', name: 'Não sei / Sem motivo', icon: 'ri-question-mark' },
     { id: 'other', name: 'Outro', icon: 'ri-add-line' }
   ];

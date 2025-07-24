@@ -42,11 +42,11 @@ export class AprenderComponent implements OnInit {
   // --- Estado da UI  ---
   searchTerm: string = '';
   // Categorias principais (tipos de conteúdo)
-  categories: string[] = ['Vídeo', 'Podcast', 'Palestra', 'Música']; // Ajustado para os tipos solicitados
+  categories: string[] = ['Vídeo', 'Vlogs', 'Podcast', 'Palestra', 'Música']; // Ajustado para os tipos solicitados
   activeFilters: Set<string> = new Set(); // Usa um Set para múltiplos filtros (para chips de categoria e tags populares)
 
   // Tags mais populares (temáticas)
-  popularTags: string[] = ['Foco']; // Ajustado para a tag solicitada
+  popularTags: string[] = ['Ansiedade', 'Bem-estar', 'Psicologia', 'Foco', 'Autoconhecimento', 'Estudos', 'Rotina', 'Autocuidado', 'Procrastinação']; // Ajustado para a tag solicitada
   sortBy: 'popular' | 'recent' | 'favorites' = 'popular'; // Padrão: Mais Populares
   showSortDropdown: boolean = false; // Estado do dropdown de ordenação
 
@@ -64,7 +64,7 @@ export class AprenderComponent implements OnInit {
   ];
   filterDuration: string = ''; // Filtro de duração selecionado
 
-  contentTypeOptions: string[] = ['Vídeo', 'Podcast', 'Palestra', 'Foco']; // Ajustado para os tipos solicitados
+  contentTypeOptions: string[] = ['Vídeo', 'Podcast', 'Palestra', 'Música']; // Ajustado para os tipos solicitados
   filterContentType: Set<string> = new Set(); // Filtros de tipo de conteúdo
 
   audienceOptions: string[] = ['Jovens', 'Estudantes', 'Pais', 'Líderes', 'Adultos em geral']; // Mantido
@@ -79,8 +79,14 @@ export class AprenderComponent implements OnInit {
 
   // Tags específicas revisadas e consolidadas
   specificTagsOptions: string[] = [
-    'Foco', 'Ansiedade' // Ajustado para a tag solicitada
-  ];
+  'Ansiedade', 'Tristeza', 'Raiva', 'Disciplina', 'Hábitos Saudáveis',
+  'Foco', 'Organização', 'Procrastinação', 'Família', 'Amigos',
+  'Convívio Social', 'Empatia', 'Sono', 'Hobbies', 'Alimentação',
+  'Movimento', 'Lazer', 'Psicologia', 'Resiliência', 'Terapia',
+  'Estresse', 'Meditação', 'Presença', 'Respiração', 'Atenção Plena',
+  'Valores', 'Identidade', 'Motivação', 'Sentido de Vida'
+];
+
   filterSpecificTags: Set<string> = new Set(); // Filtros de tags específicas
 
   // --- Dados de Exemplo com Placeholders e Tags --
@@ -99,27 +105,27 @@ export class AprenderComponent implements OnInit {
     },
     {
       type: 'Podcast', title: 'Conversas sobre estoicismo', titleOverlay: 'Estoicismo', imageUrl: 'https://placehold.co/400x250/CCE5FF/000000?text=Podcast+Estoicismo',
-      tags: ['Podcast', 'Autoconhecimento', 'Filosofia'], durationMinutes: 25, audience: ['Adultos em geral'], mainCategory: 'Autoconhecimento', popularityScore: 88, publishDate: new Date('2023-02-10'), isFavorite: true,
+      tags: ['Podcast', 'Autoconhecimento', 'Filosofia'], durationMinutes: 25, audience: ['Adultos em geral'], mainCategory: 'Autoconhecimento', popularityScore: 88, publishDate: new Date('2018-02-10'), isFavorite: true,
       videoId: 'Z-jN-g0fL0w', // Exemplo de ID de vídeo do YouTube
       channelAuthor: 'Mente Serena', views: 15234, shortDescription: 'Um guia prático para começar a meditar e encontrar a paz interior. Ideal para iniciantes.'
     },
     {
-      type: 'Vídeo', title: 'Como a Produtividade Afeta sua Saúde Mental', titleOverlay: 'Produtividade', imageUrl: 'https://placehold.co/400x250/F0F8FF/000000?text=Produtividade+Video',
-      tags: ['Vídeo', 'Produtividade', 'Saúde mental', 'Foco'], durationMinutes: 12, audience: ['Estudantes', 'Adultos em geral'], mainCategory: 'Vida Profissional', popularityScore: 95, publishDate: new Date('2023-04-25'), isFavorite: false,
+      type: 'Vídeo', title: 'Mario Sergio Cortella - O Tempo e a Vida: Como aproveitar ao máximo cada momento', titleOverlay: 'Produtividade', imageUrl: 'https://i.ytimg.com/vi/rA5d5YngS50/hq720.jpg?sqp=-oaymwEnCNAFEJQDSFryq4qpAxkIARUAAIhCGAHYAQHiAQoIGBACGAY4AUAB&rs=AOn4CLAzzEivFMC-dEpF4zFFBZCpHmbjhg',
+      tags: ['Vídeo', 'Palestra', 'Saúde mental', 'Foco'], durationMinutes: 12.27, audience: ['Estudantes', 'Adultos em geral'], mainCategory: 'Vida Profissional', popularityScore: 95, publishDate: new Date('2023-04-25'), isFavorite: false,
       videoId: 'a1Y3Kx4xW_c', // Exemplo de ID de vídeo do YouTube
-      channelAuthor: 'Bem-Estar Diário', views: 289765, shortDescription: 'Descubra a relação entre sua produtividade e o bem-estar mental. Dicas práticas para um dia mais equilibrado.'
+      channelAuthor: 'Canal do Cortella', views: 527692, shortDescription: 'Cortella discute a relação entre o tempo e a vida. Ele argumenta que, embora a vida seja curta, temos o poder de torná-la significativa ao aproveitar cada momento ao máximo.'
     },
     {
-      type: 'Vídeo', title: 'Rotina Matinal para Reduzir a Ansiedade', titleOverlay: 'Rotina', imageUrl: 'https://placehold.co/400x250/E6E6FA/000000?text=Ansiedade+Video',
-      tags: ['Vídeo', 'Ansiedade', 'Autocuidado', 'Rotina saudável'], durationMinutes: 5, audience: ['Adultos em geral'], mainCategory: 'Saúde Mental', popularityScore: 89, publishDate: new Date('2023-05-10'), isFavorite: true,
+      type: 'Vídeo', title: 'daily vlog 🥯 | um vlog relaxante para assistir enquanto pratica um hobby ☕️', titleOverlay: 'Rotina', imageUrl: 'https://i.ytimg.com/vi/zUrHQc0g3rs/hq720.jpg?sqp=-oaymwEnCNAFEJQDSFryq4qpAxkIARUAAIhCGAHYAQHiAQoIGBACGAY4AUAB&rs=AOn4CLDxQgnOkz4g1VSJNQmoMQ5UPYFf5g',
+      tags: ['Vídeo', 'Vlogs', 'Aesthetic', 'Rotina'], durationMinutes: 18, audience: ['Adultos em geral'], mainCategory: 'Saúde Mental', popularityScore: 89, publishDate: new Date('2023-05-10'), isFavorite: true,
       videoId: 'hvsT6LzU54Q', // Exemplo de ID de vídeo do YouTube
-      channelAuthor: 'Calma na Alma', views: 9876, shortDescription: 'Comece o dia com práticas simples para acalmar a mente e reduzir os níveis de ansiedade.'
+      channelAuthor: 'sheinun', views: 2098, shortDescription: 'oi, meu nome é Bre :) ou podem me chamar por sheinun mesmo, sem problemas 🤸🏽‍♀️'
     },
     {
-      type: 'Palestra', title: 'O Poder do Foco na Era Digital', titleOverlay: 'Foco Digital', imageUrl: 'https://placehold.co/400x250/C8E6C9/000000?text=Palestra+Foco',
-      tags: ['Palestra', 'Foco', 'Produtividade', 'Estudo & Aprendizado'], durationMinutes: 40, audience: ['Adultos em geral', 'Estudantes', 'Líderes'], mainCategory: 'Vida Profissional', popularityScore: 90, publishDate: new Date('2023-07-20'), isFavorite: false,
+      type: 'Palestra', title: 'A vida não é feita de metas! | Clóvis de Barros', titleOverlay: 'Foco Digital', imageUrl: 'https://i.ytimg.com/vi/c1DCt5zLVyM/hq720.jpg?sqp=-oaymwEnCNAFEJQDSFryq4qpAxkIARUAAIhCGAHYAQHiAQoIGBACGAY4AUAB&rs=AOn4CLD6KiAQOdmH70bc0CL3hzO81inAUw',
+      tags: ['Palestra', 'Foco', 'Produtividade', 'Estudo & Aprendizado'], durationMinutes: 15.80, audience: ['Adultos em geral', 'Estudantes', 'Líderes'], mainCategory: 'Vida Profissional', popularityScore: 90, publishDate: new Date('2023-07-20'), isFavorite: false,
       videoId: 'Z-jN-g0fL0w', // Exemplo de ID de vídeo do YouTube
-      channelAuthor: 'Mente Serena', views: 15234, shortDescription: 'Um guia prático para começar a meditar e encontrar a paz interior. Ideal para iniciantes.'
+      channelAuthor: 'Clóvis de Barros', views: 306787, shortDescription: 'Neste vídeo, o professor Clóvis nos mostra como a jornada da vida pode ser ilusória.'
     }
   ];
 

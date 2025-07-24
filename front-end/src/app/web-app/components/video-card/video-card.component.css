@@ -4,6 +4,7 @@
 
 .learning-card {
   height: 35rem;
+  width: 23rem;
   background-color: var(--verde-56);
   border: 2px solid var(--verde-5);
   border-radius: var(--border-radius);
