@@ -1,18 +1,20 @@
 <section>
     <div class="planta-menu">
         <h1>Estação vital</h1>
-        <img src="assets/imgs/estacao-vital/Novo Projeto.png" alt="Planta">
-        <div id="nivel-planta">
-            Nível 3 - Planta Fofinha
+        <div class="container-central">
+            <img src="assets/imgs/estacao-vital/Novo Projeto.png" alt="Planta">
+            <div id="nivel-planta">
+                Nível 3 - Planta Fofinha
+            </div>
+            <div id="card-stats">
+                <div class="barra-progresso">
+                    <p id="xp-info">175/200 XP</p>
+                    <div class="barra-progresso-atual"></div>
+                </div>  
+                <p id="nivel-atual">Nível 10</p>
+            </div>
         </div>
 
-        <div id="card-stats">
-            <div class="barra-progresso">
-                <p id="xp-info">175/200 XP</p>
-                <div class="barra-progresso-atual"></div>
-            </div>
-            <p id="nivel-atual">Nível 10</p>
-        </div>
         <a routerLink="/app/estacao-vital/registro-emocional">
             <button id="regar-btn">Regar planta</button>
         </a>
@@ -28,19 +30,35 @@
                 Missões Diárias
             </h1>
 
+            <div class="intra-container" style="background-color: var(--verde-4);">
+                <div class="text-icon" >
+                    <i class="icon-card-no-background" style="color: var(--verde-2)">
+                        <i class="fa-solid fa-hourglass"></i>
+                    </i>
+                    <div class="text">
+                        <p>Beba 200 litros de agua</p>
+                    </div>
+                </div>
+                <p class="xp-missao">+100 XP</p>
+                <button class="completar-botao" style="border: 8px solid var(--verde-3);background-color: var(--verde-3)">
+                    <i class="fa-regular fa-circle-check">
+                    </i>
+                </button>
+            </div>
+
             <div class="intra-container">
                 <div class="text-icon">
                     <i class="icon-card-no-background">
                         <i class="fa-solid fa-hourglass"></i>
                     </i>
                     <div class="text">
-                        <p>bebe 200 litros de agua</p>
+                        <p>Faça uma consulta</p>
                         <div class="barra-progresso">
                             <div class="barra-progresso-atual"></div>
                         </div>
                     </div>
                 </div>
-                <p class="xp-missao">+100 XP</p>
+                <p class="xp-missao">+150 XP</p>
                 <button class="completar-botao">
                     <i class="fa-regular fa-circle-check">
                     </i>
@@ -53,26 +71,7 @@
                         <i class="fa-solid fa-hourglass"></i>
                     </i>
                     <div class="text">
-                        <p>bebe 200 litros de agua</p>
-                        <div class="barra-progresso">
-                            <div class="barra-progresso-atual"></div>
-                        </div>
-                    </div>
-                </div>
-                <p class="xp-missao">+100 XP</p>
-                <button class="completar-botao">
-                    <i class="fa-regular fa-circle-check">
-                    </i>
-                </button>
-            </div>
-
-            <div class="intra-container">
-                <div class="text-icon">
-                    <i class="icon-card-no-background">
-                        <i class="fa-solid fa-hourglass"></i>
-                    </i>
-                    <div class="text">
-                        <p>bebe 200 litros de agua</p>
+                        <p>Pule de paraquedas</p>
                         <div class="barra-progresso">
                             <div class="barra-progresso-atual"></div>
                         </div>
@@ -103,13 +102,13 @@
                         <i class="fa-solid fa-hourglass"></i>
                     </i>
                     <div class="text">
-                        <p>bebe 200 litros de agua</p>
+                        <p>Realize 5 missões</p>
                         <div class="barra-progresso">
                             <div class="barra-progresso-atual"></div>
                         </div>
                     </div>
                 </div>
-                <p class="xp-missao">+100 XP</p>
+                <p class="xp-missao">+300 XP</p>
                 <button class="completar-botao">
                     <i class="fa-regular fa-circle-check">
                     </i>
@@ -122,7 +121,7 @@
                         <i class="fa-solid fa-hourglass"></i>
                     </i>
                     <div class="text">
-                        <p>bebe 200 litros de agua</p>
+                        <p>Faça 2 consultas</p>
                         <div class="barra-progresso">
                             <div class="barra-progresso-atual"></div>
                         </div>
@@ -135,20 +134,17 @@
                 </button>
             </div>
 
-            <div class="intra-container">
-                <div class="text-icon">
-                    <i class="icon-card-no-background">
+            <div class="intra-container" style="background-color: var(--verde-4);">
+                <div class="text-icon" >
+                    <i class="icon-card-no-background" style="color: var(--verde-2)">
                         <i class="fa-solid fa-hourglass"></i>
                     </i>
                     <div class="text">
-                        <p>bebe 200 litros de agua</p>
-                        <div class="barra-progresso">
-                            <div class="barra-progresso-atual"></div>
-                        </div>
+                        <p>Assista 5 vídeos do Aprender+</p>
                     </div>
                 </div>
                 <p class="xp-missao">+100 XP</p>
-                <button class="completar-botao">
+                <button class="completar-botao" style="border: 8px solid var(--verde-3);background-color: var(--verde-3)">
                     <i class="fa-regular fa-circle-check">
                     </i>
                 </button>
@@ -167,10 +163,10 @@
             <div class="intra-container">
                 <div class="text-icon">
                     <i class="icon-card-no-background">
-                        <i class="fa-solid fa-trash-can"></i>
+                        <i class="fa-solid fa-skull"></i>
                     </i>
                     <div class="text">
-                        <p>bebe 200 litros de agua</p>
+                        <p>Realizou 300 mortais</p>
                     </div>
                 </div>
             </div>
