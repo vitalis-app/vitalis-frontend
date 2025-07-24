@@ -1,4 +1,24 @@
-<div class="container">
+<section>
+    <div class="planta-menu">
+        <h1>Estação vital</h1>
+        <div class="container-central">
+            <img src="assets/imgs/estacao-vital/Novo Projeto.png" alt="Planta">
+            <div id="nivel-planta">
+                Nível 3 - Planta Fofinha
+            </div>
+            <div id="card-stats">
+                <div class="barra-progresso">
+                    <p id="xp-info">175/200 XP</p>
+                    <div class="barra-progresso-atual"></div>
+                </div>  
+                <p id="nivel-atual">Nível 10</p>
+            </div>
+        </div>
+
+        <a routerLink="/app/estacao-vital/registro-emocional">
+            <button id="regar-btn">Regar planta</button>
+        </a>
+    </div>
     <div class="menu-direito">
 
         <div id="card-diaria" class="card">
@@ -10,19 +30,35 @@
                 Missões Diárias
             </h1>
 
-            <div class="intra-container">
-                <div class="text-icon">
-                    <i class="icon-card-intra-yellow">
+            <div class="intra-container" style="background-color: var(--verde-4);">
+                <div class="text-icon" >
+                    <i class="icon-card-no-background" style="color: var(--verde-2)">
                         <i class="fa-solid fa-hourglass"></i>
                     </i>
                     <div class="text">
-                        <h1>3 horinha de cu só</h1>
-                        <div style="border: 1px solid var(--verde-4); height: 0.7rem;" class="barra-progresso">
+                        <p>Beba 200 litros de agua</p>
+                    </div>
+                </div>
+                <p class="xp-missao">+100 XP</p>
+                <button class="completar-botao" style="border: 8px solid var(--verde-3);background-color: var(--verde-3)">
+                    <i class="fa-regular fa-circle-check">
+                    </i>
+                </button>
+            </div>
+
+            <div class="intra-container">
+                <div class="text-icon">
+                    <i class="icon-card-no-background">
+                        <i class="fa-solid fa-hourglass"></i>
+                    </i>
+                    <div class="text">
+                        <p>Faça uma consulta</p>
+                        <div class="barra-progresso">
                             <div class="barra-progresso-atual"></div>
                         </div>
                     </div>
                 </div>
-                <p class="xp-missao">+100 XP</p>
+                <p class="xp-missao">+150 XP</p>
                 <button class="completar-botao">
                     <i class="fa-regular fa-circle-check">
                     </i>
@@ -31,31 +67,12 @@
 
             <div class="intra-container">
                 <div class="text-icon">
-                    <i class="icon-card-intra-yellow">
+                    <i class="icon-card-no-background">
                         <i class="fa-solid fa-hourglass"></i>
                     </i>
                     <div class="text">
-                        <h1>3 horinha de cu só</h1>
-                        <div style="border: 1px solid var(--verde-5); height: 0.7rem;" class="barra-progresso">
-                            <div class="barra-progresso-atual"></div>
-                        </div>
-                    </div>
-                </div>
-                <p class="xp-missao">+100 XP</p>
-                <button class="completar-botao">
-                    <i class="fa-regular fa-circle-check">
-                    </i>
-                </button>
-            </div>
-
-            <div class="intra-container">
-                <div class="text-icon">
-                    <i class="icon-card-intra-yellow">
-                        <i class="fa-solid fa-hourglass"></i>
-                    </i>
-                    <div class="text">
-                        <h1>3 horinha de cu só</h1>
-                        <div style="border: 1px solid var(--verde-5); height: 0.7rem;" class="barra-progresso">
+                        <p>Pule de paraquedas</p>
+                        <div class="barra-progresso">
                             <div class="barra-progresso-atual"></div>
                         </div>
                     </div>
@@ -81,12 +98,31 @@
 
             <div class="intra-container">
                 <div class="text-icon">
-                    <i class="icon-card-intra-yellow">
+                    <i class="icon-card-no-background">
                         <i class="fa-solid fa-hourglass"></i>
                     </i>
                     <div class="text">
-                        <h1>3 horinha de cu só</h1>
-                        <div style="border: 1px solid var(--verde-5); height: 0.7rem;" class="barra-progresso">
+                        <p>Realize 5 missões</p>
+                        <div class="barra-progresso">
+                            <div class="barra-progresso-atual"></div>
+                        </div>
+                    </div>
+                </div>
+                <p class="xp-missao">+300 XP</p>
+                <button class="completar-botao">
+                    <i class="fa-regular fa-circle-check">
+                    </i>
+                </button>
+            </div>
+
+            <div class="intra-container">
+                <div class="text-icon">
+                    <i class="icon-card-no-background">
+                        <i class="fa-solid fa-hourglass"></i>
+                    </i>
+                    <div class="text">
+                        <p>Faça 2 consultas</p>
+                        <div class="barra-progresso">
                             <div class="barra-progresso-atual"></div>
                         </div>
                     </div>
@@ -98,39 +134,17 @@
                 </button>
             </div>
 
-            <div class="intra-container">
-                <div class="text-icon">
-                    <i class="icon-card-intra-yellow">
+            <div class="intra-container" style="background-color: var(--verde-4);">
+                <div class="text-icon" >
+                    <i class="icon-card-no-background" style="color: var(--verde-2)">
                         <i class="fa-solid fa-hourglass"></i>
                     </i>
                     <div class="text">
-                        <h1>3 horinha de cu só</h1>
-                        <div style="border: 1px solid var(--verde-5); height: 0.7rem;" class="barra-progresso">
-                            <div class="barra-progresso-atual"></div>
-                        </div>
+                        <p>Assista 5 vídeos do Aprender+</p>
                     </div>
                 </div>
                 <p class="xp-missao">+100 XP</p>
-                <button class="completar-botao">
-                    <i class="fa-regular fa-circle-check">
-                    </i>
-                </button>
-            </div>
-
-            <div class="intra-container">
-                <div class="text-icon">
-                    <i class="icon-card-intra-yellow">
-                        <i class="fa-solid fa-hourglass"></i>
-                    </i>
-                    <div class="text">
-                        <h1>3 horinha de cu só</h1>
-                        <div style="border: 1px solid var(--verde-5); height: 0.7rem;" class="barra-progresso">
-                            <div class="barra-progresso-atual"></div>
-                        </div>
-                    </div>
-                </div>
-                <p class="xp-missao">+100 XP</p>
-                <button class="completar-botao">
+                <button class="completar-botao" style="border: 8px solid var(--verde-3);background-color: var(--verde-3)">
                     <i class="fa-regular fa-circle-check">
                     </i>
                 </button>
@@ -148,40 +162,14 @@
             </h1>
             <div class="intra-container">
                 <div class="text-icon">
-                    <i class="icon-card-intra-yellow">
-                        <i class="fa-solid fa-trash-can"></i>
+                    <i class="icon-card-no-background">
+                        <i class="fa-solid fa-skull"></i>
                     </i>
                     <div class="text">
-                        <h1>3 horinha de cu só</h1>
+                        <p>Realizou 300 mortais</p>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-
-    
-    <div id="nivel-planta">
-        Nível 3 - Planta Fofinha
-    </div>
-    
-    <div style="background-color: transparent;" id="card-stats">
-        <div class="content">
-            <div class="barra-progresso">
-                <p id="xp-info">175/200 XP</p>
-                <div class="barra-progresso-atual"></div>
-            </div>
-            <p id="nivel-atual">Nível 10</p>
-        </div>
-    </div>
-
-    <div style="top: 15%" id="nivel-planta">
-        <button id="regar-btn">Regar planta</button>
-    </div>
-
-    <img class="foto-planta" src="assets/imgs/estacao-vital/Novo Projeto.png" alt="Planta">
-    
-    
-    <a routerLink="/app/estacao-vital/registro-emocional">
-        <button>Registrar</button>
-    </a>
-</div>
+</section>

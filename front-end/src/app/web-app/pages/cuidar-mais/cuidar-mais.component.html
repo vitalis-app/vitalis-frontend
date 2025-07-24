@@ -11,6 +11,7 @@
   <section class="filters-section">
     <div class="search-bar">
       <i class="ri-search-line"></i>
+
       <input type="text" placeholder="Buscar psicólogos por nome ou especialidade..." [(ngModel)]="searchTerm"
         (input)="filterProfessionals()">
     </div>
@@ -67,7 +68,6 @@
 <div class="modal-overlay" *ngIf="selectedProfessional" (click)="closeProfileModal()">
   <div class="modal-content" (click)="$event.stopPropagation()">
     <button class="btn-close-modal" (click)="closeProfileModal()"><i class="ri-close-line"></i></button>
-
     <!-- Conteúdo do Modal -->
     <div class="modal-grid" *ngIf="selectedProfessional">
       <!-- Coluna Esquerda: Perfil do Profissional -->

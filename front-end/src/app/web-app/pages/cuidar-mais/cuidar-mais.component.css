@@ -83,7 +83,6 @@
   border-radius: var(--border-radius);
   background-color: var(--bg-color);
   color: var(--text-color);
-  font-family: Poppins, "sans-serif";
   font-size: 0.875rem;
   cursor: pointer;
   transition: all var(--transition-speed);
