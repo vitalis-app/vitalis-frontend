@@ -1,4 +1,5 @@
 # 🌱 Vitalis — Plataforma de Bem-Estar e Saúde Mental
+(Front-End)
 
 Vitalis é uma plataforma digital desenvolvida com Angular, focada em promover o cuidado emocional por meio de recursos simbólicos, leves e acessíveis. Com funcionalidades como planta emocional, psicoeducação, agendamento de consultas e desafios de autocuidado, ela busca transformar o bem-estar mental em um hábito cotidiano.
 
