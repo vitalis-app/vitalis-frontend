@@ -5,16 +5,18 @@ const app = express();
 // Pega a porta do ambiente do Railway ou usa 8080 como padrão
 const port = process.env.PORT || 8080;
 
-// !! IMPORTANTE !! Verifique no seu angular.json se o outputPath
-// é 'dist/vitalis'. Se for diferente, ajuste o nome aqui.
+// !! IMPORTANTE !! Verifique se o nome aqui ('vitalis') é o mesmo
+// da pasta que é criada dentro de 'dist/' quando você executa 'ng build'.
 const appName = 'vitalis';
 
 // O servidor vai "servir" os arquivos estáticos da sua aplicação Angular
 app.use(express.static(__dirname + `/dist/${appName}`));
 
-// Rota coringa com a SINTAXE CORRETA para o Express 5
-// Isso garante que qualquer rota digitada no navegador carregue seu app Angular
-app.get('/*:path', function(req,res) {
+// --- CORREÇÃO FINAL ---
+// Usando uma expressão regular para capturar TUDO.
+// Isso diz: "para absolutamente qualquer rota, execute esta função".
+// É a forma mais básica e à prova de erros de sintaxe que existe.
+app.get(/.*$/, function(req,res) {
   res.sendFile(path.join(__dirname + `/dist/${appName}/index.html`));
 });
 
