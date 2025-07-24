@@ -1,4 +1,7 @@
 /* CSS Padronizado - Cuidar Mais */
+*{
+  font-family: 'Poppins', sans-serif;
+}
 
 .cuidar-container {
   padding: 2rem 4rem;
@@ -103,7 +106,6 @@
 .category-chip.active i {
   font-size: 1rem;
 }
-
 
 .btn-clear-filters {
   background: none;

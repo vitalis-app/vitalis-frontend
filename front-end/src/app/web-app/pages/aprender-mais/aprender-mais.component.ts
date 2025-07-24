@@ -1,11 +1,30 @@
+// aprender-mais.component.ts
 import { Component, OnInit } from '@angular/core';
+import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser'; // Importar DomSanitizer
+
+interface VideoTag {
+  name: string;
+  link?: string; // Opcional, caso queira que a tag seja um link
+}
 
 interface LearningContent {
-  type: 'Artigo' | 'Vídeo' | 'Curso' | 'Podcast';
+  type: 'Vídeo' | 'Podcast' | 'Palestra' | 'Música';
   title: string;
-  titleOverlay: string;
+  titleOverlay?: string;
   imageUrl: string;
   tags: string[]; // Adicionado para permitir múltiplos filtros
+  durationMinutes: number; // Duração em minutos
+  audience: string[]; // Público-alvo
+  mainCategory: string; // Categoria principal (tema maior)
+  popularityScore: number; // Para ordenação por popularidade
+  publishDate: Date; // Para ordenação por mais recentes
+  isFavorite: boolean; // Para ordenação por favoritos
+  // Novo campo para vídeos: ID do YouTube
+  videoId?: string; // ID do vídeo do YouTube para o VideoPlayerComponent
+  videoDuration?: string;
+  channelAuthor?: string; // Ex: "Canal Psicologia em Foco"
+  views?: number; // Ex: 3200
+  shortDescription?: string; // Resumo de até 100 caracteres
 }
 
 interface MotivationContent {
@@ -22,15 +41,92 @@ export class AprenderComponent implements OnInit {
 
   // --- Estado da UI  ---
   searchTerm: string = '';
-  categories: string[] = ['Artigos', 'Vídeos', 'Podcasts', 'Cursos', 'Palestras', 'Ansiedade', 'Sono', 'Estudo'];
-  activeFilters: Set<string> = new Set(); // Usa um Set para múltiplos filtros
-  
-  // --- Dados de Exemplo com Placeholders e Tags ---
+  // Categorias principais (tipos de conteúdo)
+  categories: string[] = ['Vídeo', 'Vlogs', 'Podcast', 'Palestra', 'Música']; // Ajustado para os tipos solicitados
+  activeFilters: Set<string> = new Set(); // Usa um Set para múltiplos filtros (para chips de categoria e tags populares)
+
+  // Tags mais populares (temáticas)
+  popularTags: string[] = ['Ansiedade', 'Bem-estar', 'Psicologia', 'Foco', 'Autoconhecimento', 'Estudos', 'Rotina', 'Autocuidado', 'Procrastinação']; // Ajustado para a tag solicitada
+  sortBy: 'popular' | 'recent' | 'favorites' = 'popular'; // Padrão: Mais Populares
+  showSortDropdown: boolean = false; // Estado do dropdown de ordenação
+
+  showMoreFiltersSidebar: boolean = false; // Estado do sidebar de mais filtros
+
+  // Variáveis para o modal do vídeo
+  showVideoPlayerModal: boolean = false;
+  selectedVideo: LearningContent | null = null;
+
+  // Opções para filtros do sidebar
+  durationOptions: { label: string, value: string }[] = [
+    { label: 'Até 5 minutos', value: '0-5' },
+    { label: '5-15 minutos', value: '5-15' },
+    { label: 'Mais de 15 minutos', value: '15+' }
+  ];
+  filterDuration: string = ''; // Filtro de duração selecionado
+
+  contentTypeOptions: string[] = ['Vídeo', 'Podcast', 'Palestra', 'Música']; // Ajustado para os tipos solicitados
+  filterContentType: Set<string> = new Set(); // Filtros de tipo de conteúdo
+
+  audienceOptions: string[] = ['Jovens', 'Estudantes', 'Pais', 'Líderes', 'Adultos em geral']; // Mantido
+  filterAudience: Set<string> = new Set(); // Filtros de público-alvo
+
+  // Categorias temáticas revisadas (mantidas para estrutura, mas o conteúdo será filtrado)
+  mainCategoriesOptions: string[] = [
+    'Saúde Mental', 'Autoconhecimento', 'Relacionamentos',
+    'Vida Profissional', 'Estilo de Vida', 'Estudo & Aprendizado'
+  ];
+  filterCategories: Set<string> = new Set(); // Filtros de categorias (temas maiores)
+
+  // Tags específicas revisadas e consolidadas
+  specificTagsOptions: string[] = [
+  'Ansiedade', 'Tristeza', 'Raiva', 'Disciplina', 'Hábitos Saudáveis',
+  'Foco', 'Organização', 'Procrastinação', 'Família', 'Amigos',
+  'Convívio Social', 'Empatia', 'Sono', 'Hobbies', 'Alimentação',
+  'Movimento', 'Lazer', 'Psicologia', 'Resiliência', 'Terapia',
+  'Estresse', 'Meditação', 'Presença', 'Respiração', 'Atenção Plena',
+  'Valores', 'Identidade', 'Motivação', 'Sentido de Vida'
+];
+
+  filterSpecificTags: Set<string> = new Set(); // Filtros de tags específicas
+
+  // --- Dados de Exemplo com Placeholders e Tags --
   allLearningContent: LearningContent[] = [
-    { type: 'Artigo', title: 'O poder do agora', titleOverlay: 'Vamps', imageUrl: 'data:image/jpeg;base64,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', tags: ['Artigos', 'Ansiedade', 'Estudo'] },
-    { type: 'Vídeo', title: 'Mindfulness para iniciantes', titleOverlay: 'Mindfulness', imageUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSopIJhxZ3dBmlYwkhWlb-IDMK_tBy6oAH6_g&s', tags: ['Vídeos', 'Sono'] },
-    { type: 'Curso', title: 'Construindo hábitos positivos', titleOverlay: 'Hábitos', imageUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSopIJhxZ3dBmlYwkhWlb-IDMK_tBy6oAH6_g&s', tags: ['Cursos', 'Estudo'] },
-    { type: 'Podcast', title: 'Conversas sobre estoicismo', titleOverlay: 'Estoicismo', imageUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSopIJhxZ3dBmlYwkhWlb-IDMK_tBy6oAH6_g&s', tags: ['Podcast', 'Palestras'] }
+    {
+      type: 'Vídeo', title: 'Como manter o foco e atingir seus objetivos? | Leandro Karnal', imageUrl: 'https://i.ytimg.com/vi/dzRjOnJ0Ndw/hq720.jpg?sqp=-oaymwEnCNAFEJQDSFryq4qpAxkIARUAAIhCGAHYAQHiAQoIGBACGAY4AUAB&rs=AOn4CLAR5Dqn_678yEtu6z5p4gJATApkFQ',
+      tags: ['Foco', 'Autoconhecimento', 'Mindfulness'], durationMinutes: 19.68, audience: ['Adultos em geral'], mainCategory: 'Autoconhecimento', popularityScore: 90, publishDate: new Date('2020-11-30'), isFavorite: false,
+      videoId: 'dzRjOnJ0Ndw', // Exemplo de ID de vídeo do YouTube
+      channelAuthor: 'Prazer, Karnal - Canal Oficial de Leandro Karnal', views: 4055609, shortDescription: 'Manter o foco e a concentração tem sido uma tarefa difícil muito por causa das notificações no celular, principalmente vindas das redes sociais.'
+    },
+    {
+      type: 'Música', title: '1 A.M Study Session 📚 [lofi hip hop]', titleOverlay: 'Música', imageUrl: 'https://i.ytimg.com/vi/lTRiuFIWV54/hq720.jpg?sqp=-oaymwEnCNAFEJQDSFryq4qpAxkIARUAAIhCGAHYAQHiAQoIGBACGAY4AUAB&rs=AOn4CLAMK_m8HvYYIeUmaaXjbm2I1cPnVA',
+      tags: ['Música', 'Foco', 'Meditação', 'Autocuidado'], durationMinutes: 61.22, audience: ['Jovens', 'Adultos em geral'], mainCategory: 'Estudo', popularityScore: 98, publishDate: new Date('2019-12-8'), isFavorite: true,
+      videoId: 'lTRiuFIWV54', // Exemplo de ID de vídeo do YouTube
+      channelAuthor: 'Lofi Girl', views: 119621560, shortDescription: '🎼 | Listen on Spotify, Apple music and more →  https://fanlink.tv/lofigirl-music'
+    },
+    {
+      type: 'Podcast', title: 'Conversas sobre estoicismo', titleOverlay: 'Estoicismo', imageUrl: 'https://placehold.co/400x250/CCE5FF/000000?text=Podcast+Estoicismo',
+      tags: ['Podcast', 'Autoconhecimento', 'Filosofia'], durationMinutes: 25, audience: ['Adultos em geral'], mainCategory: 'Autoconhecimento', popularityScore: 88, publishDate: new Date('2018-02-10'), isFavorite: true,
+      videoId: 'Z-jN-g0fL0w', // Exemplo de ID de vídeo do YouTube
+      channelAuthor: 'Mente Serena', views: 15234, shortDescription: 'Um guia prático para começar a meditar e encontrar a paz interior. Ideal para iniciantes.'
+    },
+    {
+      type: 'Vídeo', title: 'Mario Sergio Cortella - O Tempo e a Vida: Como aproveitar ao máximo cada momento', titleOverlay: 'Produtividade', imageUrl: 'https://i.ytimg.com/vi/rA5d5YngS50/hq720.jpg?sqp=-oaymwEnCNAFEJQDSFryq4qpAxkIARUAAIhCGAHYAQHiAQoIGBACGAY4AUAB&rs=AOn4CLAzzEivFMC-dEpF4zFFBZCpHmbjhg',
+      tags: ['Vídeo', 'Palestra', 'Saúde mental', 'Foco'], durationMinutes: 12.27, audience: ['Estudantes', 'Adultos em geral'], mainCategory: 'Vida Profissional', popularityScore: 95, publishDate: new Date('2023-04-25'), isFavorite: false,
+      videoId: 'a1Y3Kx4xW_c', // Exemplo de ID de vídeo do YouTube
+      channelAuthor: 'Canal do Cortella', views: 527692, shortDescription: 'Cortella discute a relação entre o tempo e a vida. Ele argumenta que, embora a vida seja curta, temos o poder de torná-la significativa ao aproveitar cada momento ao máximo.'
+    },
+    {
+      type: 'Vídeo', title: 'daily vlog 🥯 | um vlog relaxante para assistir enquanto pratica um hobby ☕️', titleOverlay: 'Rotina', imageUrl: 'https://i.ytimg.com/vi/zUrHQc0g3rs/hq720.jpg?sqp=-oaymwEnCNAFEJQDSFryq4qpAxkIARUAAIhCGAHYAQHiAQoIGBACGAY4AUAB&rs=AOn4CLDxQgnOkz4g1VSJNQmoMQ5UPYFf5g',
+      tags: ['Vídeo', 'Vlogs', 'Aesthetic', 'Rotina'], durationMinutes: 18, audience: ['Adultos em geral'], mainCategory: 'Saúde Mental', popularityScore: 89, publishDate: new Date('2023-05-10'), isFavorite: true,
+      videoId: 'hvsT6LzU54Q', // Exemplo de ID de vídeo do YouTube
+      channelAuthor: 'sheinun', views: 2098, shortDescription: 'oi, meu nome é Bre :) ou podem me chamar por sheinun mesmo, sem problemas 🤸🏽‍♀️'
+    },
+    {
+      type: 'Palestra', title: 'A vida não é feita de metas! | Clóvis de Barros', titleOverlay: 'Foco Digital', imageUrl: 'https://i.ytimg.com/vi/c1DCt5zLVyM/hq720.jpg?sqp=-oaymwEnCNAFEJQDSFryq4qpAxkIARUAAIhCGAHYAQHiAQoIGBACGAY4AUAB&rs=AOn4CLD6KiAQOdmH70bc0CL3hzO81inAUw',
+      tags: ['Palestra', 'Foco', 'Produtividade', 'Estudo & Aprendizado'], durationMinutes: 15.80, audience: ['Adultos em geral', 'Estudantes', 'Líderes'], mainCategory: 'Vida Profissional', popularityScore: 90, publishDate: new Date('2023-07-20'), isFavorite: false,
+      videoId: 'Z-jN-g0fL0w', // Exemplo de ID de vídeo do YouTube
+      channelAuthor: 'Clóvis de Barros', views: 306787, shortDescription: 'Neste vídeo, o professor Clóvis nos mostra como a jornada da vida pode ser ilusória.'
+    }
   ];
 
   motivationContent: MotivationContent[] = [
@@ -41,16 +137,55 @@ export class AprenderComponent implements OnInit {
 
   filteredLearningContent: LearningContent[] = [];
 
-  constructor() { }
+  constructor(private sanitizer: DomSanitizer) { } // Injetar DomSanitizer
 
   ngOnInit(): void {
     this.filterContent();
   }
 
-  // --- Lógica de Filtragem  ---
+  /**
+   * Abre o modal do player de vídeo com o conteúdo do vídeo selecionado.
+   * @param videoItem O item de LearningContent do vídeo a ser reproduzido.
+   */
+  openVideoModal(videoItem: LearningContent): void {
+    this.selectedVideo = videoItem;
+    this.showVideoPlayerModal = true;
+  }
 
   /**
-   * Adiciona ou remove um filtro da lista de filtros ativos.
+   * Fecha o modal do player de vídeo.
+   */
+  closeVideoModal(): void {
+    this.showVideoPlayerModal = false;
+    this.selectedVideo = null; // Limpa o vídeo selecionado ao fechar o modal
+  }
+  formatViews(num: number): string {
+    if (num >= 1000000) {
+      return (num / 1000000).toFixed(1).replace(/\,0$/, '') + ' mi';
+    }
+    if (num >= 1000) {
+      return (num / 1000).toFixed(1).replace(/\,0$/, '') + ' mil';
+    }
+    return num.toString();
+  }
+
+  /**
+   * Mapeia um array de strings de tags para o formato esperado pelo VideoPlayerComponent ({ name: string }).
+   * @param tags Array de strings de tags.
+   * @returns Array de VideoTag.
+   */
+  mapTagsToVideoTags(tags: string[] | undefined): VideoTag[] {
+    // Garante que tags não é undefined antes de usar map
+    if (!tags) {
+      return [];
+    }
+    return tags.map(tag => ({ name: tag }));
+  }
+
+  // --- Lógica de Filtragem e Ordenação ---
+
+  /**
+   * Adiciona ou remove um filtro da lista de filtros ativos (usado para chips de categoria e tags populares).
    * @param category A categoria a ser adicionada/removida.
    */
   toggleFilter(category: string): void {
@@ -77,31 +212,154 @@ export class AprenderComponent implements OnInit {
   clearFilters(): void {
     this.activeFilters.clear();
     this.searchTerm = '';
+    this.filterDuration = '';
+    this.filterContentType.clear();
+    this.filterAudience.clear();
+    this.filterCategories.clear();
+    this.filterSpecificTags.clear();
     this.filterContent();
   }
 
   /**
-   * Filtra o conteúdo com base nos filtros ativos e no termo de pesquisa.
+   * Alterna a visibilidade do dropdown de ordenação.
+   */
+  toggleSortDropdown(): void {
+    this.showSortDropdown = !this.showSortDropdown;
+  }
+
+  /**
+   * Define a opção de ordenação e aplica os filtros.
+   * @param option A opção de ordenação ('popular' | 'recent' | 'favorites').
+   */
+  setSortBy(option: 'popular' | 'recent' | 'favorites'): void {
+    this.sortBy = option;
+    this.filterContent();
+  }
+
+  /**
+   * Retorna o texto a ser exibido no botão de ordenação.
+   * @param option A opção de ordenação.
+   * @returns O texto correspondente.
+   */
+  getSortOptionText(option: 'popular' | 'recent' | 'favorites'): string {
+    switch (option) {
+      case 'popular': return 'Mais Populares';
+      case 'recent': return 'Mais Recentes';
+      case 'favorites': return 'Favoritos';
+      default: return 'Ordenar por';
+    }
+  }
+
+  /**
+   * Alterna a visibilidade do sidebar "Mais Filtros".
+   */
+  toggleMoreFiltersSidebar(): void {
+    this.showMoreFiltersSidebar = !this.showMoreFiltersSidebar;
+  }
+
+  /**
+   * Adiciona ou remove um item de um Set de filtros (usado para filtros do sidebar).
+   * @param filterSet O Set de filtros a ser modificado.
+   * @param item O item a ser adicionado/removido.
+   */
+  toggleSetFilter(filterSet: Set<string>, item: string): void {
+    if (filterSet.has(item)) {
+      filterSet.delete(item);
+    } else {
+      filterSet.add(item);
+    }
+    this.filterContent();
+  }
+
+  /**
+   * Limpa todos os filtros do sidebar.
+   */
+  clearAllSidebarFilters(): void {
+    this.filterDuration = '';
+    this.filterContentType.clear();
+    this.filterAudience.clear();
+    this.filterCategories.clear();
+    this.filterSpecificTags.clear();
+    this.filterContent();
+  }
+
+  /**
+   * Filtra e ordena o conteúdo com base nos filtros ativos e no termo de pesquisa.
    */
   filterContent(): void {
-    let tempContent = this.allLearningContent;
+    let tempContent = [...this.allLearningContent]; // Cria uma cópia para não modificar o array original
     const searchLower = this.searchTerm.toLowerCase();
 
-    // Filtra por termo de pesquisa
+    // 1. Filtra por termo de pesquisa
     if (searchLower) {
-      tempContent = tempContent.filter(item => 
+      tempContent = tempContent.filter(item =>
         item.title.toLowerCase().includes(searchLower) ||
-        item.titleOverlay.toLowerCase().includes(searchLower)
+        item.shortDescription?.toLowerCase().includes(searchLower) || // Inclui descrição na pesquisa
+        item.channelAuthor?.toLowerCase().includes(searchLower) || // Inclui autor na pesquisa
+        item.tags.some(tag => tag.toLowerCase().includes(searchLower))
       );
     }
 
-    // Filtra por categorias ativas (tags)
+    // 2. Filtra por categorias ativas (chips principais e tags populares)
     if (this.activeFilters.size > 0) {
-      tempContent = tempContent.filter(item => 
+      tempContent = tempContent.filter(item =>
         Array.from(this.activeFilters).every(filter => item.tags.includes(filter))
       );
     }
-    
+
+    // 3. Filtra por Duração (sidebar)
+    if (this.filterDuration) {
+      tempContent = tempContent.filter(item => {
+        const duration = item.durationMinutes;
+        switch (this.filterDuration) {
+          case '0-5': return duration <= 5;
+          case '5-15': return duration > 5 && duration <= 15;
+          case '15+': return duration > 15;
+          default: return true;
+        }
+      });
+    }
+
+    // 4. Filtra por Tipo de Conteúdo (sidebar)
+    if (this.filterContentType.size > 0) {
+      tempContent = tempContent.filter(item => this.filterContentType.has(item.type));
+    }
+
+    // 5. Filtra por Público-alvo (sidebar)
+    if (this.filterAudience.size > 0) {
+      tempContent = tempContent.filter(item =>
+        Array.from(this.filterAudience).every(audienceFilter => item.audience.includes(audienceFilter))
+      );
+    }
+
+    // 6. Filtra por Categorias (temas maiores - sidebar)
+    if (this.filterCategories.size > 0) {
+      tempContent = tempContent.filter(item => this.filterCategories.has(item.mainCategory));
+    }
+
+    // 7. Filtra por Tags Específicas (sidebar)
+    if (this.filterSpecificTags.size > 0) {
+      tempContent = tempContent.filter(item =>
+        Array.from(this.filterSpecificTags).every(tagFilter => item.tags.includes(tagFilter))
+      );
+    }
+
+    // 8. Ordenação
+    switch (this.sortBy) {
+      case 'popular':
+        tempContent.sort((a, b) => b.popularityScore - a.popularityScore);
+        break;
+      case 'recent':
+        tempContent.sort((a, b) => b.publishDate.getTime() - a.publishDate.getTime());
+        break;
+      case 'favorites':
+        tempContent.sort((a, b) => (b.isFavorite ? 1 : 0) - (a.isFavorite ? 1 : 0)); // Favoritos primeiro
+        break;
+      default:
+        // Sem ordenação específica, mantém a ordem original ou a ordem de filtragem
+        break;
+    }
+
     this.filteredLearningContent = tempContent;
   }
 
@@ -110,6 +368,65 @@ export class AprenderComponent implements OnInit {
    * @returns Uma string com os filtros ativos, separados por vírgula.
    */
   getActiveFiltersText(): string {
-    return Array.from(this.activeFilters).join(', ');
+    const filters: string[] = [];
+    if (this.searchTerm) {
+      filters.push(`Pesquisa: "${this.searchTerm}"`);
+    }
+    if (this.activeFilters.size > 0) {
+      filters.push(`Tags: ${Array.from(this.activeFilters).join(', ')}`);
+    }
+    if (this.filterDuration) {
+      filters.push(`Duração: ${this.durationOptions.find(d => d.value === this.filterDuration)?.label}`);
+    }
+    if (this.filterContentType.size > 0) {
+      filters.push(`Tipo: ${Array.from(this.filterContentType).join(', ')}`);
+    }
+    if (this.filterAudience.size > 0) {
+      filters.push(`Público: ${Array.from(this.filterAudience).join(', ')}`);
+    }
+    if (this.filterCategories.size > 0) {
+      filters.push(`Categorias: ${Array.from(this.filterCategories).join(', ')}`);
+    }
+    if (this.filterSpecificTags.size > 0) {
+      filters.push(`Tags Específicas: ${Array.from(this.filterSpecificTags).join(', ')}`);
+    }
+    return filters.join('; ');
   }
+
+  // Futura integração com o backend:
+  // Para integrar com o backend, você precisaria de um serviço Angular
+  // (por exemplo, LearningContentService) que faria requisições HTTP para sua API.
+  // Você chamaria um método neste serviço (ex: `getLearningContent(filters)`)
+  // dentro do seu método `filterContent` ou `ngOnInit`, e atualizaria `allLearningContent`
+  // com os dados recebidos.
+
+  // Exemplo hipotético:
+  /*
+  // import { LearningContentService } from '../services/learning-content.service'; // Supondo um serviço
+  // constructor(private learningContentService: LearningContentService) {}
+
+  // filterContent(): void {
+  //   const filters = {
+  //     searchTerm: this.searchTerm,
+  //     activeFilters: Array.from(this.activeFilters),
+  //     filterDuration: this.filterDuration,
+  //     filterContentType: Array.from(this.filterContentType),
+  //     filterAudience: Array.from(this.filterAudience),
+  //     filterCategories: Array.from(this.filterCategories),
+  //     filterSpecificTags: Array.from(this.filterSpecificTags),
+  //     sortBy: this.sortBy
+  //   };
+
+  //   this.learningContentService.getLearningContent(filters).subscribe(
+  //     (data: LearningContent[]) => {
+  //       this.allLearningContent = data; // Atualiza com os dados do backend
+  //       this.applyLocalFilteringAndSorting(); // Aplica filtros e ordenação adicionais se necessário, ou deixe o backend cuidar de tudo
+  //     },
+  //     (error) => {
+  //       console.error('Erro ao carregar conteúdo:', error);
+  //       // Lógica para tratamento de erro, ex: exibir mensagem ao usuário
+  //     }
+  //   );
+  // }
+  */
 }

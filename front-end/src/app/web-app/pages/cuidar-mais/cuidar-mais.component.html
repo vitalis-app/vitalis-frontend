@@ -11,13 +11,12 @@
   <section class="filters-section">
     <div class="search-bar">
       <i class="ri-search-line"></i>
-      <input type="text" placeholder="Buscar psicólogos por nome ou especialidade..." [(ngModel)]="searchTerm" (input)="filterProfessionals()">
+
+      <input type="text" placeholder="Buscar psicólogos por nome ou especialidade..." [(ngModel)]="searchTerm"
+        (input)="filterProfessionals()">
     </div>
     <div class="categories-nav">
-      <button 
-        *ngFor="let category of categories"
-        class="category-chip"
-        [class.active]="isActiveFilter(category)"
+      <button *ngFor="let category of categories" class="category-chip" [class.active]="isActiveFilter(category)"
         (click)="toggleFilter(category)">
         {{ category }}
         <i class="ri-close-line" *ngIf="isActiveFilter(category)"></i>
@@ -69,18 +68,19 @@
 <div class="modal-overlay" *ngIf="selectedProfessional" (click)="closeProfileModal()">
   <div class="modal-content" (click)="$event.stopPropagation()">
     <button class="btn-close-modal" (click)="closeProfileModal()"><i class="ri-close-line"></i></button>
-    
     <!-- Conteúdo do Modal -->
     <div class="modal-grid" *ngIf="selectedProfessional">
       <!-- Coluna Esquerda: Perfil do Profissional -->
       <div class="modal-profile-col">
         <div class="profile-header">
-          <div class="profile-avatar"><img [src]="selectedProfessional.imageUrl" [alt]="selectedProfessional.name"></div>
+          <div class="profile-avatar"><img [src]="selectedProfessional.imageUrl" [alt]="selectedProfessional.name">
+          </div>
           <div class="profile-header-info">
             <h2>{{ selectedProfessional.name }}</h2>
             <p>CRP {{ selectedProfessional.crp }}</p>
             <div class="prof-rating">
-              <i class="ri-star-fill"></i><span>{{ selectedProfessional.rating }}</span><span>({{ selectedProfessional.reviews }} avaliações)</span>
+              <i class="ri-star-fill"></i><span>{{ selectedProfessional.rating }}</span><span>({{
+                selectedProfessional.reviews }} avaliações)</span>
             </div>
           </div>
         </div>
@@ -95,14 +95,26 @@
         <div class="profile-section">
           <h4>Especialidades</h4>
           <div class="prof-tags">
-             <span class="tag" *ngFor="let tag of selectedProfessional.tags">{{ tag }}</span>
+            <span class="tag" *ngFor="let tag of selectedProfessional.tags">{{ tag }}</span>
           </div>
         </div>
         <div class="profile-details-grid">
-          <div class="detail-item"><h4><i class="ri-psychotherapy-line"></i> Abordagem</h4><p>{{ selectedProfessional.details.abordagem }}</p></div>
-          <div class="detail-item"><h4><i class="ri-group-line"></i> Faixa Etária</h4><p>{{ selectedProfessional.details.faixaEtaria }}</p></div>
-          <div class="detail-item"><h4><i class="ri-earth-line"></i> Idiomas</h4><p>{{ selectedProfessional.details.idiomas }}</p></div>
-          <div class="detail-item"><h4><i class="ri-vidicon-line"></i> Modalidade</h4><p>{{ selectedProfessional.details.modalidade }}</p></div>
+          <div class="detail-item">
+            <h4><i class="ri-psychotherapy-line"></i> Abordagem</h4>
+            <p>{{ selectedProfessional.details.abordagem }}</p>
+          </div>
+          <div class="detail-item">
+            <h4><i class="ri-group-line"></i> Faixa Etária</h4>
+            <p>{{ selectedProfessional.details.faixaEtaria }}</p>
+          </div>
+          <div class="detail-item">
+            <h4><i class="ri-earth-line"></i> Idiomas</h4>
+            <p>{{ selectedProfessional.details.idiomas }}</p>
+          </div>
+          <div class="detail-item">
+            <h4><i class="ri-vidicon-line"></i> Modalidade</h4>
+            <p>{{ selectedProfessional.details.modalidade }}</p>
+          </div>
         </div>
       </div>
 
@@ -112,16 +124,20 @@
         <p class="schedule-subtitle">Selecione uma data:</p>
         <div class="calendar">
           <div class="calendar-header">
-            <button (click)="changeMonth(-1)"><i class="ri-arrow-left-s-line"></i></button>
-            <span>{{ currentDate | date:'MMMM yyyy' }}</span>
-            <button (click)="changeMonth(1)"><i class="ri-arrow-right-s-line"></i></button>
+            <button (click)="previousMonth()" class="nav-button">
+              <i class="ri-arrow-left-s-line"></i>
+            </button>
+            <span class="month-year">
+              {{ monthNames[currentDate.getMonth()] }} {{ currentDate.getFullYear() }}
+            </span>
+            <button (click)="nextMonth()" class="nav-button">
+              <i class="ri-arrow-right-s-line"></i>
+            </button>
           </div>
           <div class="calendar-grid">
             <div class="day-name" *ngFor="let day of weekDays">{{ day }}</div>
-            <div class="day-cell" *ngFor="let day of calendarDays" 
-                 [class.other-month]="day.otherMonth"
-                 [class.selected]="isSameDay(day.date, selectedDate)"
-                 (click)="selectDate(day.date)">
+            <div class="day-cell" *ngFor="let day of calendarDays" [class.other-month]="day.otherMonth"
+              [class.selected]="isSameDay(day.date, selectedDate)" (click)="selectDate(day.date)">
               {{ day.date | date:'d' }}
             </div>
           </div>
@@ -129,10 +145,8 @@
         <div class="available-times" *ngIf="selectedDate">
           <p class="schedule-subtitle">Horários disponíveis:</p>
           <div class="times-grid">
-            <button *ngFor="let time of availableTimes" 
-                    class="time-slot"
-                    [class.selected]="time === selectedTime"
-                    (click)="selectTime(time)">
+            <button *ngFor="let time of availableTimes" class="time-slot" [class.selected]="time === selectedTime"
+              (click)="selectTime(time)">
               {{ time }}
             </button>
           </div>
@@ -142,7 +156,8 @@
           Como assinante Vital+, você tem 20% de desconto nesta consulta.
         </div>
         <button class="btn-confirm-schedule" [disabled]="!selectedTime" (click)="confirmAppointment()">
-          {{ selectedTime ? 'Confirmar agendamento - ' + (selectedDate | date:'dd/MM/yyyy') + ' às ' + selectedTime : 'Selecione data e horário' }}
+          {{ selectedTime ? 'Confirmar agendamento - ' + (selectedDate | date:'dd/MM/yyyy') + ' às ' + selectedTime :
+          'Selecione data e horário' }}
         </button>
         <p class="confirm-notice">Você receberá uma confirmação por email após o agendamento</p>
       </div>

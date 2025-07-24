@@ -27,13 +27,14 @@ interface CalendarDay {
 
 @Component({
   selector: 'app-cuidar-mais',
-  templateUrl: './CuidarMais.component.html',
-  styleUrls: ['./CuidarMais.component.css'],
+  templateUrl: './cuidar-mais.component.html',
+  styleUrls: ['./cuidar-mais.component.css'],
   providers: [DatePipe]
 })
 export class CuidarMaisComponent implements OnInit {
 
   // --- Dados ---
+
   categories: string[] = ['Ansiedade', 'Estresse', 'Autoestima', 'TCC', 'Psicanálise', 'Relacionamentos', 'Carreira', 'LGBTQIA+', 'Jovens', 'Família', 'Online', 'Presencial', 'Mulheres', 'Luto'];
   allProfessionals: Professional[] = [
     { id: 1, name: 'Profissional A', crp: '00/111111', rating: 4.9, reviews: 127, price: 80, tags: ['Ansiedade', 'TCC', 'Autoestima'], imageUrl: 'https://placehold.co/280x180/E0F2F1/333?text=Perfil', badge: 'Desconto Vitali+', about: 'Descrição sobre o profissional, sua abordagem, experiência e como pode ajudar o paciente a alcançar seus objetivos de bem-estar.', details: { abordagem: 'Terapia Cognitivo-Comportamental', faixaEtaria: 'Adultos, Jovens', idiomas: 'Português, Inglês', modalidade: 'Online, Presencial' } },
@@ -53,6 +54,8 @@ export class CuidarMaisComponent implements OnInit {
   currentDate: Date = new Date();
   calendarDays: CalendarDay[] = [];
   weekDays = ['Dom', 'Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sáb'];
+  public monthNames: string[] = ["Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"];
+
   selectedDate: Date | null = null;
   availableTimes = ['09:00', '10:00', '11:00', '14:00', '15:00', '16:00', '17:00'];
   selectedTime: string | null = null;
@@ -142,9 +145,14 @@ export class CuidarMaisComponent implements OnInit {
       startDate.setDate(startDate.getDate() + 1);
     }
   }
+  // Funções para navegar entre os meses (bônus)
+  public previousMonth(): void {
+    this.currentDate.setMonth(this.currentDate.getMonth() - 1);
+    this.generateCalendar();
+  }
 
-  changeMonth(amount: number): void {
-    this.currentDate.setMonth(this.currentDate.getMonth() + amount);
+  public nextMonth(): void {
+    this.currentDate.setMonth(this.currentDate.getMonth() + 1);
     this.generateCalendar();
   }
 

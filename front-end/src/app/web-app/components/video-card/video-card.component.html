@@ -1,0 +1,28 @@
+<div class="learning-card" (click)="onCardClick()">
+  <div class="learning-card-image" [style.backgroundImage]="'url(' + videoData.imageUrl + ')'">
+    <div class="video-duration-overlay">
+      <i class="ri-time-line"></i> {{ formatDuration(videoData.durationMinutes) }}
+    </div>
+  </div>
+  <div class="learning-card-body">
+    <span class="learning-card-tag">{{ videoData.type }}</span>
+    <p class="learning-card-title">{{ videoData.title }}</p>
+
+    <div class="video-meta-info">
+      <span>{{ videoData.channelAuthor }}</span>
+    </div>
+    <div class="video-meta-info">
+      <span><i class="ri-eye-line"></i> {{ formatViews(videoData.views) }} visualizações</span>
+    </div>
+    <p class="video-description">{{ videoData.shortDescription }}</p>
+
+    <div class="video-tags-container" *ngIf="videoData.tags && videoData.tags.length > 0">
+      <button
+        *ngFor="let tag of videoData.tags"
+        class="video-tag-chip"
+        (click)="onTagClick(tag, $event)">
+        {{ tag }}
+      </button>
+    </div>
+  </div>
+</div>

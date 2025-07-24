@@ -1,0 +1,39 @@
+<div class="video-player-container">
+  <div class="video-wrapper">
+    <iframe
+      [src]="youtubeEmbedUrl"
+      frameborder="0"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+      allowfullscreen
+      title="YouTube video player"
+    ></iframe>
+  </div>
+
+  <div class="video-details">
+    <h3 class="video-title">{{ title }}</h3>
+    <p class="video-description">{{ description }}</p>
+
+    <div class="video-meta">
+      <span class="channel-name">{{ channelName }}</span>
+      <span class="separator">•</span>
+      <span class="views">{{ views }} visualizações</span>
+      <span class="separator">•</span>
+      <span class="duration">{{ duration }}</span>
+    </div>
+
+    <div class="video-tags">
+      <span
+        *ngFor="let tag of tags"
+        class="tag-chip"
+        [class.clickable]="tag.link"
+        (click)="handleTagClick(tag)"
+      >
+        {{ tag.name }}
+      </span>
+    </div>
+
+    <button class="watch-on-youtube-button" (click)="openYoutubeLink()">
+      Assistir no YouTube
+    </button>
+  </div>
+</div>
