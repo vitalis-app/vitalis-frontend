@@ -1,0 +1,7 @@
+C:\Users\manto\source\repos\vitalapi\vitalapi\obj\Debug\net8.0\vitalapi.csproj.AssemblyReference.cache
+C:\Users\manto\source\repos\vitalapi\vitalapi\obj\Debug\net8.0\vitalapi.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\manto\source\repos\vitalapi\vitalapi\obj\Debug\net8.0\vitalapi.AssemblyInfoInputs.cache
+C:\Users\manto\source\repos\vitalapi\vitalapi\obj\Debug\net8.0\vitalapi.AssemblyInfo.cs
+C:\Users\manto\source\repos\vitalapi\vitalapi\obj\Debug\net8.0\vitalapi.csproj.CoreCompileInputs.cache
+C:\Users\manto\source\repos\vitalapi\vitalapi\obj\Debug\net8.0\vitalapi.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\manto\source\repos\vitalapi\vitalapi\obj\Debug\net8.0\vitalapi.MvcApplicationPartsAssemblyInfo.cache
