@@ -15,7 +15,7 @@
         <div class="card-content text-center">
           <!-- Ícone fixo para Dias ativos -->
           <i class="ri-leaf-line"></i>
-          <p>152</p>
+          <p>{{geralStats.diasAtivos}}</p>
           <p>Dias ativos</p>
         </div>
       </div>
@@ -24,7 +24,7 @@
         <div class="card-content text-center">
           <!-- Ícone fixo para Total de XP -->
           <i class="ri-fire-line"></i>
-          <p>1.250</p>
+          <p>{{geralStats.totalXp}}</p>
           <p>Total de XP</p>
         </div>
       </div>
@@ -32,18 +32,18 @@
       <div class="card weekly-stat-item">
         <div class="card-content text-center">
           <!-- Ícone fixo para Emoção frequente -->
-          <i class="ri-emotion-happy-line"></i>
-          <p>Tranquilo</p>
-          <p>Emoção frequente</p>
+          <i class="ri-checkbox-circle-line"></i>
+          <p>{{geralStats.missoesConcluidas}}</p>
+          <p>Missões Concluídas</p>
         </div>
       </div>
       <!-- Item de estatística: Vídeos assistidos -->
       <div class="card weekly-stat-item">
         <div class="card-content text-center">
           <!-- Ícone fixo para Vídeos assistidos -->
-          <i class="ri-play-circle-line"></i>
-          <p>3</p>
-          <p>Vídeos assistidos</p>
+          <i class="ri-edit-line"></i>
+          <p>{{geralStats.reflexoesEscritas}}</p>
+          <p>Reflexões escritas</p>
         </div>
       </div>
     </div>
@@ -52,59 +52,36 @@
     <div class="tabs">
       <div class="tabs-list" role="tablist">
         <!-- Botão da aba "Estação Vital" -->
-        <button
-          class="tabs-trigger"
-          [class.active]="activeTab === 'vital'"
-          (click)="setActiveTab('vital')"
-          role="tab"
-          [attr.aria-selected]="activeTab === 'vital'"
-        >
-          <i class="ri-leaf-line"></i>Estação Vital
+        <button class="tabs-trigger" [class.active]="activeTab === 'vital'" (click)="setActiveTab('vital')" role="tab"
+          [attr.aria-selected]="activeTab === 'vital'">
+          <i class="ri-leaf-fill"></i>
+          Estação Vital
         </button>
         <!-- Botão da aba "Estatísticas" -->
-        <button
-          class="tabs-trigger"
-          [class.active]="activeTab === 'stats'"
-          (click)="setActiveTab('stats')"
-          role="tab"
-          [attr.aria-selected]="activeTab === 'stats'"
-        >
+        <button class="tabs-trigger" [class.active]="activeTab === 'stats'" (click)="setActiveTab('stats')" role="tab"
+          [attr.aria-selected]="activeTab === 'stats'">
           <!-- Ícone fixo para Estatísticas -->
-          <i class="ri-bar-chart-2-line"></i>
+          <i class="ri-bar-chart-2-fill"></i>
           Estatísticas
         </button>
         <!-- Botão da aba "Conquistas" -->
-        <button
-          class="tabs-trigger"
-          [class.active]="activeTab === 'achievements'"
-          (click)="setActiveTab('achievements')"
-          role="tab"
-          [attr.aria-selected]="activeTab === 'achievements'"
-        >
+        <button class="tabs-trigger" [class.active]="activeTab === 'achievements'"
+          (click)="setActiveTab('achievements')" role="tab" [attr.aria-selected]="activeTab === 'achievements'">
           <!-- Ícone fixo para Conquistas -->
-          <i class="ri-award-line"></i>
+          <i class="ri-medal-fill"></i>
           Conquistas
         </button>
         <!-- Botão da aba "Histórico" -->
-        <button
-          class="tabs-trigger"
-          [class.active]="activeTab === 'history'"
-          (click)="setActiveTab('history')"
-          role="tab"
-          [attr.aria-selected]="activeTab === 'history'"
-        >
+        <button class="tabs-trigger" [class.active]="activeTab === 'history'" (click)="setActiveTab('history')"
+          role="tab" [attr.aria-selected]="activeTab === 'history'">
           <!-- Ícone fixo para Histórico -->
-          <i class="ri-time-line"></i>
+          <i class="ri-time-fill"></i>
           Histórico
         </button>
       </div>
 
       <!-- Conteúdo da Aba "Estação Vital" -->
-      <div
-        id="vital-content"
-        class="tabs-content"
-        [class.active]="activeTab === 'vital'"
-      >
+      <div id="vital-content" class="tabs-content" [class.active]="activeTab === 'vital'">
         <div class="card">
           <div class="card-header">
             <h2 class="card-title">
@@ -117,7 +94,7 @@
             <div class="xp-chart">
               <!-- Barras de XP fixas para cada dia -->
               <div class="xp-bar-container">
-                <div class="xp-bar" style="height: 56.25%"></div>
+                <div class="xp-bar" style="height: 50%"></div>
                 <!-- 180/320 * 100 -->
                 <p>Dom</p>
                 <p>180</p>
@@ -161,9 +138,7 @@
             </div>
             <div class="xp-summary">
               <p>
-                <span class="font-semibold text-vitalis-primary"
-                  >Terça-feira</span
-                >
+                <span class="font-semibold text-vitalis-primary">Terça-feira</span>
                 foi seu dia mais produtivo com
                 <span class="font-semibold text-vitalis-primary"> 320 XP</span>!
               </p>
@@ -173,11 +148,7 @@
       </div>
 
       <!-- Conteúdo da Aba "Estatísticas" -->
-      <div
-        id="stats-content"
-        class="tabs-content"
-        [class.active]="activeTab === 'stats'"
-      >
+      <div id="stats-content" class="tabs-content" [class.active]="activeTab === 'stats'">
         <div class="stats-grid">
           <div class="card">
             <div class="card-header">
@@ -249,93 +220,73 @@
       </div>
 
       <!-- Conteúdo da Aba "Conquistas" -->
-      <div
-  id="achievements-content"
-  class="tabs-content"
-  [class.active]="activeTab === 'achievements'"
->
-  <div class="achievements-controls">
-    <!-- Filtro de status -->
-    <label class="filter-switch">
-      <input type="checkbox" [(ngModel)]="showCompletedOnly" />
-      <span class="slider"></span>
-      <span class="label-text">
-        {{ showCompletedOnly ? 'Concluídas' : 'Pendentes' }}
-      </span>
-    </label>
+      <div id="achievements-content" class="tabs-content" [class.active]="activeTab === 'achievements'">
+        <div class="achievements-controls">
+          <!-- Filtro de status -->
+          <label class="filter-switch">
+            <input type="checkbox" [(ngModel)]="showCompletedOnly" />
+            <span class="slider"></span>
+            <span class="label-text">
+              {{ showCompletedOnly ? 'Concluídas' : 'Pendentes' }}
+            </span>
+          </label>
 
-    <!-- Botão de ordenação -->
-    <div class="sort-dropdown">
-      <button (click)="toggleSortDropdown()" class="sort-button">
-        <i class="ri-arrow-up-down-line"></i>
-      </button>
-      <div class="sort-options" *ngIf="showSortDropdown">
-        <button (click)="setSortOrder('desc')">Mais recentes</button>
-        <button (click)="setSortOrder('asc')">Mais antigas</button>
-      </div>
-    </div>
-  </div>
-
-  <div class="achievements-list">
-    <div
-      class="card achievement-item"
-      *ngFor="let achievement of filteredAchievements"
-    >
-      <div class="achievement-content">
-        <div
-          class="achievement-icon-wrapper"
-          [ngClass]="achievement.status"
-        >
-          <i
-            [ngClass]="{
-              'ri-checkbox-circle-line': achievement.status === 'completed',
-              'ri-time-line': achievement.status === 'pending'
-            }"
-          ></i>
+          <!-- Botão de ordenação -->
+          <div class="sort-dropdown">
+            <button (click)="toggleSortDropdown()" class="sort-button">
+              <i class="ri-arrow-up-down-line"></i>
+            </button>
+            <div class="sort-options" *ngIf="showSortDropdown">
+              <button (click)="setSortOrder('desc')">Mais recentes</button>
+              <button (click)="setSortOrder('asc')">Mais antigas</button>
+            </div>
+          </div>
         </div>
 
-        <div class="achievement-text-content">
-          <h3 class="font-semibold text-vitalis-text mb-1">
-            {{ achievement.titulo }}
-          </h3>
-          <p class="text-sm text-vitalis-text/60 mb-3">
-            {{ achievement.descricao }}
-          </p>
+        <div class="achievements-list">
+          <div class="card achievement-item" *ngFor="let achievement of filteredAchievements">
+            <div class="achievement-content">
+              <div class="achievement-icon-wrapper" [ngClass]="achievement.status">
+                <i [ngClass]="{
+              'ri-checkbox-circle-line': achievement.status === 'completa',
+              'ri-time-line': achievement.status === 'pendente'
+            }"></i>
+              </div>
 
-          <!-- Se completed: mostra data -->
-          <span
-            class="completed-date"
-            *ngIf="achievement.status === 'completed'"
-          >
-            {{ getRelativeDate(achievement.completedDate) }}
-          </span>
+              <div class="achievement-text-content">
+                <h3 class="font-semibold text-vitalis-text mb-1">
+                  {{ achievement.titulo }}
+                </h3>
+                <p class="text-sm text-vitalis-text/60 mb-3">
+                  {{ achievement.descricao }}
+                </p>
 
-          <!-- Se pendente com progresso -->
-          <div *ngIf="achievement.status === 'pending' && achievement.progressoAtual !== undefined" class="progress-container">
-            <div class="progress-bar">
-              <div
-                class="progress-fill"
-                [style.width.%]="(achievement.progressoAtual / achievement.progressoTotal) * 100"
-              ></div>
+                <!-- Se completed: mostra data -->
+                <span class="completed-date" *ngIf="achievement.status === 'completa'">
+                  {{ getRelativeDate(achievement.dataConquista) }}
+                </span>
+
+                <!-- Se pendente com progresso -->
+                <div *ngIf="achievement.status === 'pendente' && achievement.progressoAtual !== undefined"
+                  class="progress-container">
+                  <div class="progress-bar">
+                    <div class="progress-fill"
+                      [style.width.%]="(achievement.progressoAtual / achievement.progressoTotal) * 100"></div>
+                  </div>
+                  <p class="progress-text">
+                    {{ achievement.progressoAtual }} de
+                    {{ achievement.progressoTotal }}
+                  </p>
+                </div>
+              </div>
             </div>
-            <p class="progress-text">
-              {{ achievement.progressoAtual }} de
-              {{ achievement.progressoTotal }}
-            </p>
           </div>
         </div>
       </div>
-    </div>
-  </div>
-</div>
 
 
       <!-- Conteúdo da Aba "Histórico" -->
-      <div
-        id="history-content"
-        class="tabs-content"
-        [class.active]="activeTab === 'history'"
-      >
+      <div id="history-content" class="tabs-content" [class.active]="activeTab === 'history'">
         <div class="history-section">
           <div class="card">
             <div class="card-header">

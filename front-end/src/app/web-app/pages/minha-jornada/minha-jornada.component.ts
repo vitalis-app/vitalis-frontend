@@ -11,124 +11,218 @@ export class MinhaJornadaComponent {
   setActiveTab(tabName: string): void {
     this.activeTab = tabName;
   }
+  geralStats = {id: 1, diasAtivos: 100, totalXp: 1200, missoesConcluidas: 25, reflexoesEscritas: 12}
 
+  // Conquistas
   achievements = [
     {
       id: 1,
-      titulo: 'Primeira Regada',
-      descricao: 'Você regou sua planta emocional pela primeira vez.',
-      status: 'completed',
-      completedDate: '2025-07-11T09:00:00',
+      titulo: 'Primeiro passo',
+      descricao: 'Primeiro registro na Estação Vital.',
+      status: 'pendente',
+      progressoAtual: 0,
+      progressoTotal: 1,
+      dataConquista: ''
     },
     {
       id: 2,
-      titulo: 'Constância é Tudo',
-      descricao: 'Regue sua planta por 3 dias seguidos.',
-      status: 'completed',
-      completedDate: '2025-07-13T09:00:00',
+      titulo: 'Constante',
+      descricao: 'Registro em 7 dias consecutivos.',
+      status: 'pendente',
+      progressoAtual: 0,
+      progressoTotal: 7,
+      dataConquista: ''
     },
     {
       id: 3,
-      titulo: 'Raízes Firmes',
-      descricao: 'Regue sua planta por 7 dias consecutivos.',
-      status: 'pending',
-      progressoAtual: 4,
-      progressoTotal: 7,
+      titulo: 'Eu me comprometi',
+      descricao: '21 registros em até 30 dias.',
+      status: 'pendente',
+      progressoAtual: 0,
+      progressoTotal: 21,
+      dataConquista: ''
     },
     {
       id: 4,
-      titulo: 'Jardineiro Dedicado',
-      descricao:
-        'Mantenha uma sequência de 14 dias cuidando da sua planta emocional.',
-      status: 'pending',
-      progressoAtual: 4,
-      progressoTotal: 14,
+      titulo: 'Ritual de cuidado',
+      descricao: 'Criou o próprio ritmo de uso na plataforma.',
+      status: 'pendente',
+      progressoAtual: 0,
+      progressoTotal: 1,
+      dataConquista: ''
     },
+
+    // 2. Autocuidado e ação prática
     {
       id: 5,
-      titulo: 'Jornada em Flor',
-      descricao: 'Complete um ciclo de 30 dias seguidos regando sua planta.',
-      status: 'pending',
-      progressoAtual: 4,
-      progressoTotal: 30,
+      titulo: 'Hidratado',
+      descricao: 'Concluiu a missão “Beber água” 5 vezes.',
+      status: 'pendente',
+      progressoAtual: 0,
+      progressoTotal: 5,
+      dataConquista: ''
     },
     {
       id: 6,
-      titulo: 'Aprendiz Vital',
-      descricao: 'Assista seu primeiro conteúdo no Aprender+.',
-      status: 'completed',
-      completedDate: '2025-07-12T16:20:00',
+      titulo: 'Concluindo',
+      descricao: 'Concluiu 10 missões.',
+      status: 'pendente',
+      progressoAtual: 0,
+      progressoTotal: 10,
+      dataConquista: ''
     },
     {
       id: 7,
-      titulo: 'Reflexivo(a)',
-      descricao: 'Assista 5 vídeos da categoria Reflexões.',
-      status: 'pending',
-      progressoAtual: 2,
-      progressoTotal: 5,
+      titulo: 'Estou zen',
+      descricao: 'Usou meditação do Aprender+ 2 vezes.',
+      status: 'pendente',
+      progressoAtual: 0,
+      progressoTotal: 2,
+      dataConquista: ''
     },
     {
       id: 8,
-      titulo: 'Explorador(a) do Conhecimento',
-      descricao: 'Assista conteúdos de pelo menos 5 categorias diferentes.',
-      status: 'pending',
-      progressoAtual: 3,
+      titulo: 'Me cuidando',
+      descricao: 'Concluiu missão de autocuidado 5 vezes.',
+      status: 'pendente',
+      progressoAtual: 0,
       progressoTotal: 5,
+      dataConquista: ''
     },
     {
       id: 9,
-      titulo: 'Maratona Zen',
-      descricao: 'Assista 3 vídeos em um único dia.',
-      status: 'completed',
-      completedDate: '2025-07-13T20:05:00',
+      titulo: 'Me ouvindo',
+      descricao: 'Escreveu um textinho pela 1ª vez.',
+      status: 'pendente',
+      progressoAtual: 0,
+      progressoTotal: 1,
+      dataConquista: ''
     },
     {
       id: 10,
-      titulo: 'Aprendiz Constante',
-      descricao: 'Complete 10 conteúdos em uma semana.',
-      status: 'pending',
-      progressoAtual: 6,
-      progressoTotal: 10,
+      titulo: 'Escritor nato',
+      descricao: 'Escreveu 5 reflexões.',
+      status: 'pendente',
+      progressoAtual: 0,
+      progressoTotal: 5,
+      dataConquista: ''
     },
+
+    // 4. Cuidando mais
     {
       id: 11,
-      titulo: 'Primeiro Sentir',
-      descricao: 'Registre seu humor pela primeira vez.',
-      status: 'completed',
-      completedDate: '2025-07-10T10:45:00',
+      titulo: 'Tomei coragem',
+      descricao: 'Solicitou o primeiro agendamento com especialista.',
+      status: 'pendente',
+      progressoAtual: 0,
+      progressoTotal: 1,
+      dataConquista: ''
     },
     {
       id: 12,
-      titulo: 'Autor da Sua Jornada',
-      descricao: 'Escreva no Diário Vital 3 dias seguidos.',
-      status: 'pending',
-      progressoAtual: 1,
-      progressoTotal: 3,
+      titulo: 'Meu espaço',
+      descricao: 'Realizou a primeira sessão.',
+      status: 'pendente',
+      progressoAtual: 0,
+      progressoTotal: 1,
+      dataConquista: ''
     },
     {
       id: 13,
-      titulo: 'Emoções à Flor da Pele',
-      descricao: 'Complete 10 registros de humor diferentes em uma semana.',
-      status: 'pending',
-      progressoAtual: 4,
-      progressoTotal: 10,
+      titulo: 'Direção certa',
+      descricao: 'Compareceu a 3 sessões.',
+      status: 'pendente',
+      progressoAtual: 0,
+      progressoTotal: 3,
+      dataConquista: ''
     },
     {
       id: 14,
-      titulo: 'Primeira Conquista',
-      descricao: 'Você desbloqueou sua primeira conquista.',
-      status: 'completed',
-      completedDate: '2025-07-10T10:50:00',
+      titulo: 'Construção emocional',
+      descricao: 'Completou 8 sessões.',
+      status: 'pendente',
+      progressoAtual: 0,
+      progressoTotal: 8,
+      dataConquista: ''
     },
+
+    // 5. Aprendizado e crescimento
     {
       id: 15,
-      titulo: 'Vitalis Star',
-      descricao: 'Complete todas as missões diárias por 5 dias consecutivos.',
-      status: 'pending',
-      progressoAtual: 2,
-      progressoTotal: 5,
+      titulo: 'Primeiro insight',
+      descricao: 'Assistiu ao primeiro vídeo no Aprender+.',
+      status: 'pendente',
+      progressoAtual: 0,
+      progressoTotal: 1,
+      dataConquista: ''
     },
+    {
+      id: 16,
+      titulo: 'Em expansão',
+      descricao: 'Assistiu a 5 vídeos diferentes.',
+      status: 'pendente',
+      progressoAtual: 0,
+      progressoTotal: 5,
+      dataConquista: ''
+    },
+    {
+      id: 17,
+      titulo: 'Me identifiquei',
+      descricao: 'Favoritou um vídeo que fez sentido.',
+      status: 'pendente',
+      progressoAtual: 0,
+      progressoTotal: 1,
+      dataConquista: ''
+    },
+    {
+      id: 18,
+      titulo: 'Explorador(a)',
+      descricao: 'Viu conteúdos de 3 categorias diferentes.',
+      status: 'pendente',
+      progressoAtual: 0,
+      progressoTotal: 3,
+      dataConquista: ''
+    },
+
+    // 6. Símbolos de evolução
+    {
+      id: 19,
+      titulo: 'Floresta interior',
+      descricao: 'Desbloqueou 10 conquistas.',
+      status: 'pendente',
+      progressoAtual: 0,
+      progressoTotal: 10,
+      dataConquista: ''
+    },
+    {
+      id: 20,
+      titulo: 'O começo de novo',
+      descricao: 'Voltou a usar após um tempo sem acessar.',
+      status: 'pendente',
+      progressoAtual: 0,
+      progressoTotal: 1,
+      dataConquista: ''
+    },
+    {
+      id: 21,
+      titulo: 'Me vi de verdade',
+      descricao: 'Fez reflexões consistentes por 7 dias.',
+      status: 'pendente',
+      progressoAtual: 0,
+      progressoTotal: 7,
+      dataConquista: ''
+    },
+    {
+      id: 22,
+      titulo: 'Floresci',
+      descricao: 'Fez registros, missões e vídeos na mesma semana.',
+      status: 'pendente',
+      progressoAtual: 0,
+      progressoTotal: 1,
+      dataConquista: ''
+    }
   ];
+
 
   // 👇 **MUDANÇA APLICADA AQUI**
   getRelativeDate(dateStr: string | undefined): string {
@@ -143,7 +237,7 @@ export class MinhaJornadaComponent {
     return `${diffDays} dias atrás`;
   }
 
-  showCompletedOnly = true;
+  showCompletedOnly = false;
   showSortDropdown = false;
   sortOrder: 'asc' | 'desc' = 'desc';
 
@@ -158,15 +252,15 @@ export class MinhaJornadaComponent {
 
   get filteredAchievements() {
     const filtered = this.achievements.filter((a) =>
-      this.showCompletedOnly ? a.status === 'completed' : a.status === 'pending'
+      this.showCompletedOnly ? a.status === 'completa' : a.status === 'pendente'
     );
 
     // O sort deve ser aplicado ao array filtrado.
     return filtered.sort((a, b) => {
       // Ordenação para conquistas concluídas
       if (this.showCompletedOnly) {
-        const dateA = new Date(a.completedDate!).getTime(); // '!' é seguro aqui por causa do filtro
-        const dateB = new Date(b.completedDate!).getTime(); // '!' é seguro aqui por causa do filtro
+        const dateA = new Date(a.dataConquista!).getTime(); // '!' é seguro aqui por causa do filtro
+        const dateB = new Date(b.dataConquista!).getTime(); // '!' é seguro aqui por causa do filtro
         return this.sortOrder === 'desc' ? dateB - dateA : dateA - dateB;
       }
 
