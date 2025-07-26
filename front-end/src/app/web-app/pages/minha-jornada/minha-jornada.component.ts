@@ -1,17 +1,164 @@
 import { Component } from '@angular/core';
+import { ChartOptions, ChartType, ChartData } from 'chart.js';
 
 @Component({
   selector: 'app-minha-jornada',
   templateUrl: './minha-jornada.component.html',
-  styleUrls: ['./minha-jornada.component.css'],
+  styleUrls: ['./minha-jornada.component.css']
 })
 export class MinhaJornadaComponent {
-  activeTab: string = 'vital';
 
+  // Lógica para o Gráfico de linhas
+  public chartData: ChartData<'line'> = {
+    labels: ['Dom', 'Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sáb'],
+    datasets: [
+      {
+        label: 'XP diário',
+        data: [],
+        fill: false,
+        tension: 0.3,
+        borderColor: '',
+        backgroundColor: '',
+        pointBackgroundColor: '',
+        pointRadius: 5
+      }
+    ]
+  };
+
+  public chartOptions: ChartOptions<'line'> = {};
+  public chartType: 'line' = 'line';
+
+  // Pág Ativa
+  activeTab: string = 'vital';
   setActiveTab(tabName: string): void {
     this.activeTab = tabName;
   }
-  geralStats = {id: 1, diasAtivos: 100, totalXp: 1200, missoesConcluidas: 25, reflexoesEscritas: 12}
+
+  geralStats = {
+    id: 1,
+    diasAtivos: 100,
+    totalXp: 1200,
+    missoesConcluidas: 25,
+    reflexoesEscritas: 12
+  };
+
+  // Variáveis dos XP's diários
+  xpPorDia = [
+    { dia: 'Domingo', valor: 180 },
+    { dia: 'Segunda', valor: 100 },
+    { dia: 'Terça', valor: 820 },
+    { dia: 'Quarta', valor: 180 },
+    { dia: 'Quinta', valor: 220 },
+    { dia: 'Sexta', valor: 280 },
+    { dia: 'Sábado', valor: 150 }
+  ];
+
+  // Dia com mais xp
+  mostProductiveDay: { dia: string; valor: number } = { dia: '', valor: 0 };
+
+  ngOnInit(): void {
+    // Obtemos as cores da paleta atual do CSS
+    const corTexto = this.getCSSVariableValue('--verde-1') || '#176b5d';
+    const corLinha = this.getCSSVariableValue('--verde-4') || '#7dd1c3';
+    const corPonto = this.getCSSVariableValue('--verde-10') || '#27b29b';
+    const corVerde2 = this.getCSSVariableValue('--verde-0') || '#176b5d';
+
+
+    // Preenche os dados dinamicamente
+    this.chartData.labels = this.xpPorDia.map(item => item.dia);
+    this.chartData.datasets[0].data = this.xpPorDia.map(item => item.valor);
+    this.chartData.datasets[0].borderColor = corLinha;
+    this.chartData.datasets[0].backgroundColor = corPonto;
+    this.chartData.datasets[0].pointBackgroundColor = corPonto;
+
+    this.chartOptions = {
+      responsive: true,
+      scales: {
+        y: {
+          beginAtZero: true,
+          ticks: {
+            color: corTexto,
+            font: {
+              family: 'Poppins, sans-serif'
+            }
+          },
+          grid: {
+            color: corTexto + '30'
+          }
+        },
+        x: {
+          ticks: {
+            color: corTexto,
+            font: {
+              family: 'Poppins, sans-serif'
+            }
+          },
+          grid: {
+            color: corTexto + '30'
+          }
+        }
+      },
+      plugins: {
+        legend: {
+          display: false,
+          labels: {
+            color: corTexto
+          }
+        },
+        tooltip: {
+          bodyFont: {
+            family: 'Poppins, sans-serif'
+          },
+          titleFont: {
+            family: 'Poppins, sans-serif'
+          },
+          bodyColor: corTexto, // Cor do texto dos valores
+          titleColor: corTexto, // Cor do texto do título (dia da semana)
+          backgroundColor: this.getCSSVariableValue('--verde-6') || '#d8f3dc', // Cor de fundo do tooltip
+          borderColor: this.getCSSVariableValue('--verde-5') || '#aed9b9', // Cor da borda do tooltip
+          borderWidth: 1,
+          callbacks: {
+            labelColor: (context) => ({
+              borderColor: this.getCSSVariableValue('--verde-3') || '#27b29b',
+              backgroundColor: this.getCSSVariableValue('--verde-3') || '#27b29b',
+              borderWidth: 1,
+              borderRadius: 2,
+            }),
+            title: (context) => {
+              // Formata o título para exibir o dia da semana
+              const labelIndex = context?.[0]?.dataIndex;
+              return this.chartData.labels?.[labelIndex] as string;
+            },
+            label: (context) => {
+              let label = context.dataset.label || '';
+              if (label) {
+                label += ': ';
+              }
+              if (context.parsed.y !== null) {
+                label += context.parsed.y + ' XP';
+              }
+              return label;
+            }
+          }
+        }
+      }
+    }
+
+    // Lógica para encontrar o dia mais produtivo
+    this.mostProductiveDay = this.xpPorDia.reduce((prev, current) =>
+      (prev.valor > current.valor) ? prev : current
+    );
+  }
+
+  getCSSVariableValue(variable: string): string {
+    return getComputedStyle(document.documentElement)
+      .getPropertyValue(variable)
+      .trim();
+  }
+
+  get maxXP(): number {
+    return Math.max(...this.xpPorDia.map((d) => d.valor));
+  }
 
   // Conquistas
   achievements = [

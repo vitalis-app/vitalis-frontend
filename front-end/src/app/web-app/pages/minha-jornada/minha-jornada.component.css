@@ -5,6 +5,10 @@
   --azul-claro: #60a5fa;
 }
 
+*{
+  font-family: 'Poppins', sans-serif;
+}
+
 .container {
   padding: 2rem 4rem;
 }
@@ -41,7 +45,7 @@
 .card:hover {
   box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
     0 2px 4px -1px rgba(0, 0, 0, 0.06);
-  transform: scale(1.02);
+  transform: scale(1.03);
 }
 
 .card-content {
@@ -156,39 +160,27 @@
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
-  height: 200px;
+  height: 20rem;
   padding: 0 2rem;
   margin-bottom: 1rem;
   gap: 1rem;
 }
 
+.card canvas {
+  max-height: 300px;
+  width: 100%;
+  margin-top: 1rem;
+}
+
+
 .xp-bar-container {
   display: flex;
+  height: 12rem;
   flex-direction: column;
   align-items: center;
+  justify-content: flex-end;
   flex: 1;
 }
-
-.xp-bar {
-  width: 20px;
-  height: 100px;
-  color: #00796B;
-  background-color: linear-gradient(180deg, #4DB6AC, #00796B);
-  border-radius: 8px 8px 0 0;
-}
-
-.xp-bar-container p {
-  margin-top: 0.5rem;
-  font-size: 0.875rem;
-  color: var(--verde-3);
-  font-weight: 500;
-}
-
-.xp-bar-container p:first-of-type {
-  margin-top: 0.75rem;
-  color: var(--text-color);
-}
-
 
 .xp-summary {
   margin-top: 1.5rem; /* mt-6 */
@@ -205,6 +197,16 @@
 .xp-summary .font-semibold {
   font-weight: 600; /* font-semibold */
   color: var(--verde-2);
+}
+
+/* Nova classe para a caixa do resumo de XP */
+.summary-box {
+  background-color: var(--verde-6); /* Cor de fundo da caixa */
+  border: 1px solid var(--verde-5); /* Borda */
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05); /* Sombra */
+  border-radius: 16px; /* Borda arredondada */
+  padding: 1.5rem; /* Espaçamento interno */
+  margin-top: 1rem; /* Margem superior */
 }
 
 /* Estatísticas */
