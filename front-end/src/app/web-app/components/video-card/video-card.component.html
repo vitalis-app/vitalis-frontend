@@ -7,7 +7,6 @@
   <div class="learning-card-body">
     <span class="learning-card-tag">{{ videoData.type }}</span>
     <p class="learning-card-title">{{ videoData.title }}</p>
-
     <div class="video-meta-info">
       <span>{{ videoData.channelAuthor }}</span>
     </div>
@@ -15,7 +14,6 @@
       <span><i class="ri-eye-line"></i> {{ formatViews(videoData.views) }} visualizações</span>
     </div>
     <p class="video-description">{{ videoData.shortDescription }}</p>
-
     <div class="video-tags-container" *ngIf="videoData.tags && videoData.tags.length > 0">
       <button
         *ngFor="let tag of videoData.tags"

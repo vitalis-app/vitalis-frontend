@@ -9,38 +9,17 @@
   <section class="filters-section">
     <div class="search-bar">
       <i class="ri-search-line"></i>
-      <input type="text" placeholder="Pesquisar artigos, vídeos, cursos..." [(ngModel)]="searchTerm" (input)="filterContent()">
+      <input type="text" placeholder="Pesquisar artigos, vídeos, cursos..." [(ngModel)]="searchTerm" (ngModelChange)="filterContent()">
     </div>
 
-    <div class="popular-tags-section">
-      <span class="section-label">Tags mais populares:</span>
-      <div class="popular-tags-chips">
-        <button
-          *ngFor="let tag of popularTags"
-          class="category-chip"
-          [class.active]="isActiveFilter(tag)"
-          (click)="toggleFilter(tag)">
-          {{ tag }}
-          <i class="ri-close-line" *ngIf="isActiveFilter(tag)"></i>
-        </button>
-      </div>
-    </div>
-
-    <div class="main-filters-row">
-      <div class="categories-nav">
-        <button
-          *ngFor="let category of categories"
-          class="category-chip"
-          [class.active]="isActiveFilter(category)"
-          (click)="toggleFilter(category)">
-          {{ category }}
-          <i class="ri-close-line" *ngIf="isActiveFilter(category)"></i>
-        </button>
-        <button class="btn-clear-filters" *ngIf="activeFilters.size > 0 || searchTerm" (click)="clearFilters()">
-          Limpar filtros
-        </button>
-      </div>
-
+    <div class="filter-tags-container">
+  <button *ngFor="let tag of displayTags" class="category-chip" [class.active]="isActiveFilter(tag)" (click)="toggleFilter(tag)">
+    {{ tag }}
+    <i class="ri-close-line" *ngIf="isActiveFilter(tag)"></i>
+  </button>
+</div>
+    
+    <div class="action-filters-row">
       <div class="sort-and-more-filters">
         <div class="dropdown">
           <button class="btn-sort" (click)="toggleSortDropdown()">
@@ -52,11 +31,13 @@
             <a (click)="setSortBy('favorites'); toggleSortDropdown()">Favoritos</a>
           </div>
         </div>
-
         <button class="btn-more-filters" (click)="toggleMoreFiltersSidebar()">
           <i class="ri-filter-3-line"></i> Mais Filtros
         </button>
       </div>
+      <button class="btn-clear-filters" *ngIf="activeFilters.size > 0 || searchTerm" (click)="clearFilters()">
+        Limpar filtros
+      </button>
     </div>
   </section>
 
@@ -64,19 +45,17 @@
     <section class="topic-section">
       <header class="grid-header">
         <h3 class="section-title">Reflexão</h3>
-        <p *ngIf="activeFilters.size > 0 || searchTerm || filterDuration || filterContentType.size > 0 || filterAudience.size > 0 || filterCategories.size > 0 || filterSpecificTags.size > 0">
-          Filtros ativos: {{ getActiveFiltersText() }}
-        </p>
+        <p *ngIf="getActiveFiltersText()">Filtros ativos: {{ getActiveFiltersText() }}</p>
       </header>
       <div class="learning-grid">
         <ng-container *ngFor="let item of filteredLearningContent">
           <app-video-card
             [videoData]="item"
-            (videoCardClick)="openVideoModal($event)"
+            (videoCardClick)="openVideoModal(item)"
             (tagClick)="toggleFilter($event)">
           </app-video-card>
         </ng-container>
-         <p *ngIf="filteredLearningContent.length === 0" class="no-results">
+        <p *ngIf="filteredLearningContent.length === 0" class="no-results">
           Nenhum conteúdo encontrado. Tente uma pesquisa ou filtro diferente.
         </p>
       </div>
@@ -94,24 +73,21 @@
   </main>
 </div>
 
-<div class="more-filters-sidebar" [class.open]="showMoreFiltersSidebar">
+<div class="more-filters-sidebar" [ngStyle]="getSidebarStyles()">
   <div class="sidebar-header">
     <h3>Mais Filtros</h3>
-    <button class="btn-close-sidebar" (click)="toggleMoreFiltersSidebar()">
-      <i class="ri-close-line"></i>
-    </button>
+    <button class="btn-close-sidebar" (click)="toggleMoreFiltersSidebar()"><i class="ri-close-line"></i></button>
   </div>
   <div class="sidebar-content">
     <div class="filter-group">
       <h4>Duração</h4>
       <div class="filter-options-grid">
         <label *ngFor="let duration of durationOptions" class="filter-chip">
-          <input type="radio" name="duration" [value]="duration.value" [(ngModel)]="filterDuration" (change)="filterContent()">
+          <input type="radio" name="duration" [value]="duration.value" [checked]="filterDuration === duration.value" (click)="toggleDurationFilter(duration.value)">
           {{ duration.label }}
         </label>
       </div>
     </div>
-
     <div class="filter-group">
       <h4>Tipo de Conteúdo</h4>
       <div class="filter-options-grid">
@@ -121,7 +97,6 @@
         </label>
       </div>
     </div>
-
     <div class="filter-group">
       <h4>Público-alvo</h4>
       <div class="filter-options-grid">
@@ -131,7 +106,6 @@
         </label>
       </div>
     </div>
-
     <div class="filter-group">
       <h4>Categorias</h4>
       <div class="filter-options-grid">
@@ -141,7 +115,6 @@
         </label>
       </div>
     </div>
-
     <div class="filter-group">
       <h4>Tags Específicas</h4>
       <div class="filter-options-grid">
@@ -151,27 +124,25 @@
         </label>
       </div>
     </div>
-
-    <div class="sidebar-actions">
-      <button class="btn-clear-sidebar-filters" (click)="clearAllSidebarFilters()">Limpar Filtros</button>
-      <button class="btn-apply-filters" (click)="toggleMoreFiltersSidebar()">Aplicar Filtros</button>
-    </div>
+  </div>
+  <div class="sidebar-actions">
+    <button class="btn-clear-sidebar-filters" (click)="clearAllSidebarFilters()">Limpar Filtros</button>
+    <button class="btn-apply-filters" (click)="toggleMoreFiltersSidebar()">Aplicar Filtros</button>
   </div>
 </div>
 
 <div class="video-player-modal-overlay" *ngIf="showVideoPlayerModal" (click)="closeVideoModal()">
   <div class="video-player-modal-content" (click)="$event.stopPropagation()">
-    <button class="btn-close-video-modal" (click)="closeVideoModal()">
-      <i class="ri-close-line"></i>
-    </button>
-    <app-video-player
-      *ngIf="selectedVideo"
+    <button class="btn-close-video-modal" (click)="closeVideoModal()"><i class="ri-close-line"></i></button>
+    <app-video-player *ngIf="selectedVideo"
       [videoId]="selectedVideo.videoId || ''"
       [title]="selectedVideo.title"
       [description]="selectedVideo.shortDescription || ''"
       [channelName]="selectedVideo.channelAuthor || 'Canal Vitalis'"
       [views]="selectedVideo.views || 0"
-      [duration]="selectedVideo.videoDuration || '00:00'"
+      
+      [duration]="formatDuration(selectedVideo.durationMinutes)"
+
       [tags]="mapTagsToVideoTags(selectedVideo.tags)">
     </app-video-player>
   </div>
