@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { FormsModule } from '@angular/forms'; 
+import { FormsModule } from '@angular/forms';
 // --- Layouts ---
 import { SiteLayoutComponent } from './site/layout/site-layout/site-layout.component';
 import { WebAppLayoutComponent } from './web-app/layout/web-app-layout/web-app-layout.component';
@@ -50,14 +50,21 @@ const routes: Routes = [
     children: [
       { path: '', component: HomeAppComponent },
       // Corrigido o nome da rota para 'aprender'
-      { path: 'aprender-mais', component: AprenderComponent }, 
+      { path: 'aprender-mais', component: AprenderComponent },
       { path: 'configuracoes', component: ConfiguracoesComponent },
       { path: 'conta', component: ContaComponent },
-      { path: 'estacao-vital', component: EstacaoVitalComponent },
       { path: 'estacao-vital/registro-emocional', component: RegistroEmocionalComponent },
       { path: 'minha-jornada', component: MinhaJornadaComponent },
       { path: 'CuidarMais', component: CuidarMaisComponent },
     ],
+  },
+  {
+    path: 'app',
+    component: LoginPageLayoutComponent,
+    children: [
+      { path: 'estacao-vital', component: EstacaoVitalComponent },
+
+    ]
   },
 
   // 3. Rotas de Autenticação (dentro do LoginPageLayoutComponent)
@@ -65,8 +72,8 @@ const routes: Routes = [
     path: 'auth', // Adicionado um caminho 'auth' para evitar conflito
     component: LoginPageLayoutComponent,
     children: [
-      { path: 'login', component: LoginComponent},
-      ]
+      { path: 'login', component: LoginComponent },
+    ]
   },
 
   // 4. Rota de Fallback (se nenhuma outra rota corresponder)
@@ -85,4 +92,4 @@ const routes: Routes = [
   ],
   exports: [RouterModule, FormsModule]
 })
-export class AppRoutingModule {}
+export class AppRoutingModule { }

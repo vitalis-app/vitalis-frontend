@@ -1,4 +1,4 @@
-import { Component, ViewChild, ElementRef } from '@angular/core';
+import { Component, ViewChild, ElementRef, HostListener, OnInit } from '@angular/core';
 
 // Interfaces para tipagem dos dados
 interface Missao {
@@ -20,7 +20,12 @@ interface Conquista {
   templateUrl: './estacao-vital.component.html',
   styleUrls: ['./estacao-vital.component.css'],
 })
-export class EstacaoVitalComponent {
+export class EstacaoVitalComponent implements OnInit {
+  // Controle de mobile e visibilidade das missões
+  isMobile = false;
+  modalAberto = false;
+  modalTipo: 'diarias' | 'semanal' = 'diarias';
+
   // Propriedades da planta e do jogador
   nomePlanta: string = 'Planta Fofinha';
   editandoNome: boolean = false;
@@ -45,6 +50,24 @@ export class EstacaoVitalComponent {
     { id: 1, descricao: 'Primeiros passos: completou sua primeira missão!', concluida: true },
   ];
 
+  ngOnInit() {
+    this.checkMobile();
+  }
+
+  @HostListener('window:resize')
+  checkMobile() {
+    this.isMobile = window.innerWidth <= 768;
+  }
+
+  abrirModal(tipo: 'diarias' | 'semanal') {
+    this.modalTipo = tipo;
+    this.modalAberto = true;
+  }
+
+  fecharModal() {
+    this.modalAberto = false;
+  }
+
   // Getters para filtrar as missões por tipo
   get missoesDiarias(): Missao[] {
     return this.missoes.filter((m) => m.tipo === 'diaria');
@@ -55,26 +78,17 @@ export class EstacaoVitalComponent {
   }
 
   get ultimaConquista(): Conquista {
-    // Retorna a última conquista ou um objeto padrão se não houver nenhuma
     return this.conquistas.length > 0
       ? this.conquistas[this.conquistas.length - 1]
       : { id: 0, descricao: 'Nenhuma conquista ainda.', concluida: false };
   }
 
-  /**
-   * Marca uma missão como concluída e inicia a animação de ganho de XP.
-   * @param missao A missão a ser completada.
-   */
   completarMissao(missao: Missao): void {
     if (missao.concluida) return;
     missao.concluida = true;
     this.animarGanhoDeXp(missao.xp);
   }
 
-  /**
-   * Anima o ganho de XP na barra de progresso e cuida da lógica de subida de nível.
-   * @param xpGanho A quantidade de XP a ser adicionada.
-   */
   private animarGanhoDeXp(xpGanho: number): void {
     this.xp += xpGanho;
     let totalXpParaAnimar = xpGanho;
@@ -88,29 +102,21 @@ export class EstacaoVitalComponent {
       this.xpAnimado++;
       totalXpParaAnimar--;
 
-      // Verifica se subiu de nível
       if (this.xpAnimado >= this.xpMax) {
         this.nivel++;
         this.xpAnimado = 0;
         this.xpMax = Math.floor(this.xpMax * 1.5);
       }
-    }, 12); // Ajuste a velocidade da animação aqui (10ms por ponto de XP)
+    }, 12);
   }
 
-  /**
-   * Habilita o modo de edição para o nome da planta e foca no input.
-   */
   habilitarEdicaoNome(): void {
     this.editandoNome = true;
     setTimeout(() => this.inputNomePlanta?.nativeElement.focus(), 0);
   }
 
-  /**
-   * Desabilita o modo de edição e salva o novo nome.
-   */
   desabilitarEdicaoNome(): void {
     this.editandoNome = false;
-    // Aqui você pode adicionar a lógica para salvar o nome (ex: API, localStorage)
     console.log('Nome da planta salvo:', this.nomePlanta);
   }
 }
