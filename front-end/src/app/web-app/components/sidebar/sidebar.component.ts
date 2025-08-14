@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 
@@ -11,15 +11,26 @@ import { RouterModule } from '@angular/router';
 })
 export class SidebarComponent {
   
-  isSidebarOpen = false;
+  isSidebarOpen = false; // Controla o menu gaveta no mobile
+  isCollapsed = false;   // Controla o recolhimento no desktop
+
+  // Emite um evento para o componente pai quando a sidebar é recolhida/expandida
+  @Output() collapseToggled = new EventEmitter<boolean>();
 
   constructor() { }
 
-  toggleSidebar() {
+  // --- Métodos para o menu mobile ---
+  toggleSidebar(): void {
     this.isSidebarOpen = !this.isSidebarOpen;
   }
 
-  closeSidebar() {
+  closeSidebar(): void {
     this.isSidebarOpen = false;
+  }
+
+  // --- Método para o recolhimento no desktop ---
+  toggleCollapse(): void {
+    this.isCollapsed = !this.isCollapsed;
+    this.collapseToggled.emit(this.isCollapsed);
   }
 }

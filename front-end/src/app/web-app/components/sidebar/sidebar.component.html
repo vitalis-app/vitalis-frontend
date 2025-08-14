@@ -1,3 +1,4 @@
+<!-- Botão Hambúrguer para Mobile -->
 <button class="hamburger-btn" (click)="toggleSidebar()" aria-label="Mostrar navegação">
   <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
     <line x1="3" y1="12" x2="21" y2="12"></line>
@@ -6,18 +7,29 @@
   </svg>
 </button>
 
+<!-- Overlay para Mobile -->
 <div 
   class="sidebar-overlay" 
   [class.active]="isSidebarOpen" 
   (click)="closeSidebar()">
 </div>
 
-<aside class="sidebar-content" [class.active]="isSidebarOpen">
+<!-- Container Principal da Sidebar -->
+<aside class="sidebar-content" [class.active]="isSidebarOpen" [class.collapsed]="isCollapsed">
   
   <div class="sidebar-header">
-    <a routerLink="/app" (click)="closeSidebar()">
-      <span class="sidebar-logo">Vitalis</span>
+    <a routerLink="/app" (click)="closeSidebar()" class="logo-link">
+      <img src="assets/imgs/vitalis-branca.png" alt="Logo Vitalis" class="sidebar-logo">
+      <img src="assets/imgs/vitalis-icon-branco.png" alt="Ícone Vitalis" class="sidebar-logo-icon">
     </a>
+    
+    <!-- Ícone de alfinete (pushpin) -->
+    <button class="collapse-btn" (click)="toggleCollapse()" aria-label="Recolher menu">
+      <i *ngIf="!isCollapsed" class="ri-pushpin-fill"></i> <!-- Alfinete preenchido quando expandido -->
+      <i *ngIf="isCollapsed" class="ri-pushpin-line"></i> <!-- Alfinete contorno quando recolhido -->
+    </button>
+
+    <!-- Botão para fechar (apenas no mobile) -->
     <button class="close-btn" (click)="closeSidebar()" aria-label="Ocultar navegação">
       <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
     </button>

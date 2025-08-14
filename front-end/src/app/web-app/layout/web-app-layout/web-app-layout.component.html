@@ -1,6 +1,9 @@
 <div class="app-container">
-  <app-sidebar></app-sidebar>
-  <main class="content-area">
+  <!-- ✅ ALTERAÇÃO: Adicionado o evento (collapseToggled) -->
+  <app-sidebar (collapseToggled)="onSidebarToggle($event)"></app-sidebar>
+  
+  <!-- ✅ ALTERAÇÃO: Adicionada a classe [class.collapsed] -->
+  <main class="content-area" [class.collapsed]="isSidebarCollapsed">
     <router-outlet></router-outlet>
   </main>
 </div>

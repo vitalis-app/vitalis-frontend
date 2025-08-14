@@ -1,47 +1,169 @@
+:host {
+  --sidebar-width: 260px;
+  --sidebar-collapsed-width: 88px; /* Largura da sidebar recolhida */
+  --transition-speed: 0.3s;
+}
+
 /* No desktop, a sidebar é fixa e visível */
 .sidebar-content {
   position: fixed;
   top: 0;
   left: 0;
-  width: 260px; /* Largura da sidebar no desktop */
+  width: var(--sidebar-width);
   height: 100vh;
   background-color: var(--verde-7);
   border-right: 1px solid var(--verde-4);
-  z-index: 1002; /* Z-index alto para ficar sobre o overlay */
+  z-index: 1002;
   display: flex;
   flex-direction: column;
-  transition: transform 0.3s ease-in-out;
+  transition: width var(--transition-speed) ease, transform 0.3s ease-in-out;
 }
 
 /* Esconde elementos do menu mobile no desktop */
-.hamburger-btn, .sidebar-overlay, .close-btn {
+.hamburger-btn, .sidebar-overlay {
   display: none;
 }
 
+/* Estilos base para o botão de fechar */
+.close-btn {
+  display: none;
+  background: none;
+  border: none;
+  padding: 0;
+  color: var(--verde-1);
+  cursor: pointer;
+}
+.close-btn:hover {
+  color: var(--verde-10);
+}
+
+
 /* Estilos internos (header, nav, links, footer) */
-.sidebar-header { display: flex; justify-content: space-between; align-items: center; padding: 1.5rem; border-bottom: 1px solid var(--verde-4); }
-.sidebar-logo { font-size: 1.5rem; font-weight: bold; color: var(--verde-1); }
-.sidebar-nav { flex-grow: 1; padding: 1rem 0; }
-.nav-link { display: flex; align-items: center; gap: 1rem; padding: 1rem 1.5rem; color: var(--verde-1); text-decoration: none; font-size: 1rem; font-weight: 500; transition: background-color 0.2s ease; }
+.sidebar-header { 
+  display: flex; 
+  justify-content: space-between; 
+  align-items: center; 
+  padding: 1.5rem; 
+  border-bottom: 1px solid var(--verde-4);
+  flex-shrink: 0;
+}
+
+.sidebar-logo {
+  height: 28px;
+  width: auto;
+  display: block;
+}
+
+.sidebar-logo-icon {
+  height: 32px;
+  width: auto;
+  display: none; /* O ícone fica escondido por padrão */
+}
+
+/* Botão de recolher (alfinete) */
+.collapse-btn {
+  background: none;
+  border: none;
+  color: var(--verde-2);
+  cursor: pointer;
+  font-size: 1.5rem;
+  padding: 0;
+  display: none; /* Escondido por padrão, mostrado na media query */
+  transition: opacity 0.2s ease 0.15s, color 0.2s ease; /* Adicionado atraso na transição */
+}
+.collapse-btn:hover {
+  color: var(--verde-10);
+}
+
+.sidebar-nav { flex-grow: 1; padding: 1rem 0; overflow-y: auto; overflow-x: hidden; }
+.nav-link { display: flex; align-items: center; gap: 1rem; padding: 1rem 1.5rem; color: var(--verde-1); text-decoration: none; font-size: 1rem; font-weight: 500; transition: background-color 0.2s ease; white-space: nowrap; }
+/* ✅ ALTERAÇÃO: Transição de opacidade e largura para o texto */
+.nav-link span {
+  transition: opacity 0.2s ease, max-width 0.3s ease;
+  max-width: 150px; /* Largura máxima para a animação */
+  display: inline-block;
+  overflow: hidden;
+}
 .nav-link:hover { background-color: var(--verde-56); }
 .nav-link.active-link { background-color: var(--verde-5); color: var(--verde-10); font-weight: bold; border-left: 4px solid var(--verde-10); padding-left: calc(1.5rem - 4px); }
-.nav-link i { font-size: 1.5rem; }
-.sidebar-footer { padding: 1.5rem 0; border-top: 1px solid var(--verde-4); }
+.nav-link i { font-size: 1.5rem; flex-shrink: 0; }
+.sidebar-footer { padding: 1.5rem 0; border-top: 1px solid var(--verde-4); flex-shrink: 0; }
 
-/* =========================================== */
-/* AJUSTES PARA MOBILE (lógica da gaveta)      */
-/* =========================================== */
+
+/* --- ESTADO RECOLHIDO (COLLAPSED) --- */
+.sidebar-content.collapsed {
+  width: var(--sidebar-collapsed-width);
+}
+.sidebar-content.collapsed .sidebar-header {
+  justify-content: center;
+}
+/* ✅ ALTERAÇÃO: Esconde os elementos com opacidade e largura zero */
+.sidebar-content.collapsed .collapse-btn,
+.sidebar-content.collapsed .nav-link span {
+  opacity: 0;
+  max-width: 0;
+  transition-delay: 0s; /* Garante que desapareçam imediatamente */
+}
+.sidebar-content.collapsed .nav-link {
+  justify-content: center;
+  padding: 1rem;
+}
+.sidebar-content.collapsed .nav-link.active-link {
+  padding-left: calc(1rem - 4px);
+}
+.sidebar-content.collapsed .sidebar-logo {
+  display: none;
+}
+.sidebar-content.collapsed .sidebar-logo-icon {
+  display: block;
+}
+
+
+/* EFEITO DE HOVER PARA SIDEBAR RECOLHIDA */
+.sidebar-content.collapsed:hover {
+  width: var(--sidebar-width);
+  box-shadow: 5px 0 15px rgba(0,0,0,0.1);
+  z-index: 1003;
+}
+.sidebar-content.collapsed:hover .sidebar-header {
+  justify-content: space-between;
+}
+/* ✅ ALTERAÇÃO: Mostra os elementos com opacidade e largura máxima */
+.sidebar-content.collapsed:hover .collapse-btn,
+.sidebar-content.collapsed:hover .nav-link span {
+  opacity: 1;
+  max-width: 150px;
+  transition-delay: 0.15s; /* Atraso para o texto aparecer */
+}
+.sidebar-content.collapsed:hover .nav-link {
+  justify-content: flex-start;
+  padding: 1rem 1.5rem;
+}
+.sidebar-content.collapsed:hover .nav-link.active-link {
+  padding-left: calc(1.5rem - 4px);
+}
+.sidebar-content.collapsed:hover .sidebar-logo {
+  display: block;
+}
+.sidebar-content.collapsed:hover .sidebar-logo-icon {
+  display: none;
+}
+
+
+/* --- LÓGICA DE EXIBIÇÃO (MOBILE vs DESKTOP) --- */
 @media (max-width: 992px) {
-  /* No mobile, a sidebar fica escondida fora da tela por padrão */
+  /* No mobile, a sidebar é uma gaveta */
   .sidebar-content {
     transform: translateX(-100%);
+    width: 260px !important;
   }
-  /* Quando ativa, ela desliza para a tela */
+  .sidebar-content.collapsed {
+    transform: translateX(-100%);
+  }
   .sidebar-content.active {
     transform: translateX(0);
   }
 
-  /* Mostra o botão hambúrguer */
   .hamburger-btn {
     display: flex;
     position: fixed;
@@ -51,13 +173,10 @@
     background: var(--verde-6); color: var(--verde-1); border: 1px solid var(--verde-4); border-radius: 0.5rem; width: 48px; height: 48px; cursor: pointer; align-items: center; justify-content: center;
   }
   
-  /* Mostra o botão de fechar dentro da gaveta */
   .close-btn {
     display: block;
-    background: none; border: none; color: var(--verde-1); cursor: pointer;
   }
 
-  /* Mostra o overlay quando a sidebar está ativa */
   .sidebar-overlay {
     display: block;
     position: fixed;
@@ -72,5 +191,12 @@
   .sidebar-overlay.active {
     opacity: 1;
     visibility: visible;
+  }
+}
+
+@media (min-width: 993px) {
+  /* No desktop, mostra o botão de recolher */
+  .collapse-btn {
+    display: flex;
   }
 }
