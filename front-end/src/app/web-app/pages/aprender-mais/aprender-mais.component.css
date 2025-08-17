@@ -1,5 +1,5 @@
 /* CSS Padronizado - Aprender Mais */
-*{
+* {
   font-family: 'Poppins', sans-serif;
 }
 
@@ -7,8 +7,7 @@
   padding: 2rem 4rem;
   background-color: var(--background);
   color: var(--text-color);
-  position: relative; /* Necessário para o sidebar e modal */
-  overflow-x: hidden; /* Evita scroll horizontal quando o sidebar está aberto */
+  position: relative;
 }
 
 /* --- Cabeçalho --- */
@@ -50,7 +49,8 @@
   background-color: var(--bg-color);
   border-radius: var(--border-radius);
   padding: 0.75rem 1rem;
-  margin-bottom: 1rem;
+  margin-bottom: 1.5rem;
+  /* Aumentar espaço abaixo da busca */
   border: 1px solid var(--verde-4);
 }
 
@@ -72,37 +72,20 @@
   color: var(--verde-2);
 }
 
-/* Popular Tags Section */
-.popular-tags-section {
+/* NOVO: Container único para todas as tags de filtro */
+.filter-tags-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
   margin-bottom: 1.5rem;
 }
 
-.popular-tags-section .section-label {
-  font-size: 0.9rem;
-  color: var(--verde-2);
-  margin-bottom: 0.5rem;
-  display: block;
-}
-
-.popular-tags-chips {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.75rem;
-}
-
-.main-filters-row {
+.action-filters-row {
   display: flex;
   justify-content: space-between;
-  align-items: flex-start; /* Alinha ao topo para quando as categorias quebram linha */
-  flex-wrap: wrap; /* Permite quebrar linha em telas menores */
-  gap: 1rem;
-}
-
-.categories-nav {
-  display: flex;
+  align-items: center;
   flex-wrap: wrap;
-  gap: 0.75rem;
-  flex-grow: 1; /* Permite que ocupe o espaço disponível */
+  gap: 1rem;
 }
 
 .category-chip {
@@ -113,7 +96,7 @@
   color: var(--text-color);
   font-size: 0.875rem;
   cursor: pointer;
-  transition: all var(--transition-speed);
+  transition: all 0.2s ease;
   display: flex;
   align-items: center;
   gap: 0.5rem;
@@ -143,8 +126,8 @@
   text-decoration: underline;
   cursor: pointer;
   font-weight: 500;
-  transition: all var(--transition-speed);
-  white-space: nowrap; /* Evita que o texto quebre */
+  transition: all 0.2s ease;
+  white-space: nowrap;
 }
 
 .btn-clear-filters:hover {
@@ -155,16 +138,18 @@
   display: flex;
   gap: 1rem;
   align-items: center;
-  white-space: nowrap; /* Evita que os botões quebrem linha */
+  white-space: nowrap;
 }
 
-/* Dropdown de Ordenação */
 .dropdown {
   position: relative;
   display: inline-block;
+  flex-grow: 1;
+  /* Para o botão crescer no mobile */
 }
 
-.btn-sort, .btn-more-filters {
+.btn-sort,
+.btn-more-filters {
   font-family: 'Poppins', sans-serif;
   background-color: var(--bg-color);
   color: var(--text-color);
@@ -172,21 +157,21 @@
   border: 1px solid var(--verde-4);
   border-radius: var(--border-radius);
   cursor: pointer;
-  transition: all var(--transition-speed);
+  transition: all 0.2s ease;
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 0.5rem;
   font-weight: 500;
+  width: 100%;
+  /* Para ocupar o espaço do pai */
 }
 
-.btn-sort:hover, .btn-more-filters:hover {
+.btn-sort:hover,
+.btn-more-filters:hover {
   background-color: var(--verde-5);
   border-color: var(--primary-color);
   color: var(--primary-color);
-}
-
-[data-theme="dark"] .btn-sort:hover, [data-theme="dark"] .btn-more-filters:hover {
-  background-color: var(--verde-8);
 }
 
 .dropdown-content {
@@ -195,13 +180,14 @@
   background-color: var(--bg-color);
   min-width: 160px;
   box-shadow: 0px 8px 16px 0px var(--shadow-0);
-  z-index: 1;
+  z-index: 100;
   border-radius: var(--border-radius);
   overflow: hidden;
   border: 1px solid var(--verde-4);
-  top: 100%; /* Posiciona abaixo do botão */
+  top: 100%;
   left: 0;
-  margin-top: 0.5rem; /* Espaçamento entre botão e dropdown */
+  margin-top: 0.5rem;
+  width: 100%;
 }
 
 .dropdown-content a {
@@ -221,7 +207,7 @@
   display: block;
 }
 
-/* --- Seções de Conteúdo --- */
+/* Seções de Conteúdo e Motivacional (sem alterações) */
 .topic-section {
   margin-bottom: 3rem;
 }
@@ -233,16 +219,12 @@
   margin: 0 0 1.5rem 0;
 }
 
-/* --- Grid de Aprendizado (Reflexão) --- */
 .learning-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(22rem, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
   gap: 1.5rem;
 }
 
-
-
-/* --- Grid Motivacional --- */
 .motivation-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
@@ -260,7 +242,7 @@
   justify-content: center;
   gap: 0.75rem;
   text-align: center;
-  transition: all var(--transition-speed);
+  transition: all 0.2s ease;
   cursor: pointer;
   min-height: 150px;
 }
@@ -279,7 +261,7 @@
 .motivation-card i {
   font-size: 2rem;
   color: var(--verde-2);
-  transition: all var(--transition-speed);
+  transition: all 0.2s ease;
 }
 
 .motivation-card:hover i {
@@ -293,29 +275,20 @@
   line-height: 1.4;
 }
 
-/* --- Sidebar "Mais Filtros" --- */
+/* Sidebar "Mais Filtros" (sem alterações) */
 .more-filters-sidebar {
   position: fixed;
   top: 0;
-  right: -350px; /* Esconde a sidebar inicialmente */
   width: 350px;
+  max-width: 90vw;
   height: 100%;
   background-color: var(--background);
   border-left: 1px solid var(--verde-5);
   box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
   transition: right 0.3s ease-in-out;
-  z-index: 1000;
+  z-index: 1050;
   display: flex;
   flex-direction: column;
-}
-
-[data-theme="dark"] .more-filters-sidebar {
-  background-color: var(--verde-8);
-  border-color: var(--verde-5);
-}
-
-.more-filters-sidebar.open {
-  right: 0; /* Mostra a sidebar */
 }
 
 .sidebar-header {
@@ -324,6 +297,7 @@
   align-items: center;
   padding: 1rem 1.5rem;
   border-bottom: 1px solid var(--verde-5);
+  flex-shrink: 0;
 }
 
 .sidebar-header h3 {
@@ -338,7 +312,7 @@
   font-size: 1.5rem;
   color: var(--verde-2);
   cursor: pointer;
-  transition: color var(--transition-speed);
+  transition: color 0.2s ease;
 }
 
 .btn-close-sidebar:hover {
@@ -348,7 +322,7 @@
 .sidebar-content {
   flex-grow: 1;
   padding: 1.5rem;
-  overflow-y: auto; /* Permite scroll se o conteúdo for muito longo */
+  overflow-y: auto;
 }
 
 .filter-group {
@@ -380,7 +354,8 @@
   color: var(--text-color);
   font-size: 0.875rem;
   cursor: pointer;
-  transition: all var(--transition-speed);
+  transition: all 0.2s ease;
+  user-select: none;
 }
 
 .filter-chip:hover {
@@ -390,8 +365,8 @@
 
 .filter-chip input[type="radio"],
 .filter-chip input[type="checkbox"] {
-  margin-right: 0.25rem;
-  accent-color: var(--primary-color); /* Cor do checkbox/radio */
+  margin-right: 0.5rem;
+  accent-color: var(--primary-color);
 }
 
 .sidebar-actions {
@@ -400,14 +375,16 @@
   display: flex;
   justify-content: flex-end;
   gap: 1rem;
+  flex-shrink: 0;
 }
 
-.btn-clear-sidebar-filters, .btn-apply-filters {
+.btn-clear-sidebar-filters,
+.btn-apply-filters {
   font-family: 'Poppins', sans-serif;
   padding: 0.75rem 1.25rem;
   border-radius: var(--border-radius);
   cursor: pointer;
-  transition: all var(--transition-speed);
+  transition: all 0.2s ease;
   font-weight: 500;
 }
 
@@ -433,141 +410,50 @@
   border-color: var(--verde-10);
 }
 
-/* --- Modal do Video Player --- */
-.video-player-modal-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.7); /* Overlay escuro */
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 2000; /* Garante que fique acima de tudo */
-  backdrop-filter: blur(5px); /* Efeito de blur no fundo */
-}
-
-.video-player-modal-content {
-  position: relative;
-  background-color: var(--background); /* Fundo do modal */
-  border-radius: var(--border-radius);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-  max-width: 900px; /* Largura máxima do modal */
-  width: 90%; /* Ocupa 90% da largura disponível */
-  max-height: 90vh; /* Altura máxima do modal */
-  overflow: hidden; /* Garante que o conteúdo não vaze */
-  display: flex;
-  flex-direction: column;
-  animation: fadeInScale 0.3s ease-out; /* Animação de entrada */
-}
-
-[data-theme="dark"] .video-player-modal-content {
-  background-color: var(--verde-8);
-}
-
-.btn-close-video-modal {
-  position: absolute;
-  top: 1rem;
-  right: 1rem;
-  background: none;
-  border: none;
-  font-size: 2rem;
-  color: var(--branco); /* Cor do ícone de fechar */
-  cursor: pointer;
-  z-index: 2001; /* Acima do player */
-  transition: transform 0.2s ease-in-out;
-}
-
-.btn-close-video-modal:hover {
-  transform: scale(1.1);
-}
-
-/* Animação para o modal */
-@keyframes fadeInScale {
-  from {
-    opacity: 0;
-    transform: scale(0.9);
-  }
-  to {
-    opacity: 1;
-    transform: scale(1);
-  }
-}
-
-
-/* --- Responsividade --- */
+/* ======================================================= */
+/* ESTILOS RESPONSIVOS                                     */
+/* ======================================================= */
 @media (max-width: 768px) {
   .aprender-container {
-    padding: 1rem 2rem;
+    padding: 1rem 1.5rem;
   }
 
   .page-header h1 {
     font-size: 2rem;
   }
 
-  .learning-grid {
+  .action-filters-row {
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+  }
+
+  /* Faz os botões terem o mesmo tamanho */
+  .sort-and-more-filters {
+    display: flex;
+    /* MUDANÇA */
+    width: 100%;
+    gap: 0.75rem;
+  }
+
+  .btn-more-filters {
+    flex: 1;
+    /* MUDANÇA */
+  }
+
+  .dropdown {
+    flex: 1;
+    /* MUDANÇA */
+  }
+
+  .learning-grid,
+  .motivation-grid {
     grid-template-columns: 1fr;
   }
 
-  .motivation-grid {
-    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-  }
-
-  .motivation-card {
-    padding: 1.5rem;
-  }
-
-  .main-filters-row {
-    flex-direction: column;
-    align-items: stretch;
-  }
-
-  .categories-nav {
-    flex-direction: row; /* Mantém como linha, mas permite quebra */
-    justify-content: center;
-  }
-
-  .sort-and-more-filters {
-    justify-content: center;
-    width: 100%;
-  }
-
   .more-filters-sidebar {
-    width: 100%; /* Ocupa a largura total em mobile */
-    right: -100%;
-  }
-
-  /* Ajustes para o card de vídeo no grid principal (não o modal) */
-  .video-duration-overlay {
-    font-size: 0.7rem;
-    padding: 0.2rem 0.4rem;
-  }
-
-  .video-meta-info {
-    font-size: 0.8rem;
-  }
-
-  .video-description {
-    font-size: 0.85rem;
-  }
-
-  .video-tag-chip {
-    font-size: 0.7rem;
-    padding: 0.25rem 0.6rem;
-  }
-
-  /* Modal em mobile */
-  .video-player-modal-content {
-    width: 95%;
-    max-width: 100%; /* Ocupa quase toda a largura */
-    max-height: 95vh; /* Ocupa quase toda a altura */
-  }
-
-  .btn-close-video-modal {
-    font-size: 1.5rem;
-    top: 0.75rem;
-    right: 0.75rem;
+    width: 90vw;
+    right: -100vw;
   }
 }
 
@@ -584,24 +470,20 @@
     padding: 1rem;
   }
 
-  .motivation-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .learning-card-title-overlay {
-    font-size: 2rem;
-  }
-
-  .popular-tags-chips, .categories-nav, .filter-options-grid {
+  .filter-tags-container,
+  /* Incluído para mobile */
+  .filter-options-grid {
     gap: 0.5rem;
   }
 
-  .category-chip, .filter-chip {
+  .category-chip,
+  .filter-chip {
     padding: 0.4rem 0.8rem;
     font-size: 0.8rem;
   }
 
-  .btn-sort, .btn-more-filters {
+  .btn-sort,
+  .btn-more-filters {
     padding: 0.6rem 1rem;
     font-size: 0.9rem;
   }
