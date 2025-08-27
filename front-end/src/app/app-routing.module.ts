@@ -59,7 +59,6 @@ const routes: Routes = [
       { path: 'estacao-vital', component: EstacaoVitalComponent },
     ],
   },
-
   // 3. Rotas de Autenticação (dentro do LoginPageLayoutComponent)
   {
     path: 'auth', // Adicionado um caminho 'auth' para evitar conflito
