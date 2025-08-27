@@ -29,8 +29,7 @@
 @media (max-width: 992px) {
   .content-area {
     margin-left: 0 !important; /* Garante que não há margem no mobile */
-    padding: 1.5rem;
-    padding-top: 6rem; 
+    padding: 1rem;
   }
 }
 

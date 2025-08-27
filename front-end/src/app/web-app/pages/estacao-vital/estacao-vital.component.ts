@@ -56,7 +56,7 @@ export class EstacaoVitalComponent implements OnInit {
 
   @HostListener('window:resize')
   checkMobile() {
-    this.isMobile = window.innerWidth <= 768;
+    this.isMobile = window.innerWidth <= 992;
   }
 
   abrirModal(tipo: 'diarias' | 'semanal') {

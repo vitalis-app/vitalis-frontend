@@ -166,7 +166,8 @@
 
   .hamburger-btn {
     display: flex;
-    position: fixed;
+    position: absolute;
+    opacity: 80%;
     top: 1.5rem;
     left: 1.5rem;
     z-index: 1001;
