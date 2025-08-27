@@ -1,24 +1,20 @@
 <section>
+  <!-- Planta -->
   <div class="planta-container">
     <h1>Estação Vital</h1>
     <img class="planta-imagem" src="assets/imgs/estacao-vital/Planta.png" alt="Planta" />
-
     <div class="info-container">
+      <!-- Nome da Planta -->
       <div class="nome-planta">
         <p *ngIf="!editandoNome" (click)="habilitarEdicaoNome()">{{ nomePlanta }}</p>
-        <input
-          #inputNomePlanta
-          *ngIf="editandoNome"
-          type="text"
-          [(ngModel)]="nomePlanta"
-          (blur)="desabilitarEdicaoNome()"
-          (keyup.enter)="desabilitarEdicaoNome()"
-        />
+        <input *ngIf="editandoNome" #inputNomePlanta type="text" [(ngModel)]="nomePlanta"
+          (blur)="desabilitarEdicaoNome()" (keyup.enter)="desabilitarEdicaoNome()" />
         <button (click)="habilitarEdicaoNome()" aria-label="Editar nome da planta">
           <i class="fa-solid fa-pen"></i>
         </button>
       </div>
 
+      <!-- Nível e XP -->
       <p class="nivel-atual">Nível {{ nivel }}</p>
 
       <div class="barra-progresso-container">
@@ -26,7 +22,8 @@
         <div class="barra-progresso-atual" [style.width.%]="(xpAnimado / xpMax) * 100"></div>
       </div>
 
-      <a class="registro-emocional" routerLink="/app/estacao-vital/registro-emocional">
+      <!-- Botão Regar -->
+      <a class="registro-emocional" routerLink="/app/estacao-vital/registro-emocional" *ngIf="!isMobile">
         <button class="regar-btn">
           <i class="fa-solid fa-seedling"></i>
           <span>Regar planta</span>
@@ -35,55 +32,92 @@
     </div>
   </div>
 
+  <!-- Menu lateral -->
   <div class="menu-direito">
-    <div class="card">
-      <h1><i class="icon-card fa-solid fa-bullseye"></i> Missões Diárias</h1>
-      <ng-container
-        *ngTemplateOutlet="missaoTemplate; context: { missoes: missoesDiarias }"
-      ></ng-container>
-    </div>
 
-    <div class="card">
-      <h1><i class="icon-card fa-solid fa-calendar-week"></i> Missões Semanais</h1>
-      <ng-container
-        *ngTemplateOutlet="missaoTemplate; context: { missoes: missoesSemanais }"
-      ></ng-container>
-    </div>
+    <!-- Versão Mobile -->
+    <a class="registro-emocional" routerLink="/app/estacao-vital/registro-emocional" *ngIf="isMobile">
+      <button class="regar-btn">
+        <i class="fa-solid fa-seedling"></i>
+        <span>Regar planta</span>
+      </button>
+    </a>
 
-    <div class="card card-conquistas">
-      <h1><i class="icon-card fa-solid fa-trophy"></i> Última Conquista</h1>
-      <div class="intra-container">
-        <div class="text-icon">
-          <i class="icon-card-no-background fa-solid fa-star"></i>
-          <div class="text">
-            <p>{{ ultimaConquista.descricao }}</p>
+    <!-- Versão Desktop -->
+    <ng-container *ngIf="!isMobile">
+
+      <div class="card">
+        <h1><i class="icon-card fa-solid fa-bullseye"></i> Missões Diárias</h1>
+        <ng-container *ngTemplateOutlet="missaoTemplate; context: { missoes: missoesDiarias }"></ng-container>
+      </div>
+
+      <div class="card">
+        <h1><i class="icon-card fa-solid fa-calendar-week"></i> Missões Semanais</h1>
+        <ng-container *ngTemplateOutlet="missaoTemplate; context: { missoes: missoesSemanais }"></ng-container>
+      </div>
+
+      <div class="card card-conquistas">
+        <h1><i class="icon-card fa-solid fa-trophy"></i> Última Conquista</h1>
+        <div class="intra-container">
+          <div class="text-icon">
+            <i class="icon-card-no-background fa-solid fa-star"></i>
+            <div class="text">
+              <p>{{ ultimaConquista.descricao }}</p>
+            </div>
           </div>
         </div>
       </div>
-    </div>
+    </ng-container>
   </div>
-</section>
 
-<ng-template #missaoTemplate let-missoes="missoes">
-  <div
-    *ngFor="let missao of missoes"
-    class="intra-container"
-    [ngClass]="{ 'completa': missao.concluida }"
-  >
-    <div class="text-icon">
-      <i class="icon-card-no-background fa-solid fa-hourglass"></i>
-      <div class="text">
-        <p>{{ missao.descricao }}</p>
-      </div>
-    </div>
-    <p class="xp-missao">+{{ missao.xp }} XP</p>
-    <button
-      class="completar-btn"
-      (click)="completarMissao(missao)"
-      [disabled]="missao.concluida"
-      aria-label="Completar missão"
-    >
-      <i class="fa-regular fa-circle-check"></i>
+  <div class="botoes" *ngIf="isMobile">
+    <button class="toggle-btn" (click)="abrirModal('diarias')">
+      <i class="fa-solid fa-bullseye"></i>
+      Missões Diárias
     </button>
+    <button class="toggle-btn" (click)="abrirModal('semanal')">
+      <i class="fa-solid fa-calendar-week"></i>
+      Missões Semanais</button>
+    <a routerLink="/app/minha-jornada" *ngIf="isMobile">
+      <div class="toggle-btn">
+        <i class="fa-solid fa-award"></i>
+        Conquistas
+      </div>
+    </a>
   </div>
-</ng-template>
+
+  <!-- Modal (Mobile) -->
+  <div class="modal-overlay" *ngIf="modalAberto" (click)="fecharModal()">
+    <div class="modal-content" (click)="$event.stopPropagation()">
+      <h2>
+        <div class="missoes-titulo">
+          <i class="fa-solid" [ngClass]="modalTipo === 'diarias' ? 'fa-bullseye' : 'fa-calendar-week'"></i>
+          {{ modalTipo === 'diarias' ? 'Missões Diárias' : 'Missões Semanais' }}
+        </div>
+        <button class="fechar-btn" (click)="fecharModal()">
+          <i class="fa-solid fa-x"></i>
+        </button>
+      </h2>
+
+      <ng-container
+        *ngTemplateOutlet="missaoTemplate; context: { missoes: modalTipo === 'diarias' ? missoesDiarias : missoesSemanais }"></ng-container>
+    </div>
+  </div>
+
+  <!-- Template Missões -->
+  <ng-template #missaoTemplate let-missoes="missoes">
+    <div *ngFor="let missao of missoes" class="intra-container" [ngClass]="{ 'completa': missao.concluida }">
+      <div class="text-icon">
+        <i class="icon-card-no-background fa-solid fa-hourglass"></i>
+        <div class="text">
+          <p>{{ missao.descricao }}</p>
+        </div>
+      </div>
+      <p class="xp-missao">+{{ missao.xp }} XP</p>
+      <button class="completar-btn" (click)="completarMissao(missao)" [disabled]="missao.concluida"
+        aria-label="Completar missão">
+        <i class="fa-regular fa-circle-check"></i>
+      </button>
+    </div>
+  </ng-template>
+</section>

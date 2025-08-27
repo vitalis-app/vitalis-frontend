@@ -1,4 +1,4 @@
-/* --- Estrutura Principal --- */
+/* ===== Estrutura Principal ===== */
 section {
   background-color: var(--verde-7);
   display: flex;
@@ -26,10 +26,10 @@ section {
   background-image: url("src/assets/imgs/estacao-vital/blank-nature-park-landscape-scene-daytime_1308-62625.jpg");
   background-size: cover;
   background-position: center;
-  box-shadow: 0px 0px 10px var(--shadow-0);
-  overflow: hidden;
-  border-radius: 32px;
   border: 10px solid var(--verde-5);
+  border-radius: 32px;
+  box-shadow: 0 0 10px var(--shadow-0);
+  overflow: hidden;
 }
 
 .menu-direito {
@@ -43,7 +43,7 @@ section {
   gap: 1rem;
 }
 
-/* --- Elementos da Planta --- */
+/* ===== Elementos da Planta ===== */
 .planta-container h1 {
   color: var(--verde-7);
   font-size: 250%;
@@ -53,10 +53,11 @@ section {
 .planta-imagem {
   width: 50%;
   height: auto;
-  z-index: 5; /* Mantido para ficar sobre outros elementos */
+  z-index: 5;
 }
 
 .info-container {
+  position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -69,9 +70,14 @@ section {
   z-index: 0;
   padding-top: 25px;
   gap: 0.5rem;
+
+  background-color: var(--verde-5);
+  border-top-left-radius: 100%;
+  border-top-right-radius: 100%;
+  z-index: 0;
 }
 
-/* --- Edição do Nome da Planta --- */
+/* ===== Nome da Planta ===== */
 .nome-planta {
   display: flex;
   align-items: center;
@@ -87,8 +93,12 @@ section {
   text-shadow: 3px 3px var(--shadow-0);
   margin: 0;
   padding: 0;
+  font-size: 2rem;
+  font-weight: 800;
   line-height: 1.2;
   text-align: center;
+  color: var(--verde-2);
+  text-shadow: 3px 3px var(--shadow-0);
 }
 
 .nome-planta p {
@@ -96,40 +106,41 @@ section {
 }
 
 .nome-planta input {
-  background-color: transparent;
-  border: none;
-  border-bottom: 2px solid var(--verde-00);
-  outline: none;
   width: auto;
+  background: transparent;
+  border: none;
+  border-bottom: 2px solid var(--verde-2);
+  outline: none;
 }
 
 .nome-planta button {
-  cursor: pointer;
-  background-color: transparent;
+  background: transparent;
   border: none;
+  cursor: pointer;
   padding: 0;
 }
 
 .nome-planta i {
-  color: var(--verde-7);
-  background-color: var(--verde-00);
-  border: solid 0.8rem var(--verde-00);
-  border-radius: 999px;
-  font-size: 0.6rem;
-  opacity: 0.6;
-  width: 1.6em;
-  height: 1.6em;
   display: flex;
   align-items: center;
   justify-content: center;
+  width: 1.6em;
+  height: 1.6em;
+
+  font-size: 0.6rem;
+  color: var(--verde-7);
+  background-color: var(--verde-2);
+  border: solid 0.8rem var(--verde-2);
+  border-radius: 999px;
+  opacity: 0.6;
 }
 
-/* --- Progresso (XP e Nível) --- */
+/* ===== Progresso (XP e Nível) ===== */
 .nivel-atual {
-  color: var(--verde-2);
+  margin: 0;
   font-size: 1.5rem;
   font-weight: 800;
-  margin: 0;
+  color: var(--verde-1);
 }
 
 .barra-progresso-container {
@@ -139,33 +150,39 @@ section {
   display: flex;
   justify-content: center;
   align-items: center;
+  width: 350px;
+  height: 30px;
+  margin-bottom: 1.5rem;
+
   border: 2px solid var(--verde-4);
   border-radius: 999px;
   background-color: var(--verde-3);
   overflow: hidden;
-  position: relative;
-  margin-bottom: 1.5rem;
 }
 
 .barra-progresso-atual {
   position: absolute;
   left: 0;
+  width: 0;
   height: 100%;
-  width: 0; /* A largura é controlada pelo Angular */
   border-radius: 999px;
   background-color: var(--verde-2);
-  transition: all 0.2 ease-out;
+  transition: all 0.2s ease-out;
 }
 
 .xp-info {
-  z-index: 2;
-  font-size: 0.9rem;
-  color: var(--verde-5);
-  font-weight: 600;
   position: absolute;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--verde-5);
+  z-index: 2;
 }
 
-/* --- Botão Principal "Regar" --- */
+.registro-emocional {
+  text-decoration: none;
+}
+
+/* ===== Botão Principal "Regar" ===== */
 .regar-btn {
   width: 100%;
   max-width: 350px; /* antes era 350px fixo */
@@ -178,28 +195,33 @@ section {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  font-family: 'Poppins', sans-serif;
+
+  width: 350px;
+  height: 80px;
   font-size: 18px;
   font-weight: 600;
-  color: var(--verde-00);
+  font-family: 'Poppins', sans-serif;
+  color: var(--verde-2);
   cursor: pointer;
+
+  border: none;
+  border-radius: 32px;
+  background: linear-gradient(135deg, var(--verde-3), var(--verde-5));
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
   transition: transform 0.2s, box-shadow 0.2s;
 }
 
-.registro-emocional {
-    text-decoration: none;
-}
 .regar-btn:hover {
   transform: scale(1.05);
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
 }
 
 .regar-btn i {
-  font-size: 24px;
   margin-bottom: 8px;
+  font-size: 24px;
 }
 
-/* --- Cards de Missões e Conquistas --- */
+/* ===== Cards de Missões e Conquistas ===== */
 .card {
   width: 100%;
   max-width: 400px; /* antes era 400px fixo */
@@ -208,15 +230,18 @@ section {
   display: flex;
   flex-direction: column;
   gap: 3px;
+  width: 400px;
+  padding: 15px;
+  border-radius: 16px;
 }
 
 .card h1 {
   display: flex;
   align-items: center;
   gap: 8px;
-  color: var(--verde-2);
-  font-size: 1.3rem;
   margin-bottom: 0.5rem;
+  font-size: 1.3rem;
+  color: var(--verde-2);
 }
 
 .card-conquistas {
@@ -224,20 +249,22 @@ section {
 }
 
 .card-conquistas .intra-container {
-    background-color: var(--verde-5);
-    border: solid 1px var(--verde-3)
+  background-color: var(--verde-5);
+  border: solid 1px var(--verde-3);
+  border-radius: 8px;
 }
 
 .intra-container {
-  background-color: var(--verde-6);
-  box-shadow: 2px 2px 0px var(--shadow-0);
-  border-radius: 8px;
-  padding: 10px;
-  margin-top: 8px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  border: solid 1px transparent;
+
+  padding: 10px;
+  margin-top: 8px;
+  border: 1px solid transparent;
+  border-radius: 64px;
+  background-color: var(--verde-6);
+  box-shadow: 2px 2px 0 var(--shadow-0);
   transition: border-color 0.3s;
 }
 
@@ -257,21 +284,21 @@ section {
 }
 
 .text p {
-  font-size: 0.9rem;
   margin: 0;
+  font-size: 0.9rem;
 }
 
 .xp-missao {
   font-size: 0.8rem;
-  color: var(--verde-2);
   font-weight: 600;
+  color: var(--verde-2);
 }
 
-/* --- Ícones --- */
+/* ===== Ícones ===== */
 .icon-card {
   font-size: 1rem;
-  border-radius: 12px;
   padding: 4px 10px;
+  border-radius: 12px;
   background-color: var(--verde-4);
   box-shadow: 2px 2px 6px var(--shadow-0);
 }
@@ -282,17 +309,18 @@ section {
   color: var(--verde-3);
 }
 
-/* --- Botão Completar Missão --- */
+/* ===== Botão Completar Missão ===== */
 .completar-btn {
   display: flex;
   justify-content: center;
   align-items: center;
+
+  font-size: 0.8rem;
   cursor: pointer;
   color: #176b5d;
   background-color: #7dd1c3;
   border: 8px solid #7dd1c3;
   border-radius: 64px;
-  font-size: 0.8rem;
   transition: background-color 0.3s, border-color 0.3s;
 }
 
@@ -303,4 +331,189 @@ section {
 
 .completar-btn:disabled {
   cursor: not-allowed;
+}
+
+/* ===== Responsividade ===== */
+@media (max-width: 768px) {
+  section {
+    flex-direction: column;
+    margin: 0;
+    width: 100%;
+    padding: 0;
+    gap: 0;
+    border-radius: 0;
+  }
+
+  .menu-direito {
+    all: unset;
+    display: inline-block;
+    justify-content: center;
+    height: 100%;
+  }
+
+  .planta-container {
+    width: 100%;
+    height: 60vh;
+    border: none;
+    border-radius: 16px;
+  }
+
+  .planta-imagem {
+    width: 67%;
+    max-width: 280px;
+  }
+
+  .planta-sombra {
+    top: 72%;
+  }
+
+  .info-container {
+    position: relative;
+    bottom: 8%;
+    width: 300%;
+    height: 40vh;
+    margin: 0;
+    padding: 10%;
+    gap: 0.1rem;
+  }
+
+  .nome-planta p,
+  .nome-planta input {
+    font-size: 1.5rem;
+  }
+
+  .nivel-atual {
+    font-size: 1.2rem;
+  }
+
+  .barra-progresso-container {
+    width: 270px;
+  }
+
+  .barra-progresso-container {
+    height: 24px;
+  }
+
+  .xp-info {
+    font-size: 0.8rem;
+  }
+
+  .regar-btn {
+    width: 100%;
+    height: 80px;
+    font-size: 16px;
+    border-radius: 16px;
+    margin: 0;
+  }
+
+  .menu-direito {
+    width: 100%;
+    padding-top: 1rem;
+  }
+
+  .botoes {
+    display: flex;
+    justify-content: space-evenly;
+    position: absolute;
+    bottom: 0;
+    padding: 1.2rem 0.5rem;
+    background-color: var(--verde-5);
+    width: 100vw;
+    height: auto;
+  }
+
+  .toggle-btn {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 0.3rem;
+    font-size: 0.8rem;
+    color: var(--verde-2);
+    border: none;
+    background-color: transparent;
+    gap: 0.3rem;
+  }
+
+  .toggle-btn i {
+    font-size: 1.5rem;
+  }
+
+  .card {
+    width: 100%;
+  }
+
+  .card h1 {
+    font-size: 1.1rem;
+  }
+
+  .text p {
+    font-size: 0.85rem;
+  }
+
+  .xp-missao {
+    font-size: 0.75rem;
+  }
+
+  .completar-btn {
+    font-size: 0.75rem;
+    border-width: 6px;
+  }
+
+  .card-conquistas {
+    height: auto;
+  }
+}
+
+/* ===== Modal ===== */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background-color: rgba(0, 0, 0, 0.6);
+  z-index: 1000;
+}
+
+.modal-content {
+  max-width: 90%;
+  max-height: 80vh;
+  width: 400px;
+  padding: 1.5rem;
+
+  background: var(--verde-5);
+  border-radius: 12px;
+  overflow-y: auto;
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+.modal-content h2 {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+
+.fechar-btn {
+  padding: 0.3rem 0.9rem;
+  font-weight: 650;
+  color: var(--verde-2);
+  background: var(--verde-56);
+  border: none;
+  border-radius: 9999px;
+  cursor: pointer;
+}
+
+@keyframes fadeIn {
+  from {
+    transform: translateY(-10px);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
 }

@@ -53,10 +53,10 @@ const routes: Routes = [
       { path: 'aprender-mais', component: AprenderComponent },
       { path: 'configuracoes', component: ConfiguracoesComponent },
       { path: 'conta', component: ContaComponent },
-      { path: 'estacao-vital', component: EstacaoVitalComponent },
       { path: 'estacao-vital/registro-emocional', component: RegistroEmocionalComponent },
       { path: 'minha-jornada', component: MinhaJornadaComponent },
       { path: 'CuidarMais', component: CuidarMaisComponent },
+      { path: 'estacao-vital', component: EstacaoVitalComponent },
     ],
   },
   // 3. Rotas de Autenticação (dentro do LoginPageLayoutComponent)
