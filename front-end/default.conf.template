@@ -1,0 +1,20 @@
+# Configuração do servidor Nginx para uma aplicação Angular
+
+server {
+    # O Nginx vai escutar na porta 80, que é a porta que o Railway expõe.
+    listen ${PORT};
+
+    # Define a raiz de onde os arquivos do site serão servidos.
+    root /usr/share/nginx/html;
+
+    # Define o arquivo padrão a ser procurado.
+    index index.html;
+
+    # Bloco de localização para todas as rotas.
+    location / {
+        # Esta é a linha mais importante para SPAs como o Angular.
+        # Se não encontrar um arquivo ou pasta, ele serve o /index.html,
+        # permitindo que o roteamento do Angular assuma o controle.
+        try_files $uri $uri/ /index.html;
+    }
+}

@@ -63,11 +63,11 @@ section {
   margin: 0 auto;
 }
 
-.about-container{
+.about-container {
   background-color: var(--verde-7);
 }
 
-#sobre{
+#sobre {
   background-color: var(--verde-7);
 }
 
@@ -184,13 +184,12 @@ section {
   border-top: 3px solid var(--verde-3);
 }
 
-/* Objectives Section */
-.objectives-container {
+/* Differentials Section */
+.differentials-container {
   display: grid;
   grid-template-columns: 1fr;
   gap: 2rem;
   margin-bottom: 6rem;
-  margin-top: 3rem;
 }
 
 .objective-card {
@@ -243,14 +242,6 @@ section {
 .objective-description {
   color: var(--verde-1);
   padding-left: 4rem;
-}
-
-/* Differentials Section */
-.differentials-container {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 2rem;
-  margin-bottom: 6rem;
 }
 
 /* Target Audience Section */
@@ -320,4 +311,80 @@ section {
   color: var(--verde-1);
   max-width: 32rem;
   margin: 0 auto 2rem;
+}
+
+/* ======================================================= */
+/* ESTILOS RESPONSIVOS                                     */
+/* ======================================================= */
+
+@media (max-width: 768px) {
+  /* Ajuste geral do container principal para usar mais a tela */
+  .container {
+    max-width: 90vw;
+  }
+
+  /* Ajusta o hero para não ocupar a tela inteira */
+  .hero-container {
+    height: 100vh; /* ✅ CORREÇÃO: Voltando para tela cheia */
+    padding-top: 5rem;
+  }
+
+  .hero-title {
+    font-size: 2.5rem; /* 40px */
+  }
+
+  /* Seção "Nossa História" */
+  .story-container {
+    flex-direction: column; /* Empilha texto e imagem */
+    text-align: center;
+  }
+  
+  .story-container img {
+    margin-top: 2rem;
+    width: 15rem; /* Diminui um pouco a logo */
+  }
+
+  /* Seção "Missão, Visão, Valores" */
+  .mvv-container,
+  .values-container {
+    flex-direction: column; /* Empilha os cards */
+    gap: 1.5rem; /* Diminui o espaço entre eles */
+  }
+
+  .mvv-card,
+  .value-card {
+    width: 100%; /* Faz o card ocupar toda a largura */
+    padding: 1.5rem;
+    height: auto; /* Altura automática para o conteúdo caber */
+  }
+  
+  .mvv-title {
+      font-size: 1.4rem;
+  }
+  
+  .mvv-description {
+      font-size: 1rem;
+  }
+
+  /* Seção "Diferenciais" (já está em coluna única, apenas ajustando padding) */
+  .objective-description {
+    padding-left: 0; /* Remove o padding que só fazia sentido no desktop */
+  }
+  
+  /* Seção "Público-Alvo" */
+  .audience-section {
+    padding: 2rem 1.5rem;
+  }
+  
+  /* ✅ CORREÇÃO: Faz todas as tags terem a mesma largura */
+  .audience-tag {
+    width: 90%;
+    text-align: center; /* Centraliza o texto dentro da tag */
+  }
+
+  /* Seção "CTA" (Call to Action) */
+  .cta-section {
+    height: auto;
+    padding: 4rem 1.5rem;
+  }
 }

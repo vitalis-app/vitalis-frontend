@@ -5,7 +5,9 @@
   <div class="container hero-container">
     <div class="hero-content">
       <h1 class="hero-title">Cuidar de si começa com um clique.</h1>
-      <a [routerLink]="[]" fragment="funcionalidades-list"><btn-gradient text="Veja as funcionalidades"></btn-gradient></a>
+<a (click)="scrollToElement('funcionalidades-list')" style="cursor: pointer;">
+  <btn-gradient text="Veja as funcionalidades"></btn-gradient>
+</a>
     </div>
   </div>
 </section>

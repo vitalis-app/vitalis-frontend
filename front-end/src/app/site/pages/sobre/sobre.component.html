@@ -4,7 +4,9 @@
   <div class="container hero-container">
     <div class="hero-content">
       <h1 class="hero-title">Muito mais que uma plataforma.</h1>
-      <a [routerLink]="[]" fragment="sobre"><btn-gradient text="Conhecer a Vitalis"></btn-gradient></a>
+      <a (click)="scrollToElement('sobre')" style="cursor: pointer;">
+  <btn-gradient text="Conhecer a Vitalis"></btn-gradient>
+</a>
     </div>
   </div>
 </section>

@@ -1,203 +1,125 @@
+/* [ SEUS ESTILOS DESKTOP ORIGINAIS FICAM AQUI - SEM MUDANÇAS ] */
 .header {
   position: fixed;
   width: 100%;
   top: 0;
   z-index: 1000;
 }
-
 .navbar {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
-  padding: 1rem 1rem; /* Ajuste o padding conforme necessário */
+  padding: 1rem 2rem;
   width: 100%;
   margin: 0 auto;
   background: var(--glass);
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
-}
-
-.navbar.scrolled {
-  box-shadow: 0 2px 5px var(--shadow-0);
   transition: background-color 0.3s ease, box-shadow 0.3s ease;
 }
-
+.navbar.scrolled {
+  box-shadow: 0 2px 5px var(--shadow-0);
+}
 .logo-container {
   display: flex;
   align-items: center;
 }
-
-.logo-img {
-  height: 2rem; /* 32px */
-  transition: all 0.3s;
-}
-
-.logo-img:hover {
-  transform: scale(1.05);
-  cursor: pointer;
-}
-
-.nav-links-desktop {
+.logo-img { height: 2rem; }
+.nav-links-container {
   display: flex;
-  gap: 1.5rem; /* Espaçamento entre os links */
+  gap: 1.5rem;
 }
-
 .nav-link {
-  color: var(--verde-0); /* Cor do texto do link */
-  text-decoration: none;
-  font-size: 0.95rem; /* Tamanho da fonte dos links */
-  padding: 0.5rem 0.25rem; /* Adiciona um pouco de padding para melhor área de clique */
-  transition: color 0.3s ease;
-  position: relative;
+  color: var(--verde-0); text-decoration: none; font-size: 0.95rem; padding: 0.5rem 0.25rem; transition: color 0.3s ease; position: relative;
 }
-
-.nav-link:hover {
-  color: var(
-    --verde-3
-  ); /* Cor do link no hover, usando --ciano-claro como nos botões */
-}
-
-.nav-link::after {
-  content: "";
-  position: absolute;
-  width: 0;
-  height: 2px;
-  bottom: 0; /* Ajustado para ficar na base do padding */
-  left: 50%;
-  transform: translateX(-50%);
-  background-color: var(--verde-3);
-  transition: width 0.3s ease;
-}
-
-.nav-link:hover::after {
-  width: 100%;
-}
-
-.navbar-actions {
+.nav-link:hover { color: var(--verde-3); }
+.nav-link::after { content: ""; position: absolute; width: 0; height: 2px; bottom: 0; left: 50%; transform: translateX(-50%); background-color: var(--verde-3); transition: width 0.3s ease; }
+.nav-link:hover::after, .nav-link.active::after { width: 100%; }
+.navbar-actions-container {
   display: flex;
   align-items: center;
-  gap: 0.75rem; /* Espaçamento entre os botões de ação */
+  gap: 0.75rem;
 }
-
 .btn-theme-toggle {
-  background-color: transparent;
-  border: 1px solid var(--text-color); /* Borda sutil */
-  color: var(--text-color);
-  width: 2.25rem; /* 36px */
-  height: 2.25rem; /* 36px */
-  border-radius: 50%; /* Completamente redondo */
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1rem; /* Ajuste o tamanho do ícone/emoji se necessário */
-  padding: 0;
-  margin-left: 0.5rem; /* Pequeno ajuste na margem */
-  transition: background-color 0.2s ease-in-out, border-color 0.2s ease-in-out,
-    transform 0.2s ease;
+  background-color: transparent; border: 1px solid var(--text-color); color: var(--text-color); width: 2.25rem; height: 2.25rem; border-radius: 50%; cursor: pointer; display: flex; align-items: center; justify-content: center; font-size: 1rem; padding: 0; transition: background-color 0.2s ease-in-out, border-color 0.2s ease-in-out, transform 0.2s ease;
 }
-
-.btn-theme-toggle:hover {
-  background-color: var(--verde-5); /* Leve destaque no hover */
-  border-color: var(--verde-1);
-  transform: translateY(-1px) scale(1.05); /* Pequena elevação e escala */
-}
-
-.btn-theme-toggle:active {
-  transform: translateY(0) scale(1); /* Efeito de clique */
-}
-
-/* Estilo para o ícone dentro do botão, caso você use SVGs no futuro */
-.btn-theme-toggle i {
-  width: 1rem; /* 16px */
-  height: 1rem; /* 16px */
-}
-
+.btn-theme-toggle:hover { background-color: var(--verde-5); border-color: var(--verde-1); transform: translateY(-1px) scale(1.05); }
 .btn-login {
-  font-family: "Poppins", sans-serif;
-  background-color: var(--verde-3);
-  color: var(--verde-0); /* Texto inicial */
-  padding: 0.6rem 1.3rem; /* Ajuste no padding para melhor proporção */
-  border-radius: 2rem; /* Mantém o arredondamento */
-  border: none;
-  cursor: pointer;
-  font-weight: 500; /* Um pouco menos bold para um look mais clean */
-  font-size: 0.9rem; /* Tamanho da fonte */
-  position: relative;
-  overflow: hidden;
-  z-index: 1;
-  transition: color 0.3s ease-out, transform 0.15s ease-out,
-    box-shadow 0.15s ease-out;
+  font-family: "Poppins", sans-serif; background-color: var(--verde-3); color: var(--verde-0); padding: 0.6rem 1.3rem; border-radius: 2rem; border: none; cursor: pointer; font-weight: 500; font-size: 0.9rem; position: relative; overflow: hidden; z-index: 1; transition: color 0.3s ease-out, transform 0.15s ease-out, box-shadow 0.15s ease-out;
 }
+.btn-login::before { content: ""; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-color: var(--verde-1); border-radius: inherit; z-index: -1; transform: scaleY(0); transform-origin: bottom; transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94); }
+.btn-login:hover { color: var(--verde-6); }
+.btn-login:hover::before { transform: scaleY(1); }
+/* Fim dos estilos Desktop */
 
-.btn-login::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: var(--verde-1); /* Cor de fundo da transição */
-  border-radius: inherit;
-  z-index: -1;
-  transform: scaleY(0); /* Começa escondido (escala de 0 para cima) */
-  transform-origin: bottom; /* Animação de baixo para cima */
-  transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94); /* Transição mais suave */
-}
 
-.btn-login:hover {
-  color: var(--verde-6); /* Texto no hover */
-}
+/* Elementos Mobile Escondidos por Padrão (no Desktop) */
+.menu-toggle { display: none; }
+.mobile-menu-header { display: none; }
+.mobile-menu-actions { display: none; }
 
-.btn-login:hover::before {
-  transform: scaleY(1); /* Expande para preencher */
-}
 
-.btn-login:active {
-  transform: translateY(1px) scale(0.98); /* Efeito de clique mais sutil */
-  box-shadow: none; /* Remove sombra no active para um look mais flat */
-}
+/* ================== MEDIA QUERY ================== */
+@media (max-width: 992px) {
+  /* Esconde os blocos do desktop */
+  .navbar-actions-container { display: none; }
+  .nav-links-container { display: none; }
+  
+  /* Mostra o botão hambúrguer */
+  .menu-toggle {
+    display: flex;
+    background: transparent; border: none; color: var(--text-color); cursor: pointer; z-index: 1002;
+  }
 
-.registro-overlay {
-  display: none;
-  position: fixed;
-  bottom: -100%;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.6);
-  display: flex;
-  justify-content: center;
-  align-items: flex-end;
-  transition: bottom 0.4s ease;
-  z-index: 1000;
-}
+  /* Transforma o container de links no menu overlay */
+  .nav-links-container.mobile-menu-open {
+    display: flex;
+    flex-direction: column;
+    /* ✅ REMOVIDO: justify-content: space-between; */
+    align-items: flex-start;
+    gap: 1.5rem; /* Espaçamento entre os links */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 80%;
+    max-width: 320px;
+    height: 100vh;
+    background: var(--background);
+    padding: 1.5rem;
+    box-shadow: 2px 0 10px var(--shadow-0);
+    transform: translateX(-100%);
+    transition: transform 0.3s ease-in-out;
+    z-index: 1001;
+  }
+  
+  .nav-links-container.mobile-menu-open {
+    transform: translateX(0);
+  }
 
-.registro-overlay.ativo {
-  bottom: 0;
-}
+  /* Mostra e alinha o cabeçalho do menu mobile */
+  .nav-links-container.mobile-menu-open .mobile-menu-header {
+    display: flex;
+    justify-content: space-between; /* ✅ CORRIGIDO: Garante tema na esquerda e X na direita */
+    align-items: center;
+    width: 100%;
+    margin-bottom: 2rem; /* ✅ REDUZIDO: Menos espaço abaixo do cabeçalho */
+  }
 
-.registro-container {
-  background-color: #fff;
-  width: 100%;
-  max-width: 500px;
-  padding: 2rem;
-  border-radius: 16px 16px 0 0;
-  box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.3);
-  transform: translateY(100%);
-  transition: transform 0.4s ease;
-}
+  /* Estiliza os links dentro do menu */
+  .nav-links-container.mobile-menu-open .nav-link {
+    font-size: 1.2rem;
+  }
+  
+  /* MOSTRA E ESTILIZA OS BOTÕES DE AÇÃO NO MOBILE */
+  .nav-links-container.mobile-menu-open .mobile-menu-actions {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 1rem;
+    margin-top: auto; /* ✅ A MÁGICA: Empurra este bloco para o fundo do menu */
+  }
 
-.registro-overlay.ativo .registro-container {
-  transform: translateY(0);
-}
-
-.fechar-btn {
-  position: absolute;
-  top: 10px;
-  right: 20px;
-  background: transparent;
-  border: none;
-  font-size: 1.2rem;
-  cursor: pointer;
+  .mobile-menu-actions .btn-login {
+    width: 100%;
+  }
 }

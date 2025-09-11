@@ -107,10 +107,10 @@ label {
 
 .input-icon-wrapper input {
   all: unset;
-  width: 85%;
+  box-sizing: border-box; /* Garante que o padding não aumente a largura total */
+  width: 100%; /* Ocupa a largura do container pai */
   background-color: transparent;
   padding: 8px 8px 8px 36px;
-  /* espaço para o ícone */
   border: solid 1px var(--verde-2);
   border-radius: 10px;
   margin-bottom: 1rem;
@@ -125,7 +125,6 @@ label {
   position: absolute;
   left: 13px;
   top: 13px;
-  /* valor ajustado manualmente */
   fill: var(--verde-2);
   pointer-events: none;
   width: 15px;
@@ -215,28 +214,22 @@ a[routerLink="/app"] {
   text-align: center;
 }
 
-
 .checkbox-wrapper-37 input[type="checkbox"] {
   display: none;
   border-radius: 10px;
 }
-
 .checkbox-wrapper-37 .terms-label {
   cursor: pointer;
   display: flex;
   align-items: center;
 }
-
 .checkbox-wrapper-37 .terms-label .label-text {
   margin-left: 10px;
-  ;
 }
-
 .checkbox-wrapper-37 .checkbox-svg {
   width: 20px;
   height: 20px;
 }
-
 .checkbox-wrapper-37 .checkbox-box {
   fill: var(--verde-2);
   stroke: var(--verde-6);
@@ -244,15 +237,43 @@ a[routerLink="/app"] {
   stroke-dashoffset: 800;
   transition: stroke-dashoffset 0.6s ease-in;
 }
-
 .checkbox-wrapper-37 .checkbox-tick {
   stroke: var(--verde-6);
   stroke-dasharray: 172;
   stroke-dashoffset: 172;
   transition: stroke-dashoffset 0.6s ease-in;
 }
-
 .checkbox-wrapper-37 input[type="checkbox"]:checked+.terms-label .checkbox-box,
 .checkbox-wrapper-37 input[type="checkbox"]:checked+.terms-label .checkbox-tick {
   stroke-dashoffset: 0;
+}
+
+/* ======================================================= */
+/* ✅ ESTILOS RESPONSIVOS ADICIONADOS A PARTIR DAQUI        */
+/* ======================================================= */
+@media (max-width: 768px) {
+  .voltar-btn {
+    left: 16px;
+    top: 16px;
+  }
+
+  .auth-page-container {
+    flex-direction: column; /* Empilha os itens */
+    justify-content: center; /* Centraliza o painel verticalmente */
+    height: auto; /* Altura automática para caber em telas menores */
+    min-height: 100vh;
+    padding: 1rem; /* Adiciona um respiro nas laterais */
+  }
+
+  /* Esconde a seção da esquerda no mobile */
+  .auth-hero {
+    display: none;
+  }
+
+  /* Ajusta o painel de login para ocupar a tela */
+  .auth-panel {
+    width: 100%;
+    max-width: 400px; /* Limita para não ficar muito largo em tablets */
+    padding: 2rem 1.5rem;
+  }
 }

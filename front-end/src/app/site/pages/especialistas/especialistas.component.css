@@ -1,7 +1,9 @@
 .container {
   width: 100%;
-  max-width: 80vw;
+  max-width: 90vw; 
   margin: 0 auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
 }
 
 /* Hero Section */
@@ -359,4 +361,73 @@ section {
 .btn-large:hover {
   background-color: #dcf3ef;
   transform: scale(1.03);
+}
+
+/* ======================================================= */
+/* ESTILOS RESPONSIVOS                                     */
+/* ======================================================= */
+@media (max-width: 768px) {
+  .container {
+    max-width: 90vw;
+  }
+
+  /* Seção Hero */
+  .hero-container {
+    height: 90vh;
+    padding: 0 1rem; /* Adiciona padding para o texto não colar nas bordas */
+  }
+  .hero-title {
+    font-size: 2rem; /* ✅ Reduzindo o tamanho do título */
+  }
+  .hero-subtitle {
+    font-size: 1rem; /* ✅ Reduzindo o tamanho do subtítulo */
+  }
+
+  /* Seções Gerais */
+  section {
+    padding: 48px 0;
+  }
+  .section-header {
+    margin-bottom: 48px;
+  }
+  .section-title {
+    font-size: 2rem;
+  }
+  .section-subtitle {
+    font-size: 1.2rem;
+  }
+
+  /* Empilhando os cards */
+  .steps,
+  .reasons,
+  .benefits,
+  .testimonials {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  /* Ajustando o tamanho dos cards para mobile */
+  .step-card,
+  .reason-card,
+  .benefit-card,
+  .testimonial-card {
+    max-width: 100%;
+    width: 100%;
+  }
+
+  /* Ajustes específicos */
+  .reason-title {
+    text-align: left;
+    justify-content: flex-start;
+  }
+  
+  .btn-large {
+    width: 90vw;
+    max-width: 100%;
+  }
+
+  .cta-section {
+    height: auto;
+    padding: 48px 1rem;
+  }
 }

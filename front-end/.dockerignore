@@ -1,0 +1,9 @@
+# Ignora a pasta de dependências do Node.
+# O Dockerfile irá instalar as dependências do zero dentro do container.
+node_modules
+
+# Ignora a pasta de build local, se existir.
+dist
+
+# Ignora arquivos de log do npm
+npm-debug.log

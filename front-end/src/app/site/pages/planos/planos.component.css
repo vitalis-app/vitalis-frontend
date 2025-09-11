@@ -1,5 +1,4 @@
-
-/* Hero Section */
+/* [ SEUS ESTILOS DESKTOP ORIGINAIS FICAM AQUI, ATÉ A MEDIA QUERY ] */
 .hero {
   background-color: var(--verde-6);
 }
@@ -36,10 +35,9 @@
 }
 
 .planos-container {
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 360px));
   justify-content: center;
-  align-items: stretch;
-  flex-wrap: wrap;
   gap: 32px;
   margin-top: 50px;
 }
@@ -48,7 +46,6 @@
   background-color: var(--verde-56);
   border-radius: 24px;
   padding: 30px;
-  flex: 1;
   min-width: 300px;
   max-width: 360px;
   text-align: left;
@@ -56,7 +53,7 @@
   transition: all 0.3s ease;
   display: flex;
   flex-direction: column;
-  border: 2px solid var(--verde-4);
+  border: 3px solid var(--verde-4);
 }
 
 .plano:hover {
@@ -233,4 +230,110 @@
 
 .col-destaque {
   color: var(--verde-10);
+}
+
+.mobile-only {
+  display: none;
+}
+
+/* ======================================================= */
+/* ESTILOS RESPONSIVOS                                     */
+/* ======================================================= */
+@media (max-width: 768px) {
+  .hero-container {
+    height: 100vh;
+    padding: 0 1rem;
+  }
+
+  .hero-title {
+    font-size: 2rem;
+  }
+
+  .plano {
+    max-width: 100%;
+  }
+
+  .comparativo-section {
+    padding: 30px 10px;
+  }
+
+  .desktop-only {
+    display: none;
+  }
+
+  .mobile-only {
+    display: block;
+  }
+
+  /* Estilos para o sistema de abas */
+  .abas-container {
+    display: flex;
+    justify-content: space-around;
+    background-color: var(--verde-5);
+    border-radius: 999px;
+    padding: 5px;
+    margin-bottom: 2rem;
+  }
+
+  .abas-container button {
+    flex: 1;
+    padding: 10px;
+    border: none;
+    background-color: transparent;
+    color: var(--verde-1);
+    font-weight: 600;
+    border-radius: 999px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: "Poppins", sans-serif;
+    /* ✅ Garante a fonte correta */
+  }
+
+  .abas-container button.aba-ativa {
+    background-color: var(--verde-10);
+    color: #08241f;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+
+  .comparativo-row-mobile {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 5px;
+    border-bottom: 1px solid var(--verde-4);
+  }
+
+  .comparativo-row-mobile:last-child {
+    border-bottom: none;
+  }
+
+  /* ✅ AJUSTES DE DESIGN APLICADOS AQUI */
+  .comparativo-row-mobile .feature-name {
+    font-weight: 600;
+    /* Deixa o nome da feature em negrito */
+    color: var(--verde-1);
+    /* Usa a cor correta */
+  }
+
+  .comparativo-row-mobile .feature-value {
+    font-weight: 600;
+    /* Deixa o valor em negrito */
+    color: var(--verde-10);
+    /* Usa a cor de destaque por padrão */
+  }
+
+  /* Estiliza os ícones com as cores corretas */
+  .comparativo-row-mobile .feature-value.icon-check i {
+    color: var(--verde-10);
+  }
+
+  .comparativo-row-mobile .feature-value.icon-x i {
+    color: #556c67;
+  }
+
+  /* Estiliza textos que não são destaque */
+  .comparativo-row-mobile .feature-value:not(.icon-check):not(.icon-x) {
+    /* Ex: "Básica", "Acesso Limitado" */
+    color: var(--verde-1);
+  }
 }

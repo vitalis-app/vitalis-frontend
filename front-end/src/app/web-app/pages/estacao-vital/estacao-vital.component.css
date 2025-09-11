@@ -1,319 +1,467 @@
+/* ===== Estrutura Principal ===== */
 section {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100%;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 64px;
-    gap: 8rem;
-    padding: 2rem;
+  background-color: var(--verde-7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  border-radius: 5%;
+  gap: 2rem;
+  padding: 3%;
+}
+
+.planta-container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  max-width: 500px;
+  /* antes era 40% fixo */
+  flex-shrink: 0;
+  padding: 1%;
+  background-image: url("src/assets/imgs/estacao-vital/blank-nature-park-landscape-scene-daytime_1308-62625.jpg");
+  background-size: cover;
+  background-position: center;
+  border: 10px solid var(--verde-5);
+  border-radius: 32px;
+  box-shadow: 0 0 10px var(--shadow-0);
+  overflow: hidden;
 }
 
 .menu-direito {
-    background-color: var(--verde-7);
-    box-shadow: 0px 0px 10px var(--shadow-0);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    height: 100%;
-    width: 460px;
-    border-radius: 16px;
-    gap: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  max-width: 500px;
+  /* antes era 40% fixo */
+  gap: 1rem;
 }
 
+/* ===== Elementos da Planta ===== */
+.planta-container h1 {
+  color: var(--verde-7);
+  font-size: 250%;
+  z-index: 1;
+}
+
+.planta-imagem {
+  position: absolute;
+  bottom: 40%;
+  width: 50%;
+  height: auto;
+  z-index: 5;
+}
+
+.info-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: absolute;
+  bottom: -32%;
+  width: 300%;
+  height: 75%;
+  border-radius: 100%;
+  background-color: var(--verde-5);
+  z-index: 0;
+  padding-top: 25px;
+  gap: 0.5rem;
+
+  background-color: var(--verde-5);
+  border-top-left-radius: 100%;
+  border-top-right-radius: 100%;
+  z-index: 0;
+}
+
+/* ===== Nome da Planta ===== */
+.nome-planta {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.nome-planta p,
+.nome-planta input {
+  color: var(--verde-00);
+  font-weight: 800;
+  font-size: 200%;
+  text-shadow: 3px 3px var(--shadow-0);
+  margin: 0;
+  padding: 0;
+  font-size: 2rem;
+  font-weight: 800;
+  line-height: 1.2;
+  text-align: center;
+  color: var(--verde-2);
+  text-shadow: 3px 3px var(--shadow-0);
+}
+
+.nome-planta p {
+  cursor: pointer;
+}
+
+.nome-planta input {
+  width: auto;
+  background: transparent;
+  border: none;
+  border-bottom: 2px solid var(--verde-2);
+  outline: none;
+}
+
+.nome-planta button {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+}
+
+.nome-planta i {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.6em;
+  height: 1.6em;
+
+  font-size: 0.6rem;
+  color: var(--verde-7);
+  background-color: var(--verde-2);
+  border: solid 0.8rem var(--verde-2);
+  border-radius: 999px;
+  opacity: 0.6;
+}
+
+/* ===== Progresso (XP e Nível) ===== */
+.nivel-atual {
+  margin: 0;
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--verde-1);
+}
+
+.barra-progresso-container { 
+  width: 350px;
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid var(--verde-4);
+  border-radius: 999px;
+  background-color: var(--verde-3);
+  overflow: hidden;
+  position: relative;
+  margin-bottom: 1.5rem;
+} 
+
+.barra-progresso-atual { 
+  position: absolute; 
+  left: 0;
+  height: 100%; 
+  width: 0;
+  border-radius: 999px;
+  background-color: var(--verde-2);
+  transition: all 0.2 ease-out; }
+
+.xp-info {
+  position: absolute;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--verde-5);
+  z-index: 2;
+}
+
+.registro-emocional {
+  text-decoration: none;
+}
+
+/* ===== Botão Principal "Regar" ===== */
+.regar-btn {
+  width: 100%;
+  max-width: 350px;
+  /* antes era 350px fixo */
+  height: 80px;
+  border-radius: 32px;
+  background: linear-gradient(135deg, var(--verde-3), var(--verde-5));
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+  border: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  width: 350px;
+  height: 80px;
+  font-size: 18px;
+  font-weight: 600;
+  font-family: 'Poppins', sans-serif;
+  color: var(--verde-2);
+  cursor: pointer;
+
+  border: none;
+  border-radius: 32px;
+  background: linear-gradient(135deg, var(--verde-3), var(--verde-5));
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.regar-btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+}
+
+.regar-btn i {
+  margin-bottom: 8px;
+  font-size: 24px;
+}
+
+/* ===== Cards de Missões e Conquistas ===== */
 .card {
-    min-width: 400px;
-    border-radius: 16px;
-    margin: 12px;
-    padding: 15px;
-    display: flex;
-    flex-direction: column;
-}
-
-.card h1,
-.card p {
-    display: flex;
-    align-items: center;
-    gap: 8px;
+  width: 100%;
+  max-width: 400px;
+  /* antes era 400px fixo */
+  border-radius: 16px;
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  width: 400px;
+  padding: 15px;
+  border-radius: 16px;
 }
 
 .card h1 {
-    color: var(--verde-2);
-    font-size: 1.3rem;
-    height: 2.2rem;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 0.5rem;
+  font-size: 1.3rem;
+  color: var(--verde-2);
 }
 
-.card p {
-    font-size: 0.7rem;
+.card-conquistas {
+  height: 120px;
 }
 
-.descricao-marquee {
-    width: 100%;
-    white-space: nowrap;
-    overflow: hidden;
-    box-sizing: border-box;
-    height: 1rem;
-}
-
-#descricao {
-    position: relative;
-    top: -0px;
-    overflow: hidden;
-    width: 100%;
-}
-
-.marquee-ativo #descricao:hover {
-    animation: marquee 10s linear infinite;
-}
-
-@keyframes marquee {
-    0% {
-        transform: translateX(0%);
-    }
-
-    100% {
-        transform: translateX(-100%);
-    }
-}
-
-.icon-card,
-.icon-card-intra,
-.icon-card-no-background{
-    font-size: 1rem;
-    border-radius: 12px;
-    border-style: solid;
-    border-width: 4px 10px;
-}
-
-.icon-card {
-    background-color: var(--verde-4);
-    border-color: var(--verde-4);
-    box-shadow: 2px 2px 6px var(--shadow-0);
-}
-
-.icon-card-intra {
-    color: #10473e;
-    background-color: var(--verde-3);
-    border-color: var(--verde-3);
-}
-
-.icon-card-no-background {
-    color: var(--verde-3);
-    background-color: transparent;
-    border-color: transparent;
+.card-conquistas .intra-container {
+  background-color: var(--verde-5);
+  border: solid 1px var(--verde-3);
+  border-radius: 8px;
 }
 
 .intra-container {
-    background-color: var(--verde-6);
-    box-shadow: 2px 2px 0px var(--shadow-0);
-    border-radius: 8px;
-    padding: 10px;
-    margin-top: 12px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 10px;
+  margin-top: 8px;
+  border: 1px solid transparent;
+  border-radius: 64px;
+  background-color: var(--verde-6);
+  box-shadow: 2px 2px 0 var(--shadow-0);
+  transition: border-color 0.3s;
 }
 
-.intra-container .text p {
-    font-size: 0.9rem;
-    margin-bottom: 0.4rem;
-}
-
-.text {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    margin-left: 0.5rem;
-    width: 80%;
-}
-
-.text .barra-progresso {
-    background-color: var(--verde-7);
-    border: 1px solid var(--verde-7);
-    height: 0.5rem;
-}
-
-.text .barra-progresso-atual {
-    width: 10%;
+.intra-container.completa {
+  border-color: var(--verde-3);
 }
 
 .text-icon {
-    display: flex;
-    width: 75%;
-    overflow: hidden;
+  display: flex;
+  align-items: center;
+  width: 75%;
+  overflow: hidden;
 }
 
-.completar-botao {
+.text {
+  margin-left: 0.5rem;
+}
+
+.text p {
+  margin: 0;
+  font-size: 0.9rem;
+}
+
+.xp-missao {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--verde-2);
+}
+
+/* ===== Ícones ===== */
+.icon-card {
+  font-size: 1rem;
+  padding: 4px 10px;
+  border-radius: 12px;
+  background-color: var(--verde-4);
+  box-shadow: 2px 2px 6px var(--shadow-0);
+}
+
+.icon-card-no-background {
+  font-size: 1rem;
+  padding: 4px 10px;
+  color: var(--verde-3);
+}
+
+/* ===== Botão Completar Missão ===== */
+.completar-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  font-size: 0.8rem;
+  cursor: pointer;
+  color: #176b5d;
+  background-color: #7dd1c3;
+  border: 8px solid #7dd1c3;
+  border-radius: 64px;
+  transition: background-color 0.3s, border-color 0.3s;
+}
+
+.intra-container.completa .completar-btn {
+  background-color: var(--verde-3);
+  border-color: var(--verde-3);
+}
+
+.completar-btn:disabled {
+  cursor: not-allowed;
+}
+
+/* ===== Responsividade ===== */
+@media (max-width: 992px) {
+  section {
+    justify-content: normal;
+    flex-direction: column;
+    margin: 0;
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    gap: 0;
+    border-radius: 0;
+    background-color: var(--verde-6);
+  }
+
+  .menu-direito {
     display: flex;
+    flex-direction: column;
     justify-content: center;
-    align-items: center;
-    cursor: pointer;
-    margin-left: 0.2rem;
-    color: #08241f;
-    font-size: 0.8rem;
-    color: #176b5d;
-    background-color: #7dd1c3;
-    border: 8px solid #7dd1c3;
-    border-radius: 64px;
-}
-
-#card-diaria,
-#card-semanal,
-#card-conquistas {
+    width: 100%;
+    align-items: normal;
+    padding-top: 1rem;
     height: auto;
-    margin: 0px;
-    gap: 3px;
-}
+  }
 
-#card-conquistas {
-    height: 120px;
-}
-
-#card-stats {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 410px;
-    padding: 0.5rem 1rem;
-    color: #10473e;
-    flex-direction: column;
-    margin-bottom: 1rem;
-}
-
-#card-stats .barra-progresso, #regar-btn {
-    box-shadow: 3px 3px var(--shadow-0);
-}
-
-#card-stats #nivel-atual {
-    text-shadow: 3px 3px var(--shadow-0);
-}
-
-#barra-progresso-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    width: 100%;
-    padding: 10px 5%;
-}
-
-#xp-info {
-    z-index: 2;
-    font-size: 0.8rem;
-    height: 1.2rem;
-    position: absolute;
-    color: var(--verde-2);
-    font-weight: 600;
-}
-
-.xp-restante {
-    margin-top: 0.3rem;
-    margin-left: 2px;
-    font-size: 0.7rem;
-    color: var(--verde-3);
-    font-weight: 600;
-}
-
-
-.barra-progresso {
-    width: 100%;
-    height: 1.2rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border: 2px solid var(--verde-5);
-    border-radius: 999px;
-    background-color: var(--verde-4);
-    overflow: hidden;
-    position: relative;
-}
-
-.barra-progresso-atual {
-    position: absolute;
-    left: 0;
-    height: 100%;
-    width: 87.5%;
-    border: 1px solid var(--verde-5);
-    border-radius: 999px;
-    background-color: var(--verde-5);
-}
-
-#nivel-atual {
-    color: var(--verde-2);
-    font-size: 0.8rem;
-    font-weight: 600;
-}
-
-#nivel-planta {
-    color: var(--verde-2);
-    font-weight: 600;
-    width: auto;
-    font-size: 2rem;
-    border-radius: 16px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-shadow: 3px 3px var(--shadow-0);
-}
-
-#regar-btn {
-    background: linear-gradient(90deg, var(--gradiente-inicio), var(--gradiente-fim));
-    color: var(--verde-7);
-    font-size: 1.5rem;
-    font-weight: 500;
-    padding: 0.25rem 2rem;
-    border-radius: 64px;
-    transition: all 0.3s ease;
+  .planta-container {
+    height: 75%;
     border: none;
-    cursor: pointer;
-    display: inline-block;
-    align-items: center;
-    justify-content: center;
-    font-family: "Poppins", sans-serif;
-    text-decoration: none;
-    height: 50px;
-}
+    border-radius: 16px;
+  }
 
-#regar-btn:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 10px 20px var(--shadow-0);
-}
+  .planta-imagem {
+    bottom: 35%;
+  }
 
-#regar-btn :active {
-    transform: translateY(-1px);
-    box-shadow: 0 1px 3px var(--shadow-0);
-}
+  .planta-sombra {
+    top: 72%;
+  }
 
-.planta-menu {
+  .info-container {
+    position: absolute;
+    bottom: -10%;
+    width: 250%;
+    height: 50%;
+    margin: 0;
+    padding: 10%;
+    border-radius: 100%;
+  }
+
+  .nome-planta p,
+  .nome-planta input {
+    font-size: 1.5rem;
+  }
+
+  .nivel-atual {
+    font-size: 1.2rem;
+  }
+
+  .barra-progresso-container {
+    width: 100%;
+    max-width: 270px;
+    height: 24px;
+  }
+
+  .xp-info {
+    font-size: 0.8rem;
+  }
+
+  .regar-btn {
+    width: 100%;
+    max-width: none;
+    height: 70px;
+    font-size: 16px;
+    border-radius: 16px;
+    margin: 0;
+  }
+
+  .botoes {
+    display: flex;
+    justify-content: space-evenly;
+    position: fixed;
+    bottom: 0;
+    padding: 1.2rem 0.5rem;
+    background-color: var(--verde-5);
+    width: 100%;
+    height: auto;
+  }
+
+  .toggle-btn {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
-    height: 100%;
-    padding: 2rem;
-    border-radius: 16px;
-    background-image: url("src/assets/imgs/estacao-vital/blank-nature-park-landscape-scene-daytime_1308-62625.jpg");
-    background-size: cover;
-    background-position: center;
-    box-shadow: 0px 0px 10px var(--shadow-0);
-    border: 4px solid var(--verde-6);
-}
-
-.planta-menu h1 {
+    font-size: 0.8rem;
     color: var(--verde-2);
-    font-size: 2rem;
-    border: 2px solid var(--verde-10);
-    padding: 0 15px;
-    background-color: var(--verde-10);
-    border-radius: 64px;
-    box-shadow: 3px 3px var(--shadow-0);
-}
+    border: none;
+    background-color: transparent;
+    gap: 0.3rem;
+  }
 
-.planta-menu img {
-    width: 400px;
-    height: 400px;
+  .noLink {
+    all: unset;
+  }
+
+  .toggle-btn i {
+    font-size: 1.5rem;
+  }
+
+  .card {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .card h1 {
+    font-size: 1.1rem;
+  }
+
+  .text p {
+    font-size: 0.85rem;
+  }
+
+  .xp-missao {
+    font-size: 0.75rem;
+  }
+
+  .completar-btn {
+    font-size: 0.75rem;
+    border-width: 6px;
+  }
+
+  .card-conquistas {
+    height: auto;
+  }
 }

@@ -1,27 +1,70 @@
 /* Footer */
 .footer {
-    background-color: #08241f;
-    color: #e3f7f1;
-    padding: 2.5rem 1.5rem 2rem 1.5rem;
+  /* Mantém as propriedades existentes para o background e texto */
+  background-color: #08241f;
+  color: #e3f7f1;
+  padding: 2.5rem 1.5rem 2rem 1.5rem;
 }
 
+/*
+  Ajustes para a grade do footer.
+  Por padrão (para telas maiores), a usamos com flexbox para alinhar
+  os itens lado a lado.
+*/
 .footer-grid {
-    display: flex;
-    justify-content: space-around;
-    padding: 20px;
+  display: flex; /* Mantém o layout horizontal para desktop */
+  justify-content: space-around;
+  padding: 20px;
+  gap: 2rem;
+}
+
+/*
+  A partir daqui, temos as media queries.
+  Elas aplicam estilos SOMENTE quando a condição é atendida.
+  Esta regra se aplica para telas com largura máxima de 768px.
+*/
+@media (max-width: 768px) {
+  .footer-grid {
+    /* Altera o layout para empilhar os itens verticalmente */
+    display: grid;
+    /* Com '1fr', cada coluna ocupará 100% da largura disponível */
     grid-template-columns: 1fr;
-    gap: 2rem;
+    gap: 2.5rem; /* Aumenta o espaçamento vertical entre os blocos */
+    text-align: center; /* Centraliza o texto para melhor visualização no mobile */
+  }
+
+  .footer-grid > div {
+    /* Centraliza os elementos dentro de cada bloco do footer */
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+  }
+
+  /* Ajusta o alinhamento da logo para o centro */
+  .footer-logo-container {
+    justify-content: center;
+  }
+
+  /* Centraliza os ícones de redes sociais */
+  .social-media {
+    justify-content: center;
+  }
+
+  /* Centraliza a lista de links */
+  .footer-links {
+    align-items: center;
+  }
 }
 
 .footer-logo-container {
-    display: flex;
-    align-items: center;
-    margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
 }
 
 .footer-logo-icon {
-    width: 7rem;
-    height: auto;
+  width: 7rem;
+  height: auto;
 }
 
 .social-media {
@@ -37,78 +80,78 @@
   width: 2.5rem;
   height: 2.5rem;
   border-radius: 50%;
-  background-color: #176B5D;
+  background-color: #176b5d;
   color: #f2fffb;
   transition: all 0.3s ease;
   text-decoration: none;
 }
 
 .social-icon:hover {
-  background-color: #27B29B;
+  background-color: #27b29b;
   transform: translateY(-3px);
 }
 
 .social-icon i {
-  font-size:  1.25rem;
+  font-size: 1.25rem;
 }
 
 .footer-tagline {
-    color: #7DD1C3;
-    margin-bottom: 0.5rem;
+  color: #7dd1c3;
+  margin-bottom: 0.5rem;
 }
 
 .footer-address {
-    color: #7DD1C3;
+  color: #7dd1c3;
 }
 
 .footer-heading {
-    font-size: 1.125rem; /* text-lg */
-    font-weight: 600; /* font-semibold */
-    margin-bottom: 1rem; /* mb-4 */
+  font-size: 1.125rem; /* text-lg */
+  font-weight: 600; /* font-semibold */
+  margin-bottom: 1rem; /* mb-4 */
 }
 
 .footer-links {
-    list-style: none;
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem; /* space-y-2 */
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem; /* space-y-2 */
 }
 
 .footer-link {
-    color: #7DD1C3;
-    text-decoration: none;
-    transition: color 0.1s ease;
+  color: #7dd1c3;
+  text-decoration: none;
+  transition: color 0.1s ease;
 }
 
 .footer-link:hover {
-    color: #c3e6df;
+  color: #c3e6df;
 }
 
 .contact-item {
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
 }
 
 .contact-icon {
-    width: 1.25rem; /* w-5 */
-    height: 1.25rem; /* h-5 */
-    margin-right: 0.5rem; /* mr-2 */
-    color: #27B29B;
+  width: 1.25rem; /* w-5 */
+  height: 1.25rem; /* h-5 */
+  margin-right: 0.5rem; /* mr-2 */
+  color: #27b29b;
 }
 
 .contact-text {
-    color: #7DD1C3;
+  color: #7dd1c3;
 }
 
 .footer-sub-links-container {
-    margin-top: 1.5rem; /* mt-6 */
+  margin-top: 1.5rem; /* mt-6 */
 }
 
 .footer-bottom-text {
-    border-top: 1px solid #176B5D;
-    margin-top: 2.5rem; /* mt-10 */
-    padding-top: 1.5rem; /* pt-6 */
-    text-align: center;
-    color: #27B29B;
-    font-size: 0.875rem; /* text-sm */
+  border-top: 1px solid #176b5d;
+  margin-top: 2.5rem; /* mt-10 */
+  padding-top: 1.5rem; /* pt-6 */
+  text-align: center;
+  color: #27b29b;
+  font-size: 0.875rem; /* text-sm */
 }

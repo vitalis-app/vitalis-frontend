@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { FormsModule } from '@angular/forms'; 
+import { FormsModule } from '@angular/forms';
 // --- Layouts ---
 import { SiteLayoutComponent } from './site/layout/site-layout/site-layout.component';
 import { WebAppLayoutComponent } from './web-app/layout/web-app-layout/web-app-layout.component';
@@ -50,23 +50,22 @@ const routes: Routes = [
     children: [
       { path: '', component: HomeAppComponent },
       // Corrigido o nome da rota para 'aprender'
-      { path: 'aprender-mais', component: AprenderComponent }, 
+      { path: 'aprender-mais', component: AprenderComponent },
       { path: 'configuracoes', component: ConfiguracoesComponent },
       { path: 'conta', component: ContaComponent },
-      { path: 'estacao-vital', component: EstacaoVitalComponent },
       { path: 'estacao-vital/registro-emocional', component: RegistroEmocionalComponent },
       { path: 'minha-jornada', component: MinhaJornadaComponent },
       { path: 'CuidarMais', component: CuidarMaisComponent },
+      { path: 'estacao-vital', component: EstacaoVitalComponent },
     ],
   },
-
   // 3. Rotas de Autenticação (dentro do LoginPageLayoutComponent)
   {
     path: 'auth', // Adicionado um caminho 'auth' para evitar conflito
     component: LoginPageLayoutComponent,
     children: [
-      { path: 'login', component: LoginComponent},
-      ]
+      { path: 'login', component: LoginComponent },
+    ]
   },
 
   // 4. Rota de Fallback (se nenhuma outra rota corresponder)
@@ -74,7 +73,15 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes), FormsModule], // Importando FormsModule para uso em componentes que necessitam de formulários
-  exports: [RouterModule, FormsModule] // Exportando RouterModule e FormsModule para uso em outros módulos
+  // ✅ ADICIONE A CONFIGURAÇÃO DE VOLTA AQUI
+  imports: [
+    RouterModule.forRoot(routes, {
+      anchorScrolling: 'enabled',
+      scrollOffset: [0, 10], // Define um espaço de 80px no topo ao rolar para âncoras
+      scrollPositionRestoration: 'enabled',
+    }),
+    FormsModule,
+  ],
+  exports: [RouterModule, FormsModule]
 })
-export class AppRoutingModule {}
+export class AppRoutingModule { }

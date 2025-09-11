@@ -7,4 +7,27 @@ import { Component } from '@angular/core';
 })
 export class PlanosComponent {
 
+  // ✅ ADICIONE ESTA LINHA
+  public abaAtiva: 'gratuito' | 'vital' | 'compartilhado' = 'vital';
+
+  constructor() { }
+
+  // ✅ ADICIONE ESTE MÉTODO
+  selecionarAba(aba: 'gratuito' | 'vital' | 'compartilhado') {
+    this.abaAtiva = aba;
+  }
+
+  scrollToElement(elementId: string): void {
+    const element = document.getElementById(elementId);
+    if (element) {
+      const headerOffset = 90; 
+      const elementPosition = element.getBoundingClientRect().top;
+      const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: 'smooth'
+      });
+    }
+  }
 }

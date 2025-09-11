@@ -1,48 +1,49 @@
 <header class="header">
-  <nav class="navbar" [ngClass]="{ navbar: true, scrolled: isScrolled }">
+  <nav class="navbar" [ngClass]="{ 'scrolled': isScrolled }">
+    
     <div class="logo-container">
       <img class="logo-img" [src]="logoSrc" alt="Vitalis logo" />
     </div>
 
-    <div class="nav-links-desktop">
-      <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }"
-        class="nav-link scroll-link">Início</a>
-      <a routerLink="/sobre" routerLinkActive="active" class="nav-link scroll-link">Sobre</a>
-      <a routerLink="/funcionalidades" routerLinkActive="active" class="nav-link scroll-link">Funcionalidades</a>
-      <a routerLink="/planos" routerLinkActive="active" class="nav-link scroll-link">Planos</a>
-      <a routerLink="/para-especialistas" routerLinkActive="active" class="nav-link scroll-link">Especialistas</a>
+    <div class="nav-links-container" [class.mobile-menu-open]="isMenuOpen">
+      <div class="mobile-menu-header">
+        <button class="btn-theme-toggle" (click)="toggleTheme()" aria-label="Trocar tema">
+          <i class="fa-solid fa-moon" *ngIf="currentTheme === 'light'"></i>
+          <svg *ngIf="currentTheme === 'dark'" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M12 19a1 1 0 0 1 .993 .883l.007 .117v1a1 1 0 0 1 -1.993 .117l-.007 -.117v-1a1 1 0 0 1 1 -1z" /><path d="M18.313 16.91l.094 .083l.7 .7a1 1 0 0 1 -1.32 1.497l-.094 -.083l-.7 -.7a1 1 0 0 1 1.218 -1.567l.102 .07z" /><path d="M7.007 16.993a1 1 0 0 1 .083 1.32l-.083 .094l-.7 .7a1 1 0 0 1 -1.497 -1.32l.083 -.094l.7 -.7a1 1 0 0 1 1.414 0z" /><path d="M4 11a1 1 0 0 1 .117 1.993l-.117 .007h-1a1 1 0 0 1 -.117 -1.993l.117 -.007h1z" /><path d="M21 11a1 1 0 0 1 .117 1.993l-.117 .007h-1a1 1 0 0 1 -.117 -1.993l.117 -.007h1z" /><path d="M6.213 4.81l.094 .083l.7 .7a1 1 0 0 1 -1.32 1.497l-.094 -.083l-.7 -.7a1 1 0 0 1 1.217 -1.567l.102 .07z" /><path d="M19.107 4.893a1 1 0 0 1 .083 1.32l-.083 .094l-.7 .7a1 1 0 0 1 -1.497 -1.32l.083 -.094l.7 -.7a1 1 0 0 1 1.414 0z" /><path d="M12 2a1 1 0 0 1 .993 .883l.007 .117v1a1 1 0 0 1 -1.993 .117l-.007 -.117v-1a1 1 0 0 1 1 -1z" /><path d="M12 7a5 5 0 1 1 -4.995 5.217l-.005 -.217l.005 -.217a5 5 0 0 1 4.995 -4.783z" />
+          </svg>
+        </button>
+      </div>
+      <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" class="nav-link" (click)="isMenuOpen = false">Início</a>
+      <a routerLink="/sobre" routerLinkActive="active" class="nav-link" (click)="isMenuOpen = false">Sobre</a>
+      <a routerLink="/funcionalidades" routerLinkActive="active" class="nav-link" (click)="isMenuOpen = false">Funcionalidades</a>
+      <a routerLink="/planos" routerLinkActive="active" class="nav-link" (click)="isMenuOpen = false">Planos</a>
+      <a routerLink="/para-especialistas" routerLinkActive="active" class="nav-link" (click)="isMenuOpen = false">Especialistas</a>
+
+      <div class="mobile-menu-actions">
+        <a routerLink="/auth/login" style="width: 100%;"><button class="btn-login">Entrar</button></a>
+        <button (click)="abrirUsuarioModal()" class="btn-login">Cadastrar-se</button>
+      </div>
     </div>
 
-    <div class="navbar-actions">
+    <div class="navbar-actions-container">
       <button class="btn-theme-toggle" (click)="toggleTheme()" aria-label="Trocar tema">
         <i class="fa-solid fa-moon" *ngIf="currentTheme === 'light'"></i>
-        <svg *ngIf="currentTheme === 'dark'" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-          viewBox="0 0 24 24" fill="currentColor" class="icon icon-tabler icons-tabler-filled icon-tabler-sun">
-          <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-          <path d="M12 19a1 1 0 0 1 .993 .883l.007 .117v1a1 1 0 0 1 -1.993 .117l-.007 -.117v-1a1 1 0 0 1 1 -1z" />
-          <path
-            d="M18.313 16.91l.094 .083l.7 .7a1 1 0 0 1 -1.32 1.497l-.094 -.083l-.7 -.7a1 1 0 0 1 1.218 -1.567l.102 .07z" />
-          <path
-            d="M7.007 16.993a1 1 0 0 1 .083 1.32l-.083 .094l-.7 .7a1 1 0 0 1 -1.497 -1.32l.083 -.094l.7 -.7a1 1 0 0 1 1.414 0z" />
-          <path d="M4 11a1 1 0 0 1 .117 1.993l-.117 .007h-1a1 1 0 0 1 -.117 -1.993l.117 -.007h1z" />
-          <path d="M21 11a1 1 0 0 1 .117 1.993l-.117 .007h-1a1 1 0 0 1 -.117 -1.993l.117 -.007h1z" />
-          <path
-            d="M6.213 4.81l.094 .083l.7 .7a1 1 0 0 1 -1.32 1.497l-.094 -.083l-.7 -.7a1 1 0 0 1 1.217 -1.567l.102 .07z" />
-          <path
-            d="M19.107 4.893a1 1 0 0 1 .083 1.32l-.083 .094l-.7 .7a1 1 0 0 1 -1.497 -1.32l.083 -.094l.7 -.7a1 1 0 0 1 1.414 0z" />
-          <path d="M12 2a1 1 0 0 1 .993 .883l.007 .117v1a1 1 0 0 1 -1.993 .117l-.007 -.117v-1a1 1 0 0 1 1 -1z" />
-          <path d="M12 7a5 5 0 1 1 -4.995 5.217l-.005 -.217l.005 -.217a5 5 0 0 1 4.995 -4.783z" />
+        <svg *ngIf="currentTheme === 'dark'" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M12 19a1 1 0 0 1 .993 .883l.007 .117v1a1 1 0 0 1 -1.993 .117l-.007 -.117v-1a1 1 0 0 1 1 -1z" /><path d="M18.313 16.91l.094 .083l.7 .7a1 1 0 0 1 -1.32 1.497l-.094 -.083l-.7 -.7a1 1 0 0 1 1.218 -1.567l.102 .07z" /><path d="M7.007 16.993a1 1 0 0 1 .083 1.32l-.083 .094l-.7 .7a1 1 0 0 1 -1.497 -1.32l.083 -.094l.7 -.7a1 1 0 0 1 1.414 0z" /><path d="M4 11a1 1 0 0 1 .117 1.993l-.117 .007h-1a1 1 0 0 1 -.117 -1.993l.117 -.007h1z" /><path d="M21 11a1 1 0 0 1 .117 1.993l-.117 .007h-1a1 1 0 0 1 -.117 -1.993l.117 -.007h1z" /><path d="M6.213 4.81l.094 .083l.7 .7a1 1 0 0 1 -1.32 1.497l-.094 -.083l-.7 -.7a1 1 0 0 1 1.217 -1.567l.102 .07z" /><path d="M19.107 4.893a1 1 0 0 1 .083 1.32l-.083 .094l-.7 .7a1 1 0 0 1 -1.497 -1.32l.083 -.094l.7 -.7a1 1 0 0 1 1.414 0z" /><path d="M12 2a1 1 0 0 1 .993 .883l.007 .117v1a1 1 0 0 1 -1.993 .117l-.007 -.117v-1a1 1 0 0 1 1 -1z" /><path d="M12 7a5 5 0 1 1 -4.995 5.217l-.005 -.217l.005 -.217a5 5 0 0 1 4.995 -4.783z" />
         </svg>
       </button>
-
-      <a routerLink="/auth/login">
-        <button class="btn-login">
-          Entrar
-        </button>
-      </a>
-        <button (click)="abrirUsuarioModal()" class="btn-login">
-          Cadastrar-se
-        </button>
+      <a routerLink="/auth/login"><button class="btn-login">Entrar</button></a>
+      <button (click)="abrirUsuarioModal()" class="btn-login">Cadastrar-se</button>
     </div>
+
+    <button class="menu-toggle" (click)="toggleMenu()" aria-label="Abrir menu">
+      <svg *ngIf="!isMenuOpen" xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M4 6l16 0" /><path d="M4 12l16 0" /><path d="M4 18l16 0" />
+      </svg>
+      <svg *ngIf="isMenuOpen" xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M18 6l-12 12" /><path d="M6 6l12 12" />
+      </svg>
+    </button>
   </nav>
 </header>

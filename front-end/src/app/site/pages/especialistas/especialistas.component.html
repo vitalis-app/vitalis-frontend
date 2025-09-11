@@ -8,9 +8,9 @@
         Use sua vocação para transformar vidas. <br />Junte-se à nossa rede de
         profissionais.
       </p>
-      <a [routerLink]="[]" fragment="como-funciona"
-        ><btn-gradient text="Saiba como funciona"></btn-gradient
-      ></a>
+<a (click)="scrollToElement('como-funciona')" style="cursor: pointer;">
+  <btn-gradient text="Saiba como funciona"></btn-gradient>
+</a>
     </div>
   </div>
 </section>

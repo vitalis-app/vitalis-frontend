@@ -19,6 +19,9 @@ export class NavbarComponent implements OnInit {
   isScrolled = false;
   public logoSrc: string = '';
   public currentTheme: 'light' | 'dark' = 'light'; // Apenas como cache local
+  
+  // ✅ LÓGICA DO MENU ADICIONADA AQUI
+  isMenuOpen = false;
 
   constructor(
     private themeService: ThemeService,
@@ -47,6 +50,12 @@ export class NavbarComponent implements OnInit {
       });
     }
   }
+
+  // ✅ MÉTODO DO MENU ADICIONADO AQUI
+  toggleMenu(): void {
+    this.isMenuOpen = !this.isMenuOpen;
+  }
+
   private initializeTheme(): void {
     const savedTheme = localStorage.getItem('theme') as 'light' | 'dark' | null;
     const prefersDark = window.matchMedia(
@@ -63,6 +72,7 @@ export class NavbarComponent implements OnInit {
 
     this.applyTheme(this.currentTheme);
   }
+  
   private applyTheme(theme: 'light' | 'dark'): void {
     this.renderer.setAttribute(document.documentElement, 'data-theme', theme);
     this.currentTheme = theme;
@@ -89,11 +99,9 @@ export class NavbarComponent implements OnInit {
     if (isPlatformBrowser(this.platformId)) {
       const offset = window.scrollY;
       this.isScrolled = offset > 50;
-    }    
+    }      
   }
-  //abrirCadastroModal() {
-  //  this.cadastroService.abrirCadastro();  // Chama o método do serviço
-  //}
+  
   abrirUsuarioModal() {
     this.usuarioService.abrirCadastro();
   }

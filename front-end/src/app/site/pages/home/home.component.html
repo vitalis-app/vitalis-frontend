@@ -12,9 +12,9 @@
             Transforme sua saúde mental com uma plataforma que une tecnologia,
             acolhimento e propósito.
           </p>
-          <a [routerLink]="[]" fragment="sobre">
-            <btn-gradient text="Conhecer"></btn-gradient>
-          </a>
+<a (click)="scrollToElement('sobre')" style="cursor: pointer;">
+  <btn-gradient text="Conhecer"></btn-gradient>
+</a>
         </div>
         <div class="hero-svg-container">
           <img
